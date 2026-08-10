@@ -1,0 +1,379 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Jitume Leo</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            JITUME <span>LEO</span>
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#how-it-works">
+                How It Works
+            </a>
+
+            <a href="index.html#loans">
+                Loans
+            </a>
+
+        </nav>
+
+        <div class="nav-buttons">
+
+            <a
+                href="register.html"
+                class="register-btn">
+
+                Register
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- Login Page -->
+
+    <main class="auth-page">
+
+        <div class="auth-card">
+
+            <div class="auth-header">
+
+                <p class="small-heading">
+                    JITUME LEO
+                </p>
+
+                <h1>
+                    Welcome back
+                </h1>
+
+                <p>
+                    Login to manage your account and
+                    loan applications.
+                </p>
+
+            </div>
+
+
+
+            <form id="loginForm">
+
+                <!-- Email -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email address"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Password -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Message -->
+
+                <div
+                    id="loginMessage"
+                    class="form-message">
+                </div>
+
+
+
+                <!-- Login -->
+
+                <button
+                    type="submit"
+                    class="auth-submit">
+
+                    Login
+
+                </button>
+
+            </form>
+
+
+
+            <!-- Register -->
+
+            <div class="auth-footer">
+
+                <p>
+                    Don't have an account?
+
+                    <a href="register.html">
+                        Create a client account
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- Firebase Login -->
+
+    <script type="module">
+
+        import {
+            getAuth,
+            signInWithEmailAndPassword
+        } from
+        "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+
+        import {
+            getFirestore,
+            doc,
+            getDoc
+        } from
+        "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+        import { app } from "./firebase.js";
+
+
+        const auth = getAuth(app);
+
+        const db = getFirestore(app);
+
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+
+        const message =
+            document.getElementById("loginMessage");
+
+
+        loginForm.addEventListener(
+            "submit",
+            async (event) => {
+
+                event.preventDefault();
+
+
+                const email =
+                    document
+                    .getElementById("email")
+                    .value
+                    .trim();
+
+
+                const password =
+                    document
+                    .getElementById("password")
+                    .value;
+
+
+                message.textContent = "";
+
+                message.className =
+                    "form-message";
+
+
+                try {
+
+                    /*
+                     * Sign the user in through
+                     * Firebase Authentication.
+                     */
+
+                    const userCredential =
+                        await signInWithEmailAndPassword(
+                            auth,
+                            email,
+                            password
+                        );
+
+
+                    const user =
+                        userCredential.user;
+
+
+                    /*
+                     * Get the user's profile
+                     * from Firestore.
+                     */
+
+                    const userDocument =
+                        await getDoc(
+                            doc(db, "users", user.uid)
+                        );
+
+
+                    if (!userDocument.exists()) {
+
+                        message.textContent =
+                            "Account profile not found.";
+
+                        message.classList.add(
+                            "error"
+                        );
+
+                        return;
+                    }
+
+
+                    const userData =
+                        userDocument.data();
+
+
+                    /*
+                     * Redirect according to role.
+                     */
+
+                    if (userData.role === "client") {
+
+                        window.location.href =
+                            "client.html";
+
+                    }
+
+                    else if (
+                        userData.role === "agent"
+                    ) {
+
+                        window.location.href =
+                            "agent.html";
+
+                    }
+
+                    else if (
+                        userData.role === "admin"
+                    ) {
+
+                        window.location.href =
+                            "admin.html";
+
+                    }
+
+                    else {
+
+                        message.textContent =
+                            "Your account role is not recognized.";
+
+                        message.classList.add(
+                            "error"
+                        );
+
+                    }
+
+
+                } catch (error) {
+
+                    console.error(error);
+
+
+                    if (
+                        error.code ===
+                        "auth/invalid-credential"
+                    ) {
+
+                        message.textContent =
+                            "Incorrect email or password.";
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/user-not-found"
+                    ) {
+
+                        message.textContent =
+                            "No account was found with this email.";
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/wrong-password"
+                    ) {
+
+                        message.textContent =
+                            "Incorrect password.";
+
+                    }
+
+                    else {
+
+                        message.textContent =
+                            "Login failed. Please try again.";
+
+                    }
+
+
+                    message.classList.add(
+                        "error"
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
+```

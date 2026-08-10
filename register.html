@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Client Account | Jitume Leo</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            JITUME <span>LEO</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#how-it-works">How It Works</a>
+            <a href="index.html#loans">Loans</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+
+    </header>
+
+
+    <!-- Registration -->
+    <main class="auth-page">
+
+        <div class="auth-card">
+
+            <div class="auth-header">
+
+                <p class="small-heading">
+                    JITUME LEO
+                </p>
+
+                <h1>
+                    Create your account
+                </h1>
+
+                <p>
+                    Register as a client to apply for an emergency loan.
+                </p>
+
+            </div>
+
+
+            <form id="registerForm">
+
+                <!-- Full Name -->
+                <div class="form-group">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Email -->
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email address"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Phone -->
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="e.g. 0712345678"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ID Number -->
+                <div class="form-group">
+
+                    <label for="idNumber">
+                        National ID Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="idNumber"
+                        placeholder="Enter your ID number"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Password -->
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Create a password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm your password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Terms -->
+                <div class="terms">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            required
+                        >
+
+                        <span>
+                            I agree to the Jitume Leo terms and conditions.
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- Error / Success message -->
+                <div
+                    id="registerMessage"
+                    class="form-message"
+                ></div>
+
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    class="auth-submit"
+                >
+                    Create Account
+                </button>
+
+
+            </form>
+
+
+            <div class="auth-footer">
+
+                <p>
+                    Already have an account?
+                    <a href="login.html">Login here</a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Firebase and registration JavaScript -->
+    <script type="module">
+
+        import {
+            getAuth,
+            createUserWithEmailAndPassword
+        } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+        import {
+            getFirestore,
+            doc,
+            setDoc,
+            serverTimestamp
+        } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+        import { app } from "./firebase.js";
+
+
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+
+        const registerForm =
+            document.getElementById("registerForm");
+
+        const message =
+            document.getElementById("registerMessage");
+
+
+        registerForm.addEventListener("submit", async (event) => {
+
+            event.preventDefault();
+
+
+            const fullName =
+                document.getElementById("fullName").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const phone =
+                document.getElementById("phone").value.trim();
+
+            const idNumber =
+                document.getElementById("idNumber").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            const confirmPassword =
+                document.getElementById("confirmPassword").value;
+
+
+            message.textContent = "";
+            message.className = "form-message";
+
+
+            // Check passwords
+            if (password !== confirmPassword) {
+
+                message.textContent =
+                    "Passwords do not match.";
+
+                message.classList.add("error");
+
+                return;
+            }
+
+
+            try {
+
+                // Create Firebase Authentication account
+                const userCredential =
+                    await createUserWithEmailAndPassword(
+                        auth,
+                        email,
+                        password
+                    );
+
+
+                const user =
+                    userCredential.user;
+
+
+                // Create client profile in Firestore
+                await setDoc(
+                    doc(db, "users", user.uid),
+                    {
+                        uid: user.uid,
+                        fullName: fullName,
+                        email: email,
+                        phone: phone,
+                        idNumber: idNumber,
+                        role: "client",
+                        status: "active",
+                        createdAt: serverTimestamp()
+                    }
+                );
+
+
+                message.textContent =
+                    "Account created successfully!";
+
+                message.classList.add("success");
+
+
+                // Redirect to client dashboard
+                setTimeout(() => {
+
+                    window.location.href =
+                        "client.html";
+
+                }, 1200);
+
+
+            } catch (error) {
+
+                console.error(error);
+
+
+                if (error.code === "auth/email-already-in-use") {
+
+                    message.textContent =
+                        "This email address is already registered.";
+
+                } else if (error.code === "auth/invalid-email") {
+
+                    message.textContent =
+                        "Please enter a valid email address.";
+
+                } else if (error.code === "auth/weak-password") {
+
+                    message.textContent =
+                        "Password must be at least 6 characters.";
+
+                } else {
+
+                    message.textContent =
+                        "Registration failed. Please try again.";
+
+                }
+
+
+                message.classList.add("error");
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
+```

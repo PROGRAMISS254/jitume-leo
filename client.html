@@ -1,0 +1,398 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Client Dashboard | Jitume Leo</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            JITUME <span>LEO</span>
+        </div>
+
+        <nav>
+
+            <a href="client.html">
+                Dashboard
+            </a>
+
+            <a href="#">
+                My Applications
+            </a>
+
+            <a href="#">
+                Profile
+            </a>
+
+        </nav>
+
+        <div class="nav-buttons">
+
+            <button
+                id="logoutButton"
+                class="register-btn">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- Dashboard -->
+
+    <main class="dashboard-page">
+
+        <section class="dashboard-header">
+
+            <div>
+
+                <p class="small-heading">
+                    CLIENT DASHBOARD
+                </p>
+
+                <h1>
+                    Welcome,
+                    <span id="clientName">
+                        Client
+                    </span>
+                </h1>
+
+                <p>
+                    Manage your Jitume Leo account and
+                    emergency loan applications.
+                </p>
+
+            </div>
+
+            <a
+                href="apply.html"
+                class="primary-btn">
+
+                Apply for Emergency Loan
+
+            </a>
+
+        </section>
+
+
+
+        <!-- Dashboard Cards -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- Available Loan -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-top">
+
+                    <span>
+                        LOAN SERVICE
+                    </span>
+
+                    <span class="dashboard-icon">
+                        +
+                    </span>
+
+                </div>
+
+                <h2>
+                    Emergency Loan
+                </h2>
+
+                <p>
+                    Apply for financial assistance
+                    through a Jitume Leo agent.
+                </p>
+
+                <a
+                    href="apply.html"
+                    class="dashboard-link">
+
+                    Start Application →
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Applications -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-top">
+
+                    <span>
+                        APPLICATIONS
+                    </span>
+
+                    <span class="dashboard-icon">
+                        01
+                    </span>
+
+                </div>
+
+                <h2>
+                    My Applications
+                </h2>
+
+                <p>
+                    View your submitted loan applications
+                    and their current status.
+                </p>
+
+                <a
+                    href="#"
+                    class="dashboard-link">
+
+                    View Applications →
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Profile -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-top">
+
+                    <span>
+                        ACCOUNT
+                    </span>
+
+                    <span class="dashboard-icon">
+                        02
+                    </span>
+
+                </div>
+
+                <h2>
+                    My Profile
+                </h2>
+
+                <p>
+                    View and manage your personal
+                    account information.
+                </p>
+
+                <a
+                    href="#"
+                    class="dashboard-link">
+
+                    View Profile →
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Application Status -->
+
+        <section class="status-section">
+
+            <div class="status-header">
+
+                <div>
+
+                    <p class="small-heading">
+                        APPLICATION STATUS
+                    </p>
+
+                    <h2>
+                        Your recent activity
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    +
+                </div>
+
+                <h3>
+                    No loan applications yet
+                </h3>
+
+                <p>
+                    When you submit an emergency loan
+                    application, its status will appear here.
+                </p>
+
+                <a
+                    href="apply.html"
+                    class="primary-btn">
+
+                    Apply for a Loan
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- Firebase -->
+
+    <script type="module">
+
+        import {
+            getAuth,
+            onAuthStateChanged,
+            signOut
+        } from
+        "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+        import {
+            getFirestore,
+            doc,
+            getDoc
+        } from
+        "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+        import { app } from "./firebase.js";
+
+
+        const auth = getAuth(app);
+
+        const db = getFirestore(app);
+
+
+        const clientName =
+            document.getElementById("clientName");
+
+        const logoutButton =
+            document.getElementById("logoutButton");
+
+
+        /*
+         * Check whether the user is logged in.
+         */
+
+        onAuthStateChanged(auth, async (user) => {
+
+            if (!user) {
+
+                window.location.href =
+                    "login.html";
+
+                return;
+            }
+
+
+            try {
+
+                /*
+                 * Get the user's Firestore profile.
+                 */
+
+                const userDocument =
+                    await getDoc(
+                        doc(db, "users", user.uid)
+                    );
+
+
+                if (userDocument.exists()) {
+
+                    const userData =
+                        userDocument.data();
+
+
+                    /*
+                     * Make sure this is actually
+                     * a client account.
+                     */
+
+                    if (userData.role !== "client") {
+
+                        await signOut(auth);
+
+                        window.location.href =
+                            "login.html";
+
+                        return;
+                    }
+
+
+                    clientName.textContent =
+                        userData.fullName || "Client";
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Error loading client profile:",
+                    error
+                );
+
+            }
+
+        });
+
+
+        /*
+         * Logout
+         */
+
+        logoutButton.addEventListener(
+            "click",
+            async () => {
+
+                try {
+
+                    await signOut(auth);
+
+                    window.location.href =
+                        "login.html";
+
+                } catch (error) {
+
+                    console.error(
+                        "Logout error:",
+                        error
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
+```
