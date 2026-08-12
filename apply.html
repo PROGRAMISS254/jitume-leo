@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Apply for Loan | Jitume Leo</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        JITUME <span>LEO</span>
+    </div>
+
+    <nav>
+
+        <a href="client.html">
+            Dashboard
+        </a>
+
+        <a href="index.html">
+            Home
+        </a>
+
+    </nav>
+
+    <div class="nav-buttons">
+
+        <button
+            id="logoutButton"
+            class="register-btn">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="auth-page">
+
+    <div class="auth-card">
+
+        <div class="auth-header">
+
+            <p class="small-heading">
+                JITUME LEO
+            </p>
+
+            <h1>
+                Emergency Loan Application
+            </h1>
+
+            <p>
+                Choose your agent and provide your
+                initial loan information.
+            </p>
+
+        </div>
+
+
+        <form id="loanForm">
+
+
+            <!-- AGENT -->
+
+            <div class="form-group">
+
+                <label for="agentSelect">
+                    Select Your Jitume Leo Agent
+                </label>
+
+                <select
+                    id="agentSelect"
+                    required
+                    style="
+                        width:100%;
+                        height:48px;
+                        padding:0 14px;
+                        border:1px solid #d5dbe4;
+                        border-radius:7px;
+                        background:white;
+                    ">
+
+                    <option value="">
+                        Loading active agents...
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- LOAN AMOUNT -->
+
+            <div class="form-group">
+
+                <label for="loanAmount">
+                    Requested Loan Amount (KSh)
+                </label>
+
+                <input
+                    type="number"
+                    id="loanAmount"
+                    min="1"
+                    step="1"
+                    placeholder="Enter amount"
+                    required>
+
+            </div>
+
+
+            <!-- PURPOSE -->
+
+            <div class="form-group">
+
+                <label for="loanPurpose">
+                    Purpose of Loan
+                </label>
+
+                <select
+                    id="loanPurpose"
+                    required
+                    style="
+                        width:100%;
+                        height:48px;
+                        padding:0 14px;
+                        border:1px solid #d5dbe4;
+                        border-radius:7px;
+                        background:white;
+                    ">
+
+                    <option value="">
+                        Select purpose
+                    </option>
+
+                    <option value="Emergency">
+                        Emergency
+                    </option>
+
+                    <option value="School">
+                        School
+                    </option>
+
+                    <option value="Medical">
+                        Medical
+                    </option>
+
+                    <option value="Business">
+                        Business
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div
+                id="loanMessage"
+                class="form-message">
+            </div>
+
+
+            <button
+                type="submit"
+                class="auth-submit">
+
+                Continue Application
+
+            </button>
+
+        </form>
+
+
+        <div class="auth-footer">
+
+            <p>
+                You will complete the remaining
+                application and document steps after
+                choosing your agent.
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script type="module">
+
+import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+}
+from
+"https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    collection,
+    query,
+    where,
+    getDocs,
+    addDoc,
+    serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+import { app } from "./firebase.js";
+
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+
+const agentSelect =
+    document.getElementById(
+        "agentSelect"
+    );
+
+const loanForm =
+    document.getElementById(
+        "loanForm"
+    );
+
+const loanMessage =
+    document.getElementById(
+        "loanMessage"
+    );
+
+const logoutButton =
+    document.getElementById(
+        "logoutButton"
+    );
+
+
+let currentUser = null;
+
+
+/* ==========================================
+   AUTHENTICATION
+========================================== */
+
+onAuthStateChanged(
+    auth,
+    async (user) => {
+
+        if (!user) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        currentUser = user;
+
+        await loadActiveAgents();
+
+    }
+);
+
+
+/* ==========================================
+   LOAD ACTIVE AGENTS
+========================================== */
+
+async function loadActiveAgents() {
+
+    try {
+
+        const agentsQuery =
+            query(
+                collection(
+                    db,
+                    "users"
+                ),
+
+                where(
+                    "role",
+                    "==",
+                    "agent"
+                ),
+
+                where(
+                    "status",
+                    "==",
+                    "active"
+                )
+            );
+
+
+        const agentsSnapshot =
+            await getDocs(
+                agentsQuery
+            );
+
+
+        agentSelect.innerHTML =
+            `<option value="">
+                Select an agent
+            </option>`;
+
+
+        if (
+            agentsSnapshot.empty
+        ) {
+
+            agentSelect.innerHTML =
+                `<option value="">
+                    No active agents available
+                </option>`;
+
+            return;
+
+        }
+
+
+        agentsSnapshot.forEach(
+            (agentDocument) => {
+
+                const agent =
+                    agentDocument.data();
+
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+
+                option.value =
+                    agentDocument.id;
+
+
+                option.textContent =
+                    `${agent.fullName || "Agent"} — ${agent.location || "Location not provided"} — ${agent.agentCode || "No code"}`;
+
+
+                agentSelect.appendChild(
+                    option
+                );
+
+            }
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Error loading agents:",
+            error
+        );
+
+
+        agentSelect.innerHTML =
+            `<option value="">
+                Unable to load agents
+            </option>`;
+
+    }
+
+}
+
+
+/* ==========================================
+   SUBMIT APPLICATION
+========================================== */
+
+loanForm.addEventListener(
+    "submit",
+    async (event) => {
+
+        event.preventDefault();
+
+
+        if (!currentUser) {
+
+            return;
+
+        }
+
+
+        const agentId =
+            agentSelect.value;
+
+
+        const loanAmount =
+            Number(
+                document.getElementById(
+                    "loanAmount"
+                ).value
+            );
+
+
+        const purpose =
+            document.getElementById(
+                "loanPurpose"
+            ).value;
+
+
+        loanMessage.textContent =
+            "";
+
+
+        if (!agentId) {
+
+            loanMessage.textContent =
+                "Please select an agent.";
+
+            loanMessage.classList.add(
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (
+            !loanAmount ||
+            loanAmount <= 0
+        ) {
+
+            loanMessage.textContent =
+                "Please enter a valid loan amount.";
+
+            loanMessage.classList.add(
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (!purpose) {
+
+            loanMessage.textContent =
+                "Please select the purpose of the loan.";
+
+            loanMessage.classList.add(
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        try {
+
+            const selectedAgent =
+                agentSelect
+                    .options[
+                        agentSelect
+                            .selectedIndex
+                    ];
+
+
+            const application =
+                {
+
+                    customerId:
+                        currentUser.uid,
+
+                    agentId:
+                        agentId,
+
+                    agentName:
+                        selectedAgent.textContent,
+
+                    amount:
+                        loanAmount,
+
+                    purpose:
+                        purpose,
+
+                    status:
+                        "submitted",
+
+                    createdAt:
+                        serverTimestamp(),
+
+                    updatedAt:
+                        serverTimestamp()
+
+                };
+
+
+            const applicationReference =
+                await addDoc(
+                    collection(
+                        db,
+                        "loanApplications"
+                    ),
+                    application
+                );
+
+
+            loanMessage.textContent =
+                "Application started successfully. Preparing the next step...";
+
+            loanMessage.classList.remove(
+                "error"
+            );
+
+            loanMessage.classList.add(
+                "success"
+            );
+
+
+            /*
+             * We'll create the full application,
+             * downloadable form and document-upload
+             * pages next.
+             */
+
+
+            setTimeout(
+                () => {
+
+                    window.location.href =
+                        "client.html";
+
+                },
+                1500
+            );
+
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Application error:",
+                error
+            );
+
+
+            loanMessage.textContent =
+                "Unable to start the application. Please try again.";
+
+            loanMessage.classList.add(
+                "error"
+            );
+
+        }
+
+    }
+);
+
+
+/* ==========================================
+   LOGOUT
+========================================== */
+
+logoutButton.addEventListener(
+    "click",
+    async () => {
+
+        try {
+
+            await signOut(auth);
+
+            window.location.href =
+                "login.html";
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Logout error:",
+                error
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
