@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Agent Dashboard | Jitume Leo</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            JITUME <span>LEO</span>
+        </div>
+
+        <nav>
+
+            <a href="agent.html">
+                Dashboard
+            </a>
+
+            <a href="#applications">
+                Applications
+            </a>
+
+            <a href="#verification">
+                Verification
+            </a>
+
+            <a href="#profile">
+                Profile
+            </a>
+
+        </nav>
+
+        <div class="nav-buttons">
+
+            <button
+                id="logoutButton"
+                class="register-btn">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- Agent Dashboard -->
+
+    <main class="dashboard-page">
+
+        <section class="dashboard-header">
+
+            <div>
+
+                <p class="small-heading">
+                    JITUME LEO AGENT
+                </p>
+
+                <h1>
+                    Welcome,
+                    <span id="agentName">
+                        Agent
+                    </span>
+                </h1>
+
+                <p>
+                    Review client applications,
+                    verify documents and submit
+                    verified applications to administration.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Agent Status -->
+
+        <section class="dashboard-card"
+                 style="margin-bottom: 30px;">
+
+            <div class="dashboard-card-top">
+
+                <span>
+                    ACCOUNT STATUS
+                </span>
+
+                <span
+                    id="agentStatus"
+                    class="dashboard-icon">
+
+                    Pending
+
+                </span>
+
+            </div>
+
+            <h2>
+                Agent Account
+            </h2>
+
+            <p id="statusMessage">
+                Your agent account is currently
+                awaiting administrator activation.
+            </p>
+
+        </section>
+
+
+        <!-- Dashboard Cards -->
+
+        <section
+            class="dashboard-grid"
+            id="applications">
+
+
+            <!-- Applications -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-top">
+
+                    <span>
+                        APPLICATIONS
+                    </span>
+
+                    <span class="dashboard-icon">
+                        01
+                    </span>
+
+                </div>
+
+                <h2 id="applicationCount">
+                    0
+                </h2>
+
+                <p>
+                    Client loan applications
+                    associated with you.
+                </p>
+
+                <a href="#"
+                   class="dashboard-link">
+
+                    View Applications →
+
+                </a>
+
+            </div>
+
+
+            <!-- Pending Verification -->
+
+            <div
+                class="dashboard-card"
+                id="verification">
+
+                <div class="dashboard-card-top">
+
+                    <span>
+                        VERIFICATION
+                    </span>
+
+                    <span class="dashboard-icon">
+                        02
+                    </span>
+
+                </div>
+
+                <h2 id="verificationCount">
+                    0
+                </h2>
+
+                <p>
+                    Applications waiting for
+                    document and client verification.
+                </p>
+
+                <a href="#"
+                   class="dashboard-link">
+
+                    Verify Applications →
+
+                </a>
+
+            </div>
+
+
+            <!-- Submitted -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-top">
+
+                    <span>
+                        SUBMITTED TO ADMIN
+                    </span>
+
+                    <span class="dashboard-icon">
+                        03
+                    </span>
+
+                </div>
+
+                <h2 id="submittedCount">
+                    0
+                </h2>
+
+                <p>
+                    Applications you have verified
+                    and sent for admin review.
+                </p>
+
+                <a href="#"
+                   class="dashboard-link">
+
+                    View Submitted →
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Profile -->
+
+        <section
+            class="status-section"
+            id="profile">
+
+            <div class="status-header">
+
+                <p class="small-heading">
+                    AGENT PROFILE
+                </p>
+
+                <h2>
+                    Your Agent Information
+                </h2>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <p>
+                    <strong>Full Name:</strong>
+                    <span id="profileName">-</span>
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    <span id="profileEmail">-</span>
+                </p>
+
+                <p>
+                    <strong>Phone:</strong>
+                    <span id="profilePhone">-</span>
+                </p>
+
+                <p>
+                    <strong>National ID:</strong>
+                    <span id="profileId">-</span>
+                </p>
+
+                <p>
+                    <strong>Agent Code:</strong>
+                    <span id="profileCode">-</span>
+                </p>
+
+                <p>
+                    <strong>Location:</strong>
+                    <span id="profileLocation">-</span>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Firebase -->
+
+    <script type="module">
+
+        import {
+            getAuth,
+            onAuthStateChanged,
+            signOut
+        } from
+        "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+
+        import {
+            getFirestore,
+            doc,
+            getDoc
+        } from
+        "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+        import { app } from "./firebase.js";
+
+
+        const auth = getAuth(app);
+
+        const db = getFirestore(app);
+
+
+        const agentName =
+            document.getElementById("agentName");
+
+        const agentStatus =
+            document.getElementById("agentStatus");
+
+        const statusMessage =
+            document.getElementById("statusMessage");
+
+        const logoutButton =
+            document.getElementById("logoutButton");
+
+
+        onAuthStateChanged(
+            auth,
+            async (user) => {
+
+                if (!user) {
+
+                    window.location.href =
+                        "login.html";
+
+                    return;
+
+                }
+
+
+                try {
+
+                    const userDocument =
+                        await getDoc(
+                            doc(
+                                db,
+                                "users",
+                                user.uid
+                            )
+                        );
+
+
+                    if (!userDocument.exists()) {
+
+                        alert(
+                            "Account profile not found."
+                        );
+
+                        await signOut(auth);
+
+                        window.location.href =
+                            "login.html";
+
+                        return;
+
+                    }
+
+
+                    const userData =
+                        userDocument.data();
+
+
+                    /* CHECK ROLE */
+
+                    if (
+                        userData.role !==
+                        "agent"
+                    ) {
+
+                        alert(
+                            "Access denied. Agent account required."
+                        );
+
+                        await signOut(auth);
+
+                        window.location.href =
+                            "login.html";
+
+                        return;
+
+                    }
+
+
+                    /* DISPLAY PROFILE */
+
+                    agentName.textContent =
+                        userData.fullName ||
+                        "Agent";
+
+
+                    document.getElementById(
+                        "profileName"
+                    ).textContent =
+                        userData.fullName || "-";
+
+
+                    document.getElementById(
+                        "profileEmail"
+                    ).textContent =
+                        userData.email || "-";
+
+
+                    document.getElementById(
+                        "profilePhone"
+                    ).textContent =
+                        userData.phone || "-";
+
+
+                    document.getElementById(
+                        "profileId"
+                    ).textContent =
+                        userData.idNumber || "-";
+
+
+                    document.getElementById(
+                        "profileCode"
+                    ).textContent =
+                        userData.agentCode || "-";
+
+
+                    document.getElementById(
+                        "profileLocation"
+                    ).textContent =
+                        userData.location || "-";
+
+
+                    /* STATUS */
+
+                    const status =
+                        userData.status || "pending";
+
+
+                    agentStatus.textContent =
+                        status.toUpperCase();
+
+
+                    if (status === "active") {
+
+                        statusMessage.textContent =
+                            "Your agent account is active. You can now review and verify client applications.";
+
+                    } else {
+
+                        statusMessage.textContent =
+                            "Your agent account is pending administrator activation. You cannot verify applications yet.";
+
+                    }
+
+                } catch (error) {
+
+                    console.error(
+                        "Agent dashboard error:",
+                        error
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* LOGOUT */
+
+        logoutButton.addEventListener(
+            "click",
+            async () => {
+
+                try {
+
+                    await signOut(auth);
+
+                    window.location.href =
+                        "login.html";
+
+                } catch (error) {
+
+                    console.error(
+                        "Logout error:",
+                        error
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
