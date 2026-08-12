@@ -350,7 +350,9 @@
     </nav>
 
     <div class="nav-buttons">
-        <button id="logoutButton" class="register-btn">
+        <button
+            id="logoutButton"
+            class="register-btn">
             Logout
         </button>
     </div>
@@ -396,7 +398,9 @@
 
             <!-- STEP 1 -->
 
-            <section class="step active" data-step="1">
+            <section
+                class="step active"
+                data-step="1">
 
                 <h2 class="step-title">
                     Select Loan Type
@@ -409,7 +413,9 @@
 
                 <div class="choice-grid">
 
-                    <label class="choice-card selected" id="firstLoanChoice">
+                    <label
+                        class="choice-card selected"
+                        id="firstLoanChoice">
 
                         <input
                             type="radio"
@@ -428,7 +434,9 @@
                     </label>
 
 
-                    <label class="choice-card" id="renewalChoice">
+                    <label
+                        class="choice-card"
+                        id="renewalChoice">
 
                         <input
                             type="radio"
@@ -475,7 +483,9 @@
 
             <!-- STEP 2 -->
 
-            <section class="step" data-step="2">
+            <section
+                class="step"
+                data-step="2">
 
                 <h2 class="step-title">
                     Choose Your Agent
@@ -487,7 +497,9 @@
                 </p>
 
 
-                <div id="agentGrid" class="agent-grid">
+                <div
+                    id="agentGrid"
+                    class="agent-grid">
 
                     <div class="loading-box">
                         Loading active agents...
@@ -496,8 +508,9 @@
                 </div>
 
 
-                <div id="agentSummary"
-                     class="selected-agent-summary">
+                <div
+                    id="agentSummary"
+                    class="selected-agent-summary">
                 </div>
 
 
@@ -528,7 +541,9 @@
 
             <!-- STEP 3 -->
 
-            <section class="step" data-step="3">
+            <section
+                class="step"
+                data-step="3">
 
                 <h2 class="step-title">
                     Loan Details
@@ -540,9 +555,10 @@
                 </p>
 
 
-                <div id="loanProductError"
-                     class="error-box"
-                     style="display:none;">
+                <div
+                    id="loanProductError"
+                    class="error-box"
+                    style="display:none;">
                 </div>
 
 
@@ -610,7 +626,9 @@
 
                 <!-- RENEWAL -->
 
-                <div id="renewalSection" style="display:none;">
+                <div
+                    id="renewalSection"
+                    style="display:none;">
 
                     <div class="calculation-box">
 
@@ -684,7 +702,9 @@
 
             <!-- STEP 4 -->
 
-            <section class="step" data-step="4">
+            <section
+                class="step"
+                data-step="4">
 
                 <h2 class="step-title">
                     Terms & Conditions
@@ -781,8 +801,9 @@
                 </label>
 
 
-                <div id="step4Message"
-                     class="application-message">
+                <div
+                    id="step4Message"
+                    class="application-message">
                 </div>
 
 
@@ -813,7 +834,9 @@
 
             <!-- STEP 5 -->
 
-            <section class="step" data-step="5">
+            <section
+                class="step"
+                data-step="5">
 
                 <h2 class="step-title">
                     Review Application
@@ -917,8 +940,9 @@
                 </div>
 
 
-                <div id="applicationMessage"
-                     class="application-message">
+                <div
+                    id="applicationMessage"
+                    class="application-message">
                 </div>
 
 
@@ -949,7 +973,9 @@
 
             <!-- STEP 6 -->
 
-            <section class="step" data-step="6">
+            <section
+                class="step"
+                data-step="6">
 
                 <h2 class="step-title">
                     Application Submitted
@@ -1043,7 +1069,9 @@ import {
     getAuth,
     onAuthStateChanged,
     signOut
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+} from
+"https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
 
 import {
     getFirestore,
@@ -1055,19 +1083,26 @@ import {
     doc,
     addDoc,
     serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+} from
+"https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
 
 import { app } from "./firebase.js";
 
 
 const auth = getAuth(app);
+
 const db = getFirestore(app);
 
 
 let currentUser = null;
+
 let currentStep = 1;
+
 let selectedAgent = null;
+
 let loanProduct = null;
+
 let selectedLoanType = "first";
 
 
@@ -1077,401 +1112,606 @@ let selectedLoanType = "first";
 |--------------------------------------------------------------------------
 */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    const steps =
-        document.querySelectorAll(".step");
-
-    const progressSteps =
-        document.querySelectorAll(".progress-step");
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | ELEMENTS
-    |--------------------------------------------------------------------------
-    */
-
-    const agentGrid =
-        document.getElementById("agentGrid");
-
-    const agentSummary =
-        document.getElementById("agentSummary");
-
-    const logoutButton =
-        document.getElementById("logoutButton");
-
-    const cancelApplication =
-        document.getElementById("cancelApplication");
-
-    const firstLoanChoice =
-        document.getElementById("firstLoanChoice");
-
-    const renewalChoice =
-        document.getElementById("renewalChoice");
+        const steps =
+            document.querySelectorAll(
+                ".step"
+            );
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | AUTHENTICATION
-    |--------------------------------------------------------------------------
-    */
+        const progressSteps =
+            document.querySelectorAll(
+                ".progress-step"
+            );
 
-    onAuthStateChanged(
-        auth,
-        async (user) => {
 
-            if (!user) {
+        /*
+        |--------------------------------------------------------------------------
+        | ELEMENTS
+        |--------------------------------------------------------------------------
+        */
 
-                window.location.href = "login.html";
+        const agentGrid =
+            document.getElementById(
+                "agentGrid"
+            );
 
-                return;
+
+        const agentSummary =
+            document.getElementById(
+                "agentSummary"
+            );
+
+
+        const logoutButton =
+            document.getElementById(
+                "logoutButton"
+            );
+
+
+        const cancelApplication =
+            document.getElementById(
+                "cancelApplication"
+            );
+
+
+        const firstLoanChoice =
+            document.getElementById(
+                "firstLoanChoice"
+            );
+
+
+        const renewalChoice =
+            document.getElementById(
+                "renewalChoice"
+            );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | AUTHENTICATION
+        |--------------------------------------------------------------------------
+        */
+
+        onAuthStateChanged(
+            auth,
+            async (user) => {
+
+                if (!user) {
+
+                    window.location.href =
+                        "login.html";
+
+                    return;
+
+                }
+
+
+                currentUser = user;
+
+
+                await loadLoanProduct();
+
+                await loadActiveAgents();
+
+                updateLoanTypeUI();
+
+                updateStepUI();
+
+            }
+        );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | LOAD LOAN PRODUCT
+        |--------------------------------------------------------------------------
+        */
+
+        async function loadLoanProduct() {
+
+            const errorBox =
+                document.getElementById(
+                    "loanProductError"
+                );
+
+
+            try {
+
+                const productReference =
+                    doc(
+                        db,
+                        "loanproducts",
+                        "emergency-loan"
+                    );
+
+
+                const productSnapshot =
+                    await getDoc(
+                        productReference
+                    );
+
+
+                if (
+                    !productSnapshot.exists()
+                ) {
+
+                    errorBox.textContent =
+                        "Emergency Loan product was not found in Firebase.";
+
+                    errorBox.style.display =
+                        "block";
+
+                    return;
+
+                }
+
+
+                loanProduct =
+                    productSnapshot.data();
+
+
+                const principal =
+                    Number(
+                        loanProduct.minimumAmount ||
+                        0
+                    );
+
+
+                const interest =
+                    Number(
+                        loanProduct.interestAmount ||
+                        0
+                    );
+
+
+                const maturity =
+                    principal +
+                    interest;
+
+
+                const firstFee =
+                    Number(
+                        loanProduct.firstLoanProcessingFee ||
+                        0
+                    );
+
+
+                const renewalFee =
+                    Number(
+                        loanProduct.renewalFee ||
+                        0
+                    );
+
+
+                const lateFee =
+                    Number(
+                        loanProduct.lateFeePerDay ||
+                        0
+                    );
+
+
+                /*
+                |--------------------------------------------------------------------------
+                | DISPLAY CALCULATIONS
+                |--------------------------------------------------------------------------
+                */
+
+                document.getElementById(
+                    "principalDisplay"
+                ).textContent =
+                    formatCurrency(
+                        principal
+                    );
+
+
+                document.getElementById(
+                    "interestDisplay"
+                ).textContent =
+                    formatCurrency(
+                        interest
+                    );
+
+
+                document.getElementById(
+                    "maturityDisplay"
+                ).textContent =
+                    formatCurrency(
+                        maturity
+                    );
+
+
+                document.getElementById(
+                    "processingFeeDisplay"
+                ).textContent =
+                    formatCurrency(
+                        firstFee
+                    );
+
+
+                document.getElementById(
+                    "renewalPrincipalDisplay"
+                ).textContent =
+                    formatCurrency(
+                        principal
+                    );
+
+
+                document.getElementById(
+                    "renewalInterestDisplay"
+                ).textContent =
+                    formatCurrency(
+                        interest
+                    );
+
+
+                document.getElementById(
+                    "renewalFeeDisplay"
+                ).textContent =
+                    formatCurrency(
+                        renewalFee
+                    );
+
+
+                /*
+                |--------------------------------------------------------------------------
+                | TERMS
+                |--------------------------------------------------------------------------
+                */
+
+                document.getElementById(
+                    "termsPrincipal"
+                ).textContent =
+                    formatCurrency(
+                        principal
+                    );
+
+
+                document.getElementById(
+                    "termsInterest"
+                ).textContent =
+                    formatCurrency(
+                        interest
+                    );
+
+
+                document.getElementById(
+                    "termsMaturity"
+                ).textContent =
+                    formatCurrency(
+                        maturity
+                    );
+
+
+                document.getElementById(
+                    "termsFirstFee"
+                ).textContent =
+                    formatCurrency(
+                        firstFee
+                    );
+
+
+                document.getElementById(
+                    "termsRenewalFee"
+                ).textContent =
+                    formatCurrency(
+                        renewalFee
+                    );
+
+
+                document.getElementById(
+                    "termsLateFee"
+                ).textContent =
+                    formatCurrency(
+                        lateFee
+                    ) +
+                    " per day";
+
+
+                errorBox.style.display =
+                    "none";
+
             }
 
+            catch (error) {
 
-            currentUser = user;
-
-
-            await loadLoanProduct();
-
-            await loadActiveAgents();
-
-            updateLoanTypeUI();
-
-            updateStepUI();
-
-        }
-    );
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | LOAD LOAN PRODUCT
-    |--------------------------------------------------------------------------
-    */
-
-    async function loadLoanProduct() {
-
-        const errorBox =
-            document.getElementById("loanProductError");
-
-
-        try {
-
-            const productReference =
-                doc(
-                    db,
-                    "loanProducts",
-                    "emergency-loan"
+                console.error(
+                    "Loan product error:",
+                    error
                 );
 
-
-            const productSnapshot =
-                await getDoc(
-                    productReference
-                );
-
-
-            if (!productSnapshot.exists()) {
 
                 errorBox.textContent =
-                    "Emergency Loan product was not found in Firebase.";
+                    "Unable to load the Emergency Loan product. Check Firebase Firestore rules.";
 
                 errorBox.style.display =
                     "block";
 
-                return;
             }
 
-
-            loanProduct =
-                productSnapshot.data();
-
-
-            const principal =
-                Number(
-                    loanProduct.minimumAmount || 0
-                );
-
-
-            const interest =
-                Number(
-                    loanProduct.interestAmount || 0
-                );
-
-
-            const maturity =
-                principal + interest;
-
-
-            const firstFee =
-                Number(
-                    loanProduct.firstLoanProcessingFee || 0
-                );
-
-
-            const renewalFee =
-                Number(
-                    loanProduct.renewalFee || 0
-                );
-
-
-            const lateFee =
-                Number(
-                    loanProduct.lateFeePerDay || 0
-                );
-
-
-            /*
-            |--------------------------------------------------------------------------
-            | DISPLAY CALCULATIONS
-            |--------------------------------------------------------------------------
-            */
-
-            document.getElementById(
-                "principalDisplay"
-            ).textContent =
-                formatCurrency(principal);
-
-
-            document.getElementById(
-                "interestDisplay"
-            ).textContent =
-                formatCurrency(interest);
-
-
-            document.getElementById(
-                "maturityDisplay"
-            ).textContent =
-                formatCurrency(maturity);
-
-
-            document.getElementById(
-                "processingFeeDisplay"
-            ).textContent =
-                formatCurrency(firstFee);
-
-
-            document.getElementById(
-                "renewalPrincipalDisplay"
-            ).textContent =
-                formatCurrency(principal);
-
-
-            document.getElementById(
-                "renewalInterestDisplay"
-            ).textContent =
-                formatCurrency(interest);
-
-
-            document.getElementById(
-                "renewalFeeDisplay"
-            ).textContent =
-                formatCurrency(renewalFee);
-
-
-            /*
-            |--------------------------------------------------------------------------
-            | TERMS
-            |--------------------------------------------------------------------------
-            */
-
-            document.getElementById(
-                "termsPrincipal"
-            ).textContent =
-                formatCurrency(principal);
-
-
-            document.getElementById(
-                "termsInterest"
-            ).textContent =
-                formatCurrency(interest);
-
-
-            document.getElementById(
-                "termsMaturity"
-            ).textContent =
-                formatCurrency(maturity);
-
-
-            document.getElementById(
-                "termsFirstFee"
-            ).textContent =
-                formatCurrency(firstFee);
-
-
-            document.getElementById(
-                "termsRenewalFee"
-            ).textContent =
-                formatCurrency(renewalFee);
-
-
-            document.getElementById(
-                "termsLateFee"
-            ).textContent =
-                formatCurrency(lateFee) +
-                " per day";
-
-
-            errorBox.style.display =
-                "none";
-
         }
 
-        catch (error) {
-
-            console.error(
-                "Loan product error:",
-                error
-            );
-
-
-            errorBox.textContent =
-                "Unable to load the Emergency Loan product. Check Firebase Firestore rules.";
-
-            errorBox.style.display =
-                "block";
-
-        }
-
-    }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | LOAD ACTIVE AGENTS
-    |--------------------------------------------------------------------------
-    */
-
-    async function loadActiveAgents() {
 
         /*
-         * IMPORTANT:
-         * Do not destroy the application page if an error occurs.
-         */
+        |--------------------------------------------------------------------------
+        | LOAD ACTIVE AGENTS
+        |--------------------------------------------------------------------------
+        */
 
-        if (!agentGrid) {
+        async function loadActiveAgents() {
 
-            console.error(
-                "agentGrid element was not found."
-            );
+            if (!agentGrid) {
 
-            return;
-        }
-
-
-        agentGrid.innerHTML =
-            `<div class="loading-box">
-                Loading active agents...
-            </div>`;
-
-
-        try {
-
-            const agentsQuery =
-                query(
-                    collection(
-                        db,
-                        "users"
-                    ),
-                    where(
-                        "role",
-                        "==",
-                        "agent"
-                    ),
-                    where(
-                        "status",
-                        "==",
-                        "active"
-                    )
+                console.error(
+                    "agentGrid element was not found."
                 );
-
-
-            const agentsSnapshot =
-                await getDocs(
-                    agentsQuery
-                );
-
-
-            agentGrid.innerHTML = "";
-
-
-            if (
-                agentsSnapshot.empty
-            ) {
-
-                agentGrid.innerHTML =
-                    `<div class="empty-box">
-                        No active agents are currently available.
-                    </div>`;
 
                 return;
+
             }
 
 
-            agentsSnapshot.forEach(
-                (agentDocument) => {
+            agentGrid.innerHTML =
+                `
+                <div class="loading-box">
+                    Loading active agents...
+                </div>
+                `;
 
-                    const agent =
-                        agentDocument.data();
+
+            try {
+
+                const agentsQuery =
+                    query(
+                        collection(
+                            db,
+                            "users"
+                        ),
+
+                        where(
+                            "role",
+                            "==",
+                            "agent"
+                        ),
+
+                        where(
+                            "status",
+                            "==",
+                            "active"
+                        )
+                    );
 
 
-                    const card =
-                        document.createElement(
-                            "div"
+                const agentsSnapshot =
+                    await getDocs(
+                        agentsQuery
+                    );
+
+
+                agentGrid.innerHTML =
+                    "";
+
+
+                if (
+                    agentsSnapshot.empty
+                ) {
+
+                    agentGrid.innerHTML =
+                        `
+                        <div class="empty-box">
+                            No active agents are currently available.
+                        </div>
+                        `;
+
+                    return;
+
+                }
+
+
+                agentsSnapshot.forEach(
+                    (agentDocument) => {
+
+                        const agent =
+                            agentDocument.data();
+
+
+                        const card =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        card.className =
+                            "agent-card";
+
+
+                        card.innerHTML =
+                            `
+
+                            <h3>
+                                ${
+                                    escapeHTML(
+                                        agent.fullName ||
+                                        "Jitume Agent"
+                                    )
+                                }
+                            </h3>
+
+                            <p>
+
+                                Agent Code:
+                                ${
+                                    escapeHTML(
+                                        agent.agentCode ||
+                                        "-"
+                                    )
+                                }
+
+                                <br>
+
+                                Location:
+                                ${
+                                    escapeHTML(
+                                        agent.location ||
+                                        "-"
+                                    )
+                                }
+
+                                <br>
+
+                                Phone:
+                                ${
+                                    escapeHTML(
+                                        agent.phone ||
+                                        "-"
+                                    )
+                                }
+
+                            </p>
+
+                            `;
+
+
+                        card.addEventListener(
+                            "click",
+                            () => {
+
+                                document
+                                    .querySelectorAll(
+                                        ".agent-card"
+                                    )
+                                    .forEach(
+                                        (item) => {
+
+                                            item.classList.remove(
+                                                "selected"
+                                            );
+
+                                        }
+                                    );
+
+
+                                card.classList.add(
+                                    "selected"
+                                );
+
+
+                                selectedAgent = {
+
+                                    id:
+                                        agentDocument.id,
+
+                                    ...agent
+
+                                };
+
+
+                                agentSummary.style.display =
+                                    "block";
+
+
+                                agentSummary.innerHTML =
+                                    `
+
+                                    <strong>
+                                        Selected Agent:
+                                    </strong>
+
+                                    ${
+                                        escapeHTML(
+                                            selectedAgent.fullName ||
+                                            "Agent"
+                                        )
+                                    }
+
+                                    <br>
+
+                                    Agent Code:
+                                    ${
+                                        escapeHTML(
+                                            selectedAgent.agentCode ||
+                                            "-"
+                                        )
+                                    }
+
+                                    <br>
+
+                                    Location:
+                                    ${
+                                        escapeHTML(
+                                            selectedAgent.location ||
+                                            "-"
+                                        )
+                                    }
+
+                                    `;
+
+                            }
                         );
 
 
-                    card.className =
-                        "agent-card";
+                        agentGrid.appendChild(
+                            card
+                        );
+
+                    }
+                );
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Agent loading error:",
+                    error
+                );
 
 
-                    card.innerHTML = `
-
-                        <h3>
-                            ${escapeHTML(
-                                agent.fullName ||
-                                "Jitume Agent"
-                            )}
-                        </h3>
-
-                        <p>
-                            Agent Code:
-                            ${escapeHTML(
-                                agent.agentCode ||
-                                "-"
-                            )}
-                            <br>
-
-                            Location:
-                            ${escapeHTML(
-                                agent.location ||
-                                "-"
-                            )}
-                            <br>
-
-                            Phone:
-                            ${escapeHTML(
-                                agent.phone ||
-                                "-"
-                            )}
-                        </p>
-
+                agentGrid.innerHTML =
+                    `
+                    <div class="error-box">
+                        Unable to load active agents.
+                        Please try again.
+                    </div>
                     `;
 
+            }
 
-                    card.addEventListener(
-                        "click",
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | LOAN TYPE
+        |--------------------------------------------------------------------------
+        */
+
+        document
+            .querySelectorAll(
+                'input[name="loanType"]'
+            )
+            .forEach(
+                (radio) => {
+
+                    radio.addEventListener(
+                        "change",
                         () => {
+
+                            selectedLoanType =
+                                radio.value;
+
 
                             document
                                 .querySelectorAll(
-                                    ".agent-card"
+                                    ".choice-card"
                                 )
                                 .forEach(
-                                    item => {
+                                    (card) => {
 
-                                        item.classList.remove(
+                                        card.classList.remove(
                                             "selected"
                                         );
 
@@ -1479,778 +1719,169 @@ document.addEventListener("DOMContentLoaded", () => {
                                 );
 
 
-                            card.classList.add(
-                                "selected"
-                            );
+                            if (
+                                radio.value ===
+                                "first"
+                            ) {
+
+                                firstLoanChoice.classList.add(
+                                    "selected"
+                                );
+
+                            }
+
+                            else {
+
+                                renewalChoice.classList.add(
+                                    "selected"
+                                );
+
+                            }
 
 
-                            selectedAgent = {
-
-                                id:
-                                    agentDocument.id,
-
-                                ...agent
-
-                            };
-
-
-                            agentSummary.style.display =
-                                "block";
-
-
-                            agentSummary.innerHTML = `
-
-                                <strong>
-                                    Selected Agent:
-                                </strong>
-
-                                ${escapeHTML(
-                                    selectedAgent.fullName ||
-                                    "Agent"
-                                )}
-
-                                <br>
-
-                                Agent Code:
-                                ${escapeHTML(
-                                    selectedAgent.agentCode ||
-                                    "-"
-                                )}
-
-                                <br>
-
-                                Location:
-                                ${escapeHTML(
-                                    selectedAgent.location ||
-                                    "-"
-                                )}
-
-                            `;
+                            updateLoanTypeUI();
 
                         }
-                    );
-
-
-                    agentGrid.appendChild(
-                        card
                     );
 
                 }
             );
 
-        }
 
-        catch (error) {
+        function updateLoanTypeUI() {
 
-            console.error(
-                "Agent loading error:",
-                error
-            );
-
-
-            agentGrid.innerHTML =
-                `<div class="error-box">
-                    Unable to load active agents.
-                    Please try again.
-                </div>`;
-
-        }
-
-    }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | LOAN TYPE
-    |--------------------------------------------------------------------------
-    */
-
-    document
-        .querySelectorAll(
-            'input[name="loanType"]'
-        )
-        .forEach(
-            radio => {
-
-                radio.addEventListener(
-                    "change",
-                    () => {
-
-                        selectedLoanType =
-                            radio.value;
-
-
-                        document
-                            .querySelectorAll(
-                                ".choice-card"
-                            )
-                            .forEach(
-                                card =>
-                                    card.classList.remove(
-                                        "selected"
-                                    )
-                            );
-
-
-                        if (
-                            radio.value ===
-                            "first"
-                        ) {
-
-                            firstLoanChoice.classList.add(
-                                "selected"
-                            );
-
-                        }
-
-                        else {
-
-                            renewalChoice.classList.add(
-                                "selected"
-                            );
-
-                        }
-
-
-                        updateLoanTypeUI();
-
-                    }
+            const firstSection =
+                document.getElementById(
+                    "firstLoanSection"
                 );
 
+
+            const renewalSection =
+                document.getElementById(
+                    "renewalSection"
+                );
+
+
+            if (
+                selectedLoanType ===
+                "renewal"
+            ) {
+
+                firstSection.style.display =
+                    "none";
+
+                renewalSection.style.display =
+                    "block";
+
             }
-        );
+
+            else {
+
+                firstSection.style.display =
+                    "block";
+
+                renewalSection.style.display =
+                    "none";
+
+            }
+
+        }
 
 
-    function updateLoanTypeUI() {
+        /*
+        |--------------------------------------------------------------------------
+        | STEP NAVIGATION
+        |--------------------------------------------------------------------------
+        */
 
-        const firstSection =
-            document.getElementById(
-                "firstLoanSection"
-            );
-
-
-        const renewalSection =
-            document.getElementById(
-                "renewalSection"
-            );
-
-
-        if (
-            selectedLoanType ===
-            "renewal"
+        function goToStep(
+            stepNumber
         ) {
 
-            firstSection.style.display =
-                "none";
-
-            renewalSection.style.display =
-                "block";
-
-        }
-
-        else {
-
-            firstSection.style.display =
-                "block";
-
-            renewalSection.style.display =
-                "none";
-
-        }
-
-    }
+            currentStep =
+                stepNumber;
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | STEP NAVIGATION
-    |--------------------------------------------------------------------------
-    */
-
-    function goToStep(
-        stepNumber
-    ) {
-
-        currentStep =
-            stepNumber;
+            updateStepUI();
 
 
-        updateStepUI();
-
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-
-
-    function updateStepUI() {
-
-        steps.forEach(
-            step => {
-
-                const stepNumber =
-                    Number(
-                        step.dataset.step
-                    );
-
-
-                step.classList.toggle(
-                    "active",
-                    stepNumber === currentStep
-                );
-
-            }
-        );
-
-
-        progressSteps.forEach(
-            (progress, index) => {
-
-                progress.classList.toggle(
-                    "active",
-                    index < currentStep
-                );
-
-            }
-        );
-
-
-        if (
-            currentStep === 5
-        ) {
-
-            updateReview();
-
-        }
-
-    }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | STEP 1
-    |--------------------------------------------------------------------------
-    */
-
-    document
-        .getElementById(
-            "step1Next"
-        )
-        .addEventListener(
-            "click",
-            () => {
-
-                goToStep(2);
-
-            }
-        );
-
-
-    cancelApplication.addEventListener(
-        "click",
-        () => {
-
-            window.location.href =
-                "client.html";
-
-        }
-    );
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | STEP 2
-    |--------------------------------------------------------------------------
-    */
-
-    document
-        .getElementById(
-            "step2Back"
-        )
-        .addEventListener(
-            "click",
-            () => {
-
-                goToStep(1);
-
-            }
-        );
-
-
-    document
-        .getElementById(
-            "step2Next"
-        )
-        .addEventListener(
-            "click",
-            () => {
-
-                if (!selectedAgent) {
-
-                    showMessage(
-                        "Please select an active agent before continuing.",
-                        "error"
-                    );
-
-                    return;
+            window.scrollTo(
+                {
+                    top: 0,
+                    behavior: "smooth"
                 }
+            );
 
-
-                goToStep(3);
-
-            }
-        );
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | STEP 3
-    |--------------------------------------------------------------------------
-    */
-
-    document
-        .getElementById(
-            "step3Back"
-        )
-        .addEventListener(
-            "click",
-            () => {
-
-                goToStep(2);
-
-            }
-        );
-
-
-    document
-        .getElementById(
-            "step3Next"
-        )
-        .addEventListener(
-            "click",
-            () => {
-
-                if (!loanProduct) {
-
-                    showMessage(
-                        "Loan product information is not available yet.",
-                        "error"
-                    );
-
-                    return;
-                }
-
-
-                goToStep(4);
-
-            }
-        );
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | STEP 4
-    |--------------------------------------------------------------------------
-    */
-
-    document
-        .getElementById(
-            "step4Back"
-        )
-        .addEventListener(
-            "click",
-            () => {
-
-                goToStep(3);
-
-            }
-        );
-
-
-    document
-        .getElementById(
-            "step4Next"
-        )
-        .addEventListener(
-            "click",
-            () => {
-
-                const accepted =
-                    document.getElementById(
-                        "termsAccepted"
-                    ).checked;
-
-
-                if (!accepted) {
-
-                    showMessage(
-                        "You must confirm that you have read and understood the terms.",
-                        "error"
-                    );
-
-                    return;
-                }
-
-
-                clearMessage(
-                    "step4Message"
-                );
-
-
-                goToStep(5);
-
-            }
-        );
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | STEP 5
-    |--------------------------------------------------------------------------
-    */
-
-    document
-        .getElementById(
-            "step5Back"
-        )
-        .addEventListener(
-            "click",
-            () => {
-
-                goToStep(4);
-
-            }
-        );
-
-
-    function updateReview() {
-
-        if (!loanProduct) {
-            return;
         }
 
 
-        const principal =
-            Number(
-                loanProduct.minimumAmount || 0
+        function updateStepUI() {
+
+            steps.forEach(
+                (step) => {
+
+                    const stepNumber =
+                        Number(
+                            step.dataset.step
+                        );
+
+
+                    step.classList.toggle(
+                        "active",
+                        stepNumber === currentStep
+                    );
+
+                }
             );
 
 
-        const interest =
-            Number(
-                loanProduct.interestAmount || 0
+            progressSteps.forEach(
+                (progress, index) => {
+
+                    progress.classList.toggle(
+                        "active",
+                        index <
+                        currentStep
+                    );
+
+                }
             );
 
 
-        const maturity =
-            principal + interest;
-
-
-        const fee =
-            selectedLoanType ===
-            "renewal"
-                ? Number(
-                    loanProduct.renewalFee || 0
-                )
-                : Number(
-                    loanProduct.firstLoanProcessingFee || 0
-                );
-
-
-        document.getElementById(
-            "reviewLoanType"
-        ).textContent =
-            selectedLoanType ===
-            "renewal"
-                ? "Loan Renewal"
-                : "First Loan";
-
-
-        document.getElementById(
-            "reviewAgent"
-        ).textContent =
-            selectedAgent
-                ? selectedAgent.fullName
-                : "-";
-
-
-        document.getElementById(
-            "reviewPrincipal"
-        ).textContent =
-            formatCurrency(principal);
-
-
-        document.getElementById(
-            "reviewInterest"
-        ).textContent =
-            formatCurrency(interest);
-
-
-        document.getElementById(
-            "reviewMaturity"
-        ).textContent =
-            formatCurrency(maturity);
-
-
-        document.getElementById(
-            "reviewFee"
-        ).textContent =
-            formatCurrency(fee);
-
-    }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | SUBMIT APPLICATION
-    |--------------------------------------------------------------------------
-    */
-
-    document
-        .getElementById(
-            "submitApplication"
-        )
-        .addEventListener(
-            "click",
-            async () => {
-
-                const button =
-                    document.getElementById(
-                        "submitApplication"
-                    );
-
-
-                if (
-                    !currentUser ||
-                    !loanProduct ||
-                    !selectedAgent
-                ) {
-
-                    showMessage(
-                        "Some application information is missing.",
-                        "error"
-                    );
-
-                    return;
-                }
-
-
-                button.disabled =
-                    true;
-
-
-                button.textContent =
-                    "Submitting...";
-
-
-                try {
-
-                    const principal =
-                        Number(
-                            loanProduct.minimumAmount || 0
-                        );
-
-
-                    const interest =
-                        Number(
-                            loanProduct.interestAmount || 0
-                        );
-
-
-                    const maturityAmount =
-                        principal +
-                        interest;
-
-
-                    const fee =
-                        selectedLoanType ===
-                        "renewal"
-                            ? Number(
-                                loanProduct.renewalFee || 0
-                            )
-                            : Number(
-                                loanProduct.firstLoanProcessingFee || 0
-                            );
-
-
-                    const applicationData = {
-
-                        customerId:
-                            currentUser.uid,
-
-                        agentId:
-                            selectedAgent.id,
-
-                        agentName:
-                            selectedAgent.fullName || "",
-
-                        loanProductId:
-                            "emergency-loan",
-
-                        loanProductName:
-                            loanProduct.name || "Emergency Loan",
-
-                        loanType:
-                            selectedLoanType,
-
-                        requestedAmount:
-                            principal,
-
-                        approvedAmount:
-                            null,
-
-                        interestAmount:
-                            interest,
-
-                        processingOrRenewalFee:
-                            fee,
-
-                        totalMaturityAmount:
-                            maturityAmount,
-
-                        lateFeePerDay:
-                            Number(
-                                loanProduct.lateFeePerDay || 0
-                            ),
-
-                        repaymentPeriodDays:
-                            Number(
-                                loanProduct.repaymentPeriodDays || 0
-                            ),
-
-                        termsAccepted:
-                            true,
-
-                        status:
-                            "APPLICATION_SUBMITTED",
-
-                        agreementStatus:
-                            "NOT_YET_GENERATED",
-
-                        signedAgreementUrl:
-                            null,
-
-                        agentVerificationStatus:
-                            "NOT_VERIFIED",
-
-                        adminDecision:
-                            "PENDING",
-
-                        paymentStatus:
-                            "NOT_REQUIRED_YET",
-
-                        cashCollectionStatus:
-                            "NOT_READY",
-
-                        createdAt:
-                            serverTimestamp(),
-
-                        updatedAt:
-                            serverTimestamp()
-
-                    };
-
-
-                    const applicationReference =
-                        await addDoc(
-                            collection(
-                                db,
-                                "loanApplications"
-                            ),
-                            applicationData
-                        );
-
-
-                    document.getElementById(
-                        "applicationIdDisplay"
-                    ).textContent =
-                        applicationReference.id;
-
-
-                    document.getElementById(
-                        "finalAgentDisplay"
-                    ).textContent =
-                        selectedAgent.fullName ||
-                        "Selected Agent";
-
-
-                    goToStep(6);
-
-                }
-
-                catch (error) {
-
-                    console.error(
-                        "Application submission error:",
-                        error
-                    );
-
-
-                    showMessage(
-                        "The application could not be submitted. Please try again.",
-                        "error"
-                    );
-
-
-                    button.disabled =
-                        false;
-
-
-                    button.textContent =
-                        "Submit Application";
-
-                }
-
-            }
-        );
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | LOGOUT
-    |--------------------------------------------------------------------------
-    */
-
-    logoutButton.addEventListener(
-        "click",
-        async () => {
-
-            try {
-
-                await signOut(auth);
-
-                window.location.href =
-                    "login.html";
-
-            }
-
-            catch (error) {
-
-                console.error(
-                    "Logout error:",
-                    error
-                );
+            if (
+                currentStep === 5
+            ) {
+
+                updateReview();
 
             }
 
         }
-    );
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | RETURN TO DASHBOARD
-    |--------------------------------------------------------------------------
-    */
+        /*
+        |--------------------------------------------------------------------------
+        | STEP 1
+        |--------------------------------------------------------------------------
+        */
 
-    document
-        .getElementById(
-            "returnDashboard"
-        )
-        .addEventListener(
+        document
+            .getElementById(
+                "step1Next"
+            )
+            .addEventListener(
+                "click",
+                () => {
+
+                    goToStep(
+                        2
+                    );
+
+                }
+            );
+
+
+        cancelApplication.addEventListener(
             "click",
             () => {
 
@@ -2261,90 +1892,647 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | HELPERS
-    |--------------------------------------------------------------------------
-    */
+        /*
+        |--------------------------------------------------------------------------
+        | STEP 2
+        |--------------------------------------------------------------------------
+        */
 
-    function formatCurrency(
-        amount
-    ) {
+        document
+            .getElementById(
+                "step2Back"
+            )
+            .addEventListener(
+                "click",
+                () => {
 
-        return "KSh " +
-            Number(amount).toLocaleString(
-                "en-KE"
+                    goToStep(
+                        1
+                    );
+
+                }
             );
 
-    }
+
+        document
+            .getElementById(
+                "step2Next"
+            )
+            .addEventListener(
+                "click",
+                () => {
+
+                    if (
+                        !selectedAgent
+                    ) {
+
+                        showMessage(
+                            "Please select an active agent before continuing.",
+                            "error"
+                        );
+
+                        return;
+
+                    }
 
 
-    function showMessage(
-        text,
-        type = "error"
-    ) {
+                    goToStep(
+                        3
+                    );
 
-        const messageElement =
-            currentStep === 4
-                ? document.getElementById(
-                    "step4Message"
-                )
-                : document.getElementById(
-                    "applicationMessage"
+                }
+            );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | STEP 3
+        |--------------------------------------------------------------------------
+        */
+
+        document
+            .getElementById(
+                "step3Back"
+            )
+            .addEventListener(
+                "click",
+                () => {
+
+                    goToStep(
+                        2
+                    );
+
+                }
+            );
+
+
+        document
+            .getElementById(
+                "step3Next"
+            )
+            .addEventListener(
+                "click",
+                () => {
+
+                    if (
+                        !loanProduct
+                    ) {
+
+                        showMessage(
+                            "Loan product information is not available yet.",
+                            "error"
+                        );
+
+                        return;
+
+                    }
+
+
+                    goToStep(
+                        4
+                    );
+
+                }
+            );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | STEP 4
+        |--------------------------------------------------------------------------
+        */
+
+        document
+            .getElementById(
+                "step4Back"
+            )
+            .addEventListener(
+                "click",
+                () => {
+
+                    goToStep(
+                        3
+                    );
+
+                }
+            );
+
+
+        document
+            .getElementById(
+                "step4Next"
+            )
+            .addEventListener(
+                "click",
+                () => {
+
+                    const accepted =
+                        document.getElementById(
+                            "termsAccepted"
+                        ).checked;
+
+
+                    if (
+                        !accepted
+                    ) {
+
+                        showMessage(
+                            "You must confirm that you have read and understood the terms.",
+                            "error"
+                        );
+
+                        return;
+
+                    }
+
+
+                    clearMessage(
+                        "step4Message"
+                    );
+
+
+                    goToStep(
+                        5
+                    );
+
+                }
+            );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | STEP 5
+        |--------------------------------------------------------------------------
+        */
+
+        document
+            .getElementById(
+                "step5Back"
+            )
+            .addEventListener(
+                "click",
+                () => {
+
+                    goToStep(
+                        4
+                    );
+
+                }
+            );
+
+
+        function updateReview() {
+
+            if (
+                !loanProduct
+            ) {
+
+                return;
+
+            }
+
+
+            const principal =
+                Number(
+                    loanProduct.minimumAmount ||
+                    0
                 );
 
 
-        messageElement.textContent =
-            text;
+            const interest =
+                Number(
+                    loanProduct.interestAmount ||
+                    0
+                );
 
 
-        messageElement.className =
-            "application-message " +
-            type;
-
-    }
+            const maturity =
+                principal +
+                interest;
 
 
-    function clearMessage(
-        elementId
-    ) {
+            const fee =
+                selectedLoanType === "renewal"
+                    ? Number(
+                        loanProduct.renewalFee ||
+                        0
+                    )
+                    : Number(
+                        loanProduct.firstLoanProcessingFee ||
+                        0
+                    );
 
-        const element =
+
             document.getElementById(
-                elementId
+                "reviewLoanType"
+            ).textContent =
+                selectedLoanType === "renewal"
+                    ? "Loan Renewal"
+                    : "First Loan";
+
+
+            document.getElementById(
+                "reviewAgent"
+            ).textContent =
+                selectedAgent
+                    ? selectedAgent.fullName
+                    : "-";
+
+
+            document.getElementById(
+                "reviewPrincipal"
+            ).textContent =
+                formatCurrency(
+                    principal
+                );
+
+
+            document.getElementById(
+                "reviewInterest"
+            ).textContent =
+                formatCurrency(
+                    interest
+                );
+
+
+            document.getElementById(
+                "reviewMaturity"
+            ).textContent =
+                formatCurrency(
+                    maturity
+                );
+
+
+            document.getElementById(
+                "reviewFee"
+            ).textContent =
+                formatCurrency(
+                    fee
+                );
+
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | SUBMIT APPLICATION
+        |--------------------------------------------------------------------------
+        */
+
+        document
+            .getElementById(
+                "submitApplication"
+            )
+            .addEventListener(
+                "click",
+                async () => {
+
+                    const button =
+                        document.getElementById(
+                            "submitApplication"
+                        );
+
+
+                    if (
+                        !currentUser ||
+                        !loanProduct ||
+                        !selectedAgent
+                    ) {
+
+                        showMessage(
+                            "Some application information is missing.",
+                            "error"
+                        );
+
+                        return;
+
+                    }
+
+
+                    button.disabled =
+                        true;
+
+
+                    button.textContent =
+                        "Submitting...";
+
+
+                    try {
+
+                        const principal =
+                            Number(
+                                loanProduct.minimumAmount ||
+                                0
+                            );
+
+
+                        const interest =
+                            Number(
+                                loanProduct.interestAmount ||
+                                0
+                            );
+
+
+                        const maturityAmount =
+                            principal +
+                            interest;
+
+
+                        const fee =
+                            selectedLoanType === "renewal"
+                                ? Number(
+                                    loanProduct.renewalFee ||
+                                    0
+                                )
+                                : Number(
+                                    loanProduct.firstLoanProcessingFee ||
+                                    0
+                                );
+
+
+                        const applicationData = {
+
+                            customerId:
+                                currentUser.uid,
+
+                            agentId:
+                                selectedAgent.id,
+
+                            agentName:
+                                selectedAgent.fullName ||
+                                "",
+
+                            loanProductId:
+                                "emergency-loan",
+
+                            loanProductName:
+                                loanProduct.name ||
+                                "Emergency Loan",
+
+                            loanType:
+                                selectedLoanType,
+
+                            requestedAmount:
+                                principal,
+
+                            approvedAmount:
+                                null,
+
+                            interestAmount:
+                                interest,
+
+                            processingOrRenewalFee:
+                                fee,
+
+                            totalMaturityAmount:
+                                maturityAmount,
+
+                            lateFeePerDay:
+                                Number(
+                                    loanProduct.lateFeePerDay ||
+                                    0
+                                ),
+
+                            repaymentPeriodDays:
+                                Number(
+                                    loanProduct.repaymentPeriodDays ||
+                                    0
+                                ),
+
+                            termsAccepted:
+                                true,
+
+                            status:
+                                "APPLICATION_SUBMITTED",
+
+                            agreementStatus:
+                                "NOT_YET_GENERATED",
+
+                            signedAgreementUrl:
+                                null,
+
+                            agentVerificationStatus:
+                                "NOT_VERIFIED",
+
+                            adminDecision:
+                                "PENDING",
+
+                            paymentStatus:
+                                "NOT_REQUIRED_YET",
+
+                            cashCollectionStatus:
+                                "NOT_READY",
+
+                            createdAt:
+                                serverTimestamp(),
+
+                            updatedAt:
+                                serverTimestamp()
+
+                        };
+
+
+                        const applicationReference =
+                            await addDoc(
+                                collection(
+                                    db,
+                                    "loanApplications"
+                                ),
+                                applicationData
+                            );
+
+
+                        document.getElementById(
+                            "applicationIdDisplay"
+                        ).textContent =
+                            applicationReference.id;
+
+
+                        document.getElementById(
+                            "finalAgentDisplay"
+                        ).textContent =
+                            selectedAgent.fullName ||
+                            "Selected Agent";
+
+
+                        goToStep(
+                            6
+                        );
+
+                    }
+
+                    catch (error) {
+
+                        console.error(
+                            "Application submission error:",
+                            error
+                        );
+
+
+                        showMessage(
+                            "The application could not be submitted. Please try again.",
+                            "error"
+                        );
+
+
+                        button.disabled =
+                            false;
+
+
+                        button.textContent =
+                            "Submit Application";
+
+                    }
+
+                }
             );
 
 
-        element.textContent =
-            "";
+        /*
+        |--------------------------------------------------------------------------
+        | LOGOUT
+        |--------------------------------------------------------------------------
+        */
+
+        logoutButton.addEventListener(
+            "click",
+            async () => {
+
+                try {
+
+                    await signOut(
+                        auth
+                    );
 
 
-        element.className =
-            "application-message";
+                    window.location.href =
+                        "login.html";
 
-    }
+                }
+
+                catch (error) {
+
+                    console.error(
+                        "Logout error:",
+                        error
+                    );
+
+                }
+
+            }
+        );
 
 
-    function escapeHTML(
-        value
-    ) {
+        /*
+        |--------------------------------------------------------------------------
+        | RETURN TO DASHBOARD
+        |--------------------------------------------------------------------------
+        */
 
-        const div =
-            document.createElement(
-                "div"
+        document
+            .getElementById(
+                "returnDashboard"
+            )
+            .addEventListener(
+                "click",
+                () => {
+
+                    window.location.href =
+                        "client.html";
+
+                }
             );
 
 
-        div.textContent =
-            String(value);
+        /*
+        |--------------------------------------------------------------------------
+        | HELPERS
+        |--------------------------------------------------------------------------
+        */
+
+        function formatCurrency(
+            amount
+        ) {
+
+            return "KSh " +
+                Number(
+                    amount
+                ).toLocaleString(
+                    "en-KE"
+                );
+
+        }
 
 
-        return div.innerHTML;
+        function showMessage(
+            text,
+            type = "error"
+        ) {
+
+            const messageElement =
+                currentStep === 4
+                    ? document.getElementById(
+                        "step4Message"
+                    )
+                    : document.getElementById(
+                        "applicationMessage"
+                    );
+
+
+            messageElement.textContent =
+                text;
+
+
+            messageElement.className =
+                "application-message " +
+                type;
+
+        }
+
+
+        function clearMessage(
+            elementId
+        ) {
+
+            const element =
+                document.getElementById(
+                    elementId
+                );
+
+
+            element.textContent =
+                "";
+
+
+            element.className =
+                "application-message";
+
+        }
+
+
+        function escapeHTML(
+            value
+        ) {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.textContent =
+                String(value);
+
+
+            return div.innerHTML;
+
+        }
 
     }
+);
 
-});
 </script>
 
 </body>
+
 </html>
