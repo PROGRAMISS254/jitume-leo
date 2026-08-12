@@ -8,13 +8,313 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Apply for Loan | Jitume Leo</title>
+    <title>Loan Application | Jitume Leo</title>
 
     <link rel="stylesheet" href="style.css">
 
+    <style>
+
+        .application-page {
+            min-height: calc(100vh - 78px);
+            padding: 45px 20px;
+            background: #f7f9fc;
+        }
+
+        .application-wrapper {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .application-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .application-header h1 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .application-header p {
+            color: #6d7788;
+        }
+
+        .progress-bar {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .progress-step {
+            height: 7px;
+            border-radius: 10px;
+            background: #dfe5eb;
+        }
+
+        .progress-step.active {
+            background: #168a63;
+        }
+
+        .application-card {
+            background: white;
+            border: 1px solid #e5e9ef;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 15px 45px rgba(30,45,65,0.07);
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .step-title {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .step-description {
+            color: #6d7788;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .choice-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .choice-card {
+            border: 2px solid #e2e7ec;
+            border-radius: 12px;
+            padding: 22px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .choice-card:hover {
+            border-color: #168a63;
+        }
+
+        .choice-card.selected {
+            border-color: #168a63;
+            background: #f0faf6;
+        }
+
+        .choice-card input {
+            display: none;
+        }
+
+        .choice-card h3 {
+            margin-bottom: 7px;
+        }
+
+        .choice-card p {
+            color: #6d7788;
+            font-size: 13px;
+        }
+
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .agent-card {
+            border: 1px solid #dfe5eb;
+            border-radius: 11px;
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .agent-card:hover {
+            border-color: #168a63;
+        }
+
+        .agent-card.selected {
+            border: 2px solid #168a63;
+            background: #f0faf6;
+        }
+
+        .agent-card h3 {
+            margin-bottom: 7px;
+        }
+
+        .agent-card p {
+            color: #6d7788;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .terms-box {
+            border: 1px solid #dfe5eb;
+            border-radius: 10px;
+            padding: 20px;
+            background: #fafbfc;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .terms-box p,
+        .terms-box li {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        .terms-box ul {
+            margin: 12px 0 15px 20px;
+        }
+
+        .calculation-box {
+            background: #f0faf6;
+            border: 1px solid #cdebdc;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .calculation-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 10px 0;
+            border-bottom: 1px solid #dfeee6;
+        }
+
+        .calculation-row:last-child {
+            border-bottom: none;
+        }
+
+        .calculation-row.total {
+            font-size: 18px;
+            font-weight: 800;
+            padding-top: 17px;
+        }
+
+        .review-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .review-item {
+            background: #f7f9fc;
+            border-radius: 9px;
+            padding: 15px;
+        }
+
+        .review-item small {
+            display: block;
+            color: #7b8794;
+            margin-bottom: 5px;
+        }
+
+        .review-item strong {
+            font-size: 14px;
+        }
+
+        .agreement-box {
+            margin-top: 25px;
+            padding: 18px;
+            background: #fff9e8;
+            border: 1px solid #f1df9c;
+            border-radius: 10px;
+        }
+
+        .application-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .secondary-action {
+            border: 1px solid #cdd5df;
+            background: white;
+            color: #273142;
+            padding: 12px 20px;
+            border-radius: 7px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .secondary-action:hover {
+            border-color: #168a63;
+            color: #168a63;
+        }
+
+        .primary-action {
+            border: none;
+            background: #168a63;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 7px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .primary-action:hover {
+            background: #106c4d;
+        }
+
+        .primary-action:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .application-message {
+            margin-top: 18px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .error-message {
+            color: #c0392b;
+        }
+
+        .success-message {
+            color: #168a63;
+        }
+
+        .selected-agent-summary {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f7f9fc;
+            border-radius: 9px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+
+            .choice-grid,
+            .agent-grid,
+            .review-box {
+                grid-template-columns: 1fr;
+            }
+
+            .application-card {
+                padding: 24px;
+            }
+
+            .progress-bar {
+                gap: 4px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
+
 <body>
+
 
 <header class="navbar">
 
@@ -49,11 +349,12 @@
 </header>
 
 
-<main class="auth-page">
+<main class="application-page">
 
-    <div class="auth-card">
+    <div class="application-wrapper">
 
-        <div class="auth-header">
+
+        <div class="application-header">
 
             <p class="small-heading">
                 JITUME LEO
@@ -64,137 +365,651 @@
             </h1>
 
             <p>
-                Choose your agent and provide your
-                initial loan information.
+                Complete each step carefully before submitting your application.
             </p>
 
         </div>
 
 
-        <form id="loanForm">
+        <!-- PROGRESS -->
+
+        <div class="progress-bar">
+
+            <div class="progress-step active"></div>
+            <div class="progress-step"></div>
+            <div class="progress-step"></div>
+            <div class="progress-step"></div>
+            <div class="progress-step"></div>
+            <div class="progress-step"></div>
+
+        </div>
 
 
-            <!-- AGENT -->
+        <div class="application-card">
 
-            <div class="form-group">
 
-                <label for="agentSelect">
-                    Select Your Jitume Leo Agent
+            <!-- STEP 1 -->
+
+            <section
+                class="step active"
+                data-step="1">
+
+                <h2 class="step-title">
+                    Select Loan Type
+                </h2>
+
+                <p class="step-description">
+                    Tell us whether this is your first Jitume Leo loan
+                    or a renewal of an existing loan.
+                </p>
+
+
+                <div class="choice-grid">
+
+                    <label class="choice-card">
+
+                        <input
+                            type="radio"
+                            name="loanType"
+                            value="first"
+                            checked>
+
+                        <h3>
+                            First Loan
+                        </h3>
+
+                        <p>
+                            This is my first emergency loan with Jitume Leo.
+                        </p>
+
+                    </label>
+
+
+                    <label class="choice-card">
+
+                        <input
+                            type="radio"
+                            name="loanType"
+                            value="renewal">
+
+                        <h3>
+                            Loan Renewal
+                        </h3>
+
+                        <p>
+                            I am renewing an existing Jitume Leo loan.
+                        </p>
+
+                    </label>
+
+                </div>
+
+
+                <div class="application-actions">
+
+                    <button
+                        class="secondary-action"
+                        onclick="window.location.href='client.html'">
+
+                        Cancel
+
+                    </button>
+
+                    <button
+                        class="primary-action"
+                        id="step1Next">
+
+                        Continue
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- STEP 2 -->
+
+            <section
+                class="step"
+                data-step="2">
+
+                <h2 class="step-title">
+                    Choose Your Agent
+                </h2>
+
+                <p class="step-description">
+                    Select the active Jitume Leo agent who will
+                    verify your application.
+                </p>
+
+
+                <div
+                    id="agentGrid"
+                    class="agent-grid">
+
+                    Loading active agents...
+
+                </div>
+
+
+                <div
+                    id="agentSummary"
+                    class="selected-agent-summary"
+                    style="display:none;">
+
+                </div>
+
+
+                <div class="application-actions">
+
+                    <button
+                        class="secondary-action"
+                        id="step2Back">
+
+                        Back
+
+                    </button>
+
+                    <button
+                        class="primary-action"
+                        id="step2Next">
+
+                        Continue
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- STEP 3 -->
+
+            <section
+                class="step"
+                data-step="3">
+
+                <h2 class="step-title">
+                    Loan Details
+                </h2>
+
+                <p class="step-description">
+                    Your loan terms are calculated from the
+                    Jitume Leo Emergency Loan product.
+                </p>
+
+
+                <div
+                    id="firstLoanSection">
+
+                    <div class="calculation-box">
+
+                        <div class="calculation-row">
+
+                            <span>
+                                Principal
+                            </span>
+
+                            <strong id="principalDisplay">
+                                KSh 5,000
+                            </strong>
+
+                        </div>
+
+                        <div class="calculation-row">
+
+                            <span>
+                                Interest
+                            </span>
+
+                            <strong id="interestDisplay">
+                                KSh 1,000
+                            </strong>
+
+                        </div>
+
+                        <div class="calculation-row total">
+
+                            <span>
+                                Amount Due at Maturity
+                            </span>
+
+                            <strong id="maturityDisplay">
+                                KSh 6,000
+                            </strong>
+
+                        </div>
+
+                        <div class="calculation-row">
+
+                            <span>
+                                First Loan Processing Fee
+                            </span>
+
+                            <strong id="processingFeeDisplay">
+                                KSh 500
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="renewalSection"
+                    style="display:none;">
+
+                    <div class="calculation-box">
+
+                        <div class="calculation-row">
+
+                            <span>
+                                Outstanding Principal
+                            </span>
+
+                            <strong>
+                                KSh 5,000
+                            </strong>
+
+                        </div>
+
+                        <div class="calculation-row">
+
+                            <span>
+                                Interest
+                            </span>
+
+                            <strong id="renewalInterestDisplay">
+                                KSh 1,000
+                            </strong>
+
+                        </div>
+
+                        <div class="calculation-row total">
+
+                            <span>
+                                Renewal Fee
+                            </span>
+
+                            <strong id="renewalFeeDisplay">
+                                KSh 500
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="application-actions">
+
+                    <button
+                        class="secondary-action"
+                        id="step3Back">
+
+                        Back
+
+                    </button>
+
+                    <button
+                        class="primary-action"
+                        id="step3Next">
+
+                        Continue
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- STEP 4 -->
+
+            <section
+                class="step"
+                data-step="4">
+
+                <h2 class="step-title">
+                    Terms & Conditions
+                </h2>
+
+                <p class="step-description">
+                    Please read the proposed terms carefully.
+                </p>
+
+
+                <div class="terms-box">
+
+                    <p>
+                        By applying for a Jitume Leo emergency loan,
+                        the client acknowledges the following proposed
+                        terms for this prototype loan product:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Principal loan amount:
+                            <strong>KSh 5,000</strong>.
+                        </li>
+
+                        <li>
+                            Loan interest:
+                            <strong>KSh 1,000</strong>.
+                        </li>
+
+                        <li>
+                            The normal amount due at maturity is
+                            <strong>KSh 6,000</strong>.
+                        </li>
+
+                        <li>
+                            The first loan has a
+                            <strong>KSh 500 processing fee</strong>.
+                        </li>
+
+                        <li>
+                            A renewal carries a
+                            <strong>KSh 500 renewal fee</strong>
+                            and KSh 1,000 interest under the
+                            proposed prototype rules.
+                        </li>
+
+                        <li>
+                            A late repayment charge of
+                            <strong>KSh 100 per late day</strong>
+                            is part of the proposed prototype rule.
+                        </li>
+
+                        <li>
+                            The expected repayment date is the same
+                            calendar date in the following month,
+                            subject to the final agreement.
+                        </li>
+
+                        <li>
+                            Agent verification and final admin approval
+                            are required before disbursement.
+                        </li>
+
+                    </ul>
+
+                    <p>
+                        These terms are prototype business rules and
+                        must be reviewed and legally validated before
+                        real-world use.
+                    </p>
+
+                </div>
+
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        id="termsAccepted">
+
+                    I confirm that I have read and understood
+                    the proposed Jitume Leo loan terms.
+
                 </label>
 
-                <select
-                    id="agentSelect"
-                    required
-                    style="
-                        width:100%;
-                        height:48px;
-                        padding:0 14px;
-                        border:1px solid #d5dbe4;
-                        border-radius:7px;
-                        background:white;
-                    ">
 
-                    <option value="">
-                        Loading active agents...
-                    </option>
+                <div class="application-actions">
 
-                </select>
+                    <button
+                        class="secondary-action"
+                        id="step4Back">
 
-            </div>
+                        Back
 
+                    </button>
 
-            <!-- LOAN AMOUNT -->
+                    <button
+                        class="primary-action"
+                        id="step4Next">
 
-            <div class="form-group">
+                        Continue
 
-                <label for="loanAmount">
-                    Requested Loan Amount (KSh)
-                </label>
+                    </button>
 
-                <input
-                    type="number"
-                    id="loanAmount"
-                    min="1"
-                    step="1"
-                    placeholder="Enter amount"
-                    required>
+                </div>
 
-            </div>
+            </section>
 
 
-            <!-- PURPOSE -->
+            <!-- STEP 5 -->
 
-            <div class="form-group">
+            <section
+                class="step"
+                data-step="5">
 
-                <label for="loanPurpose">
-                    Purpose of Loan
-                </label>
+                <h2 class="step-title">
+                    Review Application
+                </h2>
 
-                <select
-                    id="loanPurpose"
-                    required
-                    style="
-                        width:100%;
-                        height:48px;
-                        padding:0 14px;
-                        border:1px solid #d5dbe4;
-                        border-radius:7px;
-                        background:white;
-                    ">
-
-                    <option value="">
-                        Select purpose
-                    </option>
-
-                    <option value="Emergency">
-                        Emergency
-                    </option>
-
-                    <option value="School">
-                        School
-                    </option>
-
-                    <option value="Medical">
-                        Medical
-                    </option>
-
-                    <option value="Business">
-                        Business
-                    </option>
-
-                    <option value="Other">
-                        Other
-                    </option>
-
-                </select>
-
-            </div>
+                <p class="step-description">
+                    Check everything before creating your
+                    official loan application.
+                </p>
 
 
-            <div
-                id="loanMessage"
-                class="form-message">
-            </div>
+                <div class="review-box">
 
 
-            <button
-                type="submit"
-                class="auth-submit">
+                    <div class="review-item">
 
-                Continue Application
+                        <small>
+                            Loan Type
+                        </small>
 
-            </button>
+                        <strong id="reviewLoanType">
+                            -
+                        </strong>
 
-        </form>
+                    </div>
 
 
-        <div class="auth-footer">
+                    <div class="review-item">
 
-            <p>
-                You will complete the remaining
-                application and document steps after
-                choosing your agent.
-            </p>
+                        <small>
+                            Agent
+                        </small>
+
+                        <strong id="reviewAgent">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="review-item">
+
+                        <small>
+                            Principal
+                        </small>
+
+                        <strong>
+                            KSh 5,000
+                        </strong>
+
+                    </div>
+
+
+                    <div class="review-item">
+
+                        <small>
+                            Interest
+                        </small>
+
+                        <strong id="reviewInterest">
+                            KSh 1,000
+                        </strong>
+
+                    </div>
+
+
+                    <div class="review-item">
+
+                        <small>
+                            Maturity Amount
+                        </small>
+
+                        <strong id="reviewMaturity">
+                            KSh 6,000
+                        </strong>
+
+                    </div>
+
+
+                    <div class="review-item">
+
+                        <small>
+                            Fee
+                        </small>
+
+                        <strong id="reviewFee">
+                            KSh 500
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="agreement-box">
+
+                    Your application will first be saved as
+                    <strong>APPLICATION_SUBMITTED</strong>.
+                    You will then continue to the agreement,
+                    signing and document-upload process before
+                    the application can be verified by your agent.
+
+                </div>
+
+
+                <div
+                    id="applicationMessage"
+                    class="application-message">
+                </div>
+
+
+                <div class="application-actions">
+
+                    <button
+                        class="secondary-action"
+                        id="step5Back">
+
+                        Back
+
+                    </button>
+
+                    <button
+                        class="primary-action"
+                        id="submitApplication">
+
+                        Submit Application
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- STEP 6 -->
+
+            <section
+                class="step"
+                data-step="6">
+
+                <h2 class="step-title">
+                    Application Submitted
+                </h2>
+
+                <p class="step-description">
+                    Your first application stage has been completed.
+                </p>
+
+
+                <div class="calculation-box">
+
+                    <div class="calculation-row">
+
+                        <span>
+                            Application ID
+                        </span>
+
+                        <strong
+                            id="applicationIdDisplay">
+
+                            -
+
+                        </strong>
+
+                    </div>
+
+                    <div class="calculation-row">
+
+                        <span>
+                            Status
+                        </span>
+
+                        <strong>
+                            APPLICATION SUBMITTED
+                        </strong>
+
+                    </div>
+
+                    <div class="calculation-row">
+
+                        <span>
+                            Selected Agent
+                        </span>
+
+                        <strong
+                            id="finalAgentDisplay">
+
+                            -
+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="agreement-box">
+
+                    <strong>Next step:</strong>
+
+                    Download your Jitume Leo agreement,
+                    have the required parties sign it,
+                    and upload the signed agreement and
+                    required documents.
+
+                </div>
+
+
+                <div class="application-actions">
+
+                    <button
+                        class="primary-action"
+                        onclick="window.location.href='client.html'">
+
+                        Return to Dashboard
+
+                    </button>
+
+                </div>
+
+            </section>
+
 
         </div>
 
@@ -220,6 +1035,8 @@ import {
     query,
     where,
     getDocs,
+    getDoc,
+    doc,
     addDoc,
     serverTimestamp
 }
@@ -235,28 +1052,27 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 
-const agentSelect =
-    document.getElementById(
-        "agentSelect"
-    );
-
-const loanForm =
-    document.getElementById(
-        "loanForm"
-    );
-
-const loanMessage =
-    document.getElementById(
-        "loanMessage"
-    );
-
-const logoutButton =
-    document.getElementById(
-        "logoutButton"
-    );
-
-
 let currentUser = null;
+
+let currentStep = 1;
+
+let selectedAgent = null;
+
+let loanProduct = null;
+
+let selectedLoanType = "first";
+
+
+const steps =
+    document.querySelectorAll(
+        ".step"
+    );
+
+
+const progressSteps =
+    document.querySelectorAll(
+        ".progress-step"
+    );
 
 
 /* ==========================================
@@ -279,10 +1095,118 @@ onAuthStateChanged(
 
         currentUser = user;
 
+
+        await loadLoanProduct();
+
         await loadActiveAgents();
+
+        updateLoanTypeUI();
+
+        updateStepUI();
 
     }
 );
+
+
+/* ==========================================
+   LOAD LOAN PRODUCT
+========================================== */
+
+async function loadLoanProduct() {
+
+    try {
+
+        const productDocument =
+            await getDoc(
+                doc(
+                    db,
+                    "loanProducts",
+                    "emergency-loan"
+                )
+            );
+
+
+        if (
+            !productDocument.exists()
+        ) {
+
+            showGlobalError(
+                "Emergency Loan product was not found."
+            );
+
+            return;
+
+        }
+
+
+        loanProduct =
+            productDocument.data();
+
+
+        document.getElementById(
+            "principalDisplay"
+        ).textContent =
+            formatCurrency(
+                loanProduct.minimumAmount
+            );
+
+
+        document.getElementById(
+            "interestDisplay"
+        ).textContent =
+            formatCurrency(
+                loanProduct.interestAmount
+            );
+
+
+        document.getElementById(
+            "maturityDisplay"
+        ).textContent =
+            formatCurrency(
+                loanProduct.minimumAmount +
+                loanProduct.interestAmount
+            );
+
+
+        document.getElementById(
+            "processingFeeDisplay"
+        ).textContent =
+            formatCurrency(
+                loanProduct.firstLoanProcessingFee
+            );
+
+
+        document.getElementById(
+            "renewalInterestDisplay"
+        ).textContent =
+            formatCurrency(
+                loanProduct.interestAmount
+            );
+
+
+        document.getElementById(
+            "renewalFeeDisplay"
+        ).textContent =
+            formatCurrency(
+                loanProduct.renewalFee
+            );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Loan product error:",
+            error
+        );
+
+        showGlobalError(
+            "Unable to load loan product."
+        );
+
+    }
+
+}
 
 
 /* ==========================================
@@ -290,6 +1214,12 @@ onAuthStateChanged(
 ========================================== */
 
 async function loadActiveAgents() {
+
+    const agentGrid =
+        document.getElementById(
+            "agentGrid"
+        );
+
 
     try {
 
@@ -320,20 +1250,18 @@ async function loadActiveAgents() {
             );
 
 
-        agentSelect.innerHTML =
-            `<option value="">
-                Select an agent
-            </option>`;
+        agentGrid.innerHTML =
+            "";
 
 
         if (
             agentsSnapshot.empty
         ) {
 
-            agentSelect.innerHTML =
-                `<option value="">
-                    No active agents available
-                </option>`;
+            agentGrid.innerHTML =
+                `<p>
+                    No active agents are currently available.
+                </p>`;
 
             return;
 
@@ -347,22 +1275,127 @@ async function loadActiveAgents() {
                     agentDocument.data();
 
 
-                const option =
+                const card =
                     document.createElement(
-                        "option"
+                        "div"
                     );
 
 
-                option.value =
-                    agentDocument.id;
+                card.className =
+                    "agent-card";
 
 
-                option.textContent =
-                    `${agent.fullName || "Agent"} — ${agent.location || "Location not provided"} — ${agent.agentCode || "No code"}`;
+                card.innerHTML = `
+
+                    <h3>
+                        ${escapeHTML(
+                            agent.fullName ||
+                            "Jitume Agent"
+                        )}
+                    </h3>
+
+                    <p>
+                        Agent Code:
+                        ${escapeHTML(
+                            agent.agentCode ||
+                            "-"
+                        )}
+                        <br>
+
+                        Location:
+                        ${escapeHTML(
+                            agent.location ||
+                            "-"
+                        )}
+                        <br>
+
+                        Phone:
+                        ${escapeHTML(
+                            agent.phone ||
+                            "-"
+                        )}
+                    </p>
+
+                `;
 
 
-                agentSelect.appendChild(
-                    option
+                card.addEventListener(
+                    "click",
+                    () => {
+
+                        document
+                            .querySelectorAll(
+                                ".agent-card"
+                            )
+                            .forEach(
+                                item =>
+                                    item.classList
+                                        .remove(
+                                            "selected"
+                                        )
+                            );
+
+
+                        card.classList.add(
+                            "selected"
+                        );
+
+
+                        selectedAgent = {
+
+                            id:
+                                agentDocument.id,
+
+                            ...agent
+
+                        };
+
+
+                        const summary =
+                            document.getElementById(
+                                "agentSummary"
+                            );
+
+
+                        summary.style.display =
+                            "block";
+
+
+                        summary.innerHTML = `
+
+                            <strong>
+                                Selected Agent:
+                            </strong>
+
+                            ${escapeHTML(
+                                selectedAgent.fullName ||
+                                "Agent"
+                            )}
+
+                            <br>
+
+                            Code:
+                            ${escapeHTML(
+                                selectedAgent.agentCode ||
+                                "-"
+                            )}
+
+                            <br>
+
+                            Location:
+                            ${escapeHTML(
+                                selectedAgent.location ||
+                                "-"
+                            )}
+
+                        `;
+
+                    }
+                );
+
+
+                agentGrid.appendChild(
+                    card
                 );
 
             }
@@ -373,15 +1406,15 @@ async function loadActiveAgents() {
     catch (error) {
 
         console.error(
-            "Error loading agents:",
+            "Agent loading error:",
             error
         );
 
 
-        agentSelect.innerHTML =
-            `<option value="">
-                Unable to load agents
-            </option>`;
+        agentGrid.innerHTML =
+            `<p>
+                Unable to load active agents.
+            </p>`;
 
     }
 
@@ -389,120 +1422,516 @@ async function loadActiveAgents() {
 
 
 /* ==========================================
-   SUBMIT APPLICATION
+   LOAN TYPE
 ========================================== */
 
-loanForm.addEventListener(
-    "submit",
-    async (event) => {
+document
+    .querySelectorAll(
+        'input[name="loanType"]'
+    )
+    .forEach(
+        radio => {
 
-        event.preventDefault();
+            radio.addEventListener(
+                "change",
+                () => {
 
+                    selectedLoanType =
+                        radio.value;
 
-        if (!currentUser) {
+                    updateLoanTypeUI();
 
-            return;
+                }
+            );
 
         }
+    );
 
 
-        const agentId =
-            agentSelect.value;
+function updateLoanTypeUI() {
+
+    const firstSection =
+        document.getElementById(
+            "firstLoanSection"
+        );
+
+    const renewalSection =
+        document.getElementById(
+            "renewalSection"
+        );
 
 
-        const loanAmount =
-            Number(
+    if (
+        selectedLoanType ===
+        "renewal"
+    ) {
+
+        firstSection.style.display =
+            "none";
+
+        renewalSection.style.display =
+            "block";
+
+    }
+
+    else {
+
+        firstSection.style.display =
+            "block";
+
+        renewalSection.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* ==========================================
+   STEP NAVIGATION
+========================================== */
+
+function goToStep(
+    stepNumber
+) {
+
+    currentStep =
+        stepNumber;
+
+
+    updateStepUI();
+
+}
+
+
+function updateStepUI() {
+
+    steps.forEach(
+        step => {
+
+            const number =
+                Number(
+                    step.dataset.step
+                );
+
+
+            step.classList.toggle(
+                "active",
+                number === currentStep
+            );
+
+        }
+    );
+
+
+    progressSteps.forEach(
+        (step, index) => {
+
+            step.classList.toggle(
+                "active",
+                index <
+                currentStep
+            );
+
+        }
+    );
+
+
+    if (
+        currentStep === 5
+    ) {
+
+        updateReview();
+
+    }
+
+}
+
+
+/* ==========================================
+   STEP 1
+========================================== */
+
+document
+    .getElementById(
+        "step1Next"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            goToStep(2);
+
+        }
+    );
+
+
+/* ==========================================
+   STEP 2
+========================================== */
+
+document
+    .getElementById(
+        "step2Back"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            goToStep(1);
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "step2Next"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            if (!selectedAgent) {
+
+                showMessage(
+                    "Please select an active agent before continuing."
+                );
+
+                return;
+
+            }
+
+
+            goToStep(3);
+
+        }
+    );
+
+
+/* ==========================================
+   STEP 3
+========================================== */
+
+document
+    .getElementById(
+        "step3Back"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            goToStep(2);
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "step3Next"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            if (!loanProduct) {
+
+                showMessage(
+                    "Loan product information is not available."
+                );
+
+                return;
+
+            }
+
+
+            goToStep(4);
+
+        }
+    );
+
+
+/* ==========================================
+   STEP 4
+========================================== */
+
+document
+    .getElementById(
+        "step4Back"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            goToStep(3);
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "step4Next"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            const accepted =
                 document.getElementById(
-                    "loanAmount"
-                ).value
-            );
+                    "termsAccepted"
+                ).checked;
 
 
-        const purpose =
-            document.getElementById(
-                "loanPurpose"
-            ).value;
+            if (!accepted) {
+
+                showMessage(
+                    "You must confirm that you have read and understood the terms."
+                );
+
+                return;
+
+            }
 
 
-        loanMessage.textContent =
-            "";
-
-
-        if (!agentId) {
-
-            loanMessage.textContent =
-                "Please select an agent.";
-
-            loanMessage.classList.add(
-                "error"
-            );
-
-            return;
+            goToStep(5);
 
         }
+    );
 
 
-        if (
-            !loanAmount ||
-            loanAmount <= 0
-        ) {
+/* ==========================================
+   STEP 5
+========================================== */
 
-            loanMessage.textContent =
-                "Please enter a valid loan amount.";
+document
+    .getElementById(
+        "step5Back"
+    )
+    .addEventListener(
+        "click",
+        () => {
 
-            loanMessage.classList.add(
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if (!purpose) {
-
-            loanMessage.textContent =
-                "Please select the purpose of the loan.";
-
-            loanMessage.classList.add(
-                "error"
-            );
-
-            return;
+            goToStep(4);
 
         }
+    );
 
 
-        try {
+function updateReview() {
 
-            const selectedAgent =
-                agentSelect
-                    .options[
-                        agentSelect
-                            .selectedIndex
-                    ];
+    const loanTypeText =
+        selectedLoanType ===
+        "renewal"
+            ? "Loan Renewal"
+            : "First Loan";
 
 
-            const application =
-                {
+    document.getElementById(
+        "reviewLoanType"
+    ).textContent =
+        loanTypeText;
+
+
+    document.getElementById(
+        "reviewAgent"
+    ).textContent =
+        selectedAgent
+            ? selectedAgent.fullName
+            : "-";
+
+
+    if (
+        selectedLoanType ===
+        "renewal"
+    ) {
+
+        document.getElementById(
+            "reviewInterest"
+        ).textContent =
+            formatCurrency(
+                loanProduct.interestAmount
+            );
+
+
+        document.getElementById(
+            "reviewMaturity"
+        ).textContent =
+            "Renewal"
+
+
+        document.getElementById(
+            "reviewFee"
+        ).textContent =
+            formatCurrency(
+                loanProduct.renewalFee
+            );
+
+    }
+
+    else {
+
+        document.getElementById(
+            "reviewInterest"
+        ).textContent =
+            formatCurrency(
+                loanProduct.interestAmount
+            );
+
+
+        document.getElementById(
+            "reviewMaturity"
+        ).textContent =
+            formatCurrency(
+                loanProduct.minimumAmount +
+                loanProduct.interestAmount
+            );
+
+
+        document.getElementById(
+            "reviewFee"
+        ).textContent =
+            formatCurrency(
+                loanProduct.firstLoanProcessingFee
+            );
+
+    }
+
+}
+
+
+/* ==========================================
+   CREATE APPLICATION
+========================================== */
+
+document
+    .getElementById(
+        "submitApplication"
+    )
+    .addEventListener(
+        "click",
+        async () => {
+
+            const button =
+                document.getElementById(
+                    "submitApplication"
+                );
+
+
+            const message =
+                document.getElementById(
+                    "applicationMessage"
+                );
+
+
+            if (
+                !currentUser ||
+                !loanProduct ||
+                !selectedAgent
+            ) {
+
+                message.textContent =
+                    "Some application information is missing.";
+
+                message.className =
+                    "application-message error-message";
+
+                return;
+
+            }
+
+
+            button.disabled =
+                true;
+
+            button.textContent =
+                "Submitting...";
+
+
+            try {
+
+                const loanAmount =
+                    Number(
+                        loanProduct.minimumAmount
+                    );
+
+
+                const interest =
+                    Number(
+                        loanProduct.interestAmount
+                    );
+
+
+                const maturityAmount =
+                    loanAmount +
+                    interest;
+
+
+                const fee =
+                    selectedLoanType ===
+                    "renewal"
+                        ? Number(
+                            loanProduct.renewalFee
+                        )
+                        : Number(
+                            loanProduct.firstLoanProcessingFee
+                        );
+
+
+                const applicationData = {
 
                     customerId:
                         currentUser.uid,
 
                     agentId:
-                        agentId,
+                        selectedAgent.id,
 
                     agentName:
-                        selectedAgent.textContent,
+                        selectedAgent.fullName,
 
-                    amount:
+                    loanProductId:
+                        "emergency-loan",
+
+                    loanProductName:
+                        loanProduct.name,
+
+                    loanType:
+                        selectedLoanType,
+
+                    requestedAmount:
                         loanAmount,
 
+                    approvedAmount:
+                        null,
+
+                    interestAmount:
+                        interest,
+
+                    processingOrRenewalFee:
+                        fee,
+
+                    totalMaturityAmount:
+                        maturityAmount,
+
+                    lateFeePerDay:
+                        Number(
+                            loanProduct.lateFeePerDay
+                        ),
+
+                    repaymentPeriodDays:
+                        Number(
+                            loanProduct.repaymentPeriodDays
+                        ),
+
                     purpose:
-                        purpose,
+                        "Emergency Loan",
+
+                    termsAccepted:
+                        true,
 
                     status:
-                        "submitted",
+                        "APPLICATION_SUBMITTED",
 
                     createdAt:
                         serverTimestamp(),
@@ -513,78 +1942,70 @@ loanForm.addEventListener(
                 };
 
 
-            const applicationReference =
-                await addDoc(
-                    collection(
-                        db,
-                        "loanApplications"
-                    ),
-                    application
+                const applicationReference =
+                    await addDoc(
+                        collection(
+                            db,
+                            "loanApplications"
+                        ),
+                        applicationData
+                    );
+
+
+                document.getElementById(
+                    "applicationIdDisplay"
+                ).textContent =
+                    applicationReference.id;
+
+
+                document.getElementById(
+                    "finalAgentDisplay"
+                ).textContent =
+                    selectedAgent.fullName;
+
+
+                goToStep(6);
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Application submission error:",
+                    error
                 );
 
 
-            loanMessage.textContent =
-                "Application started successfully. Preparing the next step...";
+                message.textContent =
+                    "The application could not be submitted. Please try again.";
 
-            loanMessage.classList.remove(
-                "error"
-            );
-
-            loanMessage.classList.add(
-                "success"
-            );
+                message.className =
+                    "application-message error-message";
 
 
-            /*
-             * We'll create the full application,
-             * downloadable form and document-upload
-             * pages next.
-             */
+                button.disabled =
+                    false;
 
+                button.textContent =
+                    "Submit Application";
 
-            setTimeout(
-                () => {
-
-                    window.location.href =
-                        "client.html";
-
-                },
-                1500
-            );
-
+            }
 
         }
-
-        catch (error) {
-
-            console.error(
-                "Application error:",
-                error
-            );
-
-
-            loanMessage.textContent =
-                "Unable to start the application. Please try again.";
-
-            loanMessage.classList.add(
-                "error"
-            );
-
-        }
-
-    }
-);
+    );
 
 
 /* ==========================================
    LOGOUT
 ========================================== */
 
-logoutButton.addEventListener(
-    "click",
-    async () => {
-
-        try {
+document
+    .getElementById(
+        "logoutButton"
+    )
+    .addEventListener(
+        "click",
+        async () => {
 
             await signOut(auth);
 
@@ -592,18 +2013,110 @@ logoutButton.addEventListener(
                 "login.html";
 
         }
+    );
 
-        catch (error) {
 
-            console.error(
-                "Logout error:",
-                error
+/* ==========================================
+   HELPERS
+========================================== */
+
+function formatCurrency(
+    amount
+) {
+
+    return "KSh " +
+        Number(amount).toLocaleString(
+            "en-KE"
+        );
+
+}
+
+
+function showMessage(
+    text
+) {
+
+    let message =
+        document.getElementById(
+            "navigationMessage"
+        );
+
+
+    if (!message) {
+
+        message =
+            document.createElement(
+                "div"
             );
 
-        }
+
+        message.id =
+            "navigationMessage";
+
+
+        message.className =
+            "application-message error-message";
+
+
+        document
+            .querySelector(
+                ".application-card"
+            )
+            .prepend(
+                message
+            );
 
     }
-);
+
+
+    message.textContent =
+        text;
+
+}
+
+
+function showGlobalError(
+    text
+) {
+
+    const applicationCard =
+        document.querySelector(
+            ".application-card"
+        );
+
+
+    applicationCard.innerHTML =
+        `
+
+        <div
+            class="application-message error-message">
+
+            ${escapeHTML(text)}
+
+        </div>
+
+        `;
+
+}
+
+
+function escapeHTML(
+    value
+) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        String(value);
+
+
+    return div.innerHTML;
+
+}
 
 </script>
 
