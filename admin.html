@@ -10,278 +10,11 @@
 
     <title>Admin Dashboard | Jitume Leo</title>
 
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #1f2937;
-        }
-
-        .navbar {
-            background: #0f172a;
-            color: white;
-            padding: 18px 6%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #22c55e;
-        }
-
-        .navbar nav {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .navbar nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .navbar nav a:hover {
-            color: #22c55e;
-        }
-
-        button {
-            cursor: pointer;
-            border: none;
-        }
-
-        .logout-btn {
-            background: #ef4444;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 7px;
-            font-weight: bold;
-        }
-
-        .logout-btn:hover {
-            background: #dc2626;
-        }
-
-        .dashboard-page {
-            max-width: 1200px;
-            margin: auto;
-            padding: 50px 6%;
-        }
-
-        .small-heading {
-            color: #16a34a;
-            font-weight: bold;
-            font-size: 13px;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-
-        .dashboard-header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
-        .dashboard-header p {
-            color: #64748b;
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(250px, 1fr)
-            );
-            gap: 22px;
-            margin-top: 35px;
-        }
-
-        .dashboard-card {
-            background: white;
-            border-radius: 14px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-        }
-
-        .dashboard-card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 18px;
-        }
-
-        .dashboard-card-top span:first-child {
-            font-size: 12px;
-            font-weight: bold;
-            color: #64748b;
-        }
-
-        .dashboard-icon {
-            background: #dcfce7;
-            color: #15803d;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-weight: bold;
-        }
-
-        .dashboard-card h2 {
-            margin-bottom: 10px;
-        }
-
-        .dashboard-card p {
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .dashboard-link {
-            background: #16a34a;
-            color: white;
-            border: none;
-            padding: 11px 17px;
-            border-radius: 7px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .dashboard-link:hover {
-            background: #15803d;
-        }
-
-        .status-section {
-            margin-top: 45px;
-        }
-
-        .status-header {
-            margin-bottom: 20px;
-        }
-
-        .status-header h2 {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .form-section {
-            display: none;
-            margin-top: 35px;
-        }
-
-        .form-card {
-            background: white;
-            border-radius: 14px;
-            padding: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-            max-width: 700px;
-        }
-
-        .form-card h2 {
-            margin-bottom: 8px;
-        }
-
-        .form-card > p {
-            color: #64748b;
-            margin-bottom: 25px;
-        }
-
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 7px;
-            font-weight: bold;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #cbd5e1;
-            border-radius: 7px;
-            font-size: 15px;
-            outline: none;
-        }
-
-        .form-group input:focus {
-            border-color: #16a34a;
-        }
-
-        .form-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .cancel-btn {
-            background: #64748b;
-            color: white;
-            padding: 11px 17px;
-            border-radius: 7px;
-            font-weight: bold;
-        }
-
-        .cancel-btn:hover {
-            background: #475569;
-        }
-
-        .message {
-            padding: 12px;
-            border-radius: 7px;
-            margin-top: 15px;
-            display: none;
-        }
-
-        .success {
-            background: #dcfce7;
-            color: #166534;
-        }
-
-        .error {
-            background: #fee2e2;
-            color: #991b1b;
-        }
-
-        @media (max-width: 700px) {
-
-            .dashboard-header h1 {
-                font-size: 28px;
-            }
-
-            .navbar {
-                padding: 15px 4%;
-            }
-
-            .dashboard-page {
-                padding: 35px 4%;
-            }
-
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     NAVIGATION
-========================= -->
 
 <header class="navbar">
 
@@ -289,83 +22,54 @@
         JITUME <span>LEO</span>
     </div>
 
-
     <nav>
-
-        <a href="admin.html">
-            Dashboard
-        </a>
-
-        <a href="#applications">
-            Applications
-        </a>
-
-        <a href="#agents">
-            Agents
-        </a>
-
-        <a href="#clients">
-            Clients
-        </a>
-
+        <a href="admin.html">Dashboard</a>
+        <a href="#applications">Applications</a>
+        <a href="#agents">Agents</a>
+        <a href="#clients">Clients</a>
     </nav>
 
-
-    <button
-        id="logoutButton"
-        class="logout-btn">
-
-        Logout
-
-    </button>
+    <div class="nav-buttons">
+        <button id="logoutButton" class="register-btn">
+            Logout
+        </button>
+    </div>
 
 </header>
 
 
-
-<!-- =========================
-     MAIN DASHBOARD
-========================= -->
-
 <main class="dashboard-page">
-
-
-    <!-- HEADER -->
 
     <section class="dashboard-header">
 
-        <p class="small-heading">
-            ADMINISTRATOR
-        </p>
+        <div>
 
-        <h1>
-            Welcome,
-            <span id="adminName">
-                Administrator
-            </span>
-        </h1>
+            <p class="small-heading">
+                ADMINISTRATOR
+            </p>
 
-        <p>
-            Manage Jitume Leo loan operations,
-            agents, clients and applications.
-        </p>
+            <h1>
+                Welcome,
+                <span id="adminName">
+                    Administrator
+                </span>
+            </h1>
+
+            <p>
+                Manage Jitume Leo loan operations,
+                agents, clients and applications.
+            </p>
+
+        </div>
 
     </section>
 
 
-
-    <!-- =========================
-         STATISTICS
-    ========================= -->
+    <!-- STATISTICS -->
 
     <section class="dashboard-grid">
 
-
-        <!-- APPLICATIONS -->
-
-        <div
-            class="dashboard-card"
-            id="applications">
+        <div class="dashboard-card">
 
             <div class="dashboard-card-top">
 
@@ -384,31 +88,19 @@
             </h2>
 
             <p>
-                Loan applications received
-                for administrative review.
+                Loan applications received for
+                administrative review.
             </p>
-
-            <button
-                class="dashboard-link">
-
-                View Applications →
-
-            </button>
 
         </div>
 
 
-
-        <!-- AGENTS -->
-
-        <div
-            class="dashboard-card"
-            id="agents">
+        <div class="dashboard-card">
 
             <div class="dashboard-card-top">
 
                 <span>
-                    AGENTS
+                    ACTIVE AGENTS
                 </span>
 
                 <span class="dashboard-icon">
@@ -422,26 +114,13 @@
             </h2>
 
             <p>
-                Registered and active Jitume Leo
-                loan agents.
+                Active Jitume Leo agents.
             </p>
-
-            <button
-                class="dashboard-link">
-
-                Manage Agents →
-
-            </button>
 
         </div>
 
 
-
-        <!-- CLIENTS -->
-
-        <div
-            class="dashboard-card"
-            id="clients">
+        <div class="dashboard-card">
 
             <div class="dashboard-card-top">
 
@@ -460,153 +139,17 @@
             </h2>
 
             <p>
-                Clients registered on the
-                Jitume Leo platform.
+                Clients registered on Jitume Leo.
             </p>
-
-            <button
-                class="dashboard-link">
-
-                View Clients →
-
-            </button>
 
         </div>
 
     </section>
 
 
+    <!-- PENDING AGENTS -->
 
-    <!-- =========================
-         QUICK ACTIONS
-    ========================= -->
-
-    <section class="status-section">
-
-        <div class="status-header">
-
-            <p class="small-heading">
-                ADMINISTRATION
-            </p>
-
-            <h2>
-                Quick Actions
-            </h2>
-
-        </div>
-
-
-        <div class="dashboard-grid">
-
-
-            <!-- ADD AGENT -->
-
-            <div class="dashboard-card">
-
-                <div class="dashboard-card-top">
-
-                    <span>
-                        AGENT MANAGEMENT
-                    </span>
-
-                </div>
-
-                <h2>
-                    Add Agent
-                </h2>
-
-                <p>
-                    Add a new Jitume Leo agent
-                    to the system.
-                </p>
-
-                <button
-                    id="showAgentForm"
-                    class="dashboard-link">
-
-                    Add New Agent →
-
-                </button>
-
-            </div>
-
-
-
-            <!-- LOAN REVIEW -->
-
-            <div class="dashboard-card">
-
-                <div class="dashboard-card-top">
-
-                    <span>
-                        LOAN REVIEW
-                    </span>
-
-                </div>
-
-                <h2>
-                    Review Applications
-                </h2>
-
-                <p>
-                    Review applications verified
-                    by agents.
-                </p>
-
-                <button
-                    class="dashboard-link">
-
-                    Review Loans →
-
-                </button>
-
-            </div>
-
-
-
-            <!-- PRODUCTS -->
-
-            <div class="dashboard-card">
-
-                <div class="dashboard-card-top">
-
-                    <span>
-                        SETTINGS
-                    </span>
-
-                </div>
-
-                <h2>
-                    Loan Products
-                </h2>
-
-                <p>
-                    Manage emergency loan products,
-                    fees and repayment settings.
-                </p>
-
-                <button
-                    class="dashboard-link">
-
-                    Manage Products →
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         ADD AGENT FORM
-    ========================= -->
-
-    <section
-        id="agentFormSection"
-        class="form-section">
+    <section class="status-section" id="agents">
 
         <div class="status-header">
 
@@ -615,252 +158,178 @@
             </p>
 
             <h2>
-                Add New Agent
+                Pending Agents
             </h2>
+
+            <p>
+                Review and activate agents before
+                they can verify client applications.
+            </p>
 
         </div>
 
 
-        <div class="form-card">
+        <div id="pendingAgentsContainer">
 
-            <h2>
-                Agent Information
-            </h2>
+            <div class="dashboard-card">
 
-            <p>
-                Enter the details of the new
-                Jitume Leo agent.
-            </p>
+                Loading agents...
 
-
-            <form id="agentForm">
-
-
-                <!-- FULL NAME -->
-
-                <div class="form-group">
-
-                    <label for="agentName">
-                        Full Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="agentName"
-                        placeholder="Enter agent full name"
-                        required>
-
-                </div>
-
-
-
-                <!-- EMAIL -->
-
-                <div class="form-group">
-
-                    <label for="agentEmail">
-                        Email Address
-                    </label>
-
-                    <input
-                        type="email"
-                        id="agentEmail"
-                        placeholder="agent@example.com"
-                        required>
-
-                </div>
-
-
-
-                <!-- PHONE -->
-
-                <div class="form-group">
-
-                    <label for="agentPhone">
-                        Phone Number
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="agentPhone"
-                        placeholder="07XXXXXXXX"
-                        required>
-
-                </div>
-
-
-
-                <!-- ID -->
-
-                <div class="form-group">
-
-                    <label for="agentIdNumber">
-                        National ID Number
-                    </label>
-
-                    <input
-                        type="text"
-                        id="agentIdNumber"
-                        placeholder="Enter national ID number"
-                        required>
-
-                </div>
-
-
-
-                <!-- AGENT CODE -->
-
-                <div class="form-group">
-
-                    <label for="agentCode">
-                        Agent Code
-                    </label>
-
-                    <input
-                        type="text"
-                        id="agentCode"
-                        placeholder="Example: JTL-001"
-                        required>
-
-                </div>
-
-
-
-                <!-- LOCATION -->
-
-                <div class="form-group">
-
-                    <label for="agentLocation">
-                        Branch / Location
-                    </label>
-
-                    <input
-                        type="text"
-                        id="agentLocation"
-                        placeholder="Enter agent location"
-                        required>
-
-                </div>
-
-
-
-                <!-- MESSAGE -->
-
-                <div
-                    id="agentFormMessage"
-                    class="message">
-                </div>
-
-
-
-                <!-- BUTTONS -->
-
-                <div class="form-actions">
-
-                    <button
-                        type="submit"
-                        class="dashboard-link">
-
-                        Add Agent
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        id="cancelAgentForm"
-                        class="cancel-btn">
-
-                        Cancel
-
-                    </button>
-
-                </div>
-
-            </form>
+            </div>
 
         </div>
 
     </section>
 
 
+    <!-- ALL AGENTS -->
+
+    <section class="status-section">
+
+        <div class="status-header">
+
+            <p class="small-heading">
+                AGENTS
+            </p>
+
+            <h2>
+                Agent List
+            </h2>
+
+        </div>
+
+
+        <div id="allAgentsContainer">
+
+            <div class="dashboard-card">
+
+                Loading agents...
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FUTURE APPLICATIONS -->
+
+    <section
+        class="status-section"
+        id="applications">
+
+        <div class="status-header">
+
+            <p class="small-heading">
+                LOAN MANAGEMENT
+            </p>
+
+            <h2>
+                Applications
+            </h2>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            Loan applications will appear here
+            after clients begin submitting them.
+
+        </div>
+
+    </section>
+
 </main>
 
 
-
-<!-- =========================
-     FIREBASE
-========================= -->
-
 <script type="module">
 
-    import {
-        getAuth,
-        onAuthStateChanged,
-        signOut
-    } from
-    "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+} from
+"https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
 
-    import {
-        getFirestore,
-        doc,
-        getDoc,
-        collection,
-        getDocs
-    } from
-    "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    collection,
+    getDocs,
+    updateDoc,
+    serverTimestamp
+} from
+"https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
-    import { app } from "./firebase.js";
+import { app } from "./firebase.js";
 
 
-    /* =========================
-       FIREBASE INITIALIZATION
-    ========================= */
+const auth = getAuth(app);
 
-    const auth = getAuth(app);
-
-    const db = getFirestore(app);
+const db = getFirestore(app);
 
 
+const adminName =
+    document.getElementById("adminName");
 
-    /* =========================
-       ELEMENTS
-    ========================= */
+const logoutButton =
+    document.getElementById("logoutButton");
 
-    const adminName =
-        document.getElementById("adminName");
+const pendingAgentsContainer =
+    document.getElementById(
+        "pendingAgentsContainer"
+    );
 
-    const logoutButton =
-        document.getElementById("logoutButton");
-
-    const showAgentForm =
-        document.getElementById("showAgentForm");
-
-    const cancelAgentForm =
-        document.getElementById("cancelAgentForm");
-
-    const agentFormSection =
-        document.getElementById("agentFormSection");
-
-    const agentForm =
-        document.getElementById("agentForm");
-
-    const agentFormMessage =
-        document.getElementById("agentFormMessage");
+const allAgentsContainer =
+    document.getElementById(
+        "allAgentsContainer"
+    );
 
 
+let currentAdminUID = null;
 
-    /* =========================
-       ADMIN AUTHENTICATION
-    ========================= */
 
-    onAuthStateChanged(
-        auth,
-        async (user) => {
+/* =========================================
+   ADMIN AUTHENTICATION
+========================================= */
 
-            if (!user) {
+onAuthStateChanged(
+    auth,
+    async (user) => {
+
+        if (!user) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        try {
+
+            const adminDocument =
+                await getDoc(
+                    doc(
+                        db,
+                        "users",
+                        user.uid
+                    )
+                );
+
+
+            if (!adminDocument.exists()) {
+
+                alert(
+                    "Account profile not found."
+                );
+
+                await signOut(auth);
 
                 window.location.href =
                     "login.html";
@@ -870,399 +339,649 @@
             }
 
 
-            try {
-
-                const userDocument =
-                    await getDoc(
-                        doc(
-                            db,
-                            "users",
-                            user.uid
-                        )
-                    );
-
-
-                if (!userDocument.exists()) {
-
-                    alert(
-                        "Account profile not found."
-                    );
-
-                    await signOut(auth);
-
-                    window.location.href =
-                        "login.html";
-
-                    return;
-
-                }
-
-
-                const userData =
-                    userDocument.data();
-
-
-                /* =========================
-                   CHECK ADMIN ROLE
-                ========================= */
-
-                if (
-                    userData.role !==
-                    "admin"
-                ) {
-
-                    alert(
-                        "Access denied. Administrator account required."
-                    );
-
-                    await signOut(auth);
-
-                    window.location.href =
-                        "login.html";
-
-                    return;
-
-                }
-
-
-                /* =========================
-                   DISPLAY ADMIN NAME
-                ========================= */
-
-                adminName.textContent =
-                    userData.fullName ||
-                    "Administrator";
-
-
-                /* =========================
-                   LOAD USER COUNTS
-                ========================= */
-
-                try {
-
-                    const usersSnapshot =
-                        await getDocs(
-                            collection(
-                                db,
-                                "users"
-                            )
-                        );
-
-
-                    let clients = 0;
-
-                    let agents = 0;
-
-
-                    usersSnapshot.forEach(
-                        (document) => {
-
-                            const data =
-                                document.data();
-
-
-                            if (
-                                data.role ===
-                                "client"
-                            ) {
-
-                                clients++;
-
-                            }
-
-
-                            if (
-                                data.role ===
-                                "agent"
-                            ) {
-
-                                agents++;
-
-                            }
-
-                        }
-                    );
-
-
-                    document.getElementById(
-                        "clientCount"
-                    ).textContent = clients;
-
-
-                    document.getElementById(
-                        "agentCount"
-                    ).textContent = agents;
-
-                } catch (error) {
-
-                    console.log(
-                        "Could not load user statistics:",
-                        error
-                    );
-
-                }
-
-
-                /* =========================
-                   LOAD APPLICATION COUNT
-                ========================= */
-
-                try {
-
-                    const applicationsSnapshot =
-                        await getDocs(
-                            collection(
-                                db,
-                                "loanApplications"
-                            )
-                        );
-
-
-                    document.getElementById(
-                        "applicationCount"
-                    ).textContent =
-                        applicationsSnapshot.size;
-
-                } catch (error) {
-
-                    console.log(
-                        "Could not load application statistics:",
-                        error
-                    );
-
-                }
-
-            } catch (error) {
-
-                console.error(
-                    "Admin authentication error:",
-                    error
-                );
-
-            }
-
-        }
-    );
-
-
-
-    /* =========================
-       SHOW AGENT FORM
-    ========================= */
-
-    showAgentForm.addEventListener(
-        "click",
-        () => {
-
-            agentFormSection.style.display =
-                "block";
-
-
-            agentFormSection.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-    );
-
-
-
-    /* =========================
-       CANCEL AGENT FORM
-    ========================= */
-
-    cancelAgentForm.addEventListener(
-        "click",
-        () => {
-
-            agentFormSection.style.display =
-                "none";
-
-
-            agentForm.reset();
-
-
-            agentFormMessage.textContent =
-                "";
-
-
-            agentFormMessage.style.display =
-                "none";
-
-        }
-    );
-
-
-
-    /* =========================
-       AGENT FORM
-    ========================= */
-
-    agentForm.addEventListener(
-        "submit",
-        async (event) => {
-
-            event.preventDefault();
-
-
-            const fullName =
-                document
-                .getElementById(
-                    "agentName"
-                )
-                .value
-                .trim();
-
-
-            const email =
-                document
-                .getElementById(
-                    "agentEmail"
-                )
-                .value
-                .trim();
-
-
-            const phone =
-                document
-                .getElementById(
-                    "agentPhone"
-                )
-                .value
-                .trim();
-
-
-            const idNumber =
-                document
-                .getElementById(
-                    "agentIdNumber"
-                )
-                .value
-                .trim();
-
-
-            const agentCode =
-                document
-                .getElementById(
-                    "agentCode"
-                )
-                .value
-                .trim();
-
-
-            const location =
-                document
-                .getElementById(
-                    "agentLocation"
-                )
-                .value
-                .trim();
+            const adminData =
+                adminDocument.data();
 
 
             if (
-                !fullName ||
-                !email ||
-                !phone ||
-                !idNumber ||
-                !agentCode ||
-                !location
+                adminData.role !==
+                "admin"
             ) {
 
-                showMessage(
-                    "Please complete all fields.",
-                    "error"
+                alert(
+                    "Access denied. Admin account required."
                 );
+
+                await signOut(auth);
+
+                window.location.href =
+                    "login.html";
 
                 return;
 
             }
 
 
-            /*
-             * For now we only test the form.
-             *
-             * Secure Firebase account creation
-             * will be connected after the form
-             * is confirmed to work.
-             */
-
-            showMessage(
-                "Agent details captured successfully. Secure account creation will be connected next.",
-                "success"
-            );
+            currentAdminUID = user.uid;
 
 
-            console.log(
-                "Agent details:",
-                {
-                    fullName,
-                    email,
-                    phone,
-                    idNumber,
-                    agentCode,
-                    location
-                }
+            adminName.textContent =
+                adminData.fullName ||
+                "Administrator";
+
+
+            await loadDashboard();
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Admin dashboard error:",
+                error
             );
 
         }
-    );
+
+    }
+);
 
 
+/* =========================================
+   LOAD DASHBOARD
+========================================= */
 
-    /* =========================
-       FORM MESSAGE
-    ========================= */
+async function loadDashboard() {
 
-    function showMessage(
-        message,
-        type
+    await loadUsers();
+
+    await loadApplications();
+
+}
+
+
+/* =========================================
+   LOAD USERS
+========================================= */
+
+async function loadUsers() {
+
+    try {
+
+        const usersSnapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "users"
+                )
+            );
+
+
+        let clients = 0;
+
+        let activeAgents = 0;
+
+        let allAgents = [];
+
+
+        usersSnapshot.forEach(
+            (userDocument) => {
+
+                const data =
+                    userDocument.data();
+
+
+                if (
+                    data.role ===
+                    "client"
+                ) {
+
+                    clients++;
+
+                }
+
+
+                if (
+                    data.role ===
+                    "agent"
+                ) {
+
+                    if (
+                        data.status ===
+                        "active"
+                    ) {
+
+                        activeAgents++;
+
+                    }
+
+
+                    allAgents.push({
+                        id:
+                            userDocument.id,
+                        ...data
+                    });
+
+                }
+
+            }
+        );
+
+
+        document.getElementById(
+            "clientCount"
+        ).textContent = clients;
+
+
+        document.getElementById(
+            "agentCount"
+        ).textContent =
+            activeAgents;
+
+
+        displayPendingAgents(
+            allAgents
+        );
+
+
+        displayAllAgents(
+            allAgents
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Error loading users:",
+            error
+        );
+
+        pendingAgentsContainer.innerHTML =
+            `
+            <div class="dashboard-card">
+                Unable to load agents.
+            </div>
+            `;
+
+        allAgentsContainer.innerHTML =
+            `
+            <div class="dashboard-card">
+                Unable to load agents.
+            </div>
+            `;
+
+    }
+
+}
+
+
+/* =========================================
+   DISPLAY PENDING AGENTS
+========================================= */
+
+function displayPendingAgents(
+    agents
+) {
+
+    const pendingAgents =
+        agents.filter(
+            agent =>
+                agent.status ===
+                "pending"
+        );
+
+
+    if (
+        pendingAgents.length ===
+        0
     ) {
 
-        agentFormMessage.textContent =
-            message;
+        pendingAgentsContainer.innerHTML =
+            `
+            <div class="dashboard-card">
+                <h3>No pending agents</h3>
+                <p>
+                    There are currently no agents
+                    waiting for activation.
+                </p>
+            </div>
+            `;
 
-
-        agentFormMessage.className =
-            "message " + type;
-
-
-        agentFormMessage.style.display =
-            "block";
+        return;
 
     }
 
 
-
-    /* =========================
-       LOGOUT
-    ========================= */
-
-    logoutButton.addEventListener(
-        "click",
-        async () => {
-
-            try {
-
-                await signOut(auth);
+    pendingAgentsContainer.innerHTML =
+        "";
 
 
-                window.location.href =
-                    "login.html";
+    pendingAgents.forEach(
+        agent => {
 
-            } catch (error) {
-
-                console.error(
-                    "Logout error:",
-                    error
+            const card =
+                document.createElement(
+                    "div"
                 );
 
-            }
+
+            card.className =
+                "dashboard-card";
+
+
+            card.style.marginBottom =
+                "15px";
+
+
+            card.innerHTML = `
+
+                <div
+                    class="dashboard-card-top">
+
+                    <span>
+                        PENDING AGENT
+                    </span>
+
+                    <span
+                        class="dashboard-icon">
+
+                        PENDING
+
+                    </span>
+
+                </div>
+
+
+                <h2>
+                    ${escapeHTML(
+                        agent.fullName ||
+                        "Unnamed Agent"
+                    )}
+                </h2>
+
+
+                <p>
+
+                    <strong>
+                        Agent Code:
+                    </strong>
+
+                    ${escapeHTML(
+                        agent.agentCode ||
+                        "-"
+                    )}
+
+                    <br>
+
+                    <strong>
+                        Location:
+                    </strong>
+
+                    ${escapeHTML(
+                        agent.location ||
+                        "-"
+                    )}
+
+                    <br>
+
+                    <strong>
+                        Phone:
+                    </strong>
+
+                    ${escapeHTML(
+                        agent.phone ||
+                        "-"
+                    )}
+
+                    <br>
+
+                    <strong>
+                        Email:
+                    </strong>
+
+                    ${escapeHTML(
+                        agent.email ||
+                        "-"
+                    )}
+
+                </p>
+
+
+                <button
+                    class="dashboard-link"
+                    data-agent-id="${agent.id}">
+
+                    Activate Agent
+
+                </button>
+
+            `;
+
+
+            pendingAgentsContainer.appendChild(
+                card
+            );
 
         }
     );
 
-</script>
 
+    document
+        .querySelectorAll(
+            "[data-agent-id]"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    async () => {
+
+                        await activateAgent(
+                            button.dataset.agentId
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================
+   ACTIVATE AGENT
+========================================= */
+
+async function activateAgent(
+    agentID
+) {
+
+    const confirmed =
+        confirm(
+            "Activate this agent?"
+        );
+
+
+    if (!confirmed) {
+
+        return;
+
+    }
+
+
+    try {
+
+        await updateDoc(
+            doc(
+                db,
+                "users",
+                agentID
+            ),
+            {
+
+                status: "active",
+
+                activatedAt:
+                    serverTimestamp(),
+
+                activatedBy:
+                    currentAdminUID
+
+            }
+        );
+
+
+        alert(
+            "Agent activated successfully."
+        );
+
+
+        await loadUsers();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Agent activation error:",
+            error
+        );
+
+
+        alert(
+            "Unable to activate agent. Check Firestore permissions."
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   DISPLAY ALL AGENTS
+========================================= */
+
+function displayAllAgents(
+    agents
+) {
+
+    if (
+        agents.length ===
+        0
+    ) {
+
+        allAgentsContainer.innerHTML =
+            `
+            <div class="dashboard-card">
+                No agents found.
+            </div>
+            `;
+
+        return;
+
+    }
+
+
+    allAgentsContainer.innerHTML =
+        "";
+
+
+    agents.forEach(
+        agent => {
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "dashboard-card";
+
+
+            card.style.marginBottom =
+                "15px";
+
+
+            const status =
+                agent.status ||
+                "pending";
+
+
+            card.innerHTML = `
+
+                <div
+                    class="dashboard-card-top">
+
+                    <span>
+                        AGENT
+                    </span>
+
+                    <span
+                        class="dashboard-icon">
+
+                        ${escapeHTML(
+                            status.toUpperCase()
+                        )}
+
+                    </span>
+
+                </div>
+
+
+                <h2>
+                    ${escapeHTML(
+                        agent.fullName ||
+                        "Unnamed Agent"
+                    )}
+                </h2>
+
+
+                <p>
+
+                    <strong>
+                        Code:
+                    </strong>
+
+                    ${escapeHTML(
+                        agent.agentCode ||
+                        "-"
+                    )}
+
+                    <br>
+
+                    <strong>
+                        Location:
+                    </strong>
+
+                    ${escapeHTML(
+                        agent.location ||
+                        "-"
+                    )}
+
+                    <br>
+
+                    <strong>
+                        Status:
+                    </strong>
+
+                    ${escapeHTML(
+                        status
+                    )}
+
+                </p>
+
+            `;
+
+
+            allAgentsContainer.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   LOAD APPLICATION COUNT
+========================================= */
+
+async function loadApplications() {
+
+    try {
+
+        const applicationsSnapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "loanApplications"
+                )
+            );
+
+
+        document.getElementById(
+            "applicationCount"
+        ).textContent =
+            applicationsSnapshot.size;
+
+    }
+
+    catch (error) {
+
+        console.log(
+            "Application collection not available yet.",
+            error
+        );
+
+
+        document.getElementById(
+            "applicationCount"
+        ).textContent =
+            "0";
+
+    }
+
+}
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(
+    value
+) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        String(value);
+
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+logoutButton.addEventListener(
+    "click",
+    async () => {
+
+        try {
+
+            await signOut(auth);
+
+            window.location.href =
+                "login.html";
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Logout error:",
+                error
+            );
+
+        }
+
+    }
+);
+
+</script>
 
 </body>
 
