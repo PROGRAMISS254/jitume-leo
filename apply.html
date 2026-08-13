@@ -2,14 +2,18 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Loan Application | Jitume Leo</title>
 
     <link rel="stylesheet" href="style.css">
 
     <style>
+
         .application-page {
             min-height: calc(100vh - 78px);
             padding: 45px 20px;
@@ -332,11 +336,14 @@
                 gap: 4px;
             }
         }
+
     </style>
+
 </head>
 
 
 <body>
+
 
 <header class="navbar">
 
@@ -345,24 +352,37 @@
     </div>
 
     <nav>
-        <a href="client.html">Dashboard</a>
-        <a href="index.html">Home</a>
+
+        <a href="client.html">
+            Dashboard
+        </a>
+
+        <a href="index.html">
+            Home
+        </a>
+
     </nav>
 
     <div class="nav-buttons">
+
         <button
             id="logoutButton"
             class="register-btn">
+
             Logout
+
         </button>
+
     </div>
 
 </header>
 
 
+
 <main class="application-page">
 
     <div class="application-wrapper">
+
 
         <div class="application-header">
 
@@ -384,19 +404,27 @@
         <div class="progress-bar">
 
             <div class="progress-step active"></div>
+
             <div class="progress-step"></div>
+
             <div class="progress-step"></div>
+
             <div class="progress-step"></div>
+
             <div class="progress-step"></div>
+
             <div class="progress-step"></div>
 
         </div>
 
 
+
         <div class="application-card">
 
 
-            <!-- STEP 1 -->
+            <!-- =====================================
+                 STEP 1
+            ====================================== -->
 
             <section
                 class="step active"
@@ -407,11 +435,16 @@
                 </h2>
 
                 <p class="step-description">
-                    Tell us whether this is your first Jitume Leo loan
-                    or a renewal of an existing loan.
+
+                    Tell us whether this is your first
+                    Jitume Leo loan or a renewal of an
+                    existing loan.
+
                 </p>
 
+
                 <div class="choice-grid">
+
 
                     <label
                         class="choice-card selected"
@@ -428,10 +461,12 @@
                         </h3>
 
                         <p>
-                            This is my first emergency loan with Jitume Leo.
+                            This is my first emergency loan
+                            with Jitume Leo.
                         </p>
 
                     </label>
+
 
 
                     <label
@@ -448,7 +483,8 @@
                         </h3>
 
                         <p>
-                            I am renewing an existing Jitume Leo loan.
+                            I am renewing an existing
+                            Jitume Leo loan.
                         </p>
 
                     </label>
@@ -467,6 +503,7 @@
 
                     </button>
 
+
                     <button
                         type="button"
                         class="primary-action"
@@ -481,7 +518,10 @@
             </section>
 
 
-            <!-- STEP 2 -->
+
+            <!-- =====================================
+                 STEP 2
+            ====================================== -->
 
             <section
                 class="step"
@@ -492,8 +532,10 @@
                 </h2>
 
                 <p class="step-description">
-                    Select the active Jitume Leo agent who will
-                    verify your application.
+
+                    Select the active Jitume Leo agent
+                    who will verify your application.
+
                 </p>
 
 
@@ -502,7 +544,9 @@
                     class="agent-grid">
 
                     <div class="loading-box">
+
                         Loading active agents...
+
                     </div>
 
                 </div>
@@ -511,6 +555,7 @@
                 <div
                     id="agentSummary"
                     class="selected-agent-summary">
+
                 </div>
 
 
@@ -524,6 +569,7 @@
                         Back
 
                     </button>
+
 
                     <button
                         type="button"
@@ -539,7 +585,10 @@
             </section>
 
 
-            <!-- STEP 3 -->
+
+            <!-- =====================================
+                 STEP 3
+            ====================================== -->
 
             <section
                 class="step"
@@ -550,8 +599,11 @@
                 </h2>
 
                 <p class="step-description">
-                    These amounts are loaded from the Jitume Leo
-                    Emergency Loan product in Firebase.
+
+                    These amounts are loaded from the
+                    Jitume Leo Emergency Loan product
+                    in Firebase.
+
                 </p>
 
 
@@ -559,7 +611,9 @@
                     id="loanProductError"
                     class="error-box"
                     style="display:none;">
+
                 </div>
+
 
 
                 <!-- FIRST LOAN -->
@@ -567,6 +621,7 @@
                 <div id="firstLoanSection">
 
                     <div class="calculation-box">
+
 
                         <div class="calculation-row">
 
@@ -624,6 +679,7 @@
                 </div>
 
 
+
                 <!-- RENEWAL -->
 
                 <div
@@ -631,6 +687,7 @@
                     style="display:none;">
 
                     <div class="calculation-box">
+
 
                         <div class="calculation-row">
 
@@ -686,6 +743,7 @@
 
                     </button>
 
+
                     <button
                         type="button"
                         class="primary-action"
@@ -700,7 +758,10 @@
             </section>
 
 
-            <!-- STEP 4 -->
+
+            <!-- =====================================
+                 STEP 4
+            ====================================== -->
 
             <section
                 class="step"
@@ -711,79 +772,122 @@
                 </h2>
 
                 <p class="step-description">
+
                     Please read the proposed terms carefully.
+
                 </p>
 
 
                 <div class="terms-box">
 
                     <p>
-                        By applying for a Jitume Leo emergency loan,
-                        the client acknowledges the following proposed
-                        terms for this prototype loan product:
+
+                        By applying for a Jitume Leo
+                        emergency loan, the client
+                        acknowledges the following
+                        proposed terms for this prototype
+                        loan product:
+
                     </p>
+
 
                     <ul>
 
                         <li>
+
                             Principal loan amount:
+
                             <strong id="termsPrincipal">
                                 KSh 5,000
                             </strong>.
+
                         </li>
 
+
                         <li>
+
                             Loan interest:
+
                             <strong id="termsInterest">
                                 KSh 1,000
                             </strong>.
+
                         </li>
 
+
                         <li>
-                            The normal amount due at maturity is:
+
+                            The normal amount due at
+                            maturity is:
+
                             <strong id="termsMaturity">
                                 KSh 6,000
                             </strong>.
+
                         </li>
 
+
                         <li>
+
                             First loan processing fee:
+
                             <strong id="termsFirstFee">
                                 KSh 500
                             </strong>.
+
                         </li>
 
+
                         <li>
+
                             Renewal fee:
+
                             <strong id="termsRenewalFee">
                                 KSh 500
                             </strong>.
+
                         </li>
 
+
                         <li>
+
                             Late repayment charge:
+
                             <strong id="termsLateFee">
                                 KSh 100 per day
                             </strong>.
+
                         </li>
 
-                        <li>
-                            The expected repayment date is the same
-                            calendar date in the following month,
-                            subject to the final agreement.
-                        </li>
 
                         <li>
-                            Agent verification and final administrator
-                            approval are required before disbursement.
+
+                            Expected repayment date is
+                            the same calendar date in the
+                            following month, subject to
+                            the final agreement.
+
+                        </li>
+
+
+                        <li>
+
+                            Agent verification and final
+                            administrator approval are
+                            required before disbursement.
+
                         </li>
 
                     </ul>
 
+
                     <p>
-                        These are prototype business rules.
-                        They should be legally and commercially reviewed
-                        before any real-world deployment.
+
+                        These are prototype business
+                        rules. They should be legally
+                        and commercially reviewed before
+                        any real-world deployment.
+
                     </p>
 
                 </div>
@@ -795,8 +899,9 @@
                         type="checkbox"
                         id="termsAccepted">
 
-                    I confirm that I have read and understood
-                    the proposed Jitume Leo loan terms.
+                    I confirm that I have read and
+                    understood the proposed Jitume Leo
+                    loan terms.
 
                 </label>
 
@@ -804,6 +909,7 @@
                 <div
                     id="step4Message"
                     class="application-message">
+
                 </div>
 
 
@@ -817,6 +923,7 @@
                         Back
 
                     </button>
+
 
                     <button
                         type="button"
@@ -832,7 +939,10 @@
             </section>
 
 
-            <!-- STEP 5 -->
+
+            <!-- =====================================
+                 STEP 5
+            ====================================== -->
 
             <section
                 class="step"
@@ -843,12 +953,15 @@
                 </h2>
 
                 <p class="step-description">
-                    Check everything before creating the official
-                    application record.
+
+                    Check everything before creating the
+                    official application record.
+
                 </p>
 
 
                 <div class="review-box">
+
 
                     <div class="review-item">
 
@@ -932,8 +1045,12 @@
 
                 <div class="agreement-box">
 
-                    The application will first be created with the
-                    status <strong>APPLICATION_SUBMITTED</strong>.
+                    The application will first be created
+                    with the status
+                    <strong>
+                        APPLICATION_SUBMITTED
+                    </strong>.
+
                     The next stage will be the agreement,
                     signatures and document upload.
 
@@ -943,6 +1060,7 @@
                 <div
                     id="applicationMessage"
                     class="application-message">
+
                 </div>
 
 
@@ -956,6 +1074,7 @@
                         Back
 
                     </button>
+
 
                     <button
                         type="button"
@@ -971,7 +1090,10 @@
             </section>
 
 
-            <!-- STEP 6 -->
+
+            <!-- =====================================
+                 STEP 6
+            ====================================== -->
 
             <section
                 class="step"
@@ -982,11 +1104,15 @@
                 </h2>
 
                 <p class="step-description">
-                    Your initial loan application has been created.
+
+                    Your initial loan application has
+                    been created.
+
                 </p>
 
 
                 <div class="calculation-box">
+
 
                     <div class="calculation-row">
 
@@ -1031,12 +1157,14 @@
 
                 <div class="agreement-box">
 
-                    <strong>Next step:</strong>
+                    <strong>
+                        Next step:
+                    </strong>
 
                     Download the Jitume Leo agreement,
                     have the required parties sign it,
-                    then upload the signed agreement and
-                    required documents.
+                    then upload the signed agreement
+                    and required documents.
 
                 </div>
 
@@ -1046,15 +1174,16 @@
                     <button
                         type="button"
                         class="primary-action"
-                        id="returnDashboard">
+                        id="openAgreement">
 
-                        Return to Dashboard
+                        Continue to Agreement →
 
                     </button>
 
                 </div>
 
             </section>
+
 
         </div>
 
@@ -1063,36 +1192,60 @@
 </main>
 
 
+
 <script type="module">
 
 import {
+
     getAuth,
+
     onAuthStateChanged,
+
     signOut
-} from
+
+}
+from
 "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
 
 import {
+
     getFirestore,
+
     collection,
+
     query,
+
     where,
+
     getDocs,
+
     getDoc,
+
     doc,
+
     addDoc,
+
     serverTimestamp
-} from
+
+}
+from
 "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
-import { app } from "./firebase.js";
+import {
+    app
+}
+from
+"./firebase.js";
 
 
-const auth = getAuth(app);
+const auth =
+    getAuth(app);
 
-const db = getFirestore(app);
+
+const db =
+    getFirestore(app);
 
 
 let currentUser = null;
@@ -1106,6 +1259,7 @@ let loanProduct = null;
 let selectedLoanType = "first";
 
 
+
 /*
 |--------------------------------------------------------------------------
 | START APPLICATION AFTER DOM IS READY
@@ -1115,6 +1269,7 @@ let selectedLoanType = "first";
 document.addEventListener(
     "DOMContentLoaded",
     () => {
+
 
         const steps =
             document.querySelectorAll(
@@ -1170,6 +1325,7 @@ document.addEventListener(
             );
 
 
+
         /*
         |--------------------------------------------------------------------------
         | AUTHENTICATION
@@ -1179,6 +1335,7 @@ document.addEventListener(
         onAuthStateChanged(
             auth,
             async (user) => {
+
 
                 if (!user) {
 
@@ -1190,19 +1347,24 @@ document.addEventListener(
                 }
 
 
-                currentUser = user;
+                currentUser =
+                    user;
 
 
                 await loadLoanProduct();
 
+
                 await loadActiveAgents();
 
+
                 updateLoanTypeUI();
+
 
                 updateStepUI();
 
             }
         );
+
 
 
         /*
@@ -1213,6 +1375,7 @@ document.addEventListener(
 
         async function loadLoanProduct() {
 
+
             const errorBox =
                 document.getElementById(
                     "loanProductError"
@@ -1220,6 +1383,7 @@ document.addEventListener(
 
 
             try {
+
 
                 const productReference =
                     doc(
@@ -1239,11 +1403,14 @@ document.addEventListener(
                     !productSnapshot.exists()
                 ) {
 
+
                     errorBox.textContent =
                         "Emergency Loan product was not found in Firebase.";
 
+
                     errorBox.style.display =
                         "block";
+
 
                     return;
 
@@ -1292,6 +1459,7 @@ document.addEventListener(
                         loanProduct.lateFeePerDay ||
                         0
                     );
+
 
 
                 /*
@@ -1356,6 +1524,7 @@ document.addEventListener(
                     );
 
 
+
                 /*
                 |--------------------------------------------------------------------------
                 | TERMS
@@ -1407,16 +1576,19 @@ document.addEventListener(
                 ).textContent =
                     formatCurrency(
                         lateFee
-                    ) +
+                    )
+                    +
                     " per day";
 
 
                 errorBox.style.display =
                     "none";
 
+
             }
 
             catch (error) {
+
 
                 console.error(
                     "Loan product error:",
@@ -1427,12 +1599,14 @@ document.addEventListener(
                 errorBox.textContent =
                     "Unable to load the Emergency Loan product. Check Firebase Firestore rules.";
 
+
                 errorBox.style.display =
                     "block";
 
             }
 
         }
+
 
 
         /*
@@ -1442,6 +1616,7 @@ document.addEventListener(
         */
 
         async function loadActiveAgents() {
+
 
             if (!agentGrid) {
 
@@ -1457,19 +1632,24 @@ document.addEventListener(
             agentGrid.innerHTML =
                 `
                 <div class="loading-box">
+
                     Loading active agents...
+
                 </div>
                 `;
 
 
             try {
 
+
                 const agentsQuery =
                     query(
+
                         collection(
                             db,
                             "users"
                         ),
+
 
                         where(
                             "role",
@@ -1477,11 +1657,13 @@ document.addEventListener(
                             "agent"
                         ),
 
+
                         where(
                             "status",
                             "==",
                             "active"
                         )
+
                     );
 
 
@@ -1499,12 +1681,17 @@ document.addEventListener(
                     agentsSnapshot.empty
                 ) {
 
+
                     agentGrid.innerHTML =
                         `
                         <div class="empty-box">
-                            No active agents are currently available.
+
+                            No active agents are
+                            currently available.
+
                         </div>
                         `;
+
 
                     return;
 
@@ -1513,6 +1700,7 @@ document.addEventListener(
 
                 agentsSnapshot.forEach(
                     (agentDocument) => {
+
 
                         const agent =
                             agentDocument.data();
@@ -1532,17 +1720,21 @@ document.addEventListener(
                             `
 
                             <h3>
+
                                 ${
                                     escapeHTML(
                                         agent.fullName ||
                                         "Jitume Agent"
                                     )
                                 }
+
                             </h3>
+
 
                             <p>
 
                                 Agent Code:
+
                                 ${
                                     escapeHTML(
                                         agent.agentCode ||
@@ -1552,7 +1744,9 @@ document.addEventListener(
 
                                 <br>
 
+
                                 Location:
+
                                 ${
                                     escapeHTML(
                                         agent.location ||
@@ -1562,7 +1756,9 @@ document.addEventListener(
 
                                 <br>
 
+
                                 Phone:
+
                                 ${
                                     escapeHTML(
                                         agent.phone ||
@@ -1578,6 +1774,7 @@ document.addEventListener(
                         card.addEventListener(
                             "click",
                             () => {
+
 
                                 document
                                     .querySelectorAll(
@@ -1620,6 +1817,7 @@ document.addEventListener(
                                         Selected Agent:
                                     </strong>
 
+
                                     ${
                                         escapeHTML(
                                             selectedAgent.fullName ||
@@ -1627,9 +1825,12 @@ document.addEventListener(
                                         )
                                     }
 
+
                                     <br>
 
+
                                     Agent Code:
+
                                     ${
                                         escapeHTML(
                                             selectedAgent.agentCode ||
@@ -1637,9 +1838,12 @@ document.addEventListener(
                                         )
                                     }
 
+
                                     <br>
 
+
                                     Location:
+
                                     ${
                                         escapeHTML(
                                             selectedAgent.location ||
@@ -1664,6 +1868,7 @@ document.addEventListener(
 
             catch (error) {
 
+
                 console.error(
                     "Agent loading error:",
                     error
@@ -1673,14 +1878,17 @@ document.addEventListener(
                 agentGrid.innerHTML =
                     `
                     <div class="error-box">
+
                         Unable to load active agents.
                         Please try again.
+
                     </div>
                     `;
 
             }
 
         }
+
 
 
         /*
@@ -1696,9 +1904,11 @@ document.addEventListener(
             .forEach(
                 (radio) => {
 
+
                     radio.addEventListener(
                         "change",
                         () => {
+
 
                             selectedLoanType =
                                 radio.value;
@@ -1748,7 +1958,9 @@ document.addEventListener(
             );
 
 
+
         function updateLoanTypeUI() {
+
 
             const firstSection =
                 document.getElementById(
@@ -1767,8 +1979,10 @@ document.addEventListener(
                 "renewal"
             ) {
 
+
                 firstSection.style.display =
                     "none";
+
 
                 renewalSection.style.display =
                     "block";
@@ -1777,8 +1991,10 @@ document.addEventListener(
 
             else {
 
+
                 firstSection.style.display =
                     "block";
+
 
                 renewalSection.style.display =
                     "none";
@@ -1786,6 +2002,7 @@ document.addEventListener(
             }
 
         }
+
 
 
         /*
@@ -1797,6 +2014,7 @@ document.addEventListener(
         function goToStep(
             stepNumber
         ) {
+
 
             currentStep =
                 stepNumber;
@@ -1815,10 +2033,13 @@ document.addEventListener(
         }
 
 
+
         function updateStepUI() {
+
 
             steps.forEach(
                 (step) => {
+
 
                     const stepNumber =
                         Number(
@@ -1828,7 +2049,8 @@ document.addEventListener(
 
                     step.classList.toggle(
                         "active",
-                        stepNumber === currentStep
+                        stepNumber ===
+                        currentStep
                     );
 
                 }
@@ -1837,6 +2059,7 @@ document.addEventListener(
 
             progressSteps.forEach(
                 (progress, index) => {
+
 
                     progress.classList.toggle(
                         "active",
@@ -1849,7 +2072,8 @@ document.addEventListener(
 
 
             if (
-                currentStep === 5
+                currentStep ===
+                5
             ) {
 
                 updateReview();
@@ -1857,6 +2081,7 @@ document.addEventListener(
             }
 
         }
+
 
 
         /*
@@ -1873,6 +2098,7 @@ document.addEventListener(
                 "click",
                 () => {
 
+
                     goToStep(
                         2
                     );
@@ -1885,11 +2111,13 @@ document.addEventListener(
             "click",
             () => {
 
+
                 window.location.href =
                     "client.html";
 
             }
         );
+
 
 
         /*
@@ -1905,6 +2133,7 @@ document.addEventListener(
             .addEventListener(
                 "click",
                 () => {
+
 
                     goToStep(
                         1
@@ -1922,14 +2151,17 @@ document.addEventListener(
                 "click",
                 () => {
 
+
                     if (
                         !selectedAgent
                     ) {
+
 
                         showMessage(
                             "Please select an active agent before continuing.",
                             "error"
                         );
+
 
                         return;
 
@@ -1942,6 +2174,7 @@ document.addEventListener(
 
                 }
             );
+
 
 
         /*
@@ -1957,6 +2190,7 @@ document.addEventListener(
             .addEventListener(
                 "click",
                 () => {
+
 
                     goToStep(
                         2
@@ -1974,14 +2208,17 @@ document.addEventListener(
                 "click",
                 () => {
 
+
                     if (
                         !loanProduct
                     ) {
+
 
                         showMessage(
                             "Loan product information is not available yet.",
                             "error"
                         );
+
 
                         return;
 
@@ -1994,6 +2231,7 @@ document.addEventListener(
 
                 }
             );
+
 
 
         /*
@@ -2009,6 +2247,7 @@ document.addEventListener(
             .addEventListener(
                 "click",
                 () => {
+
 
                     goToStep(
                         3
@@ -2026,6 +2265,7 @@ document.addEventListener(
                 "click",
                 () => {
 
+
                     const accepted =
                         document.getElementById(
                             "termsAccepted"
@@ -2036,10 +2276,12 @@ document.addEventListener(
                         !accepted
                     ) {
 
+
                         showMessage(
                             "You must confirm that you have read and understood the terms.",
                             "error"
                         );
+
 
                         return;
 
@@ -2059,6 +2301,7 @@ document.addEventListener(
             );
 
 
+
         /*
         |--------------------------------------------------------------------------
         | STEP 5
@@ -2073,6 +2316,7 @@ document.addEventListener(
                 "click",
                 () => {
 
+
                     goToStep(
                         4
                     );
@@ -2081,7 +2325,9 @@ document.addEventListener(
             );
 
 
+
         function updateReview() {
+
 
             if (
                 !loanProduct
@@ -2112,12 +2358,19 @@ document.addEventListener(
 
 
             const fee =
-                selectedLoanType === "renewal"
-                    ? Number(
+                selectedLoanType ===
+                "renewal"
+
+                    ?
+
+                    Number(
                         loanProduct.renewalFee ||
                         0
                     )
-                    : Number(
+
+                    :
+
+                    Number(
                         loanProduct.firstLoanProcessingFee ||
                         0
                     );
@@ -2126,17 +2379,32 @@ document.addEventListener(
             document.getElementById(
                 "reviewLoanType"
             ).textContent =
-                selectedLoanType === "renewal"
-                    ? "Loan Renewal"
-                    : "First Loan";
+
+                selectedLoanType ===
+                "renewal"
+
+                    ?
+
+                    "Loan Renewal"
+
+                    :
+
+                    "First Loan";
 
 
             document.getElementById(
                 "reviewAgent"
             ).textContent =
+
                 selectedAgent
-                    ? selectedAgent.fullName
-                    : "-";
+
+                    ?
+
+                    selectedAgent.fullName
+
+                    :
+
+                    "-";
 
 
             document.getElementById(
@@ -2173,6 +2441,7 @@ document.addEventListener(
         }
 
 
+
         /*
         |--------------------------------------------------------------------------
         | SUBMIT APPLICATION
@@ -2187,6 +2456,7 @@ document.addEventListener(
                 "click",
                 async () => {
 
+
                     const button =
                         document.getElementById(
                             "submitApplication"
@@ -2199,10 +2469,12 @@ document.addEventListener(
                         !selectedAgent
                     ) {
 
+
                         showMessage(
                             "Some application information is missing.",
                             "error"
                         );
+
 
                         return;
 
@@ -2218,6 +2490,7 @@ document.addEventListener(
 
 
                     try {
+
 
                         const principal =
                             Number(
@@ -2239,12 +2512,19 @@ document.addEventListener(
 
 
                         const fee =
-                            selectedLoanType === "renewal"
-                                ? Number(
+                            selectedLoanType ===
+                            "renewal"
+
+                                ?
+
+                                Number(
                                     loanProduct.renewalFee ||
                                     0
                                 )
-                                : Number(
+
+                                :
+
+                                Number(
                                     loanProduct.firstLoanProcessingFee ||
                                     0
                                 );
@@ -2252,40 +2532,52 @@ document.addEventListener(
 
                         const applicationData = {
 
+
                             customerId:
                                 currentUser.uid,
 
+
                             agentId:
                                 selectedAgent.id,
+
 
                             agentName:
                                 selectedAgent.fullName ||
                                 "",
 
+
                             loanProductId:
                                 "emergency-loan",
+
 
                             loanProductName:
                                 loanProduct.name ||
                                 "Emergency Loan",
 
+
                             loanType:
                                 selectedLoanType,
+
 
                             requestedAmount:
                                 principal,
 
+
                             approvedAmount:
                                 null,
+
 
                             interestAmount:
                                 interest,
 
+
                             processingOrRenewalFee:
                                 fee,
 
+
                             totalMaturityAmount:
                                 maturityAmount,
+
 
                             lateFeePerDay:
                                 Number(
@@ -2293,38 +2585,49 @@ document.addEventListener(
                                     0
                                 ),
 
+
                             repaymentPeriodDays:
                                 Number(
                                     loanProduct.repaymentPeriodDays ||
                                     0
                                 ),
 
+
                             termsAccepted:
                                 true,
+
 
                             status:
                                 "APPLICATION_SUBMITTED",
 
+
                             agreementStatus:
                                 "NOT_YET_GENERATED",
+
 
                             signedAgreementUrl:
                                 null,
 
+
                             agentVerificationStatus:
                                 "NOT_VERIFIED",
+
 
                             adminDecision:
                                 "PENDING",
 
+
                             paymentStatus:
                                 "NOT_REQUIRED_YET",
+
 
                             cashCollectionStatus:
                                 "NOT_READY",
 
+
                             createdAt:
                                 serverTimestamp(),
+
 
                             updatedAt:
                                 serverTimestamp()
@@ -2363,6 +2666,7 @@ document.addEventListener(
 
                     catch (error) {
 
+
                         console.error(
                             "Application submission error:",
                             error
@@ -2388,6 +2692,7 @@ document.addEventListener(
             );
 
 
+
         /*
         |--------------------------------------------------------------------------
         | LOGOUT
@@ -2398,7 +2703,9 @@ document.addEventListener(
             "click",
             async () => {
 
+
                 try {
+
 
                     await signOut(
                         auth
@@ -2412,6 +2719,7 @@ document.addEventListener(
 
                 catch (error) {
 
+
                     console.error(
                         "Logout error:",
                         error
@@ -2423,25 +2731,28 @@ document.addEventListener(
         );
 
 
+
         /*
         |--------------------------------------------------------------------------
-        | RETURN TO DASHBOARD
+        | STEP 6 → AGREEMENT
         |--------------------------------------------------------------------------
         */
 
         document
             .getElementById(
-                "returnDashboard"
+                "openAgreement"
             )
             .addEventListener(
                 "click",
                 () => {
 
+
                     window.location.href =
-                        "client.html";
+                        "agreement.html";
 
                 }
             );
+
 
 
         /*
@@ -2454,7 +2765,9 @@ document.addEventListener(
             amount
         ) {
 
+
             return "KSh " +
+
                 Number(
                     amount
                 ).toLocaleString(
@@ -2464,17 +2777,27 @@ document.addEventListener(
         }
 
 
+
         function showMessage(
             text,
             type = "error"
         ) {
 
+
             const messageElement =
-                currentStep === 4
-                    ? document.getElementById(
+
+                currentStep ===
+                4
+
+                    ?
+
+                    document.getElementById(
                         "step4Message"
                     )
-                    : document.getElementById(
+
+                    :
+
+                    document.getElementById(
                         "applicationMessage"
                     );
 
@@ -2490,9 +2813,11 @@ document.addEventListener(
         }
 
 
+
         function clearMessage(
             elementId
         ) {
+
 
             const element =
                 document.getElementById(
@@ -2510,9 +2835,11 @@ document.addEventListener(
         }
 
 
+
         function escapeHTML(
             value
         ) {
+
 
             const div =
                 document.createElement(
@@ -2521,7 +2848,9 @@ document.addEventListener(
 
 
             div.textContent =
-                String(value);
+                String(
+                    value
+                );
 
 
             return div.innerHTML;
@@ -2529,6 +2858,7 @@ document.addEventListener(
         }
 
     }
+
 );
 
 </script>
