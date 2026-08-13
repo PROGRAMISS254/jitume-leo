@@ -15,188 +15,539 @@
     <style>
 
         .agreement-page {
-            min-height: calc(100vh - 78px);
-            background: #f5f7fa;
-            padding: 40px 20px;
+
+            min-height:
+                calc(100vh - 78px);
+
+            background:
+                #f5f7fa;
+
+            padding:
+                40px 20px;
+
         }
+
 
         .agreement-wrapper {
-            max-width: 950px;
-            margin: auto;
+
+            max-width:
+                950px;
+
+            margin:
+                auto;
+
         }
+
 
         .agreement-actions-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                15px;
+
+            margin-bottom:
+                25px;
+
         }
+
 
         .agreement-actions-top button {
-            border: none;
-            padding: 12px 18px;
-            border-radius: 7px;
-            cursor: pointer;
-            font-weight: 700;
+
+            border:
+                none;
+
+            padding:
+                12px 18px;
+
+            border-radius:
+                7px;
+
+            cursor:
+                pointer;
+
+            font-weight:
+                700;
+
         }
+
 
         .back-btn {
-            background: white;
-            border: 1px solid #d8dee6 !important;
-            color: #273142;
+
+            background:
+                white;
+
+            border:
+                1px solid #d8dee6 !important;
+
+            color:
+                #273142;
+
         }
+
 
         .download-btn {
-            background: #168a63;
-            color: white;
+
+            background:
+                #168a63;
+
+            color:
+                white;
+
         }
+
+
+        .upload-btn {
+
+            background:
+                #273142;
+
+            color:
+                white;
+
+        }
+
 
         .agreement-paper {
-            background: white;
-            padding: 55px;
-            border-radius: 8px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+
+            background:
+                white;
+
+            padding:
+                55px;
+
+            border-radius:
+                8px;
+
+            box-shadow:
+                0 10px 35px
+                rgba(0,0,0,0.08);
+
         }
+
 
         .agreement-header {
-            text-align: center;
-            border-bottom: 2px solid #168a63;
-            padding-bottom: 25px;
-            margin-bottom: 30px;
+
+            text-align:
+                center;
+
+            border-bottom:
+                2px solid #168a63;
+
+            padding-bottom:
+                25px;
+
+            margin-bottom:
+                30px;
+
         }
+
 
         .agreement-header h1 {
-            font-size: 30px;
-            margin-bottom: 7px;
+
+            font-size:
+                30px;
+
+            margin-bottom:
+                7px;
+
         }
+
 
         .agreement-header h2 {
-            font-size: 18px;
-            color: #168a63;
-            margin-bottom: 10px;
+
+            font-size:
+                18px;
+
+            color:
+                #168a63;
+
+            margin-bottom:
+                10px;
+
         }
+
 
         .agreement-header p {
-            color: #697586;
-            font-size: 13px;
+
+            color:
+                #697586;
+
+            font-size:
+                13px;
+
         }
+
 
         .agreement-section {
-            margin-top: 28px;
+
+            margin-top:
+                28px;
+
         }
+
 
         .agreement-section h3 {
-            font-size: 17px;
-            margin-bottom: 12px;
-            color: #1f2937;
+
+            font-size:
+                17px;
+
+            margin-bottom:
+                12px;
+
+            color:
+                #1f2937;
+
         }
+
 
         .details-table {
-            width: 100%;
-            border-collapse: collapse;
+
+            width:
+                100%;
+
+            border-collapse:
+                collapse;
+
         }
+
 
         .details-table td {
-            border: 1px solid #e2e7ec;
-            padding: 12px;
-            font-size: 13px;
+
+            border:
+                1px solid #e2e7ec;
+
+            padding:
+                12px;
+
+            font-size:
+                13px;
+
         }
+
 
         .details-table td:first-child {
-            width: 40%;
-            font-weight: 700;
-            background: #f8fafc;
+
+            width:
+                40%;
+
+            font-weight:
+                700;
+
+            background:
+                #f8fafc;
+
         }
+
 
         .terms-list {
-            padding-left: 20px;
+
+            padding-left:
+                20px;
+
         }
+
 
         .terms-list li {
-            margin-bottom: 10px;
-            line-height: 1.7;
-            font-size: 13px;
-            color: #4b5563;
+
+            margin-bottom:
+                10px;
+
+            line-height:
+                1.7;
+
+            font-size:
+                13px;
+
+            color:
+                #4b5563;
+
         }
+
 
         .signature-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 30px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                25px;
+
+            margin-top:
+                30px;
+
         }
+
 
         .signature-box {
-            border: 1px solid #dfe4ea;
-            min-height: 130px;
-            padding: 15px;
-            border-radius: 6px;
+
+            border:
+                1px solid #dfe4ea;
+
+            min-height:
+                130px;
+
+            padding:
+                15px;
+
+            border-radius:
+                6px;
+
         }
+
 
         .signature-box h4 {
-            margin-bottom: 45px;
+
+            margin-bottom:
+                45px;
+
         }
+
 
         .signature-line {
-            border-top: 1px solid #475467;
-            margin-bottom: 8px;
+
+            border-top:
+                1px solid #475467;
+
+            margin-bottom:
+                8px;
+
         }
+
 
         .signature-box p {
-            margin: 4px 0;
-            font-size: 12px;
-            color: #667085;
+
+            margin:
+                4px 0;
+
+            font-size:
+                12px;
+
+            color:
+                #667085;
+
         }
+
 
         .prototype-note {
-            margin-top: 30px;
-            padding: 15px;
-            border-radius: 7px;
-            background: #fff8e5;
-            border: 1px solid #efdca0;
-            font-size: 12px;
-            line-height: 1.6;
-            color: #6b5b1b;
+
+            margin-top:
+                30px;
+
+            padding:
+                15px;
+
+            border-radius:
+                7px;
+
+            background:
+                #fff8e5;
+
+            border:
+                1px solid #efdca0;
+
+            font-size:
+                12px;
+
+            line-height:
+                1.6;
+
+            color:
+                #6b5b1b;
+
         }
 
-        .loading {
-            text-align: center;
-            padding: 60px;
-            color: #667085;
+
+        .next-step-box {
+
+            margin-top:
+                30px;
+
+            padding:
+                20px;
+
+            border-radius:
+                10px;
+
+            background:
+                #eef8f3;
+
+            border:
+                1px solid #cdebdc;
+
+            text-align:
+                center;
+
         }
+
+
+        .next-step-box h3 {
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .next-step-box p {
+
+            font-size:
+                13px;
+
+            color:
+                #596575;
+
+            margin-bottom:
+                15px;
+
+            line-height:
+                1.6;
+
+        }
+
+
+        .continue-upload-btn {
+
+            background:
+                #168a63;
+
+            color:
+                white;
+
+            border:
+                none;
+
+            padding:
+                13px 22px;
+
+            border-radius:
+                7px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+        }
+
+
+        .continue-upload-btn:hover {
+
+            background:
+                #106c4d;
+
+        }
+
+
+        .loading {
+
+            text-align:
+                center;
+
+            padding:
+                60px;
+
+            color:
+                #667085;
+
+        }
+
+
+        .error-state {
+
+            text-align:
+                center;
+
+            padding:
+                60px 30px;
+
+            color:
+                #a61b1b;
+
+        }
+
 
         @media print {
 
             .navbar,
-            .agreement-actions-top {
-                display: none !important;
+            .agreement-actions-top,
+            .next-step-box {
+
+                display:
+                    none !important;
+
             }
+
 
             .agreement-page {
-                background: white;
-                padding: 0;
+
+                background:
+                    white;
+
+                padding:
+                    0;
+
             }
+
 
             .agreement-wrapper {
-                max-width: none;
+
+                max-width:
+                    none;
+
             }
 
+
             .agreement-paper {
-                box-shadow: none;
-                padding: 20px;
+
+                box-shadow:
+                    none;
+
+                padding:
+                    20px;
+
             }
 
         }
 
+
         @media (max-width: 700px) {
 
             .agreement-paper {
-                padding: 25px;
+
+                padding:
+                    25px;
+
             }
 
+
             .signature-grid {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .agreement-actions-top {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+
             }
 
         }
@@ -212,8 +563,11 @@
 <header class="navbar">
 
     <div class="logo">
+
         JITUME <span>LEO</span>
+
     </div>
+
 
     <nav>
 
@@ -234,16 +588,19 @@
 
         <div class="agreement-actions-top">
 
+
             <button
+                type="button"
                 class="back-btn"
                 id="backButton">
 
-                ← Back
+                ← Back to Dashboard
 
             </button>
 
 
             <button
+                type="button"
                 class="download-btn"
                 id="downloadButton">
 
@@ -252,6 +609,7 @@
             </button>
 
         </div>
+
 
 
         <div
@@ -275,25 +633,34 @@
 <script type="module">
 
 import {
+
     getAuth,
+
     onAuthStateChanged
+
 }
 from
 "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
 
 import {
+
     getFirestore,
-    collection,
-    query,
-    where,
-    getDocs
+
+    doc,
+
+    getDoc
+
 }
 from
 "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
-import { app } from "./firebase.js";
+import {
+    app
+}
+from
+"./firebase.js";
 
 
 const auth =
@@ -322,7 +689,26 @@ const downloadButton =
     );
 
 
-let currentApplication = null;
+/*
+|--------------------------------------------------------------------------
+| GET APPLICATION ID FROM URL
+|--------------------------------------------------------------------------
+*/
+
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const applicationId =
+    urlParams.get(
+        "applicationId"
+    );
+
+
+let currentApplication =
+    null;
 
 
 /*
@@ -345,7 +731,18 @@ onAuthStateChanged(
         }
 
 
-        await loadLatestApplication(
+        if (!applicationId) {
+
+            showError(
+                "Application ID is missing. Please return to your client dashboard and open your application again."
+            );
+
+            return;
+
+        }
+
+
+        await loadApplication(
             user
         );
 
@@ -355,102 +752,79 @@ onAuthStateChanged(
 
 /*
 |--------------------------------------------------------------------------
-| LOAD LATEST CLIENT APPLICATION
+| LOAD EXACT APPLICATION
 |--------------------------------------------------------------------------
 */
 
-async function loadLatestApplication(
+async function loadApplication(
     user
 ) {
 
     try {
 
-        const applicationsQuery =
-            query(
-                collection(
-                    db,
-                    "loanApplications"
-                ),
-
-                where(
-                    "customerId",
-                    "==",
-                    user.uid
-                )
+        const applicationReference =
+            doc(
+                db,
+                "loanApplications",
+                applicationId
             );
 
 
-        const snapshot =
-            await getDocs(
-                applicationsQuery
+        const applicationSnapshot =
+            await getDoc(
+                applicationReference
             );
 
 
         if (
-            snapshot.empty
+            !applicationSnapshot.exists()
         ) {
 
-            agreementContainer.innerHTML =
-                `
-                <div class="loading">
-
-                    <h2>
-                        No loan application found.
-                    </h2>
-
-                    <p>
-                        Please submit a loan application first.
-                    </p>
-
-                </div>
-                `;
+            showError(
+                "The requested loan application could not be found."
+            );
 
             return;
 
         }
 
 
-        const applications = [];
+        const application =
+            applicationSnapshot.data();
 
 
-        snapshot.forEach(
-            (document) => {
+        /*
+         * SECURITY CHECK:
+         * The logged-in client must own
+         * this application.
+         */
 
-                applications.push({
+        if (
+            application.customerId !==
+            user.uid
+        ) {
 
-                    id:
-                        document.id,
+            showError(
+                "You are not authorized to view this loan agreement."
+            );
 
-                    ...document.data()
+            return;
 
-                });
-
-            }
-        );
-
-
-        applications.sort(
-            (a, b) => {
-
-                return getTime(
-                    b.createdAt
-                )
-                -
-                getTime(
-                    a.createdAt
-                );
-
-            }
-        );
+        }
 
 
-        currentApplication =
-            applications[0];
+        currentApplication = {
+
+            id:
+                applicationSnapshot.id,
+
+            ...application
+
+        };
 
 
         renderAgreement(
-            currentApplication,
-            user
+            currentApplication
         );
 
     }
@@ -463,20 +837,9 @@ async function loadLatestApplication(
         );
 
 
-        agreementContainer.innerHTML =
-            `
-            <div class="loading">
-
-                <h2>
-                    Unable to load agreement.
-                </h2>
-
-                <p>
-                    Please refresh and try again.
-                </p>
-
-            </div>
-            `;
+        showError(
+            "Unable to load the loan agreement. Please try again."
+        );
 
     }
 
@@ -490,88 +853,142 @@ async function loadLatestApplication(
 */
 
 function renderAgreement(
-    application,
-    user
+    application
 ) {
 
-    const loanType =
+
+    const isRenewal =
         application.loanType ===
-        "renewal"
-            ? "LOAN RENEWAL AGREEMENT"
-            : "FIRST LOAN AGREEMENT";
+        "renewal";
+
+
+    const loanType =
+        isRenewal
+
+            ?
+
+            "LOAN RENEWAL AGREEMENT"
+
+            :
+
+            "FIRST LOAN AGREEMENT";
 
 
     const requestedAmount =
-        formatCurrency(
-            application.requestedAmount
+        Number(
+            application.requestedAmount ||
+            0
         );
 
 
     const interest =
-        formatCurrency(
-            application.interestAmount
+        Number(
+            application.interestAmount ||
+            0
         );
 
 
     const maturity =
-        formatCurrency(
-            application.totalMaturityAmount
+        Number(
+            application.totalMaturityAmount ||
+            requestedAmount +
+            interest
         );
 
 
-    const fee =
-        formatCurrency(
-            application.processingOrRenewalFee
+    const applicableFee =
+        Number(
+            application.processingOrRenewalFee ||
+            0
+        );
+
+
+    const lateFee =
+        Number(
+            application.lateFeePerDay ||
+            100
         );
 
 
     const feeLabel =
-        application.loanType ===
-        "renewal"
-            ? "Renewal Fee"
-            : "First Loan Processing Fee";
+        isRenewal
+
+            ?
+
+            "Renewal Fee"
+
+            :
+
+            "First Loan Processing Fee";
+
+
+    const borrowingDate =
+        getApplicationDate(
+            application.createdAt
+        );
 
 
     const dueDate =
-        calculateNextMonthDate();
+        calculateNextMonthDate(
+            borrowingDate
+        );
 
 
     agreementContainer.innerHTML =
         `
 
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
         <div class="agreement-header">
+
 
             <h1>
                 JITUME LEO
             </h1>
 
+
             <h2>
                 ${loanType}
             </h2>
+
 
             <p>
                 Emergency Loan Agreement
             </p>
 
+
             <p>
+
                 Application ID:
+
                 <strong>
                     ${escapeHTML(
                         application.id
                     )}
                 </strong>
+
             </p>
 
         </div>
 
 
+
+        <!-- =====================================
+             CLIENT INFORMATION
+        ====================================== -->
+
         <div class="agreement-section">
 
             <h3>
-                1. Client Information
+                1. Client & Agent Information
             </h3>
 
+
             <table class="details-table">
+
 
                 <tr>
 
@@ -581,11 +998,13 @@ function renderAgreement(
 
                     <td>
                         ${escapeHTML(
-                            user.uid
+                            application.customerId ||
+                            "-"
                         )}
                     </td>
 
                 </tr>
+
 
                 <tr>
 
@@ -594,15 +1013,17 @@ function renderAgreement(
                     </td>
 
                     <td>
+
                         ${escapeHTML(
-                            application.loanType ===
-                            "renewal"
-                                ? "Renewal"
+                            isRenewal
+                                ? "Loan Renewal"
                                 : "First Loan"
                         )}
+
                     </td>
 
                 </tr>
+
 
                 <tr>
 
@@ -611,10 +1032,49 @@ function renderAgreement(
                     </td>
 
                     <td>
+
                         ${escapeHTML(
                             application.agentName ||
                             "-"
                         )}
+
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Agent ID
+                    </td>
+
+                    <td>
+
+                        ${escapeHTML(
+                            application.agentId ||
+                            "-"
+                        )}
+
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Application Date
+                    </td>
+
+                    <td>
+
+                        ${escapeHTML(
+                            formatDate(
+                                borrowingDate
+                            )
+                        )}
+
                     </td>
 
                 </tr>
@@ -624,13 +1084,20 @@ function renderAgreement(
         </div>
 
 
+
+        <!-- =====================================
+             LOAN DETAILS
+        ====================================== -->
+
         <div class="agreement-section">
 
             <h3>
                 2. Loan Details
             </h3>
 
+
             <table class="details-table">
+
 
                 <tr>
 
@@ -639,10 +1106,15 @@ function renderAgreement(
                     </td>
 
                     <td>
-                        ${requestedAmount}
+
+                        ${formatCurrency(
+                            requestedAmount
+                        )}
+
                     </td>
 
                 </tr>
+
 
                 <tr>
 
@@ -651,10 +1123,15 @@ function renderAgreement(
                     </td>
 
                     <td>
-                        ${interest}
+
+                        ${formatCurrency(
+                            interest
+                        )}
+
                     </td>
 
                 </tr>
+
 
                 <tr>
 
@@ -663,10 +1140,19 @@ function renderAgreement(
                     </td>
 
                     <td>
-                        ${maturity}
+
+                        <strong>
+
+                            ${formatCurrency(
+                                maturity
+                            )}
+
+                        </strong>
+
                     </td>
 
                 </tr>
+
 
                 <tr>
 
@@ -675,10 +1161,32 @@ function renderAgreement(
                     </td>
 
                     <td>
-                        ${fee}
+
+                        ${formatCurrency(
+                            applicableFee
+                        )}
+
                     </td>
 
                 </tr>
+
+
+                <tr>
+
+                    <td>
+                        Borrowing Date
+                    </td>
+
+                    <td>
+
+                        ${formatDate(
+                            borrowingDate
+                        )}
+
+                    </td>
+
+                </tr>
+
 
                 <tr>
 
@@ -687,7 +1195,33 @@ function renderAgreement(
                     </td>
 
                     <td>
-                        ${dueDate}
+
+                        <strong>
+
+                            ${formatDate(
+                                dueDate
+                            )}
+
+                        </strong>
+
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Late Repayment Charge
+                    </td>
+
+                    <td>
+
+                        ${formatCurrency(
+                            lateFee
+                        )}
+                        per late day
+
                     </td>
 
                 </tr>
@@ -697,80 +1231,189 @@ function renderAgreement(
         </div>
 
 
+
+        <!-- =====================================
+             TERMS
+        ====================================== -->
+
         <div class="agreement-section">
 
             <h3>
-                3. Terms and Conditions
+                3. Terms & Conditions
             </h3>
+
 
             <ol class="terms-list">
 
-                <li>
-                    The principal amount is
-                    ${requestedAmount}.
-                </li>
 
                 <li>
-                    The proposed loan interest is
-                    ${interest}.
+
+                    The principal loan amount is
+
+                    <strong>
+                        ${formatCurrency(
+                            requestedAmount
+                        )}
+                    </strong>.
+
                 </li>
 
-                <li>
-                    The normal maturity amount is
-                    ${maturity}.
-                </li>
 
                 <li>
-                    A first loan attracts a processing fee of
-                    ${application.loanType === "renewal"
-                        ? "N/A for this renewal"
-                        : fee}.
+
+                    The agreed prototype loan interest is
+
+                    <strong>
+                        ${formatCurrency(
+                            interest
+                        )}
+                    </strong>.
+
                 </li>
 
-                <li>
-                    A renewal attracts a renewal fee of
-                    ${application.loanType === "renewal"
-                        ? fee
-                        : "N/A for this first loan"}.
-                </li>
 
                 <li>
-                    The proposed late repayment charge is
-                    KSh 100 per late day under the prototype
-                    business rules.
+
+                    The normal amount due at maturity is
+
+                    <strong>
+                        ${formatCurrency(
+                            maturity
+                        )}
+                    </strong>.
+
                 </li>
 
+
                 <li>
-                    The expected repayment date is the same
-                    calendar date in the following month,
+
+                    This application is classified as a
+
+                    <strong>
+
+                        ${isRenewal
+                            ? "loan renewal"
+                            : "first loan"}
+
+                    </strong>.
+
+                </li>
+
+
+                <li>
+
+                    The applicable
+
+                    <strong>
+                        ${feeLabel}
+                    </strong>
+
+                    is
+
+                    <strong>
+                        ${formatCurrency(
+                            applicableFee
+                        )}
+                    </strong>.
+
+                </li>
+
+
+                <li>
+
+                    Where the client cannot fully repay
+                    the normal maturity amount and a
+                    renewal is approved, the prototype
+                    renewal terms provide for the applicable
+                    interest and a KSh 500 renewal fee,
+                    with the outstanding principal carried
+                    forward according to the final agreement.
+
+                </li>
+
+
+                <li>
+
+                    Late repayment carries a prototype
+                    charge of
+
+                    <strong>
+                        ${formatCurrency(
+                            lateFee
+                        )}
+                        per day
+                    </strong>
+
+                    added to the applicable interest,
                     subject to the final agreement.
+
                 </li>
 
+
                 <li>
+
+                    The expected repayment date is the
+                    same calendar date in the following
+                    month, subject to the final agreement.
+
+                </li>
+
+
+                <li>
+
+                    The client must provide truthful,
+                    complete and accurate information.
+
+                </li>
+
+
+                <li>
+
+                    The client must provide the required
+                    supporting documents.
+
+                </li>
+
+
+                <li>
+
+                    The guarantor must review and sign the
+                    agreement before submission.
+
+                </li>
+
+
+                <li>
+
+                    The selected agent must review and sign
+                    the agreement before the client uploads
+                    the completed document.
+
+                </li>
+
+
+                <li>
+
                     Agent verification is required before
-                    the application proceeds to administration.
+                    the application is sent to administration.
+
                 </li>
 
-                <li>
-                    Final loan approval is made by the Jitume Leo
-                    administrator.
-                </li>
 
                 <li>
-                    The client must provide truthful and
-                    complete information and supporting documents.
+
+                    Final approval or rejection is made by
+                    Jitume Leo administration.
+
                 </li>
 
-                <li>
-                    The guarantor acknowledges the client's
-                    application and signs the agreement where
-                    required.
-                </li>
 
                 <li>
-                    The agent acknowledges the application,
-                    verifies the supporting information and signs
-                    the agreement.
+
+                    Payment and cash-collection stages occur
+                    only after the appropriate approval stage
+                    has been completed.
+
                 </li>
 
             </ol>
@@ -778,20 +1421,31 @@ function renderAgreement(
         </div>
 
 
+
+        <!-- =====================================
+             SIGNATURES
+        ====================================== -->
+
         <div class="agreement-section">
 
             <h3>
-                4. Signatures
+                4. Required Signatures
             </h3>
 
+
             <p>
-                The following parties must sign the printed
-                agreement before the client uploads it:
+
+                This agreement must be printed or otherwise
+                completed and signed by all three parties
+                before the client uploads it.
+
             </p>
 
 
             <div class="signature-grid">
 
+
+                <!-- CLIENT -->
 
                 <div class="signature-box">
 
@@ -799,20 +1453,32 @@ function renderAgreement(
                         Client
                     </h4>
 
+
                     <div class="signature-line">
                     </div>
+
 
                     <p>
                         Signature
                     </p>
 
+
                     <p>
-                        Date: __________________
+                        Name:
+                        __________________
+                    </p>
+
+
+                    <p>
+                        Date:
+                        __________________
                     </p>
 
                 </div>
 
 
+
+                <!-- GUARANTOR -->
 
                 <div class="signature-box">
 
@@ -820,20 +1486,32 @@ function renderAgreement(
                         Guarantor
                     </h4>
 
+
                     <div class="signature-line">
                     </div>
+
 
                     <p>
                         Signature
                     </p>
 
+
                     <p>
-                        Date: __________________
+                        Name:
+                        __________________
+                    </p>
+
+
+                    <p>
+                        Date:
+                        __________________
                     </p>
 
                 </div>
 
 
+
+                <!-- AGENT -->
 
                 <div class="signature-box">
 
@@ -841,15 +1519,28 @@ function renderAgreement(
                         Agent
                     </h4>
 
+
                     <div class="signature-line">
                     </div>
+
 
                     <p>
                         Signature
                     </p>
 
+
                     <p>
-                        Date: __________________
+                        Name:
+                        ${escapeHTML(
+                            application.agentName ||
+                            ""
+                        )}
+                    </p>
+
+
+                    <p>
+                        Date:
+                        __________________
                     </p>
 
                 </div>
@@ -860,23 +1551,102 @@ function renderAgreement(
         </div>
 
 
+
+        <!-- =====================================
+             NEXT STEP
+        ====================================== -->
+
+        <div class="next-step-box">
+
+            <h3>
+                Agreement Completed?
+            </h3>
+
+
+            <p>
+
+                Download or print this agreement,
+                obtain the required Client, Guarantor
+                and Agent signatures, and keep the
+                signed copy ready for the next stage.
+
+            </p>
+
+
+            <button
+                type="button"
+                class="continue-upload-btn"
+                id="continueUploadButton">
+
+                Continue to Upload Documents →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================================
+             PROTOTYPE NOTICE
+        ====================================== -->
+
         <div class="prototype-note">
 
             <strong>
                 Prototype Notice:
             </strong>
 
+
             This Jitume Leo agreement is part of a
-            demonstration system. The stated loan terms,
-            fees, late charges, guarantor obligations and
-            agent responsibilities should be legally and
-            commercially reviewed before real-world use.
+            demonstration system. The stated loan
+            terms, fees, late charges, guarantor
+            obligations and agent responsibilities
+            should be legally and commercially reviewed
+            before real-world use.
 
         </div>
 
         `;
 
 }
+
+
+/*
+|--------------------------------------------------------------------------
+| CONTINUE TO UPLOAD
+|--------------------------------------------------------------------------
+*/
+
+document
+    .getElementById(
+        "continueUploadButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            if (
+                !applicationId
+            ) {
+
+                alert(
+                    "Application ID is missing."
+                );
+
+                return;
+
+            }
+
+
+            window.location.href =
+                "upload-documents.html?applicationId="
+                +
+                encodeURIComponent(
+                    applicationId
+                );
+
+        }
+    );
 
 
 /*
@@ -923,6 +1693,7 @@ function formatCurrency(
 ) {
 
     return "KSh " +
+
         Number(
             value || 0
         ).toLocaleString(
@@ -932,48 +1703,82 @@ function formatCurrency(
 }
 
 
-function getTime(
+function getApplicationDate(
     timestamp
 ) {
 
     if (!timestamp) {
 
-        return 0;
+        return new Date();
 
     }
 
 
-    if (
-        typeof timestamp.toMillis ===
-        "function"
+    try {
+
+        if (
+            typeof timestamp.toDate ===
+            "function"
+        ) {
+
+            return timestamp.toDate();
+
+        }
+
+
+        if (
+            timestamp.seconds
+        ) {
+
+            return new Date(
+                timestamp.seconds *
+                1000
+            );
+
+        }
+
+
+        if (
+            typeof timestamp.toMillis ===
+            "function"
+        ) {
+
+            return new Date(
+                timestamp.toMillis()
+            );
+
+        }
+
+
+        return new Date(
+            timestamp
+        );
+
+    }
+
+    catch (
+        error
     ) {
 
-        return timestamp.toMillis();
+        return new Date();
 
     }
-
-
-    if (
-        timestamp.seconds
-    ) {
-
-        return timestamp.seconds *
-            1000;
-
-    }
-
-
-    return new Date(
-        timestamp
-    ).getTime();
 
 }
 
 
-function calculateNextMonthDate() {
+function calculateNextMonthDate(
+    borrowingDate
+) {
 
     const date =
-        new Date();
+        new Date(
+            borrowingDate
+        );
+
+
+    const originalDay =
+        date.getDate();
 
 
     date.setMonth(
@@ -981,19 +1786,66 @@ function calculateNextMonthDate() {
     );
 
 
-    return date.toLocaleDateString(
-        "en-KE",
-        {
-            day:
-                "2-digit",
+    /*
+     * Handle months that do not contain
+     * the original day.
+     */
 
-            month:
-                "long",
+    if (
+        date.getDate() !==
+        originalDay
+    ) {
 
-            year:
-                "numeric"
-        }
-    );
+        date.setDate(0);
+
+    }
+
+
+    return date;
+
+}
+
+
+function formatDate(
+    date
+) {
+
+    if (!date) {
+
+        return "-";
+
+    }
+
+
+    try {
+
+        return new Date(
+            date
+        ).toLocaleDateString(
+            "en-KE",
+            {
+
+                day:
+                    "2-digit",
+
+                month:
+                    "long",
+
+                year:
+                    "numeric"
+
+            }
+        );
+
+    }
+
+    catch (
+        error
+    ) {
+
+        return "-";
+
+    }
 
 }
 
@@ -1015,6 +1867,34 @@ function escapeHTML(
 
 
     return div.innerHTML;
+
+}
+
+
+function showError(
+    message
+) {
+
+    agreementContainer.innerHTML =
+        `
+
+        <div class="error-state">
+
+            <h2>
+                Unable to Open Agreement
+            </h2>
+
+            <p>
+
+                ${escapeHTML(
+                    message
+                )}
+
+            </p>
+
+        </div>
+
+        `;
 
 }
 
