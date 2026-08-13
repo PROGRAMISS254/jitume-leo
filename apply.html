@@ -322,6 +322,7 @@
         }
 
         @media (max-width: 700px) {
+
             .choice-grid,
             .agent-grid,
             .review-box {
@@ -335,6 +336,7 @@
             .progress-bar {
                 gap: 4px;
             }
+
         }
 
     </style>
@@ -351,6 +353,7 @@
         JITUME <span>LEO</span>
     </div>
 
+
     <nav>
 
         <a href="client.html">
@@ -362,6 +365,7 @@
         </a>
 
     </nav>
+
 
     <div class="nav-buttons">
 
@@ -401,18 +405,14 @@
         </div>
 
 
+
         <div class="progress-bar">
 
             <div class="progress-step active"></div>
-
             <div class="progress-step"></div>
-
             <div class="progress-step"></div>
-
             <div class="progress-step"></div>
-
             <div class="progress-step"></div>
-
             <div class="progress-step"></div>
 
         </div>
@@ -435,11 +435,8 @@
                 </h2>
 
                 <p class="step-description">
-
-                    Tell us whether this is your first
-                    Jitume Leo loan or a renewal of an
-                    existing loan.
-
+                    Tell us whether this is your first Jitume Leo loan
+                    or a renewal of an existing loan.
                 </p>
 
 
@@ -461,8 +458,7 @@
                         </h3>
 
                         <p>
-                            This is my first emergency loan
-                            with Jitume Leo.
+                            This is my first emergency loan with Jitume Leo.
                         </p>
 
                     </label>
@@ -483,8 +479,7 @@
                         </h3>
 
                         <p>
-                            I am renewing an existing
-                            Jitume Leo loan.
+                            I am renewing an existing Jitume Leo loan.
                         </p>
 
                     </label>
@@ -532,10 +527,8 @@
                 </h2>
 
                 <p class="step-description">
-
-                    Select the active Jitume Leo agent
-                    who will verify your application.
-
+                    Select the active Jitume Leo agent who will
+                    verify your application.
                 </p>
 
 
@@ -544,9 +537,7 @@
                     class="agent-grid">
 
                     <div class="loading-box">
-
                         Loading active agents...
-
                     </div>
 
                 </div>
@@ -599,11 +590,8 @@
                 </h2>
 
                 <p class="step-description">
-
-                    These amounts are loaded from the
-                    Jitume Leo Emergency Loan product
-                    in Firebase.
-
+                    These amounts are loaded from the Jitume Leo
+                    Emergency Loan product in Firebase.
                 </p>
 
 
@@ -613,7 +601,6 @@
                     style="display:none;">
 
                 </div>
-
 
 
                 <!-- FIRST LOAN -->
@@ -772,26 +759,21 @@
                 </h2>
 
                 <p class="step-description">
-
                     Please read the proposed terms carefully.
-
                 </p>
 
 
                 <div class="terms-box">
 
                     <p>
-
-                        By applying for a Jitume Leo
-                        emergency loan, the client
-                        acknowledges the following
-                        proposed terms for this prototype
-                        loan product:
-
+                        By applying for a Jitume Leo emergency loan,
+                        the client acknowledges the following proposed
+                        terms for this prototype loan product:
                     </p>
 
 
                     <ul>
+
 
                         <li>
 
@@ -817,8 +799,7 @@
 
                         <li>
 
-                            The normal amount due at
-                            maturity is:
+                            The normal amount due at maturity is:
 
                             <strong id="termsMaturity">
                                 KSh 6,000
@@ -862,19 +843,17 @@
 
                         <li>
 
-                            Expected repayment date is
-                            the same calendar date in the
-                            following month, subject to
-                            the final agreement.
+                            Expected repayment date is the same
+                            calendar date in the following month,
+                            subject to the final agreement.
 
                         </li>
 
 
                         <li>
 
-                            Agent verification and final
-                            administrator approval are
-                            required before disbursement.
+                            Agent verification and final administrator
+                            approval are required before disbursement.
 
                         </li>
 
@@ -883,10 +862,9 @@
 
                     <p>
 
-                        These are prototype business
-                        rules. They should be legally
-                        and commercially reviewed before
-                        any real-world deployment.
+                        These are prototype business rules.
+                        They should be legally and commercially
+                        reviewed before any real-world deployment.
 
                     </p>
 
@@ -899,9 +877,8 @@
                         type="checkbox"
                         id="termsAccepted">
 
-                    I confirm that I have read and
-                    understood the proposed Jitume Leo
-                    loan terms.
+                    I confirm that I have read and understood
+                    the proposed Jitume Leo loan terms.
 
                 </label>
 
@@ -953,10 +930,8 @@
                 </h2>
 
                 <p class="step-description">
-
-                    Check everything before creating the
-                    official application record.
-
+                    Check everything before creating the official
+                    application record.
                 </p>
 
 
@@ -1045,8 +1020,9 @@
 
                 <div class="agreement-box">
 
-                    The application will first be created
-                    with the status
+                    The application will first be created with
+                    the status
+
                     <strong>
                         APPLICATION_SUBMITTED
                     </strong>.
@@ -1104,10 +1080,7 @@
                 </h2>
 
                 <p class="step-description">
-
-                    Your initial loan application has
-                    been created.
-
+                    Your initial loan application has been created.
                 </p>
 
 
@@ -1162,9 +1135,9 @@
                     </strong>
 
                     Download the Jitume Leo agreement,
-                    have the required parties sign it,
-                    then upload the signed agreement
-                    and required documents.
+                    have the Client, Guarantor and Agent
+                    sign it, then continue to the document
+                    upload stage.
 
                 </div>
 
@@ -1233,11 +1206,8 @@ from
 "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
-import {
-    app
-}
-from
-"./firebase.js";
+import { app }
+from "./firebase.js";
 
 
 const auth =
@@ -1257,7 +1227,6 @@ let selectedAgent = null;
 let loanProduct = null;
 
 let selectedLoanType = "first";
-
 
 
 /*
@@ -1282,12 +1251,6 @@ document.addEventListener(
                 ".progress-step"
             );
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | ELEMENTS
-        |--------------------------------------------------------------------------
-        */
 
         const agentGrid =
             document.getElementById(
@@ -1323,7 +1286,6 @@ document.addEventListener(
             document.getElementById(
                 "renewalChoice"
             );
-
 
 
         /*
@@ -1461,13 +1423,6 @@ document.addEventListener(
                     );
 
 
-
-                /*
-                |--------------------------------------------------------------------------
-                | DISPLAY CALCULATIONS
-                |--------------------------------------------------------------------------
-                */
-
                 document.getElementById(
                     "principalDisplay"
                 ).textContent =
@@ -1524,13 +1479,6 @@ document.addEventListener(
                     );
 
 
-
-                /*
-                |--------------------------------------------------------------------------
-                | TERMS
-                |--------------------------------------------------------------------------
-                */
-
                 document.getElementById(
                     "termsPrincipal"
                 ).textContent =
@@ -1583,7 +1531,6 @@ document.addEventListener(
 
                 errorBox.style.display =
                     "none";
-
 
             }
 
@@ -1650,13 +1597,11 @@ document.addEventListener(
                             "users"
                         ),
 
-
                         where(
                             "role",
                             "==",
                             "agent"
                         ),
-
 
                         where(
                             "status",
@@ -2049,8 +1994,7 @@ document.addEventListener(
 
                     step.classList.toggle(
                         "active",
-                        stepNumber ===
-                        currentStep
+                        stepNumber === currentStep
                     );
 
                 }
@@ -2063,8 +2007,7 @@ document.addEventListener(
 
                     progress.classList.toggle(
                         "active",
-                        index <
-                        currentStep
+                        index < currentStep
                     );
 
                 }
@@ -2072,8 +2015,7 @@ document.addEventListener(
 
 
             if (
-                currentStep ===
-                5
+                currentStep === 5
             ) {
 
                 updateReview();
@@ -2098,10 +2040,7 @@ document.addEventListener(
                 "click",
                 () => {
 
-
-                    goToStep(
-                        2
-                    );
+                    goToStep(2);
 
                 }
             );
@@ -2110,7 +2049,6 @@ document.addEventListener(
         cancelApplication.addEventListener(
             "click",
             () => {
-
 
                 window.location.href =
                     "client.html";
@@ -2134,10 +2072,7 @@ document.addEventListener(
                 "click",
                 () => {
 
-
-                    goToStep(
-                        1
-                    );
+                    goToStep(1);
 
                 }
             );
@@ -2151,26 +2086,18 @@ document.addEventListener(
                 "click",
                 () => {
 
-
-                    if (
-                        !selectedAgent
-                    ) {
-
+                    if (!selectedAgent) {
 
                         showMessage(
                             "Please select an active agent before continuing.",
                             "error"
                         );
 
-
                         return;
 
                     }
 
-
-                    goToStep(
-                        3
-                    );
+                    goToStep(3);
 
                 }
             );
@@ -2191,10 +2118,7 @@ document.addEventListener(
                 "click",
                 () => {
 
-
-                    goToStep(
-                        2
-                    );
+                    goToStep(2);
 
                 }
             );
@@ -2208,26 +2132,18 @@ document.addEventListener(
                 "click",
                 () => {
 
-
-                    if (
-                        !loanProduct
-                    ) {
-
+                    if (!loanProduct) {
 
                         showMessage(
                             "Loan product information is not available yet.",
                             "error"
                         );
 
-
                         return;
 
                     }
 
-
-                    goToStep(
-                        4
-                    );
+                    goToStep(4);
 
                 }
             );
@@ -2248,10 +2164,7 @@ document.addEventListener(
                 "click",
                 () => {
 
-
-                    goToStep(
-                        3
-                    );
+                    goToStep(3);
 
                 }
             );
@@ -2265,23 +2178,18 @@ document.addEventListener(
                 "click",
                 () => {
 
-
                     const accepted =
                         document.getElementById(
                             "termsAccepted"
                         ).checked;
 
 
-                    if (
-                        !accepted
-                    ) {
-
+                    if (!accepted) {
 
                         showMessage(
                             "You must confirm that you have read and understood the terms.",
                             "error"
                         );
-
 
                         return;
 
@@ -2293,9 +2201,7 @@ document.addEventListener(
                     );
 
 
-                    goToStep(
-                        5
-                    );
+                    goToStep(5);
 
                 }
             );
@@ -2316,22 +2222,16 @@ document.addEventListener(
                 "click",
                 () => {
 
-
-                    goToStep(
-                        4
-                    );
+                    goToStep(4);
 
                 }
             );
 
 
-
         function updateReview() {
 
 
-            if (
-                !loanProduct
-            ) {
+            if (!loanProduct) {
 
                 return;
 
@@ -2379,32 +2279,18 @@ document.addEventListener(
             document.getElementById(
                 "reviewLoanType"
             ).textContent =
-
                 selectedLoanType ===
                 "renewal"
-
-                    ?
-
-                    "Loan Renewal"
-
-                    :
-
-                    "First Loan";
+                    ? "Loan Renewal"
+                    : "First Loan";
 
 
             document.getElementById(
                 "reviewAgent"
             ).textContent =
-
                 selectedAgent
-
-                    ?
-
-                    selectedAgent.fullName
-
-                    :
-
-                    "-";
+                    ? selectedAgent.fullName
+                    : "-";
 
 
             document.getElementById(
@@ -2469,12 +2355,10 @@ document.addEventListener(
                         !selectedAgent
                     ) {
 
-
                         showMessage(
                             "Some application information is missing.",
                             "error"
                         );
-
 
                         return;
 
@@ -2658,9 +2542,7 @@ document.addEventListener(
                             "Selected Agent";
 
 
-                        goToStep(
-                            6
-                        );
+                        goToStep(6);
 
                     }
 
@@ -2747,8 +2629,34 @@ document.addEventListener(
                 () => {
 
 
+                    const applicationId =
+                        document
+                            .getElementById(
+                                "applicationIdDisplay"
+                            )
+                            .textContent
+                            .trim();
+
+
+                    if (!applicationId) {
+
+
+                        alert(
+                            "Application ID is missing."
+                        );
+
+
+                        return;
+
+                    }
+
+
                     window.location.href =
-                        "agreement.html";
+                        "agreement.html?applicationId="
+                        +
+                        encodeURIComponent(
+                            applicationId
+                        );
 
                 }
             );
@@ -2765,9 +2673,7 @@ document.addEventListener(
             amount
         ) {
 
-
             return "KSh " +
-
                 Number(
                     amount
                 ).toLocaleString(
@@ -2777,27 +2683,17 @@ document.addEventListener(
         }
 
 
-
         function showMessage(
             text,
             type = "error"
         ) {
 
-
             const messageElement =
-
-                currentStep ===
-                4
-
-                    ?
-
-                    document.getElementById(
+                currentStep === 4
+                    ? document.getElementById(
                         "step4Message"
                     )
-
-                    :
-
-                    document.getElementById(
+                    : document.getElementById(
                         "applicationMessage"
                     );
 
@@ -2813,11 +2709,9 @@ document.addEventListener(
         }
 
 
-
         function clearMessage(
             elementId
         ) {
-
 
             const element =
                 document.getElementById(
@@ -2835,11 +2729,9 @@ document.addEventListener(
         }
 
 
-
         function escapeHTML(
             value
         ) {
-
 
             const div =
                 document.createElement(
@@ -2849,7 +2741,7 @@ document.addEventListener(
 
             div.textContent =
                 String(
-                    value
+                    value ?? ""
                 );
 
 
@@ -2858,7 +2750,6 @@ document.addEventListener(
         }
 
     }
-
 );
 
 </script>
