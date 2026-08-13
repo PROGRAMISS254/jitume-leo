@@ -15,71 +15,100 @@
     <style>
 
         /* =====================================================
-           ADMIN CONTROL CENTER
+           BASE
         ===================================================== */
 
-        .admin-page {
-            max-width: 1150px;
-            margin: 0 auto;
-            padding: 35px 20px 60px;
+        * {
+            box-sizing: border-box;
         }
 
-        .admin-header {
-            margin-bottom: 30px;
-        }
-
-        .admin-header h1 {
-            margin: 5px 0 8px;
-        }
-
-        .admin-header p:last-child {
-            color: #6d7788;
+        body {
             margin: 0;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        .admin-page {
+            width: min(1120px, calc(100% - 28px));
+            margin: 0 auto;
+            padding: 26px 0 45px;
         }
 
 
         /* =====================================================
-           MANAGEMENT BUTTONS
+           HEADER
+        ===================================================== */
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .admin-header h1 {
+            margin: 4px 0 5px;
+            font-size: 27px;
+        }
+
+        .admin-header p {
+            margin: 0;
+        }
+
+        .admin-header .subtext {
+            color: #6d7788;
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           MAIN MANAGEMENT BUTTONS
         ===================================================== */
 
         .management-menu {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin-bottom: 18px;
         }
 
         .management-button {
-            border: 1px solid #e2e7ec;
+            border: 1px solid #e1e6eb;
             background: #ffffff;
-            border-radius: 14px;
-            padding: 25px 20px;
+            border-radius: 12px;
+            padding: 16px;
             text-align: left;
             cursor: pointer;
-            transition: .2s;
-            box-shadow: 0 8px 22px rgba(30,45,65,.04);
+            transition: .18s ease;
+            box-shadow: 0 5px 15px rgba(30,45,65,.04);
         }
 
         .management-button:hover {
             border-color: #168a63;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
         .management-button.active {
-            border-color: #168a63;
             background: #f0faf6;
+            border-color: #168a63;
         }
 
         .management-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
             background: #eef2f6;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 10px;
+            font-size: 13px;
             font-weight: 800;
-            margin-bottom: 15px;
         }
 
         .management-button.active .management-icon {
@@ -88,15 +117,15 @@
         }
 
         .management-button h3 {
-            margin-bottom: 6px;
-            font-size: 18px;
+            margin: 0 0 4px;
+            font-size: 16px;
         }
 
         .management-button p {
             margin: 0;
             color: #6d7788;
-            font-size: 12px;
-            line-height: 1.6;
+            font-size: 11px;
+            line-height: 1.5;
         }
 
 
@@ -114,33 +143,33 @@
 
         .summary-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
         }
 
         .summary-card {
             background: #ffffff;
-            border: 1px solid #e5e9ef;
-            border-radius: 12px;
-            padding: 18px;
+            border: 1px solid #e4e8ed;
+            border-radius: 10px;
+            padding: 13px 15px;
         }
 
         .summary-card small {
             display: block;
             color: #7b8794;
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 800;
             letter-spacing: .5px;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .summary-card strong {
-            font-size: 25px;
+            font-size: 21px;
         }
 
 
         /* =====================================================
-           MANAGEMENT PANELS
+           PANELS
         ===================================================== */
 
         .management-panel {
@@ -155,13 +184,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 18px;
-            flex-wrap: wrap;
+            gap: 12px;
+            margin: 5px 0 14px;
         }
 
         .panel-header h2 {
-            margin: 0 0 5px;
+            margin: 3px 0;
+            font-size: 21px;
         }
 
         .panel-header p {
@@ -170,27 +199,38 @@
             font-size: 12px;
         }
 
+        .panel-actions {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+
         .panel {
             background: #ffffff;
-            border: 1px solid #e5e9ef;
-            border-radius: 14px;
-            padding: 20px;
-            box-shadow: 0 8px 22px rgba(30,45,65,.04);
-            margin-bottom: 18px;
+            border: 1px solid #e4e8ed;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(30,45,65,.03);
+            margin-bottom: 12px;
         }
 
 
         /* =====================================================
-           GENERAL BUTTONS
+           BUTTONS
         ===================================================== */
 
         .admin-btn {
             border: none;
             border-radius: 7px;
-            padding: 10px 15px;
-            font-size: 12px;
+            padding: 9px 13px;
+            font-size: 11px;
             font-weight: 700;
             cursor: pointer;
+            transition: .15s;
+        }
+
+        .admin-btn:hover {
+            transform: translateY(-1px);
         }
 
         .admin-btn-primary {
@@ -220,49 +260,89 @@
 
 
         /* =====================================================
-           AGENT / CLIENT CARDS
+           TOOLBAR
+        ===================================================== */
+
+        .toolbar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .toolbar input,
+        .toolbar select {
+            border: 1px solid #d7dde5;
+            border-radius: 7px;
+            padding: 9px 10px;
+            font-size: 11px;
+            outline: none;
+            background: #fff;
+        }
+
+        .toolbar input {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .toolbar input:focus,
+        .toolbar select:focus {
+            border-color: #168a63;
+        }
+
+
+        /* =====================================================
+           RECORD GRID
         ===================================================== */
 
         .record-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
         }
 
         .record-card {
             border: 1px solid #e4e8ed;
-            border-radius: 10px;
-            padding: 16px;
+            border-radius: 9px;
+            padding: 13px;
+            background: #fff;
         }
 
         .record-card h3 {
-            margin-bottom: 6px;
-            font-size: 16px;
+            margin: 6px 0;
+            font-size: 15px;
         }
 
         .record-card p {
-            margin: 3px 0;
+            margin: 2px 0;
             color: #667085;
-            font-size: 12px;
-            line-height: 1.6;
+            font-size: 11px;
+            line-height: 1.55;
         }
 
         .record-card-actions {
-            margin-top: 12px;
             display: flex;
-            gap: 7px;
+            gap: 6px;
+            margin-top: 10px;
             flex-wrap: wrap;
         }
 
+
+        /* =====================================================
+           STATUS
+        ===================================================== */
+
         .status-pill {
             display: inline-block;
-            padding: 5px 8px;
+            padding: 4px 7px;
             border-radius: 20px;
-            font-size: 9px;
+            font-size: 8px;
             font-weight: 800;
+            white-space: nowrap;
         }
 
-        .status-active {
+        .status-active,
+        .status-approved {
             background: #e8f7ef;
             color: #168a63;
         }
@@ -270,11 +350,6 @@
         .status-pending {
             background: #fff5db;
             color: #8a6200;
-        }
-
-        .status-approved {
-            background: #e8f7ef;
-            color: #168a63;
         }
 
         .status-rejected {
@@ -289,110 +364,208 @@
 
 
         /* =====================================================
-           SEARCH / FILTER
+           CLIENT MANAGEMENT
         ===================================================== */
 
-        .toolbar {
+        .client-card {
+            border: 1px solid #e2e7ec;
+            border-radius: 10px;
+            background: #fff;
+            padding: 14px;
+            min-width: 0;
+        }
+
+        .client-card-top {
             display: flex;
+            justify-content: space-between;
             gap: 10px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
+            align-items: flex-start;
+            margin-bottom: 8px;
         }
 
-        .toolbar input,
-        .toolbar select {
-            border: 1px solid #d7dde5;
+        .client-card h3 {
+            margin: 0 0 3px;
+            font-size: 16px;
+        }
+
+        .client-contact {
+            color: #667085;
+            font-size: 10px;
+            line-height: 1.55;
+        }
+
+        .client-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .client-stat {
+            background: #f7f9fc;
             border-radius: 7px;
-            padding: 10px 12px;
-            font-size: 12px;
-            outline: none;
+            padding: 8px;
         }
 
-        .toolbar input {
-            flex: 1;
-            min-width: 220px;
+        .client-stat small {
+            display: block;
+            color: #7b8794;
+            font-size: 8px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+            letter-spacing: .3px;
+        }
+
+        .client-stat strong {
+            font-size: 13px;
+        }
+
+        .client-loan-banner {
+            margin-top: 9px;
+            padding: 9px;
+            border-radius: 7px;
+            background: #eef8f3;
+            border: 1px solid #d5ebdf;
+            font-size: 10px;
+            color: #166b50;
+        }
+
+        .client-loan-banner.inactive {
+            background: #f7f8fa;
+            border-color: #e7ebef;
+            color: #667085;
+        }
+
+        .client-actions {
+            margin-top: 10px;
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
         }
 
 
         /* =====================================================
-           APPLICATION
+           CLIENT APPLICATION MODAL
+        ===================================================== */
+
+        .client-history {
+            display: grid;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .history-item {
+            border: 1px solid #e4e8ed;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .history-item-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .history-item strong {
+            font-size: 12px;
+        }
+
+        .history-item small {
+            display: block;
+            color: #7b8794;
+            margin-top: 2px;
+            font-size: 9px;
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           LOANS
         ===================================================== */
 
         .loan-card {
             border: 1px solid #e4e8ed;
-            border-radius: 11px;
-            padding: 18px;
-            margin-bottom: 12px;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 9px;
         }
 
         .loan-top {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 12px;
+            margin-bottom: 11px;
         }
 
         .loan-top h3 {
-            margin: 0 0 5px;
+            margin: 0 0 3px;
+            font-size: 15px;
         }
 
         .loan-meta {
             color: #667085;
-            font-size: 11px;
-            line-height: 1.7;
+            font-size: 10px;
+            line-height: 1.55;
         }
 
         .loan-details {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 9px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 7px;
         }
 
         .loan-detail {
             background: #f7f9fc;
             border-radius: 7px;
-            padding: 10px;
+            padding: 8px;
         }
 
         .loan-detail small {
             display: block;
             color: #7b8794;
-            font-size: 9px;
+            font-size: 8px;
             text-transform: uppercase;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .loan-detail strong {
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .loan-actions {
-            margin-top: 14px;
             display: flex;
-            gap: 8px;
+            gap: 6px;
             flex-wrap: wrap;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 35px 20px;
-            color: #667085;
+            margin-top: 11px;
         }
 
 
         /* =====================================================
-           ADD AGENT MODAL
+           EMPTY
+        ===================================================== */
+
+        .empty-state {
+            text-align: center;
+            padding: 28px 15px;
+            color: #667085;
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           MODAL
         ===================================================== */
 
         .modal-bg {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,.5);
+            background: rgba(0,0,0,.48);
             display: none;
-            justify-content: center;
             align-items: center;
-            padding: 20px;
+            justify-content: center;
+            padding: 16px;
             z-index: 1000;
         }
 
@@ -402,73 +575,74 @@
 
         .modal {
             width: min(500px, 100%);
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 24px;
             max-height: 90vh;
             overflow-y: auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
         }
 
         .modal-header {
             display: flex;
             justify-content: space-between;
-            gap: 15px;
-            margin-bottom: 18px;
+            gap: 10px;
+            margin-bottom: 15px;
         }
 
         .modal-header h2 {
-            margin: 0 0 5px;
+            margin: 0 0 3px;
+            font-size: 20px;
         }
 
         .modal-header p {
             margin: 0;
             color: #667085;
-            font-size: 12px;
+            font-size: 10px;
         }
 
         .close-modal {
             border: none;
             background: #eef2f6;
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 18px;
         }
 
         .form-group {
-            margin-bottom: 13px;
+            margin-bottom: 11px;
         }
 
         .form-group label {
             display: block;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .form-group input {
             width: 100%;
-            box-sizing: border-box;
-            padding: 10px;
+            padding: 9px 10px;
             border: 1px solid #d7dde5;
             border-radius: 7px;
+            font-size: 11px;
             outline: none;
         }
 
         .modal-actions {
             display: flex;
             justify-content: flex-end;
-            gap: 8px;
-            margin-top: 18px;
+            gap: 7px;
+            margin-top: 15px;
+            flex-wrap: wrap;
         }
 
         .message {
             display: none;
-            padding: 10px;
+            margin-top: 10px;
+            padding: 9px;
             border-radius: 7px;
-            font-size: 11px;
-            line-height: 1.5;
+            font-size: 10px;
         }
 
         .message.error {
@@ -490,16 +664,16 @@
 
         @media (max-width: 900px) {
 
-            .summary-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .record-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .loan-details {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .summary-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
         }
@@ -507,43 +681,65 @@
         @media (max-width: 650px) {
 
             .admin-page {
-                padding: 25px 14px 45px;
+                width: min(100% - 20px, 560px);
+                padding-top: 18px;
+            }
+
+            .admin-header {
+                display: block;
             }
 
             .management-menu {
                 grid-template-columns: 1fr;
             }
 
-            .summary-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .record-grid {
+            .record-grid,
+            .summary-grid,
+            .loan-details {
                 grid-template-columns: 1fr;
             }
 
-            .loan-details {
-                grid-template-columns: 1fr 1fr;
+            .panel-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .panel-actions {
+                width: 100%;
+            }
+
+            .panel-actions .admin-btn {
+                flex: 1;
             }
 
             .loan-top {
                 flex-direction: column;
             }
 
-        }
-
-        @media (max-width: 450px) {
-
-            .summary-grid {
+            .toolbar {
+                display: grid;
                 grid-template-columns: 1fr;
             }
 
-            .loan-details {
-                grid-template-columns: 1fr;
+            .toolbar input {
+                min-width: 0;
+            }
+
+        }
+
+
+        @media (max-width: 400px) {
+
+            .admin-page {
+                width: calc(100% - 14px);
             }
 
             .panel {
-                padding: 14px;
+                padding: 11px;
+            }
+
+            .client-stats {
+                grid-template-columns: 1fr 1fr;
             }
 
         }
@@ -592,37 +788,38 @@
 
 
     <!-- =====================================================
-         ADMIN HEADER
+         HEADER
     ====================================================== -->
 
     <section class="admin-header">
 
-        <p class="small-heading">
-            ADMINISTRATOR
-        </p>
+        <div>
 
+            <p class="small-heading">
+                ADMINISTRATOR
+            </p>
 
-        <h1>
+            <h1>
 
-            Welcome,
+                Welcome,
+                <span id="adminName">
+                    Administrator
+                </span>
 
-            <span id="adminName">
-                Administrator
-            </span>
+            </h1>
 
-        </h1>
+            <p class="subtext">
+                Jitume Leo administration control center.
+            </p>
 
-
-        <p>
-            Jitume Leo administration control center.
-        </p>
+        </div>
 
     </section>
 
 
 
     <!-- =====================================================
-         MAIN DASHBOARD BUTTONS
+         HOME
     ====================================================== -->
 
     <section
@@ -647,12 +844,10 @@
                 </h3>
 
                 <p>
-                    Add, activate and manage
-                    Jitume Leo agents.
+                    Add, activate and manage agents.
                 </p>
 
             </button>
-
 
 
             <button
@@ -669,12 +864,10 @@
                 </h3>
 
                 <p>
-                    View registered clients
-                    and their accounts.
+                    View client activity and loan history.
                 </p>
 
             </button>
-
 
 
             <button
@@ -691,17 +884,14 @@
                 </h3>
 
                 <p>
-                    Review, approve and manage
-                    loan applications.
+                    Review and approve loan applications.
                 </p>
 
             </button>
 
-
         </div>
 
 
-        <!-- SUMMARY -->
 
         <div class="summary-grid">
 
@@ -748,7 +938,7 @@
             <div class="summary-card">
 
                 <small>
-                    WAITING ADMIN
+                    WAITING APPROVAL
                 </small>
 
                 <strong id="homePendingLoans">
@@ -757,7 +947,6 @@
 
             </div>
 
-
         </div>
 
     </section>
@@ -765,7 +954,7 @@
 
 
     <!-- =====================================================
-         AGENTS MANAGEMENT
+         AGENTS
     ====================================================== -->
 
     <section
@@ -786,13 +975,13 @@
                 </h2>
 
                 <p>
-                    Add or activate Jitume Leo agents.
+                    Add new agents and activate pending agents.
                 </p>
 
             </div>
 
 
-            <div>
+            <div class="panel-actions">
 
                 <button
                     type="button"
@@ -819,8 +1008,6 @@
 
 
 
-        <!-- Pending -->
-
         <div class="panel">
 
             <h3>
@@ -842,14 +1029,7 @@
 
 
 
-        <!-- All -->
-
         <div class="panel">
-
-            <h3>
-                All Agents
-            </h3>
-
 
             <div class="toolbar">
 
@@ -878,7 +1058,7 @@
 
 
     <!-- =====================================================
-         CLIENT MANAGEMENT
+         CLIENTS
     ====================================================== -->
 
     <section
@@ -899,7 +1079,7 @@
                 </h2>
 
                 <p>
-                    View registered Jitume Leo clients.
+                    Client portfolio and loan activity.
                 </p>
 
             </div>
@@ -925,7 +1105,7 @@
                 <input
                     id="clientSearch"
                     type="search"
-                    placeholder="Search client...">
+                    placeholder="Search client by name, phone or email...">
 
             </div>
 
@@ -947,7 +1127,7 @@
 
 
     <!-- =====================================================
-         LOAN MANAGEMENT
+         LOANS
     ====================================================== -->
 
     <section
@@ -968,8 +1148,7 @@
                 </h2>
 
                 <p>
-                    Review applications and make
-                    administrative decisions.
+                    Administrative approval happens here.
                 </p>
 
             </div>
@@ -993,22 +1172,20 @@
 
             <div class="toolbar">
 
-
                 <input
                     id="loanSearch"
                     type="search"
-                    placeholder="Search application...">
+                    placeholder="Search application or client...">
 
 
-                <select
-                    id="loanFilter">
+                <select id="loanFilter">
 
                     <option value="all">
                         All
                     </option>
 
                     <option value="SENT_TO_ADMIN">
-                        Waiting for Admin
+                        Waiting for Approval
                     </option>
 
                     <option value="ADMIN_REVIEW">
@@ -1028,8 +1205,7 @@
             </div>
 
 
-            <div
-                id="allLoans">
+            <div id="allLoans">
 
                 <div class="empty-state">
                     Loading...
@@ -1047,7 +1223,7 @@
 
 <!-- =====================================================
      ADD AGENT MODAL
-====================================================== -->
+===================================================== -->
 
 <div
     id="agentModal"
@@ -1196,7 +1372,6 @@
 
             <div class="modal-actions">
 
-
                 <button
                     type="button"
                     class="admin-btn admin-btn-light"
@@ -1226,6 +1401,71 @@
 
 
 
+<!-- =====================================================
+     CLIENT APPLICATION HISTORY MODAL
+===================================================== -->
+
+<div
+    id="clientHistoryModal"
+    class="modal-bg">
+
+
+    <div class="modal">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2 id="historyClientName">
+                    Client Applications
+                </h2>
+
+                <p>
+                    Application history for this client.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="close-modal"
+                id="closeHistoryModal">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div id="clientHistoryContent">
+
+            Loading...
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="admin-btn admin-btn-light"
+                id="closeHistoryButton">
+
+                Close
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
 <script type="module">
 
 
@@ -1236,9 +1476,7 @@
 import {
 
     getAuth,
-
     onAuthStateChanged,
-
     signOut
 
 }
@@ -1249,19 +1487,12 @@ from
 import {
 
     getFirestore,
-
     doc,
-
     getDoc,
-
     getDocs,
-
     collection,
-
     updateDoc,
-
     setDoc,
-
     serverTimestamp
 
 }
@@ -1319,6 +1550,19 @@ const adminName =
     );
 
 
+const agentModal =
+    document.getElementById(
+        "agentModal"
+    );
+
+
+const clientHistoryModal =
+    document.getElementById(
+        "clientHistoryModal"
+    );
+
+
+
 /* =====================================================
    AUTH
 ===================================================== */
@@ -1359,9 +1603,11 @@ onAuthStateChanged(
                     "Account profile not found."
                 );
 
+
                 await signOut(
                     auth
                 );
+
 
                 window.location.href =
                     "login.html";
@@ -1384,9 +1630,11 @@ onAuthStateChanged(
                     "Access denied. Admin account required."
                 );
 
+
                 await signOut(
                     auth
                 );
+
 
                 window.location.href =
                     "login.html";
@@ -1416,6 +1664,10 @@ onAuthStateChanged(
                 error
             );
 
+            alert(
+                "Unable to load admin dashboard."
+            );
+
         }
 
     }
@@ -1443,515 +1695,284 @@ async function loadData() {
 
 async function loadUsers() {
 
-    try {
-
-
-        const snapshot =
-            await getDocs(
-                collection(
-                    db,
-                    "users"
-                )
-            );
-
-
-        agents = [];
-
-        clients = [];
-
-
-        snapshot.forEach(
-            item => {
-
-
-                const data =
-                    item.data();
-
-
-                const record = {
-
-                    id:
-                        item.id,
-
-                    ...data
-
-                };
-
-
-                if (
-                    data.role ===
-                    "agent"
-                ) {
-
-                    agents.push(
-                        record
-                    );
-
-                }
-
-
-                if (
-                    data.role ===
-                    "client"
-                ) {
-
-                    clients.push(
-                        record
-                    );
-
-                }
-
-            }
-        );
-
-
-        renderAgents();
-
-        renderClients();
-
-
-        document.getElementById(
-            "homeAgentCount"
-        ).textContent =
-            agents.length;
-
-
-        document.getElementById(
-            "homeClientCount"
-        ).textContent =
-            clients.length;
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Load users error:",
-            error
-        );
-
-    }
-
-}
-
-
-
-/* =====================================================
-   RENDER AGENTS
-===================================================== */
-
-function renderAgents() {
-
-
-    const search =
-        document.getElementById(
-            "agentSearch"
-        ).value
-        .trim()
-        .toLowerCase();
-
-
-    const filtered =
-        agents.filter(
-            agent => {
-
-
-                if (
-                    !search
-                ) {
-
-                    return true;
-
-                }
-
-
-                return [
-
-                    agent.fullName,
-
-                    agent.email,
-
-                    agent.phone,
-
-                    agent.agentCode,
-
-                    agent.location
-
-                ]
-                .filter(
-                    Boolean
-                )
-                .some(
-                    value =>
-                        String(
-                            value
-                        )
-                        .toLowerCase()
-                        .includes(
-                            search
-                        )
-                );
-
-            }
-        );
-
-
-    const pending =
-        agents.filter(
-            agent =>
-                agent.status ===
-                "pending"
-        );
-
-
-    renderPendingAgents(
-        pending
-    );
-
-
-    const allContainer =
-        document.getElementById(
-            "allAgents"
-        );
-
-
-    allContainer.innerHTML =
-        "";
-
-
-    if (
-        filtered.length ===
-        0
-    ) {
-
-        allContainer.innerHTML =
-            `
-            <div class="empty-state">
-                No agents found.
-            </div>
-            `;
-
-        return;
-
-    }
-
-
-    filtered.forEach(
-        agent => {
-
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "record-card";
-
-
-            const status =
-                agent.status ||
-                "pending";
-
-
-            card.innerHTML =
-                `
-
-                <span
-                    class="status-pill ${
-                        status === "active"
-                            ? "status-active"
-                            : "status-pending"
-                    }">
-
-                    ${escapeHTML(
-                        status.toUpperCase()
-                    )}
-
-                </span>
-
-
-                <h3>
-
-                    ${escapeHTML(
-                        agent.fullName ||
-                        "Unnamed Agent"
-                    )}
-
-                </h3>
-
-
-                <p>
-
-                    <strong>
-                        Code:
-                    </strong>
-
-                    ${escapeHTML(
-                        agent.agentCode ||
-                        "-"
-                    )}
-
-                </p>
-
-
-                <p>
-
-                    <strong>
-                        Phone:
-                    </strong>
-
-                    ${escapeHTML(
-                        agent.phone ||
-                        "-"
-                    )}
-
-                </p>
-
-
-                <p>
-
-                    <strong>
-                        Location:
-                    </strong>
-
-                    ${escapeHTML(
-                        agent.location ||
-                        "-"
-                    )}
-
-                </p>
-
-                `;
-
-
-            allContainer.appendChild(
-                card
-            );
-
-        }
-    );
-
-}
-
-
-
-/* =====================================================
-   PENDING AGENTS
-===================================================== */
-
-function renderPendingAgents(
-    pending
-) {
-
-
-    const container =
-        document.getElementById(
-            "pendingAgents"
-        );
-
-
-    container.innerHTML =
-        "";
-
-
-    if (
-        pending.length ===
-        0
-    ) {
-
-        container.innerHTML =
-            `
-            <div class="empty-state">
-                No pending agents.
-            </div>
-            `;
-
-        return;
-
-    }
-
-
-    pending.forEach(
-        agent => {
-
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "record-card";
-
-
-            card.innerHTML =
-                `
-
-                <span class="status-pill status-pending">
-                    PENDING
-                </span>
-
-
-                <h3>
-
-                    ${escapeHTML(
-                        agent.fullName ||
-                        "Unnamed Agent"
-                    )}
-
-                </h3>
-
-
-                <p>
-
-                    Code:
-                    ${escapeHTML(
-                        agent.agentCode ||
-                        "-"
-                    )}
-
-                    <br>
-
-                    Phone:
-                    ${escapeHTML(
-                        agent.phone ||
-                        "-"
-                    )}
-
-                </p>
-
-
-                <div
-                    class="record-card-actions">
-
-                    <button
-                        type="button"
-                        class="admin-btn admin-btn-primary"
-                        data-activate-agent="${escapeHTML(
-                            agent.id
-                        )}">
-
-                        Activate Agent
-
-                    </button>
-
-                </div>
-
-                `;
-
-
-            container.appendChild(
-                card
-            );
-
-        }
-    );
-
-
-    container
-        .querySelectorAll(
-            "[data-activate-agent]"
-        )
-        .forEach(
-            button => {
-
-
-                button.addEventListener(
-                    "click",
-                    () => {
-
-                        activateAgent(
-                            button.dataset.activateAgent
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-}
-
-
-
-/* =====================================================
-   ACTIVATE AGENT
-===================================================== */
-
-async function activateAgent(
-    agentId
-) {
-
-
-    const yes =
-        confirm(
-            "Activate this agent?"
-        );
-
-
-    if (!yes) {
-
-        return;
-
-    }
-
-
-    try {
-
-
-        await updateDoc(
-            doc(
+    const snapshot =
+        await getDocs(
+            collection(
                 db,
-                "users",
-                agentId
-            ),
-            {
+                "users"
+            )
+        );
 
-                status:
-                    "active",
 
-                activatedAt:
-                    serverTimestamp(),
+    agents = [];
 
-                activatedBy:
-                    currentAdminUID
+    clients = [];
+
+
+    snapshot.forEach(
+        item => {
+
+
+            const data =
+                item.data();
+
+
+            const record = {
+
+                id:
+                    item.id,
+
+                ...data
+
+            };
+
+
+            if (
+                data.role ===
+                "agent"
+            ) {
+
+                agents.push(
+                    record
+                );
 
             }
-        );
 
 
-        alert(
-            "Agent activated successfully."
-        );
+            if (
+                data.role ===
+                "client"
+            ) {
+
+                clients.push(
+                    record
+                );
+
+            }
+
+        }
+    );
 
 
-        await loadUsers();
+    renderAgents();
 
-    }
-
-    catch (error) {
-
-        console.error(
-            "Agent activation error:",
-            error
-        );
+    renderClients();
 
 
-        alert(
-            "Unable to activate agent."
-        );
+    document.getElementById(
+        "homeAgentCount"
+    ).textContent =
+        agents.length;
 
-    }
+
+    document.getElementById(
+        "homeClientCount"
+    ).textContent =
+        clients.length;
 
 }
 
 
 
 /* =====================================================
-   CLIENTS
+   LOAD LOANS
+===================================================== */
+
+async function loadLoans() {
+
+    const snapshot =
+        await getDocs(
+            collection(
+                db,
+                "loanApplications"
+            )
+        );
+
+
+    loans = [];
+
+
+    snapshot.forEach(
+        item => {
+
+
+            loans.push({
+
+                id:
+                    item.id,
+
+                ...item.data()
+
+            });
+
+        }
+    );
+
+
+    loans.sort(
+        (a, b) =>
+            getTime(
+                b.updatedAt ||
+                b.createdAt
+            )
+            -
+            getTime(
+                a.updatedAt ||
+                a.createdAt
+            )
+    );
+
+
+    document.getElementById(
+        "homeLoanCount"
+    ).textContent =
+        loans.length;
+
+
+    updateHomeWaitingCount();
+
+    renderLoans();
+
+    renderClients();
+
+}
+
+
+
+/* =====================================================
+   CLIENT PORTFOLIO METRICS
+===================================================== */
+
+function getClientMetrics(
+    clientId
+) {
+
+
+    const clientLoans =
+        loans.filter(
+            loan =>
+                loan.customerId ===
+                clientId
+        );
+
+
+    const approvedLoans =
+        clientLoans.filter(
+            loan =>
+                loan.adminDecision ===
+                "APPROVED"
+        );
+
+
+    const waitingApprovals =
+        clientLoans.filter(
+            loan =>
+                [
+                    "SENT_TO_ADMIN",
+                    "ADMIN_REVIEW"
+                ]
+                .includes(
+                    loan.status
+                )
+        );
+
+
+    /*
+     * "Active" means the client has an approved
+     * loan that has not reached a completed/closed
+     * state.
+     *
+     * Our current workflow has no repayment-closed
+     * status yet, so CASH_COLLECTED is still treated
+     * as an active outstanding loan.
+     */
+
+    const activeLoans =
+        clientLoans.filter(
+            loan =>
+                [
+                    "APPROVED",
+                    "READY_FOR_COLLECTION",
+                    "CASH_COLLECTED"
+                ]
+                .includes(
+                    loan.status
+                )
+        );
+
+
+    const amountBorrowed =
+        approvedLoans.reduce(
+            (
+                total,
+                loan
+            ) => {
+
+                return total +
+                    Number(
+                        loan.approvedAmount ||
+                        loan.requestedAmount ||
+                        0
+                    );
+
+            },
+            0
+        );
+
+
+    const currentLoanAmount =
+        activeLoans.reduce(
+            (
+                total,
+                loan
+            ) => {
+
+                return total +
+                    Number(
+                        loan.approvedAmount ||
+                        loan.requestedAmount ||
+                        0
+                    );
+
+            },
+            0
+        );
+
+
+    return {
+
+        totalApplications:
+            clientLoans.length,
+
+        approvedLoans:
+            approvedLoans.length,
+
+        waitingApprovals:
+            waitingApprovals.length,
+
+        amountBorrowed:
+            amountBorrowed,
+
+        active:
+            activeLoans.length > 0,
+
+        activeLoans:
+            activeLoans.length,
+
+        currentLoanAmount:
+            currentLoanAmount,
+
+        applications:
+            clientLoans
+
+    };
+
+}
+
+
+
+/* =====================================================
+   RENDER CLIENTS
 ===================================================== */
 
 function renderClients() {
@@ -2039,6 +2060,12 @@ function renderClients() {
         client => {
 
 
+            const metrics =
+                getClientMetrics(
+                    client.id
+                );
+
+
             const card =
                 document.createElement(
                     "div"
@@ -2046,47 +2073,179 @@ function renderClients() {
 
 
             card.className =
-                "record-card";
+                "client-card";
 
 
             card.innerHTML =
                 `
 
-                <h3>
+                <div class="client-card-top">
 
-                    ${escapeHTML(
-                        client.fullName ||
-                        "Unnamed Client"
-                    )}
+                    <div>
 
-                </h3>
+                        <h3>
+
+                            ${escapeHTML(
+                                client.fullName ||
+                                "Unnamed Client"
+                            )}
+
+                        </h3>
 
 
-                <p>
+                        <div class="client-contact">
 
-                    Email:
-                    ${escapeHTML(
-                        client.email ||
-                        "-"
-                    )}
+                            ${escapeHTML(
+                                client.phone ||
+                                "-"
+                            )}
 
-                    <br>
+                            <br>
 
-                    Phone:
-                    ${escapeHTML(
-                        client.phone ||
-                        "-"
-                    )}
+                            ${escapeHTML(
+                                client.email ||
+                                "-"
+                            )}
 
-                    <br>
+                        </div>
 
-                    ID:
-                    ${escapeHTML(
-                        client.idNumber ||
-                        "-"
-                    )}
+                    </div>
 
-                </p>
+
+                    <span
+                        class="status-pill ${
+                            metrics.active
+                                ? "status-active"
+                                : "status-pending"
+                        }">
+
+                        ${
+                            metrics.active
+                                ? "ACTIVE"
+                                : "INACTIVE"
+                        }
+
+                    </span>
+
+                </div>
+
+
+
+                <div class="client-stats">
+
+
+                    <div class="client-stat">
+
+                        <small>
+                            Applications
+                        </small>
+
+                        <strong>
+                            ${metrics.totalApplications}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="client-stat">
+
+                        <small>
+                            Approved Loans
+                        </small>
+
+                        <strong>
+                            ${metrics.approvedLoans}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="client-stat">
+
+                        <small>
+                            Waiting Approval
+                        </small>
+
+                        <strong>
+                            ${metrics.waitingApprovals}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="client-stat">
+
+                        <small>
+                            Amount Borrowed
+                        </small>
+
+                        <strong>
+
+                            ${formatCurrency(
+                                metrics.amountBorrowed
+                            )}
+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    class="client-loan-banner ${
+                        metrics.active
+                            ? ""
+                            : "inactive"
+                    }">
+
+                    ${
+                        metrics.active
+
+                            ?
+
+                            `
+                            <strong>
+                                Current Loan:
+                            </strong>
+
+                            ${formatCurrency(
+                                metrics.currentLoanAmount
+                            )}
+
+                            ·
+                            ${metrics.activeLoans}
+                            active loan
+                            ${metrics.activeLoans === 1 ? "" : "s"}
+                            `
+
+                            :
+
+                            `
+                            No existing active loan
+                            `
+
+                    }
+
+                </div>
+
+
+
+                <div class="client-actions">
+
+                    <button
+                        type="button"
+                        class="admin-btn admin-btn-dark"
+                        data-view-client="${escapeHTML(
+                            client.id
+                        )}">
+
+                        View Applications
+
+                    </button>
+
+                </div>
 
                 `;
 
@@ -2098,96 +2257,568 @@ function renderClients() {
         }
     );
 
+
+    container
+        .querySelectorAll(
+            "[data-view-client]"
+        )
+        .forEach(
+            button => {
+
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        openClientHistory(
+                            button.dataset.viewClient
+                        );
+
+                    }
+                );
+
+            }
+        );
+
 }
 
 
 
 /* =====================================================
-   LOAD LOANS
+   OPEN CLIENT APPLICATION HISTORY
 ===================================================== */
 
-async function loadLoans() {
+function openClientHistory(
+    clientId
+) {
 
-    try {
+
+    const client =
+        clients.find(
+            item =>
+                item.id ===
+                clientId
+        );
 
 
-        const snapshot =
-            await getDocs(
-                collection(
-                    db,
-                    "loanApplications"
-                )
+    const metrics =
+        getClientMetrics(
+            clientId
+        );
+
+
+    document.getElementById(
+        "historyClientName"
+    ).textContent =
+        client?.fullName ||
+        "Client Applications";
+
+
+    const content =
+        document.getElementById(
+            "clientHistoryContent"
+        );
+
+
+    content.innerHTML =
+        "";
+
+
+    if (
+        metrics.applications.length ===
+        0
+    ) {
+
+        content.innerHTML =
+            `
+            <div class="empty-state">
+                This client has no loan applications.
+            </div>
+            `;
+
+    }
+
+    else {
+
+        const list =
+            document.createElement(
+                "div"
             );
 
 
-        loans = [];
+        list.className =
+            "client-history";
 
 
-        snapshot.forEach(
-            item => {
+        metrics.applications.forEach(
+            loan => {
 
 
-                loans.push({
+                const item =
+                    document.createElement(
+                        "div"
+                    );
 
-                    id:
-                        item.id,
 
-                    ...item.data()
+                item.className =
+                    "history-item";
 
-                });
+
+                item.innerHTML =
+                    `
+
+                    <div
+                        class="history-item-top">
+
+                        <div>
+
+                            <strong>
+                                Emergency Loan
+                            </strong>
+
+                            <small>
+
+                                Application:
+                                ${escapeHTML(
+                                    loan.id
+                                )}
+
+                                <br>
+
+                                Amount:
+                                ${formatCurrency(
+                                    loan.requestedAmount
+                                )}
+
+                            </small>
+
+                        </div>
+
+
+                        <span
+                            class="status-pill ${
+                                getHistoryStatusClass(
+                                    loan.status
+                                )
+                            }">
+
+                            ${escapeHTML(
+                                formatStatus(
+                                    loan.status ||
+                                    "APPLICATION_SUBMITTED"
+                                )
+                            )}
+
+                        </span>
+
+                    </div>
+
+                    `;
+
+
+                list.appendChild(
+                    item
+                );
 
             }
         );
 
 
-        loans.sort(
-            (a, b) =>
-                getTime(
-                    b.updatedAt ||
-                    b.createdAt
-                )
-                -
-                getTime(
-                    a.updatedAt ||
-                    a.createdAt
-                )
+        content.appendChild(
+            list
+        );
+
+    }
+
+
+    clientHistoryModal.classList.add(
+        "show"
+    );
+
+}
+
+
+
+/* =====================================================
+   RENDER AGENTS
+===================================================== */
+
+function renderAgents() {
+
+
+    const search =
+        document.getElementById(
+            "agentSearch"
+        ).value
+        .trim()
+        .toLowerCase();
+
+
+    const pending =
+        agents.filter(
+            agent =>
+                agent.status ===
+                "pending"
         );
 
 
+    const pendingContainer =
         document.getElementById(
-            "homeLoanCount"
-        ).textContent =
-            loans.length;
+            "pendingAgents"
+        );
 
 
-        const waiting =
-            loans.filter(
-                loan =>
-                    [
-                        "SENT_TO_ADMIN",
-                        "ADMIN_REVIEW"
-                    ]
-                    .includes(
-                        loan.status
-                    )
-            ).length;
+    pendingContainer.innerHTML =
+        "";
 
 
+    if (
+        pending.length ===
+        0
+    ) {
+
+        pendingContainer.innerHTML =
+            `
+            <div class="empty-state">
+                No pending agents.
+            </div>
+            `;
+
+    }
+
+    else {
+
+        pending.forEach(
+            agent => {
+
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "record-card";
+
+
+                card.innerHTML =
+                    `
+
+                    <span
+                        class="status-pill status-pending">
+
+                        PENDING
+
+                    </span>
+
+
+                    <h3>
+
+                        ${escapeHTML(
+                            agent.fullName ||
+                            "Unnamed Agent"
+                        )}
+
+                    </h3>
+
+
+                    <p>
+
+                        Code:
+                        ${escapeHTML(
+                            agent.agentCode ||
+                            "-"
+                        )}
+
+                        <br>
+
+                        Phone:
+                        ${escapeHTML(
+                            agent.phone ||
+                            "-"
+                        )}
+
+                    </p>
+
+
+                    <div
+                        class="record-card-actions">
+
+                        <button
+                            type="button"
+                            class="admin-btn admin-btn-primary"
+                            data-activate-agent="${escapeHTML(
+                                agent.id
+                            )}">
+
+                            Activate Agent
+
+                        </button>
+
+                    </div>
+
+                    `;
+
+
+                pendingContainer.appendChild(
+                    card
+                );
+
+            }
+        );
+
+    }
+
+
+    const filtered =
+        agents.filter(
+            agent => {
+
+
+                if (
+                    !search
+                ) {
+
+                    return true;
+
+                }
+
+
+                return [
+
+                    agent.fullName,
+
+                    agent.email,
+
+                    agent.phone,
+
+                    agent.agentCode,
+
+                    agent.location
+
+                ]
+                .filter(
+                    Boolean
+                )
+                .some(
+                    value =>
+                        String(
+                            value
+                        )
+                        .toLowerCase()
+                        .includes(
+                            search
+                        )
+                );
+
+            }
+        );
+
+
+    const allContainer =
         document.getElementById(
-            "homePendingLoans"
-        ).textContent =
-            waiting;
+            "allAgents"
+        );
 
 
-        renderLoans();
+    allContainer.innerHTML =
+        "";
+
+
+    if (
+        filtered.length ===
+        0
+    ) {
+
+        allContainer.innerHTML =
+            `
+            <div class="empty-state">
+                No agents found.
+            </div>
+            `;
+
+    }
+
+    else {
+
+        filtered.forEach(
+            agent => {
+
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "record-card";
+
+
+                const active =
+                    agent.status ===
+                    "active";
+
+
+                card.innerHTML =
+                    `
+
+                    <span
+                        class="status-pill ${
+                            active
+                                ? "status-active"
+                                : "status-pending"
+                        }">
+
+                        ${
+                            active
+                                ? "ACTIVE"
+                                : "PENDING"
+                        }
+
+                    </span>
+
+
+                    <h3>
+
+                        ${escapeHTML(
+                            agent.fullName ||
+                            "Unnamed Agent"
+                        )}
+
+                    </h3>
+
+
+                    <p>
+
+                        Code:
+                        ${escapeHTML(
+                            agent.agentCode ||
+                            "-"
+                        )}
+
+                        <br>
+
+                        Phone:
+                        ${escapeHTML(
+                            agent.phone ||
+                            "-"
+                        )}
+
+                        <br>
+
+                        Location:
+                        ${escapeHTML(
+                            agent.location ||
+                            "-"
+                        )}
+
+                    </p>
+
+                    `;
+
+
+                allContainer.appendChild(
+                    card
+                );
+
+            }
+        );
+
+    }
+
+
+    document
+        .querySelectorAll(
+            "[data-activate-agent]"
+        )
+        .forEach(
+            button => {
+
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        activateAgent(
+                            button.dataset.activateAgent
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+
+/* =====================================================
+   ACTIVATE AGENT
+===================================================== */
+
+async function activateAgent(
+    agentId
+) {
+
+
+    if (
+        !confirm(
+            "Activate this agent?"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    try {
+
+
+        await updateDoc(
+            doc(
+                db,
+                "users",
+                agentId
+            ),
+            {
+
+                status:
+                    "active",
+
+                activatedAt:
+                    serverTimestamp(),
+
+                activatedBy:
+                    currentAdminUID
+
+            }
+        );
+
+
+        alert(
+            "Agent activated successfully."
+        );
+
+
+        await loadUsers();
 
     }
 
     catch (error) {
 
+
         console.error(
-            "Load loans error:",
+            "Agent activation error:",
             error
+        );
+
+
+        alert(
+            "Unable to activate agent."
         );
 
     }
@@ -2228,9 +2859,11 @@ function renderLoans() {
 
 
                 if (
-                    filter !== "all"
+                    filter !==
+                    "all"
                     &&
-                    status !== filter
+                    status !==
+                    filter
                 ) {
 
                     return false;
@@ -2292,9 +2925,7 @@ function renderLoans() {
         container.innerHTML =
             `
             <div class="empty-state">
-
                 No applications found.
-
             </div>
             `;
 
@@ -2320,12 +2951,6 @@ function renderLoans() {
             const status =
                 loan.status ||
                 "APPLICATION_SUBMITTED";
-
-
-            const statusClass =
-                getLoanStatusClass(
-                    status
-                );
 
 
             card.innerHTML =
@@ -2369,7 +2994,11 @@ function renderLoans() {
 
 
                     <span
-                        class="status-pill ${statusClass}">
+                        class="status-pill ${
+                            getLoanStatusClass(
+                                status
+                            )
+                        }">
 
                         ${escapeHTML(
                             formatStatus(
@@ -2388,16 +3017,25 @@ function renderLoans() {
                     <div class="loan-detail">
 
                         <small>
-                            Loan Type
+                            Type
                         </small>
 
                         <strong>
+
                             ${
                                 loan.loanType ===
                                 "renewal"
-                                    ? "Renewal"
-                                    : "First Loan"
+
+                                ?
+
+                                "Renewal"
+
+                                :
+
+                                "First Loan"
+
                             }
+
                         </strong>
 
                     </div>
@@ -2410,9 +3048,11 @@ function renderLoans() {
                         </small>
 
                         <strong>
+
                             ${formatCurrency(
                                 loan.requestedAmount
                             )}
+
                         </strong>
 
                     </div>
@@ -2425,9 +3065,11 @@ function renderLoans() {
                         </small>
 
                         <strong>
+
                             ${formatCurrency(
                                 loan.interestAmount
                             )}
+
                         </strong>
 
                     </div>
@@ -2440,9 +3082,11 @@ function renderLoans() {
                         </small>
 
                         <strong>
+
                             ${formatCurrency(
                                 loan.totalMaturityAmount
                             )}
+
                         </strong>
 
                     </div>
@@ -2450,32 +3094,34 @@ function renderLoans() {
                 </div>
 
 
-                <div
-                    class="loan-actions">
+                <div class="loan-actions">
+
 
                     ${
                         status ===
                         "SENT_TO_ADMIN"
 
-                            ?
+                        ?
 
-                            `
-                            <button
-                                type="button"
-                                class="admin-btn admin-btn-dark"
-                                data-loan-action="review"
-                                data-id="${escapeHTML(
-                                    loan.id
-                                )}">
+                        `
 
-                                Start Review
+                        <button
+                            type="button"
+                            class="admin-btn admin-btn-dark"
+                            data-loan-action="review"
+                            data-id="${escapeHTML(
+                                loan.id
+                            )}">
 
-                            </button>
-                            `
+                            Start Review
 
-                            :
+                        </button>
 
-                            ""
+                        `
+
+                        :
+
+                        ""
                     }
 
 
@@ -2483,40 +3129,40 @@ function renderLoans() {
                         status ===
                         "ADMIN_REVIEW"
 
-                            ?
+                        ?
 
-                            `
+                        `
 
-                            <button
-                                type="button"
-                                class="admin-btn admin-btn-primary"
-                                data-loan-action="approve"
-                                data-id="${escapeHTML(
-                                    loan.id
-                                )}">
+                        <button
+                            type="button"
+                            class="admin-btn admin-btn-primary"
+                            data-loan-action="approve"
+                            data-id="${escapeHTML(
+                                loan.id
+                            )}">
 
-                                Approve
+                            Approve Loan
 
-                            </button>
+                        </button>
 
 
-                            <button
-                                type="button"
-                                class="admin-btn admin-btn-danger"
-                                data-loan-action="deny"
-                                data-id="${escapeHTML(
-                                    loan.id
-                                )}">
+                        <button
+                            type="button"
+                            class="admin-btn admin-btn-danger"
+                            data-loan-action="deny"
+                            data-id="${escapeHTML(
+                                loan.id
+                            )}">
 
-                                Deny
+                            Deny Loan
 
-                            </button>
+                        </button>
 
-                            `
+                        `
 
-                            :
+                        :
 
-                            ""
+                        ""
                     }
 
                 </div>
@@ -2601,8 +3247,6 @@ async function handleLoanAction(
             snapshot.data();
 
 
-        /* REVIEW */
-
         if (
             action ===
             "review"
@@ -2615,7 +3259,7 @@ async function handleLoanAction(
             ) {
 
                 throw new Error(
-                    "Application is not waiting for admin review."
+                    "This application is not waiting for admin review."
                 );
 
             }
@@ -2651,8 +3295,6 @@ async function handleLoanAction(
         }
 
 
-        /* APPROVE */
-
         if (
             action ===
             "approve"
@@ -2673,7 +3315,7 @@ async function handleLoanAction(
 
             if (
                 !confirm(
-                    "Approve this application?"
+                    "Approve this loan application?"
                 )
             ) {
 
@@ -2712,7 +3354,7 @@ async function handleLoanAction(
 
 
             alert(
-                "Application approved."
+                "Loan approved successfully."
             );
 
 
@@ -2722,8 +3364,6 @@ async function handleLoanAction(
 
         }
 
-
-        /* DENY */
 
         if (
             action ===
@@ -2775,7 +3415,7 @@ async function handleLoanAction(
 
 
             alert(
-                "Application rejected."
+                "Loan application rejected."
             );
 
 
@@ -2787,6 +3427,7 @@ async function handleLoanAction(
 
     catch (error) {
 
+
         console.error(
             "Loan action error:",
             error
@@ -2795,7 +3436,7 @@ async function handleLoanAction(
 
         alert(
             error.message ||
-            "Unable to process application."
+            "Unable to process the application."
         );
 
     }
@@ -2805,14 +3446,8 @@ async function handleLoanAction(
 
 
 /* =====================================================
-   ADD AGENT MODAL
+   ADD AGENT
 ===================================================== */
-
-const agentModal =
-    document.getElementById(
-        "agentModal"
-    );
-
 
 document
     .getElementById(
@@ -2909,10 +3544,6 @@ document
 
             button.textContent =
                 "Creating...";
-
-
-            message.className =
-                "message";
 
 
             try {
@@ -3066,7 +3697,7 @@ document
 
 
                 message.textContent =
-                    "Agent created successfully and is waiting for activation.";
+                    "Agent created successfully. Activate the agent from Pending Agents.";
 
 
                 message.className =
@@ -3077,17 +3708,14 @@ document
 
 
                 setTimeout(
-                    () => {
-
-                        closeAgentModal();
-
-                    },
+                    closeAgentModal,
                     1200
                 );
 
             }
 
             catch (error) {
+
 
                 console.error(
                     "Create agent error:",
@@ -3119,7 +3747,7 @@ document
 
 
 /* =====================================================
-   MANAGEMENT BUTTONS
+   MANAGEMENT NAVIGATION
 ===================================================== */
 
 document
@@ -3140,7 +3768,8 @@ document
 
 
                     openPanel(
-                        panelId
+                        panelId,
+                        button
                     );
 
                 }
@@ -3149,11 +3778,6 @@ document
         }
     );
 
-
-
-/* =====================================================
-   HOME BUTTONS
-===================================================== */
 
 document
     .querySelectorAll(
@@ -3172,9 +3796,9 @@ document
     );
 
 
-
 function openPanel(
-    panelId
+    panelId,
+    clickedButton
 ) {
 
 
@@ -3191,6 +3815,21 @@ function openPanel(
             panel => {
 
                 panel.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+    document
+        .querySelectorAll(
+            ".management-button"
+        )
+        .forEach(
+            button => {
+
+                button.classList.remove(
                     "active"
                 );
 
@@ -3215,6 +3854,17 @@ function openPanel(
     }
 
 
+    if (
+        clickedButton
+    ) {
+
+        clickedButton.classList.add(
+            "active"
+        );
+
+    }
+
+
     window.scrollTo(
         {
             top: 0,
@@ -3223,7 +3873,6 @@ function openPanel(
     );
 
 }
-
 
 
 function openHome() {
@@ -3249,6 +3898,21 @@ function openHome() {
         );
 
 
+    document
+        .querySelectorAll(
+            ".management-button"
+        )
+        .forEach(
+            button => {
+
+                button.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
     window.scrollTo(
         {
             top: 0,
@@ -3261,7 +3925,7 @@ function openHome() {
 
 
 /* =====================================================
-   SEARCH EVENTS
+   SEARCH
 ===================================================== */
 
 document
@@ -3306,6 +3970,57 @@ document
 
 
 /* =====================================================
+   CLIENT HISTORY MODAL
+===================================================== */
+
+document
+    .getElementById(
+        "closeHistoryModal"
+    )
+    .addEventListener(
+        "click",
+        closeClientHistory
+    );
+
+
+document
+    .getElementById(
+        "closeHistoryButton"
+    )
+    .addEventListener(
+        "click",
+        closeClientHistory
+    );
+
+
+clientHistoryModal.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target ===
+            clientHistoryModal
+        ) {
+
+            closeClientHistory();
+
+        }
+
+    }
+);
+
+
+function closeClientHistory() {
+
+    clientHistoryModal.classList.remove(
+        "show"
+    );
+
+}
+
+
+
+/* =====================================================
    LOGOUT
 ===================================================== */
 
@@ -3335,60 +4050,25 @@ document
    HELPERS
 ===================================================== */
 
-function formatCurrency(
-    value
-) {
+function updateHomeWaitingCount() {
 
-    return "KSh " +
-        Number(
-            value || 0
-        ).toLocaleString(
-            "en-KE"
-        );
-
-}
-
-
-
-function formatStatus(
-    status
-) {
-
-    const map = {
-
-        APPLICATION_SUBMITTED:
-            "Application Submitted",
-
-        SENT_TO_ADMIN:
-            "Sent to Administration",
-
-        ADMIN_REVIEW:
-            "Administrative Review",
-
-        APPROVED:
-            "Approved",
-
-        REJECTED:
-            "Rejected",
-
-        AGENT_VERIFIED:
-            "Agent Verified",
-
-        CASH_COLLECTED:
-            "Cash Collected"
-
-    };
+    const waiting =
+        loans.filter(
+            loan =>
+                [
+                    "SENT_TO_ADMIN",
+                    "ADMIN_REVIEW"
+                ]
+                .includes(
+                    loan.status
+                )
+        ).length;
 
 
-    return map[status]
-        ||
-        String(
-            status
-        )
-        .replaceAll(
-            "_",
-            " "
-        );
+    document.getElementById(
+        "homePendingLoans"
+    ).textContent =
+        waiting;
 
 }
 
@@ -3408,7 +4088,9 @@ function getLoanStatusClass(
         )
     ) {
 
-        return "status-approved";
+        return status === "ADMIN_REVIEW"
+            ? "status-review"
+            : "status-approved";
 
     }
 
@@ -3429,6 +4111,137 @@ function getLoanStatusClass(
 
 
 
+function getHistoryStatusClass(
+    status
+) {
+
+    if (
+        status ===
+        "APPROVED"
+        ||
+        status ===
+        "CASH_COLLECTED"
+    ) {
+
+        return "status-active";
+
+    }
+
+
+    if (
+        status ===
+        "REJECTED"
+    ) {
+
+        return "status-rejected";
+
+    }
+
+
+    if (
+        status ===
+        "ADMIN_REVIEW"
+        ||
+        status ===
+        "SENT_TO_ADMIN"
+    ) {
+
+        return "status-review";
+
+    }
+
+
+    return "status-pending";
+
+}
+
+
+
+function formatStatus(
+    status
+) {
+
+    const map = {
+
+        APPLICATION_SUBMITTED:
+            "Application Submitted",
+
+        CLIENT_HANDOVER_REPORTED:
+            "Client Reported Handover",
+
+        DOCUMENTS_AWAITING_RECEIPT:
+            "Documents Awaiting Receipt",
+
+        DOCUMENTS_RECEIVED:
+            "Documents Received",
+
+        FEE_AWAITING_AGENT_CONFIRMATION:
+            "Fee Awaiting Confirmation",
+
+        FEE_RECEIVED:
+            "Fee Received",
+
+        FEE_PENDING:
+            "Fee Pending",
+
+        AGENT_VERIFIED:
+            "Agent Verified",
+
+        SENT_TO_ADMIN:
+            "Waiting for Admin",
+
+        ADMIN_REVIEW:
+            "Admin Review",
+
+        APPROVED:
+            "Approved",
+
+        REJECTED:
+            "Rejected",
+
+        READY_FOR_COLLECTION:
+            "Ready for Collection",
+
+        CASH_COLLECTED:
+            "Cash Collected"
+
+    };
+
+
+    return map[
+        status
+    ]
+
+    ||
+
+    String(
+        status ||
+        ""
+    )
+    .replaceAll(
+        "_",
+        " "
+    );
+
+}
+
+
+
+function formatCurrency(
+    value
+) {
+
+    return "KSh " +
+        Number(
+            value || 0
+        ).toLocaleString(
+            "en-KE"
+        );
+
+}
+
+
+
 function getTime(
     timestamp
 ) {
@@ -3441,6 +4254,7 @@ function getTime(
 
 
     try {
+
 
         if (
             typeof timestamp.toMillis ===
