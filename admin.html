@@ -12,513 +12,666 @@
 
     <link rel="stylesheet" href="style.css">
 
-
     <style>
 
-        /* =========================================
-           APPLICATION MANAGEMENT
-        ========================================= */
+        /* =========================================================
+           ADMIN LAYOUT
+        ========================================================= */
 
-        .admin-applications {
-
-            margin-top: 30px;
-
+        .admin-page {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 30px 20px 60px;
         }
 
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .admin-header h1 {
+            margin: 5px 0 10px;
+        }
+
+        .admin-header p {
+            margin: 0;
+            color: #6d7788;
+        }
+
+        .admin-header-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* =========================================================
+           BUTTONS
+        ========================================================= */
+
+        .admin-btn {
+            border: none;
+            border-radius: 8px;
+            padding: 11px 17px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .admin-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .admin-btn-primary {
+            background: #168a63;
+            color: #fff;
+        }
+
+        .admin-btn-primary:hover {
+            background: #106c4d;
+        }
+
+        .admin-btn-dark {
+            background: #273142;
+            color: #fff;
+        }
+
+        .admin-btn-light {
+            background: #eef2f6;
+            color: #273142;
+        }
+
+        .admin-btn-danger {
+            background: #b42318;
+            color: #fff;
+        }
+
+        .admin-btn:disabled {
+            opacity: .55;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* =========================================================
+           SECTION NAV
+        ========================================================= */
+
+        .admin-section-nav {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        .admin-section-nav a {
+            flex: 0 0 auto;
+            text-decoration: none;
+            background: #fff;
+            border: 1px solid #e3e8ee;
+            color: #475467;
+            padding: 9px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .admin-section-nav a:hover {
+            color: #168a63;
+            border-color: #168a63;
+        }
+
+        /* =========================================================
+           STATS
+        ========================================================= */
+
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 35px;
+        }
+
+        .admin-stat-card {
+            background: #fff;
+            border: 1px solid #e5e9ef;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(30,45,65,.04);
+        }
+
+        .admin-stat-label {
+            color: #6d7788;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .5px;
+            margin-bottom: 10px;
+        }
+
+        .admin-stat-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1f2937;
+        }
+
+        .admin-stat-note {
+            color: #7b8794;
+            font-size: 12px;
+            margin-top: 5px;
+            line-height: 1.5;
+        }
+
+        /* =========================================================
+           MAIN SECTIONS
+        ========================================================= */
+
+        .admin-section {
+            margin-bottom: 35px;
+        }
+
+        .admin-section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+
+        .admin-section-heading h2 {
+            margin: 3px 0 5px;
+        }
+
+        .admin-section-heading p {
+            margin: 0;
+            color: #6d7788;
+            font-size: 13px;
+        }
+
+        .admin-panel {
+            background: #fff;
+            border: 1px solid #e5e9ef;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(30,45,65,.04);
+        }
+
+        /* =========================================================
+           SEARCH / FILTER
+        ========================================================= */
+
+        .admin-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .admin-search {
+            width: min(100%, 350px);
+            padding: 11px 13px;
+            border: 1px solid #d7dde5;
+            border-radius: 8px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .admin-search:focus {
+            border-color: #168a63;
+        }
+
+        .admin-filter {
+            padding: 11px 13px;
+            border: 1px solid #d7dde5;
+            border-radius: 8px;
+            background: #fff;
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           AGENTS
+        ========================================================= */
+
+        .agent-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .agent-card {
+            border: 1px solid #e5e9ef;
+            border-radius: 12px;
+            padding: 18px;
+            background: #fff;
+        }
+
+        .agent-card-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .agent-card h3 {
+            margin: 0 0 5px;
+            font-size: 17px;
+        }
+
+        .agent-card p {
+            margin: 4px 0;
+            font-size: 12px;
+            color: #667085;
+            line-height: 1.65;
+        }
+
+        .status-pill {
+            padding: 6px 9px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .status-active {
+            background: #e8f7ef;
+            color: #168a63;
+        }
+
+        .status-pending {
+            background: #fff5db;
+            color: #8a6200;
+        }
+
+        .status-disabled {
+            background: #fdeceb;
+            color: #b42318;
+        }
+
+        .agent-card-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        /* =========================================================
+           APPLICATIONS
+        ========================================================= */
 
         .application-list {
-
             display: grid;
-
-            grid-template-columns: 1fr;
-
-            gap: 20px;
-
+            gap: 16px;
         }
-
 
         .application-card {
-
-            background: #ffffff;
-
             border: 1px solid #e5e9ef;
-
-            border-radius: 14px;
-
-            padding: 25px;
-
-            box-shadow:
-                0 10px 30px
-                rgba(30,45,65,0.05);
-
+            border-radius: 12px;
+            padding: 20px;
+            background: #fff;
         }
 
-
-        .application-header-row {
-
+        .application-top {
             display: flex;
-
             justify-content: space-between;
-
             align-items: flex-start;
-
-            gap: 20px;
-
-            margin-bottom: 22px;
-
+            gap: 15px;
+            margin-bottom: 18px;
         }
 
-
-        .application-header-row h3 {
-
-            margin-bottom: 7px;
-
-            font-size: 20px;
-
+        .application-top h3 {
+            margin: 0 0 6px;
+            font-size: 18px;
         }
-
 
         .application-meta {
-
-            color: #6d7788;
-
+            color: #667085;
             font-size: 12px;
-
-            line-height: 1.8;
-
+            line-height: 1.7;
         }
 
-
-        /* =========================================
-           STATUS BADGE
-        ========================================= */
-
-        .status-badge {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            padding: 8px 14px;
-
+        .application-status {
+            padding: 7px 11px;
             border-radius: 20px;
-
             font-size: 10px;
-
             font-weight: 800;
-
-            letter-spacing: .5px;
-
             white-space: nowrap;
-
-            background: #eef1f4;
-
-            color: #5f6b7a;
-
         }
 
-
-        .status-badge.green {
-
+        .application-status.green {
             background: #e8f7ef;
-
             color: #168a63;
-
         }
 
-
-        .status-badge.yellow {
-
+        .application-status.yellow {
             background: #fff5db;
-
             color: #8a6200;
-
         }
 
-
-        .status-badge.red {
-
+        .application-status.red {
             background: #fdeceb;
-
             color: #b42318;
-
         }
-
-
-        /* =========================================
-           APPLICATION DETAILS
-        ========================================= */
 
         .application-details {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 12px;
-
-            margin-bottom: 22px;
-
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
         }
 
-
-        .detail-box {
-
+        .application-detail {
             background: #f7f9fc;
-
             border-radius: 8px;
-
-            padding: 13px;
-
+            padding: 11px;
         }
 
-
-        .detail-box small {
-
+        .application-detail small {
             display: block;
-
             color: #7b8794;
-
-            font-size: 10px;
-
             text-transform: uppercase;
-
-            margin-bottom: 5px;
-
             letter-spacing: .4px;
-
+            font-size: 9px;
+            margin-bottom: 5px;
         }
 
-
-        .detail-box strong {
-
-            font-size: 14px;
-
-        }
-
-
-        /* =========================================
-           VERIFICATION SUMMARY
-        ========================================= */
-
-        .verification-summary {
-
-            border-top:
-                1px solid #e7ebef;
-
-            padding-top:
-                18px;
-
-            margin-top:
-                5px;
-
-        }
-
-
-        .verification-row {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            gap: 15px;
-
-            padding: 10px 0;
-
-            border-bottom:
-                1px solid #eef1f4;
-
+        .application-detail strong {
             font-size: 13px;
-
         }
 
-
-        .verification-row:last-child {
-
-            border-bottom:
-                none;
-
+        .workflow-summary {
+            margin-top: 15px;
+            border-top: 1px solid #edf0f3;
+            padding-top: 15px;
         }
 
-
-        .verification-row span:first-child {
-
-            color:
-                #687385;
-
+        .workflow-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 7px 0;
+            font-size: 12px;
         }
 
-
-        .verification-row span:last-child {
-
-            font-weight:
-                700;
-
+        .workflow-row span:first-child {
+            color: #667085;
         }
 
-
-        .verified-text {
-
-            color:
-                #168a63;
-
+        .workflow-row span:last-child {
+            font-weight: 700;
         }
 
-
-        .pending-text {
-
-            color:
-                #8a6200;
-
+        .text-green {
+            color: #168a63;
         }
 
-
-        .danger-text {
-
-            color:
-                #b42318;
-
+        .text-yellow {
+            color: #8a6200;
         }
 
-
-        /* =========================================
-           ADMIN ACTIONS
-        ========================================= */
-
-        .admin-actions {
-
-            display:
-                flex;
-
-            flex-wrap:
-                wrap;
-
-            gap:
-                10px;
-
-            margin-top:
-                20px;
-
+        .text-red {
+            color: #b42318;
         }
 
-
-        .admin-action {
-
-            border:
-                none;
-
-            border-radius:
-                7px;
-
-            padding:
-                11px 18px;
-
-            font-size:
-                12px;
-
-            font-weight:
-                700;
-
-            cursor:
-                pointer;
-
+        .application-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 17px;
         }
 
+        /* =========================================================
+           CLIENTS
+        ========================================================= */
 
-        .admin-action:disabled {
-
-            opacity:
-                .55;
-
-            cursor:
-                not-allowed;
-
+        .client-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
         }
 
-
-        .review-button {
-
-            background:
-                #273142;
-
-            color:
-                #ffffff;
-
+        .client-card {
+            border: 1px solid #e5e9ef;
+            border-radius: 12px;
+            padding: 17px;
+            background: #fff;
         }
 
-
-        .approve-button {
-
-            background:
-                #168a63;
-
-            color:
-                #ffffff;
-
+        .client-card h3 {
+            margin-bottom: 7px;
+            font-size: 16px;
         }
 
-
-        .deny-button {
-
-            background:
-                #b42318;
-
-            color:
-                #ffffff;
-
+        .client-card p {
+            color: #667085;
+            font-size: 12px;
+            line-height: 1.7;
+            margin: 0;
         }
 
-
-        .secondary-button {
-
-            background:
-                #eef2f6;
-
-            color:
-                #273142;
-
-        }
-
-
-        /* =========================================
-           INFORMATION BOX
-        ========================================= */
-
-        .admin-info-box {
-
-            margin-top:
-                18px;
-
-            padding:
-                15px;
-
-            border-radius:
-                9px;
-
-            font-size:
-                12px;
-
-            line-height:
-                1.7;
-
-        }
-
-
-        .admin-info-box.info {
-
-            background:
-                #eef5ff;
-
-            border:
-                1px solid #d6e3fa;
-
-            color:
-                #355070;
-
-        }
-
-
-        .admin-info-box.success {
-
-            background:
-                #e8f7ef;
-
-            border:
-                1px solid #cdebdc;
-
-            color:
-                #166b50;
-
-        }
-
-
-        .admin-info-box.danger {
-
-            background:
-                #fff0f0;
-
-            border:
-                1px solid #f1c0c0;
-
-            color:
-                #8f211b;
-
-        }
-
-
-        /* =========================================
+        /* =========================================================
            EMPTY / LOADING
-        ========================================= */
+        ========================================================= */
 
-        .loading-state,
-        .empty-state {
-
-            background:
-                #ffffff;
-
-            border:
-                1px solid #e5e9ef;
-
-            border-radius:
-                12px;
-
-            padding:
-                45px 25px;
-
-            text-align:
-                center;
-
-            color:
-                #6d7788;
-
+        .empty-state,
+        .loading-state {
+            padding: 40px 20px;
+            text-align: center;
+            color: #667085;
         }
 
+        /* =========================================================
+           MODAL
+        ========================================================= */
 
-        /* =========================================
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(17,24,39,.55);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .modal-backdrop.show {
+            display: flex;
+        }
+
+        .modal {
+            width: min(100%, 520px);
+            max-height: 90vh;
+            overflow-y: auto;
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 25px 70px rgba(0,0,0,.2);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            margin: 0 0 5px;
+        }
+
+        .modal-header p {
+            margin: 0;
+            color: #667085;
+            font-size: 12px;
+        }
+
+        .modal-close {
+            border: none;
+            background: #eef2f6;
+            color: #344054;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #344054;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid #d7dde5;
+            border-radius: 8px;
+            font-size: 13px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #168a63;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 22px;
+            flex-wrap: wrap;
+        }
+
+        .modal-message {
+            display: none;
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .modal-message.error {
+            display: block;
+            background: #fff0f0;
+            color: #a61b1b;
+            border: 1px solid #f1c0c0;
+        }
+
+        .modal-message.success {
+            display: block;
+            background: #e8f7ef;
+            color: #166b50;
+            border: 1px solid #cdebdc;
+        }
+
+        /* =========================================================
            RESPONSIVE
-        ========================================= */
+        ========================================================= */
 
-        @media (max-width: 850px) {
+        @media (max-width: 1050px) {
 
-            .application-details {
-
-                grid-template-columns:
-                    1fr 1fr;
-
+            .admin-stats {
+                grid-template-columns: repeat(2, 1fr);
             }
 
+            .agent-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-            .application-header-row {
+            .client-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-                flex-direction:
-                    column;
-
+            .application-details {
+                grid-template-columns: repeat(2, 1fr);
             }
 
         }
 
+        @media (max-width: 700px) {
 
-        @media (max-width: 550px) {
-
-            .application-details {
-
-                grid-template-columns:
-                    1fr;
-
+            .admin-page {
+                padding: 20px 14px 45px;
             }
 
+            .admin-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
 
-            .verification-row {
+            .admin-header-actions {
+                width: 100%;
+            }
 
-                flex-direction:
-                    column;
+            .admin-header-actions .admin-btn {
+                flex: 1;
+            }
 
-                gap:
-                    4px;
+            .admin-stats {
+                grid-template-columns: 1fr 1fr;
+            }
 
+            .agent-list,
+            .client-list {
+                grid-template-columns: 1fr;
+            }
+
+            .application-top {
+                flex-direction: column;
+            }
+
+            .application-details {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+
+            .admin-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .application-details {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-panel {
+                padding: 15px;
+            }
+
+            .admin-toolbar {
+                align-items: stretch;
+            }
+
+            .admin-search,
+            .admin-filter {
+                width: 100%;
+            }
+
+            .admin-btn {
+                width: 100%;
             }
 
         }
@@ -531,18 +684,20 @@
 <body>
 
 
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
 <header class="navbar">
 
     <div class="logo">
-
         JITUME <span>LEO</span>
-
     </div>
 
 
     <nav>
 
-        <a href="admin.html">
+        <a href="#overview">
             Dashboard
         </a>
 
@@ -577,28 +732,30 @@
 
 
 
-<main class="dashboard-page">
+<!-- =========================================================
+     MAIN ADMIN PAGE
+========================================================= -->
+
+<main class="admin-page">
 
 
-    <!-- =========================================
-         HEADER
-    ========================================= -->
+    <!-- HEADER -->
 
-    <section class="dashboard-header">
+    <section
+        class="admin-header"
+        id="overview">
+
 
         <div>
 
             <p class="small-heading">
-
                 ADMINISTRATOR
-
             </p>
 
 
             <h1>
 
                 Welcome,
-
                 <span id="adminName">
                     Administrator
                 </span>
@@ -608,10 +765,24 @@
 
             <p>
 
-                Manage Jitume Leo loan operations,
-                agents, clients and applications.
+                Manage agents, clients,
+                loan applications and approvals.
 
             </p>
+
+        </div>
+
+
+        <div class="admin-header-actions">
+
+            <button
+                type="button"
+                class="admin-btn admin-btn-primary"
+                id="openAddAgentButton">
+
+                + Add Agent
+
+            </button>
 
         </div>
 
@@ -619,144 +790,128 @@
 
 
 
-    <!-- =========================================
+    <!-- SECTION NAV -->
+
+    <div class="admin-section-nav">
+
+        <a href="#overview">
+            Overview
+        </a>
+
+        <a href="#agents">
+            Agents
+        </a>
+
+        <a href="#applications">
+            Applications
+        </a>
+
+        <a href="#clients">
+            Clients
+        </a>
+
+    </div>
+
+
+
+    <!-- =====================================================
          STATISTICS
-    ========================================= -->
+    ====================================================== -->
 
-    <section class="dashboard-grid">
+    <section class="admin-stats">
 
 
-        <!-- APPLICATIONS -->
+        <div class="admin-stat-card">
 
-        <div class="dashboard-card">
+            <div class="admin-stat-label">
+                TOTAL APPLICATIONS
+            </div>
 
-            <div class="dashboard-card-top">
+            <div
+                class="admin-stat-value"
+                id="applicationCount">
 
-                <span>
-                    LOAN APPLICATIONS
-                </span>
-
-                <span class="dashboard-icon">
-                    01
-                </span>
+                0
 
             </div>
 
+            <div class="admin-stat-note">
 
-            <h2 id="applicationCount">
-                0
-            </h2>
+                All submitted applications
 
-
-            <p>
-
-                Loan applications received for
-                administrative review.
-
-            </p>
+            </div>
 
         </div>
 
 
 
-        <!-- ACTIVE AGENTS -->
+        <div class="admin-stat-card">
 
-        <div class="dashboard-card">
+            <div class="admin-stat-label">
+                WAITING ADMIN
+            </div>
 
-            <div class="dashboard-card-top">
+            <div
+                class="admin-stat-value"
+                id="waitingAdminCount">
 
-                <span>
-                    ACTIVE AGENTS
-                </span>
-
-                <span class="dashboard-icon">
-                    02
-                </span>
+                0
 
             </div>
 
+            <div class="admin-stat-note">
 
-            <h2 id="agentCount">
-                0
-            </h2>
+                Agent-verified applications
 
-
-            <p>
-
-                Active Jitume Leo agents.
-
-            </p>
+            </div>
 
         </div>
 
 
 
-        <!-- CLIENTS -->
+        <div class="admin-stat-card">
 
-        <div class="dashboard-card">
+            <div class="admin-stat-label">
+                ACTIVE AGENTS
+            </div>
 
-            <div class="dashboard-card-top">
+            <div
+                class="admin-stat-value"
+                id="agentCount">
 
-                <span>
-                    CLIENTS
-                </span>
-
-                <span class="dashboard-icon">
-                    03
-                </span>
+                0
 
             </div>
 
+            <div class="admin-stat-note">
 
-            <h2 id="clientCount">
-                0
-            </h2>
+                Active Jitume Leo agents
 
-
-            <p>
-
-                Clients registered on Jitume Leo.
-
-            </p>
+            </div>
 
         </div>
 
 
 
-        <!-- WAITING ADMIN -->
+        <div class="admin-stat-card">
 
-        <div class="dashboard-card">
+            <div class="admin-stat-label">
+                CLIENTS
+            </div>
 
-            <div class="dashboard-card-top">
+            <div
+                class="admin-stat-value"
+                id="clientCount">
 
-                <span>
-                    WAITING ADMIN
-                </span>
-
-                <span
-                    id="waitingAdminCount"
-                    class="dashboard-icon">
-
-                    0
-
-                </span>
+                0
 
             </div>
 
+            <div class="admin-stat-note">
 
-            <h2>
-                <span id="waitingAdminHeading">
-                    0
-                </span>
-            </h2>
+                Registered clients
 
-
-            <p>
-
-                Agent-verified applications awaiting
-                your decision.
-
-            </p>
+            </div>
 
         </div>
 
@@ -764,42 +919,122 @@
 
 
 
-    <!-- =========================================
-         PENDING AGENTS
-    ========================================= -->
+    <!-- =====================================================
+         AGENT MANAGEMENT
+    ====================================================== -->
 
     <section
-        class="status-section"
+        class="admin-section"
         id="agents">
 
 
-        <div class="status-header">
+        <div class="admin-section-heading">
 
-            <p class="small-heading">
-                AGENT MANAGEMENT
-            </p>
+            <div>
+
+                <p class="small-heading">
+                    AGENT MANAGEMENT
+                </p>
+
+                <h2>
+                    Agents
+                </h2>
+
+                <p>
+
+                    Add new agents, activate pending
+                    agents and view agent accounts.
+
+                </p>
+
+            </div>
 
 
-            <h2>
-                Pending Agents
-            </h2>
+            <button
+                type="button"
+                class="admin-btn admin-btn-primary"
+                id="openAddAgentButton2">
 
+                + Add Agent
 
-            <p>
-
-                Review and activate agents before
-                they can verify client applications.
-
-            </p>
+            </button>
 
         </div>
 
 
-        <div id="pendingAgentsContainer">
 
-            <div class="dashboard-card">
+        <!-- PENDING -->
 
-                Loading agents...
+        <div class="admin-panel">
+
+            <div class="admin-toolbar">
+
+                <div>
+
+                    <strong>
+                        Pending Agents
+                    </strong>
+
+                </div>
+
+                <span
+                    id="pendingAgentCount"
+                    style="font-size:12px;color:#667085;">
+
+                    0 pending
+
+                </span>
+
+            </div>
+
+
+            <div
+                id="pendingAgentsContainer"
+                class="agent-list">
+
+                <div class="loading-state">
+
+                    Loading agents...
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ALL AGENTS -->
+
+        <div
+            class="admin-panel"
+            style="margin-top:16px;">
+
+            <div class="admin-toolbar">
+
+                <strong>
+                    Agent Directory
+                </strong>
+
+
+                <input
+                    type="search"
+                    id="agentSearch"
+                    class="admin-search"
+                    placeholder="Search agents...">
+
+            </div>
+
+
+            <div
+                id="allAgentsContainer"
+                class="agent-list">
+
+                <div class="loading-state">
+
+                    Loading agents...
+
+                </div>
 
             </div>
 
@@ -809,80 +1044,90 @@
 
 
 
-    <!-- =========================================
-         ALL AGENTS
-    ========================================= -->
-
-    <section class="status-section">
-
-        <div class="status-header">
-
-            <p class="small-heading">
-                AGENTS
-            </p>
-
-
-            <h2>
-                Agent List
-            </h2>
-
-        </div>
-
-
-        <div id="allAgentsContainer">
-
-            <div class="dashboard-card">
-
-                Loading agents...
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
+    <!-- =====================================================
          APPLICATIONS
-    ========================================= -->
+    ====================================================== -->
 
     <section
-        class="status-section"
+        class="admin-section"
         id="applications">
 
 
-        <div class="status-header">
+        <div class="admin-section-heading">
 
-            <p class="small-heading">
-                LOAN MANAGEMENT
-            </p>
+            <div>
 
+                <p class="small-heading">
+                    LOAN MANAGEMENT
+                </p>
 
-            <h2>
-                Applications for Administration
+                <h2>
+                    Loan Applications
+                </h2>
 
-            </h2>
+                <p>
 
+                    Review agent-verified applications
+                    and make the final decision.
 
-            <p>
+                </p>
 
-                Applications verified by agents are
-                displayed here for final administrative
-                review.
-
-            </p>
+            </div>
 
         </div>
 
 
-        <div
-            id="applicationsContainer"
-            class="admin-applications">
+        <div class="admin-panel">
 
-            <div class="loading-state">
 
-                Loading applications...
+            <div class="admin-toolbar">
+
+
+                <select
+                    id="applicationFilter"
+                    class="admin-filter">
+
+                    <option value="all">
+                        All Applications
+                    </option>
+
+                    <option value="SENT_TO_ADMIN">
+                        Waiting for Admin
+                    </option>
+
+                    <option value="ADMIN_REVIEW">
+                        Under Review
+                    </option>
+
+                    <option value="APPROVED">
+                        Approved
+                    </option>
+
+                    <option value="REJECTED">
+                        Rejected
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="search"
+                    id="applicationSearch"
+                    class="admin-search"
+                    placeholder="Search application or client...">
+
+            </div>
+
+
+            <div
+                id="applicationsContainer"
+                class="application-list">
+
+                <div class="loading-state">
+
+                    Loading applications...
+
+                </div>
 
             </div>
 
@@ -892,40 +1137,67 @@
 
 
 
-    <!-- =========================================
+    <!-- =====================================================
          CLIENTS
-    ========================================= -->
+    ====================================================== -->
 
     <section
-        class="status-section"
+        class="admin-section"
         id="clients">
 
 
-        <div class="status-header">
+        <div class="admin-section-heading">
 
-            <p class="small-heading">
-                CLIENTS
-            </p>
+            <div>
 
+                <p class="small-heading">
+                    CLIENT MANAGEMENT
+                </p>
 
-            <h2>
-                Client Management
-            </h2>
+                <h2>
+                    Registered Clients
+                </h2>
+
+                <p>
+
+                    View registered Jitume Leo clients.
+
+                </p>
+
+            </div>
 
         </div>
 
 
-        <div class="dashboard-card">
+        <div class="admin-panel">
 
-            <p>
+            <div class="admin-toolbar">
 
-                Registered client accounts:
-
-                <strong id="clientSummaryCount">
-                    0
+                <strong>
+                    Client Directory
                 </strong>
 
-            </p>
+
+                <input
+                    type="search"
+                    id="clientSearch"
+                    class="admin-search"
+                    placeholder="Search clients...">
+
+            </div>
+
+
+            <div
+                id="clientsContainer"
+                class="client-list">
+
+                <div class="loading-state">
+
+                    Loading clients...
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -933,6 +1205,195 @@
 
 
 </main>
+
+
+
+<!-- =========================================================
+     ADD AGENT MODAL
+========================================================= -->
+
+<div
+    id="addAgentModalBackdrop"
+    class="modal-backdrop">
+
+
+    <div class="modal">
+
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h2>
+                    Add Agent
+                </h2>
+
+                <p>
+                    Create a new Jitume Leo agent account.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeAddAgentButton">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+
+        <form
+            id="addAgentForm">
+
+
+            <div class="form-group">
+
+                <label for="agentFullName">
+                    Full Name
+                </label>
+
+                <input
+                    id="agentFullName"
+                    type="text"
+                    required>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="agentEmail">
+                    Email Address
+                </label>
+
+                <input
+                    id="agentEmail"
+                    type="email"
+                    required>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="agentPhone">
+                    Phone Number
+                </label>
+
+                <input
+                    id="agentPhone"
+                    type="tel"
+                    required>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="agentIdNumber">
+                    National ID Number
+                </label>
+
+                <input
+                    id="agentIdNumber"
+                    type="text"
+                    required>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="agentCode">
+                    Agent Code
+                </label>
+
+                <input
+                    id="agentCode"
+                    type="text"
+                    placeholder="Example: JTL-002"
+                    required>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="agentLocation">
+                    Location
+                </label>
+
+                <input
+                    id="agentLocation"
+                    type="text"
+                    required>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="agentPassword">
+                    Temporary Password
+                </label>
+
+                <input
+                    id="agentPassword"
+                    type="password"
+                    minlength="6"
+                    required>
+
+            </div>
+
+
+            <div
+                id="addAgentMessage"
+                class="modal-message">
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="admin-btn admin-btn-light"
+                    id="cancelAddAgentButton">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="admin-btn admin-btn-primary"
+                    id="createAgentButton">
+
+                    Create Agent
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
 
 
 
@@ -966,6 +1427,8 @@ import {
 
     updateDoc,
 
+    setDoc,
+
     serverTimestamp
 
 }
@@ -991,11 +1454,9 @@ const db =
 
 
 
-/*
-|--------------------------------------------------------------------------
-| DOM ELEMENTS
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   DOM
+========================================================= */
 
 const adminName =
     document.getElementById(
@@ -1006,6 +1467,36 @@ const adminName =
 const logoutButton =
     document.getElementById(
         "logoutButton"
+    );
+
+
+const applicationCount =
+    document.getElementById(
+        "applicationCount"
+    );
+
+
+const waitingAdminCount =
+    document.getElementById(
+        "waitingAdminCount"
+    );
+
+
+const agentCount =
+    document.getElementById(
+        "agentCount"
+    );
+
+
+const clientCount =
+    document.getElementById(
+        "clientCount"
+    );
+
+
+const pendingAgentCount =
+    document.getElementById(
+        "pendingAgentCount"
     );
 
 
@@ -1027,32 +1518,76 @@ const applicationsContainer =
     );
 
 
-const waitingAdminCount =
+const clientsContainer =
     document.getElementById(
-        "waitingAdminCount"
+        "clientsContainer"
     );
 
 
-const waitingAdminHeading =
+const agentSearch =
     document.getElementById(
-        "waitingAdminHeading"
+        "agentSearch"
+    );
+
+
+const applicationSearch =
+    document.getElementById(
+        "applicationSearch"
+    );
+
+
+const applicationFilter =
+    document.getElementById(
+        "applicationFilter"
+    );
+
+
+const clientSearch =
+    document.getElementById(
+        "clientSearch"
+    );
+
+
+const addAgentModalBackdrop =
+    document.getElementById(
+        "addAgentModalBackdrop"
+    );
+
+
+const addAgentForm =
+    document.getElementById(
+        "addAgentForm"
+    );
+
+
+const addAgentMessage =
+    document.getElementById(
+        "addAgentMessage"
+    );
+
+
+const createAgentButton =
+    document.getElementById(
+        "createAgentButton"
     );
 
 
 let currentAdminUID = null;
 
+let allAgents = [];
+
+let allApplications = [];
+
+let allClients = [];
 
 
-/*
-|--------------------------------------------------------------------------
-| ADMIN AUTHENTICATION
-|--------------------------------------------------------------------------
-*/
+
+/* =========================================================
+   ADMIN AUTHENTICATION
+========================================================= */
 
 onAuthStateChanged(
-
     auth,
-
     async (user) => {
 
 
@@ -1083,7 +1618,6 @@ onAuthStateChanged(
                 !adminDocument.exists()
             ) {
 
-
                 alert(
                     "Account profile not found."
                 );
@@ -1110,7 +1644,6 @@ onAuthStateChanged(
                 adminData.role !==
                 "admin"
             ) {
-
 
                 alert(
                     "Access denied. Admin account required."
@@ -1145,25 +1678,25 @@ onAuthStateChanged(
 
         catch (error) {
 
-
             console.error(
                 "Admin dashboard error:",
                 error
             );
 
+            alert(
+                "Unable to load the admin dashboard."
+            );
+
         }
 
     }
-
 );
 
 
 
-/*
-|--------------------------------------------------------------------------
-| LOAD DASHBOARD
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   LOAD EVERYTHING
+========================================================= */
 
 async function loadDashboard() {
 
@@ -1175,18 +1708,16 @@ async function loadDashboard() {
 
 
 
-/*
-|--------------------------------------------------------------------------
-| LOAD USERS
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   LOAD USERS
+========================================================= */
 
 async function loadUsers() {
 
     try {
 
 
-        const usersSnapshot =
+        const snapshot =
             await getDocs(
                 collection(
                     db,
@@ -1195,34 +1726,27 @@ async function loadUsers() {
             );
 
 
-        let clients =
-            0;
+        allAgents = [];
+
+        allClients = [];
 
 
-        let activeAgents =
-            0;
-
-
-        const allAgents =
-            [];
-
-
-        usersSnapshot.forEach(
-            (userDocument) => {
+        snapshot.forEach(
+            documentSnapshot => {
 
 
                 const data =
-                    userDocument.data();
+                    documentSnapshot.data();
 
 
-                if (
-                    data.role ===
-                    "client"
-                ) {
+                const record = {
 
-                    clients++;
+                    id:
+                        documentSnapshot.id,
 
-                }
+                    ...data
+
+                };
 
 
                 if (
@@ -1230,25 +1754,21 @@ async function loadUsers() {
                     "agent"
                 ) {
 
+                    allAgents.push(
+                        record
+                    );
 
-                    if (
-                        data.status ===
-                        "active"
-                    ) {
-
-                        activeAgents++;
-
-                    }
+                }
 
 
-                    allAgents.push({
+                if (
+                    data.role ===
+                    "client"
+                ) {
 
-                        id:
-                            userDocument.id,
-
-                        ...data
-
-                    });
+                    allClients.push(
+                        record
+                    );
 
                 }
 
@@ -1256,60 +1776,70 @@ async function loadUsers() {
         );
 
 
-        document.getElementById(
-            "clientCount"
-        ).textContent =
-            clients;
+        const activeAgents =
+            allAgents.filter(
+                agent =>
+                    agent.status ===
+                    "active"
+            );
 
 
-        document.getElementById(
-            "clientSummaryCount"
-        ).textContent =
-            clients;
+        const pendingAgents =
+            allAgents.filter(
+                agent =>
+                    agent.status ===
+                    "pending"
+            );
 
 
-        document.getElementById(
-            "agentCount"
-        ).textContent =
-            activeAgents;
+        agentCount.textContent =
+            activeAgents.length;
 
 
-        displayPendingAgents(
-            allAgents
-        );
+        clientCount.textContent =
+            allClients.length;
 
 
-        displayAllAgents(
-            allAgents
-        );
+        pendingAgentCount.textContent =
+            `${pendingAgents.length} pending`;
+
+
+        renderPendingAgents();
+
+        renderAllAgents();
+
+        renderClients();
 
     }
 
     catch (error) {
 
-
         console.error(
-            "Error loading users:",
+            "User loading error:",
             error
         );
 
 
         pendingAgentsContainer.innerHTML =
             `
-            <div class="dashboard-card">
-
+            <div class="empty-state">
                 Unable to load agents.
-
             </div>
             `;
 
 
         allAgentsContainer.innerHTML =
             `
-            <div class="dashboard-card">
-
+            <div class="empty-state">
                 Unable to load agents.
+            </div>
+            `;
 
+
+        clientsContainer.innerHTML =
+            `
+            <div class="empty-state">
+                Unable to load clients.
             </div>
             `;
 
@@ -1319,19 +1849,14 @@ async function loadUsers() {
 
 
 
-/*
-|--------------------------------------------------------------------------
-| DISPLAY PENDING AGENTS
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   PENDING AGENTS
+========================================================= */
 
-function displayPendingAgents(
-    agents
-) {
-
+function renderPendingAgents() {
 
     const pendingAgents =
-        agents.filter(
+        allAgents.filter(
             agent =>
                 agent.status ===
                 "pending"
@@ -1343,10 +1868,9 @@ function displayPendingAgents(
         0
     ) {
 
-
         pendingAgentsContainer.innerHTML =
             `
-            <div class="dashboard-card">
+            <div class="empty-state">
 
                 <h3>
                     No pending agents
@@ -1355,8 +1879,8 @@ function displayPendingAgents(
 
                 <p>
 
-                    There are currently no
-                    agents waiting for activation.
+                    New agents will appear here
+                    after they are created.
 
                 </p>
 
@@ -1383,25 +1907,41 @@ function displayPendingAgents(
 
 
             card.className =
-                "dashboard-card";
+                "agent-card";
 
 
-            card.style.marginBottom =
-                "15px";
+            card.innerHTML =
+                `
+
+                <div class="agent-card-top">
+
+                    <div>
+
+                        <h3>
+
+                            ${escapeHTML(
+                                agent.fullName ||
+                                "Unnamed Agent"
+                            )}
+
+                        </h3>
 
 
-            card.innerHTML = `
+                        <p>
 
-                <div
-                    class="dashboard-card-top">
+                            ${escapeHTML(
+                                agent.agentCode ||
+                                "-"
+                            )}
 
-                    <span>
-                        PENDING AGENT
-                    </span>
+                        </p>
+
+                    </div>
 
 
                     <span
-                        class="dashboard-icon">
+                        class="status-pill
+                               status-pending">
 
                         PENDING
 
@@ -1410,41 +1950,7 @@ function displayPendingAgents(
                 </div>
 
 
-                <h2>
-
-                    ${escapeHTML(
-                        agent.fullName ||
-                        "Unnamed Agent"
-                    )}
-
-                </h2>
-
-
                 <p>
-
-                    <strong>
-                        Agent Code:
-                    </strong>
-
-                    ${escapeHTML(
-                        agent.agentCode ||
-                        "-"
-                    )}
-
-                    <br>
-
-
-                    <strong>
-                        Location:
-                    </strong>
-
-                    ${escapeHTML(
-                        agent.location ||
-                        "-"
-                    )}
-
-                    <br>
-
 
                     <strong>
                         Phone:
@@ -1467,20 +1973,38 @@ function displayPendingAgents(
                         "-"
                     )}
 
+                    <br>
+
+
+                    <strong>
+                        Location:
+                    </strong>
+
+                    ${escapeHTML(
+                        agent.location ||
+                        "-"
+                    )}
+
                 </p>
 
 
-                <button
-                    class="dashboard-link"
-                    data-agent-id="${escapeHTML(
-                        agent.id
-                    )}">
+                <div class="agent-card-actions">
 
-                    Activate Agent
+                    <button
+                        type="button"
+                        class="admin-btn admin-btn-primary"
+                        data-agent-action="activate"
+                        data-agent-id="${escapeHTML(
+                            agent.id
+                        )}">
 
-                </button>
+                        Activate
 
-            `;
+                    </button>
+
+                </div>
+
+                `;
 
 
             pendingAgentsContainer.appendChild(
@@ -1493,18 +2017,16 @@ function displayPendingAgents(
 
     document
         .querySelectorAll(
-            "[data-agent-id]"
+            '[data-agent-action="activate"]'
         )
         .forEach(
             button => {
 
-
                 button.addEventListener(
                     "click",
-                    async () => {
+                    () => {
 
-
-                        await activateAgent(
+                        activateAgent(
                             button.dataset.agentId
                         );
 
@@ -1518,104 +2040,76 @@ function displayPendingAgents(
 
 
 
-/*
-|--------------------------------------------------------------------------
-| ACTIVATE AGENT
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   ALL AGENTS
+========================================================= */
 
-async function activateAgent(
-    agentID
-) {
+function renderAllAgents() {
 
-
-    const confirmed =
-        confirm(
-            "Activate this agent?"
-        );
+    const searchTerm =
+        (
+            agentSearch.value ||
+            ""
+        )
+        .trim()
+        .toLowerCase();
 
 
-    if (!confirmed) {
-
-        return;
-
-    }
+    const filtered =
+        allAgents.filter(
+            agent => {
 
 
-    try {
+                if (
+                    !searchTerm
+                ) {
+
+                    return true;
+
+                }
 
 
-        await updateDoc(
-            doc(
-                db,
-                "users",
-                agentID
-            ),
-            {
+                return [
 
-                status:
-                    "active",
+                    agent.fullName,
 
-                activatedAt:
-                    serverTimestamp(),
+                    agent.agentCode,
 
-                activatedBy:
-                    currentAdminUID
+                    agent.phone,
+
+                    agent.email,
+
+                    agent.location
+
+                ]
+                .filter(
+                    Boolean
+                )
+                .some(
+                    value =>
+                        String(
+                            value
+                        )
+                        .toLowerCase()
+                        .includes(
+                            searchTerm
+                        )
+                );
 
             }
         );
 
 
-        alert(
-            "Agent activated successfully."
-        );
-
-
-        await loadUsers();
-
-    }
-
-    catch (error) {
-
-
-        console.error(
-            "Agent activation error:",
-            error
-        );
-
-
-        alert(
-            "Unable to activate agent. Check Firestore permissions."
-        );
-
-    }
-
-}
-
-
-
-/*
-|--------------------------------------------------------------------------
-| DISPLAY ALL AGENTS
-|--------------------------------------------------------------------------
-*/
-
-function displayAllAgents(
-    agents
-) {
-
-
     if (
-        agents.length ===
+        filtered.length ===
         0
     ) {
 
-
         allAgentsContainer.innerHTML =
             `
-            <div class="dashboard-card">
+            <div class="empty-state">
 
-                No agents found.
+                No agents match your search.
 
             </div>
             `;
@@ -1629,8 +2123,21 @@ function displayAllAgents(
         "";
 
 
-    agents.forEach(
+    filtered.forEach(
         agent => {
+
+
+            const status =
+                agent.status ||
+                "pending";
+
+
+            const statusClass =
+                status === "active"
+                    ? "status-active"
+                    : status === "pending"
+                        ? "status-pending"
+                        : "status-disabled";
 
 
             const card =
@@ -1640,30 +2147,40 @@ function displayAllAgents(
 
 
             card.className =
-                "dashboard-card";
+                "agent-card";
 
 
-            card.style.marginBottom =
-                "15px";
+            card.innerHTML =
+                `
+
+                <div class="agent-card-top">
+
+                    <div>
+
+                        <h3>
+
+                            ${escapeHTML(
+                                agent.fullName ||
+                                "Unnamed Agent"
+                            )}
+
+                        </h3>
 
 
-            const status =
-                agent.status ||
-                "pending";
+                        <p>
 
+                            ${escapeHTML(
+                                agent.agentCode ||
+                                "-"
+                            )}
 
-            card.innerHTML = `
+                        </p>
 
-                <div
-                    class="dashboard-card-top">
-
-                    <span>
-                        AGENT
-                    </span>
+                    </div>
 
 
                     <span
-                        class="dashboard-icon">
+                        class="status-pill ${statusClass}">
 
                         ${escapeHTML(
                             status.toUpperCase()
@@ -1674,24 +2191,26 @@ function displayAllAgents(
                 </div>
 
 
-                <h2>
-
-                    ${escapeHTML(
-                        agent.fullName ||
-                        "Unnamed Agent"
-                    )}
-
-                </h2>
-
-
                 <p>
 
                     <strong>
-                        Code:
+                        Phone:
                     </strong>
 
                     ${escapeHTML(
-                        agent.agentCode ||
+                        agent.phone ||
+                        "-"
+                    )}
+
+                    <br>
+
+
+                    <strong>
+                        Email:
+                    </strong>
+
+                    ${escapeHTML(
+                        agent.email ||
                         "-"
                     )}
 
@@ -1707,20 +2226,9 @@ function displayAllAgents(
                         "-"
                     )}
 
-                    <br>
-
-
-                    <strong>
-                        Status:
-                    </strong>
-
-                    ${escapeHTML(
-                        status
-                    )}
-
                 </p>
 
-            `;
+                `;
 
 
             allAgentsContainer.appendChild(
@@ -1734,14 +2242,170 @@ function displayAllAgents(
 
 
 
-/*
-|--------------------------------------------------------------------------
-| LOAD APPLICATIONS
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   CLIENTS
+========================================================= */
+
+function renderClients() {
+
+    const searchTerm =
+        (
+            clientSearch.value ||
+            ""
+        )
+        .trim()
+        .toLowerCase();
+
+
+    const filtered =
+        allClients.filter(
+            client => {
+
+
+                if (
+                    !searchTerm
+                ) {
+
+                    return true;
+
+                }
+
+
+                return [
+
+                    client.fullName,
+
+                    client.email,
+
+                    client.phone,
+
+                    client.idNumber
+
+                ]
+                .filter(
+                    Boolean
+                )
+                .some(
+                    value =>
+                        String(
+                            value
+                        )
+                        .toLowerCase()
+                        .includes(
+                            searchTerm
+                        )
+                );
+
+            }
+        );
+
+
+    if (
+        filtered.length ===
+        0
+    ) {
+
+        clientsContainer.innerHTML =
+            `
+            <div class="empty-state">
+
+                No clients found.
+
+            </div>
+            `;
+
+        return;
+
+    }
+
+
+    clientsContainer.innerHTML =
+        "";
+
+
+    filtered.forEach(
+        client => {
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "client-card";
+
+
+            card.innerHTML =
+                `
+
+                <h3>
+
+                    ${escapeHTML(
+                        client.fullName ||
+                        "Unnamed Client"
+                    )}
+
+                </h3>
+
+
+                <p>
+
+                    <strong>
+                        Email:
+                    </strong>
+
+                    ${escapeHTML(
+                        client.email ||
+                        "-"
+                    )}
+
+                    <br>
+
+
+                    <strong>
+                        Phone:
+                    </strong>
+
+                    ${escapeHTML(
+                        client.phone ||
+                        "-"
+                    )}
+
+                    <br>
+
+
+                    <strong>
+                        ID:
+                    </strong>
+
+                    ${escapeHTML(
+                        client.idNumber ||
+                        "-"
+                    )}
+
+                </p>
+
+                `;
+
+
+            clientsContainer.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   LOAD APPLICATIONS
+========================================================= */
 
 async function loadApplications() {
-
 
     applicationsContainer.innerHTML =
         `
@@ -1756,7 +2420,7 @@ async function loadApplications() {
     try {
 
 
-        const applicationsSnapshot =
+        const snapshot =
             await getDocs(
                 collection(
                     db,
@@ -1765,26 +2429,19 @@ async function loadApplications() {
             );
 
 
-        document.getElementById(
-            "applicationCount"
-        ).textContent =
-            applicationsSnapshot.size;
+        allApplications = [];
 
 
-        const applications =
-            [];
+        snapshot.forEach(
+            documentSnapshot => {
 
 
-        applicationsSnapshot.forEach(
-            applicationDocument => {
-
-
-                applications.push({
+                allApplications.push({
 
                     id:
-                        applicationDocument.id,
+                        documentSnapshot.id,
 
-                    ...applicationDocument.data()
+                    ...documentSnapshot.data()
 
                 });
 
@@ -1792,11 +2449,7 @@ async function loadApplications() {
         );
 
 
-        /*
-         * Newest first.
-         */
-
-        applications.sort(
+        allApplications.sort(
             (a, b) => {
 
                 return getTime(
@@ -1813,91 +2466,17 @@ async function loadApplications() {
         );
 
 
-        const waitingForAdmin =
-            applications.filter(
-                application => {
-
-                    return [
-
-                        "SENT_TO_ADMIN",
-
-                        "ADMIN_REVIEW"
-
-                    ].includes(
-                        application.status
-                    );
-
-                }
-            );
+        applicationCount.textContent =
+            allApplications.length;
 
 
-        waitingAdminCount.textContent =
-            waitingForAdmin.length;
+        updateWaitingCount();
 
-
-        waitingAdminHeading.textContent =
-            waitingForAdmin.length;
-
-
-        if (
-            applications.length ===
-            0
-        ) {
-
-
-            applicationsContainer.innerHTML =
-                `
-                <div class="empty-state">
-
-                    <h3>
-                        No Applications
-                    </h3>
-
-
-                    <p>
-
-                        Loan applications will appear
-                        here when clients submit them.
-
-                    </p>
-
-                </div>
-                `;
-
-
-            return;
-
-        }
-
-
-        applicationsContainer.innerHTML =
-            "";
-
-
-        /*
-         * Show all applications so the admin can
-         * see the complete workflow.
-         */
-
-        applications.forEach(
-            application => {
-
-
-                applicationsContainer.appendChild(
-
-                    createApplicationCard(
-                        application
-                    )
-
-                );
-
-            }
-        );
+        renderApplications();
 
     }
 
     catch (error) {
-
 
         console.error(
             "Application loading error:",
@@ -1905,9 +2484,7 @@ async function loadApplications() {
         );
 
 
-        document.getElementById(
-            "applicationCount"
-        ).textContent =
+        applicationCount.textContent =
             "0";
 
 
@@ -1915,25 +2492,11 @@ async function loadApplications() {
             "0";
 
 
-        waitingAdminHeading.textContent =
-            "0";
-
-
         applicationsContainer.innerHTML =
             `
             <div class="empty-state">
 
-                <h3>
-                    Unable to Load Applications
-                </h3>
-
-
-                <p>
-
-                    Please refresh the page
-                    and try again.
-
-                </p>
+                Unable to load applications.
 
             </div>
             `;
@@ -1944,16 +2507,156 @@ async function loadApplications() {
 
 
 
-/*
-|--------------------------------------------------------------------------
-| CREATE APPLICATION CARD
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   WAITING ADMIN COUNT
+========================================================= */
+
+function updateWaitingCount() {
+
+    const count =
+        allApplications.filter(
+            application =>
+                [
+                    "SENT_TO_ADMIN",
+                    "ADMIN_REVIEW"
+                ]
+                .includes(
+                    application.status
+                )
+        ).length;
+
+
+    waitingAdminCount.textContent =
+        count;
+
+}
+
+
+
+/* =========================================================
+   RENDER APPLICATIONS
+========================================================= */
+
+function renderApplications() {
+
+    const searchTerm =
+        (
+            applicationSearch.value ||
+            ""
+        )
+        .trim()
+        .toLowerCase();
+
+
+    const filter =
+        applicationFilter.value;
+
+
+    const filtered =
+        allApplications.filter(
+            application => {
+
+
+                const status =
+                    application.status ||
+                    "APPLICATION_SUBMITTED";
+
+
+                if (
+                    filter !== "all"
+                    &&
+                    status !== filter
+                ) {
+
+                    return false;
+
+                }
+
+
+                if (
+                    !searchTerm
+                ) {
+
+                    return true;
+
+                }
+
+
+                return [
+
+                    application.id,
+
+                    application.customerId,
+
+                    application.agentName,
+
+                    application.loanType
+
+                ]
+                .filter(
+                    Boolean
+                )
+                .some(
+                    value =>
+                        String(
+                            value
+                        )
+                        .toLowerCase()
+                        .includes(
+                            searchTerm
+                        )
+                );
+
+            }
+        );
+
+
+    if (
+        filtered.length ===
+        0
+    ) {
+
+        applicationsContainer.innerHTML =
+            `
+            <div class="empty-state">
+
+                No applications match your search/filter.
+
+            </div>
+            `;
+
+        return;
+
+    }
+
+
+    applicationsContainer.innerHTML =
+        "";
+
+
+    filtered.forEach(
+        application => {
+
+            applicationsContainer.appendChild(
+                createApplicationCard(
+                    application
+                )
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   APPLICATION CARD
+========================================================= */
 
 function createApplicationCard(
     application
 ) {
-
 
     const card =
         document.createElement(
@@ -1977,29 +2680,15 @@ function createApplicationCard(
 
 
     const loanType =
-        application.loanType ===
-        "renewal"
-
-            ?
-
-            "Loan Renewal"
-
-            :
-
-            "First Loan";
+        application.loanType === "renewal"
+            ? "Loan Renewal"
+            : "First Loan";
 
 
     const feeLabel =
-        application.loanType ===
-        "renewal"
-
-            ?
-
-            "Renewal Fee"
-
-            :
-
-            "First Loan Processing Fee";
+        application.loanType === "renewal"
+            ? "Renewal Fee"
+            : "First Loan Processing Fee";
 
 
     const handoverStatus =
@@ -2028,54 +2717,34 @@ function createApplicationCard(
 
 
     const canReview =
-        [
-
-            "SENT_TO_ADMIN",
-
-            "ADMIN_REVIEW"
-
-        ].includes(
-            status
-        );
+        status === "SENT_TO_ADMIN"
+        ||
+        status === "ADMIN_REVIEW";
 
 
     card.innerHTML =
         `
 
-
-        <!-- =====================================
-             HEADER
-        ====================================== -->
-
-        <div class="application-header-row">
-
+        <div class="application-top">
 
             <div>
 
                 <h3>
-
                     Emergency Loan
-
                 </h3>
-
 
                 <div class="application-meta">
 
+                    Application ID:
                     <strong>
-                        Application ID:
+                        ${escapeHTML(
+                            application.id
+                        )}
                     </strong>
-
-                    ${escapeHTML(
-                        application.id
-                    )}
 
                     <br>
 
-
-                    <strong>
-                        Client:
-                    </strong>
-
+                    Client:
                     ${escapeHTML(
                         application.customerId ||
                         "-"
@@ -2083,11 +2752,7 @@ function createApplicationCard(
 
                     <br>
 
-
-                    <strong>
-                        Agent:
-                    </strong>
-
+                    Agent:
                     ${escapeHTML(
                         application.agentName ||
                         "-"
@@ -2099,7 +2764,7 @@ function createApplicationCard(
 
 
             <span
-                class="status-badge ${statusClass}">
+                class="application-status ${statusClass}">
 
                 ${escapeHTML(
                     formatStatus(
@@ -2112,112 +2777,95 @@ function createApplicationCard(
         </div>
 
 
-
-        <!-- =====================================
-             DETAILS
-        ====================================== -->
-
         <div class="application-details">
 
 
-            <div class="detail-box">
+            <div class="application-detail">
 
                 <small>
                     Loan Type
                 </small>
 
                 <strong>
-
                     ${loanType}
-
                 </strong>
 
             </div>
 
 
-            <div class="detail-box">
+            <div class="application-detail">
 
                 <small>
                     Principal
                 </small>
 
                 <strong>
-
                     ${formatCurrency(
                         application.requestedAmount
                     )}
-
                 </strong>
 
             </div>
 
 
-            <div class="detail-box">
+            <div class="application-detail">
 
                 <small>
                     Interest
                 </small>
 
                 <strong>
-
                     ${formatCurrency(
                         application.interestAmount
                     )}
-
                 </strong>
 
             </div>
 
 
-            <div class="detail-box">
+            <div class="application-detail">
 
                 <small>
                     Maturity Amount
                 </small>
 
                 <strong>
-
                     ${formatCurrency(
                         application.totalMaturityAmount
                     )}
-
                 </strong>
 
             </div>
 
 
-            <div class="detail-box">
+            <div class="application-detail">
 
                 <small>
                     ${feeLabel}
                 </small>
 
                 <strong>
-
                     ${formatCurrency(
                         application.processingOrRenewalFee
                     )}
-
                 </strong>
 
             </div>
 
 
-            <div class="detail-box">
+            <div class="application-detail">
 
                 <small>
-                    Repayment Period
+                    Agent Verification
                 </small>
 
                 <strong>
 
                     ${escapeHTML(
-                        String(
-                            application.repaymentPeriodDays ||
-                            "-"
+                        formatStatus(
+                            agentVerification
                         )
                     )}
-                    days
 
                 </strong>
 
@@ -2226,27 +2874,21 @@ function createApplicationCard(
         </div>
 
 
-
-        <!-- =====================================
-             WORKFLOW STATUS
-        ====================================== -->
-
-        <div class="verification-summary">
+        <div class="workflow-summary">
 
 
-            <div class="verification-row">
+            <div class="workflow-row">
 
                 <span>
-                    Client Handover Report
+                    Client Handover
                 </span>
-
 
                 <span
                     class="${
                         handoverStatus ===
                         "CLIENT_HANDOVER_REPORTED"
-                            ? "verified-text"
-                            : "pending-text"
+                            ? "text-green"
+                            : "text-yellow"
                     }">
 
                     ${escapeHTML(
@@ -2260,19 +2902,18 @@ function createApplicationCard(
             </div>
 
 
-            <div class="verification-row">
+            <div class="workflow-row">
 
                 <span>
                     Physical Documents
                 </span>
 
-
                 <span
                     class="${
                         documentsStatus ===
                         "DOCUMENTS_RECEIVED"
-                            ? "verified-text"
-                            : "pending-text"
+                            ? "text-green"
+                            : "text-yellow"
                     }">
 
                     ${escapeHTML(
@@ -2286,19 +2927,18 @@ function createApplicationCard(
             </div>
 
 
-            <div class="verification-row">
+            <div class="workflow-row">
 
                 <span>
                     KSh 500 Fee
                 </span>
 
-
                 <span
                     class="${
                         feeStatus ===
                         "FEE_RECEIVED"
-                            ? "verified-text"
-                            : "pending-text"
+                            ? "text-green"
+                            : "text-yellow"
                     }">
 
                     ${escapeHTML(
@@ -2312,51 +2952,21 @@ function createApplicationCard(
             </div>
 
 
-            <div class="verification-row">
-
-                <span>
-                    Agent Verification
-                </span>
-
-
-                <span
-                    class="${
-                        agentVerification ===
-                        "VERIFIED"
-                            ? "verified-text"
-                            : agentVerification ===
-                              "REJECTED"
-                                ? "danger-text"
-                                : "pending-text"
-                    }">
-
-                    ${escapeHTML(
-                        formatStatus(
-                            agentVerification
-                        )
-                    )}
-
-                </span>
-
-            </div>
-
-
-            <div class="verification-row">
+            <div class="workflow-row">
 
                 <span>
                     Admin Decision
                 </span>
 
-
                 <span
                     class="${
                         adminDecision ===
                         "APPROVED"
-                            ? "verified-text"
+                            ? "text-green"
                             : adminDecision ===
                               "REJECTED"
-                                ? "danger-text"
-                                : "pending-text"
+                                ? "text-red"
+                                : "text-yellow"
                     }">
 
                     ${escapeHTML(
@@ -2372,121 +2982,112 @@ function createApplicationCard(
         </div>
 
 
-
-        <!-- =====================================
-             INFORMATION
-        ====================================== -->
-
         ${
-            status ===
-            "SENT_TO_ADMIN"
+            status === "SENT_TO_ADMIN"
+            ?
 
-                ?
+            `
 
-                `
-                <div class="admin-info-box info">
+            <div class="admin-info-box info">
 
-                    This application has been
-                    verified by the selected agent
-                    and is waiting for your review.
+                Agent verification is complete.
+                This application is waiting for
+                your administrative decision.
 
-                </div>
-                `
+            </div>
 
-                :
+            `
 
-                ""
+            :
+
+            ""
         }
 
 
         ${
-            status ===
-            "ADMIN_REVIEW"
+            status === "ADMIN_REVIEW"
+            ?
 
-                ?
+            `
 
-                `
-                <div class="admin-info-box info">
+            <div class="admin-info-box info">
 
-                    This application is currently
-                    under administrative review.
+                You have started reviewing this
+                application.
 
-                </div>
-                `
+            </div>
 
-                :
+            `
 
-                ""
+            :
+
+            ""
         }
 
 
         ${
-            status ===
-            "APPROVED"
+            status === "APPROVED"
+            ?
 
-                ?
+            `
 
-                `
-                <div class="admin-info-box success">
+            <div class="admin-info-box success">
 
-                    This application has been approved
-                    by administration.
+                ✓ Approved. The client can now
+                see the approved loan and collection
+                instructions.
 
-                </div>
-                `
+            </div>
 
-                :
+            `
 
-                ""
+            :
+
+            ""
         }
 
 
         ${
-            status ===
-            "REJECTED"
+            status === "REJECTED"
+            ?
 
-                ?
+            `
 
-                `
-                <div class="admin-info-box danger">
+            <div class="admin-info-box danger">
 
-                    This application has been rejected.
+                Application rejected.
 
-                    ${
-                        application.adminDenialReason
-                            ?
+                ${
+                    application.adminDenialReason
+                        ?
 
-                            `
-                            <br><br>
+                        `
+                        <br><br>
 
-                            <strong>
-                                Reason:
-                            </strong>
+                        <strong>
+                            Reason:
+                        </strong>
 
-                            ${escapeHTML(
-                                application.adminDenialReason
-                            )}
+                        ${escapeHTML(
+                            application.adminDenialReason
+                        )}
 
-                            `
+                        `
 
-                            :
+                        :
 
-                            ""
-                    }
+                        ""
+                }
 
-                </div>
-                `
+            </div>
 
-                :
+            `
 
-                ""
+            :
+
+            ""
         }
 
-
-
-        <!-- =====================================
-             ACTIONS
-        ====================================== -->
 
         <div class="admin-actions">
 
@@ -2494,95 +3095,87 @@ function createApplicationCard(
             ${
                 canReview
 
+                ?
+
+                `
+
+                ${
+                    status === "SENT_TO_ADMIN"
+
                     ?
 
                     `
 
-                    ${
-                        status ===
-                        "SENT_TO_ADMIN"
+                    <button
+                        type="button"
+                        class="admin-btn admin-btn-dark"
+                        data-action="start-review"
+                        data-id="${escapeHTML(
+                            application.id
+                        )}">
 
-                            ?
+                        Start Review
 
-                            `
-                            <button
-                                type="button"
-                                class="admin-action
-                                       review-button"
-                                data-action="start-review"
-                                data-id="${escapeHTML(
-                                    application.id
-                                )}">
-
-                                Start Review
-
-                            </button>
-                            `
-
-                            :
-
-                            ""
-                    }
-
-
-                    ${
-                        status ===
-                        "ADMIN_REVIEW"
-
-                            ?
-
-                            `
-
-                            <button
-                                type="button"
-                                class="admin-action
-                                       approve-button"
-                                data-action="approve"
-                                data-id="${escapeHTML(
-                                    application.id
-                                )}">
-
-                                Approve Application
-
-                            </button>
-
-
-                            <button
-                                type="button"
-                                class="admin-action
-                                       deny-button"
-                                data-action="deny"
-                                data-id="${escapeHTML(
-                                    application.id
-                                )}">
-
-                                Deny Application
-
-                            </button>
-
-                            `
-
-                            :
-
-                            ""
-                    }
+                    </button>
 
                     `
 
                     :
 
                     ""
-            }
+                }
 
+
+                ${
+                    status === "ADMIN_REVIEW"
+
+                    ?
+
+                    `
+
+                    <button
+                        type="button"
+                        class="admin-btn admin-btn-primary"
+                        data-action="approve"
+                        data-id="${escapeHTML(
+                            application.id
+                        )}">
+
+                        Approve
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="admin-btn admin-btn-danger"
+                        data-action="deny"
+                        data-id="${escapeHTML(
+                            application.id
+                        )}">
+
+                        Deny
+
+                    </button>
+
+                    `
+
+                    :
+
+                    ""
+                }
+
+                `
+
+                :
+
+                ""
+            }
 
         </div>
 
         `;
 
-
-    /*
-     * Attach action events.
-     */
 
     card
         .querySelectorAll(
@@ -2591,20 +3184,14 @@ function createApplicationCard(
         .forEach(
             button => {
 
-
                 button.addEventListener(
                     "click",
-                    async () => {
+                    () => {
 
-
-                        await handleAdminAction(
-
+                        handleAdminAction(
                             button.dataset.action,
-
                             button.dataset.id,
-
                             button
-
                         );
 
                     }
@@ -2620,11 +3207,9 @@ function createApplicationCard(
 
 
 
-/*
-|--------------------------------------------------------------------------
-| ADMIN ACTIONS
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   ADMIN ACTIONS
+========================================================= */
 
 async function handleAdminAction(
     action,
@@ -2656,14 +3241,14 @@ async function handleAdminAction(
             );
 
 
-        const applicationSnapshot =
+        const snapshot =
             await getDoc(
                 applicationReference
             );
 
 
         if (
-            !applicationSnapshot.exists()
+            !snapshot.exists()
         ) {
 
             throw new Error(
@@ -2674,14 +3259,12 @@ async function handleAdminAction(
 
 
         const application =
-            applicationSnapshot.data();
+            snapshot.data();
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | START ADMIN REVIEW
-        |--------------------------------------------------------------------------
-        */
+        /* =========================================
+           START REVIEW
+        ========================================= */
 
         if (
             action ===
@@ -2726,18 +3309,14 @@ async function handleAdminAction(
 
             await loadApplications();
 
-
             return;
 
         }
 
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | APPROVE
-        |--------------------------------------------------------------------------
-        */
+        /* =========================================
+           APPROVE
+        ========================================= */
 
         if (
             action ===
@@ -2751,7 +3330,7 @@ async function handleAdminAction(
             ) {
 
                 throw new Error(
-                    "Start the administrative review first."
+                    "Start administrative review first."
                 );
 
             }
@@ -2776,6 +3355,13 @@ async function handleAdminAction(
             }
 
 
+            const approvedAmount =
+                Number(
+                    application.requestedAmount ||
+                    0
+                );
+
+
             await updateDoc(
                 applicationReference,
                 {
@@ -2787,10 +3373,7 @@ async function handleAdminAction(
                         "APPROVED",
 
                     approvedAmount:
-                        Number(
-                            application.requestedAmount ||
-                            0
-                        ),
+                        approvedAmount,
 
                     adminApprovedAt:
                         serverTimestamp(),
@@ -2812,18 +3395,14 @@ async function handleAdminAction(
 
             await loadApplications();
 
-
             return;
 
         }
 
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | DENY
-        |--------------------------------------------------------------------------
-        */
+        /* =========================================
+           DENY
+        ========================================= */
 
         if (
             action ===
@@ -2837,7 +3416,7 @@ async function handleAdminAction(
             ) {
 
                 throw new Error(
-                    "Start the administrative review first."
+                    "Start administrative review first."
                 );
 
             }
@@ -2850,11 +3429,9 @@ async function handleAdminAction(
 
 
             if (
-                reason ===
-                null
+                reason === null
                 ||
-                reason.trim() ===
-                ""
+                reason.trim() === ""
             ) {
 
                 button.disabled =
@@ -2901,7 +3478,6 @@ async function handleAdminAction(
 
             await loadApplications();
 
-
             return;
 
         }
@@ -2909,7 +3485,6 @@ async function handleAdminAction(
     }
 
     catch (error) {
-
 
         console.error(
             "Admin application action error:",
@@ -2936,94 +3511,75 @@ async function handleAdminAction(
 
 
 
-/*
-|--------------------------------------------------------------------------
-| FORMAT STATUS
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   STATUS
+========================================================= */
 
 function formatStatus(
     status
 ) {
 
-
     const map = {
-
 
         APPLICATION_SUBMITTED:
             "Application Submitted",
 
-
         CLIENT_HANDOVER_REPORTED:
             "Client Reported Handover",
-
 
         DOCUMENTS_AWAITING_RECEIPT:
             "Documents Awaiting Receipt",
 
-
         DOCUMENTS_RECEIVED:
             "Documents Received",
-
 
         NOT_RECEIVED:
             "Not Received",
 
-
         FEE_AWAITING_AGENT_CONFIRMATION:
             "Fee Awaiting Confirmation",
-
 
         FEE_RECEIVED:
             "Fee Received",
 
-
         FEE_PENDING:
             "Fee Pending",
 
-
         NOT_VERIFIED:
-            "Not Verified",
-
+            "Not Yet Verified",
 
         VERIFIED:
             "Verified",
 
-
-        REJECTED:
-            "Rejected",
-
-
-        PENDING:
-            "Pending",
-
+        AGENT_VERIFIED:
+            "Agent Verified",
 
         SENT_TO_ADMIN:
             "Sent to Administration",
 
-
         ADMIN_REVIEW:
             "Administrative Review",
-
 
         APPROVED:
             "Approved",
 
+        REJECTED:
+            "Rejected",
 
         PAYMENT_PENDING:
             "Payment Pending",
 
-
         PAYMENT_CONFIRMED:
             "Payment Confirmed",
 
-
         READY_FOR_COLLECTION:
-            "Ready for Collection",
-
+            "Ready for Cash Collection",
 
         CASH_COLLECTED:
-            "Cash Collected"
+            "Cash Collected",
+
+        PENDING:
+            "Pending"
 
     };
 
@@ -3046,11 +3602,9 @@ function formatStatus(
 
 
 
-/*
-|--------------------------------------------------------------------------
-| STATUS CLASS
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   STATUS CLASS
+========================================================= */
 
 function getStatusClass(
     status
@@ -3065,9 +3619,11 @@ function getStatusClass(
 
             "FEE_RECEIVED",
 
-            "VERIFIED",
+            "AGENT_VERIFIED",
 
             "SENT_TO_ADMIN",
+
+            "ADMIN_REVIEW",
 
             "APPROVED",
 
@@ -3104,16 +3660,13 @@ function getStatusClass(
 
 
 
-/*
-|--------------------------------------------------------------------------
-| CURRENCY
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   CURRENCY
+========================================================= */
 
 function formatCurrency(
     value
 ) {
-
 
     return "KSh " +
 
@@ -3127,20 +3680,15 @@ function formatCurrency(
 
 
 
-/*
-|--------------------------------------------------------------------------
-| TIME
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   TIME
+========================================================= */
 
 function getTime(
     timestamp
 ) {
 
-
-    if (
-        !timestamp
-    ) {
+    if (!timestamp) {
 
         return 0;
 
@@ -3164,8 +3712,7 @@ function getTime(
             timestamp.seconds
         ) {
 
-            return timestamp.seconds *
-                1000;
+            return timestamp.seconds * 1000;
 
         }
 
@@ -3188,16 +3735,13 @@ function getTime(
 
 
 
-/*
-|--------------------------------------------------------------------------
-| ESCAPE HTML
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
 function escapeHTML(
     value
 ) {
-
 
     const div =
         document.createElement(
@@ -3217,19 +3761,515 @@ function escapeHTML(
 
 
 
-/*
-|--------------------------------------------------------------------------
-| LOGOUT
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   ADD AGENT MODAL
+========================================================= */
+
+function openAddAgentModal() {
+
+    addAgentModalBackdrop.classList.add(
+        "show"
+    );
+
+
+    addAgentMessage.className =
+        "modal-message";
+
+
+    addAgentMessage.textContent =
+        "";
+
+}
+
+
+function closeAddAgentModal() {
+
+    addAgentModalBackdrop.classList.remove(
+        "show"
+    );
+
+
+    addAgentForm.reset();
+
+
+    createAgentButton.disabled =
+        false;
+
+
+    createAgentButton.textContent =
+        "Create Agent";
+
+
+    addAgentMessage.className =
+        "modal-message";
+
+
+    addAgentMessage.textContent =
+        "";
+
+}
+
+
+
+/* =========================================================
+   ADD AGENT BUTTONS
+========================================================= */
+
+document
+    .getElementById(
+        "openAddAgentButton"
+    )
+    .addEventListener(
+        "click",
+        openAddAgentModal
+    );
+
+
+document
+    .getElementById(
+        "openAddAgentButton2"
+    )
+    .addEventListener(
+        "click",
+        openAddAgentModal
+    );
+
+
+document
+    .getElementById(
+        "closeAddAgentButton"
+    )
+    .addEventListener(
+        "click",
+        closeAddAgentModal
+    );
+
+
+document
+    .getElementById(
+        "cancelAddAgentButton"
+    )
+    .addEventListener(
+        "click",
+        closeAddAgentModal
+    );
+
+
+addAgentModalBackdrop.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target ===
+            addAgentModalBackdrop
+        ) {
+
+            closeAddAgentModal();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   CREATE AGENT
+========================================================= */
+
+addAgentForm.addEventListener(
+    "submit",
+    async event => {
+
+        event.preventDefault();
+
+
+        createAgentButton.disabled =
+            true;
+
+
+        createAgentButton.textContent =
+            "Creating Agent...";
+
+
+        addAgentMessage.className =
+            "modal-message";
+
+
+        addAgentMessage.textContent =
+            "";
+
+
+        const fullName =
+            document
+                .getElementById(
+                    "agentFullName"
+                )
+                .value
+                .trim();
+
+
+        const email =
+            document
+                .getElementById(
+                    "agentEmail"
+                )
+                .value
+                .trim();
+
+
+        const phone =
+            document
+                .getElementById(
+                    "agentPhone"
+                )
+                .value
+                .trim();
+
+
+        const idNumber =
+            document
+                .getElementById(
+                    "agentIdNumber"
+                )
+                .value
+                .trim();
+
+
+        const agentCode =
+            document
+                .getElementById(
+                    "agentCode"
+                )
+                .value
+                .trim();
+
+
+        const location =
+            document
+                .getElementById(
+                    "agentLocation"
+                )
+                .value
+                .trim();
+
+
+        const password =
+            document
+                .getElementById(
+                    "agentPassword"
+                )
+                .value;
+
+
+        try {
+
+
+            /*
+             * Create Firebase Authentication account
+             * through the Identity Toolkit REST API.
+             *
+             * This does not sign the administrator out.
+             */
+
+            const apiKey =
+                app.options.apiKey;
+
+
+            if (
+                !apiKey
+            ) {
+
+                throw new Error(
+                    "Firebase API key is not available."
+                );
+
+            }
+
+
+            const response =
+                await fetch(
+                    "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="
+                    +
+                    encodeURIComponent(
+                        apiKey
+                    ),
+                    {
+
+                        method:
+                            "POST",
+
+                        headers:
+                            {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                        body:
+                            JSON.stringify({
+
+                                email:
+                                    email,
+
+                                password:
+                                    password,
+
+                                returnSecureToken:
+                                    false
+
+                            })
+
+                    }
+                );
+
+
+            const authResult =
+                await response.json();
+
+
+            if (
+                !response.ok
+            ) {
+
+                throw new Error(
+                    authResult.error?.message ||
+                    "Unable to create agent authentication account."
+                );
+
+            }
+
+
+            const newAgentUID =
+                authResult.localId;
+
+
+            /*
+             * Create the Firestore profile.
+             */
+
+            await setDoc(
+                doc(
+                    db,
+                    "users",
+                    newAgentUID
+                ),
+                {
+
+                    fullName:
+                        fullName,
+
+                    email:
+                        email,
+
+                    phone:
+                        phone,
+
+                    idNumber:
+                        idNumber,
+
+                    agentCode:
+                        agentCode,
+
+                    location:
+                        location,
+
+                    role:
+                        "agent",
+
+                    status:
+                        "pending",
+
+                    createdAt:
+                        serverTimestamp(),
+
+                    createdBy:
+                        currentAdminUID
+
+                }
+            );
+
+
+            addAgentMessage.textContent =
+                "Agent created successfully. The account is pending activation.";
+
+
+            addAgentMessage.className =
+                "modal-message success";
+
+
+            await loadUsers();
+
+
+            setTimeout(
+                () => {
+
+                    closeAddAgentModal();
+
+                },
+                1200
+            );
+
+        }
+
+        catch (error) {
+
+
+            console.error(
+                "Add agent error:",
+                error
+            );
+
+
+            let message =
+                error.message ||
+                "Unable to create agent.";
+
+
+            if (
+                message.includes(
+                    "EMAIL_EXISTS"
+                )
+            ) {
+
+                message =
+                    "That email address is already registered.";
+
+            }
+
+
+            addAgentMessage.textContent =
+                message;
+
+
+            addAgentMessage.className =
+                "modal-message error";
+
+
+            createAgentButton.disabled =
+                false;
+
+
+            createAgentButton.textContent =
+                "Create Agent";
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   SEARCH / FILTERS
+========================================================= */
+
+agentSearch.addEventListener(
+    "input",
+    renderAllAgents
+);
+
+
+clientSearch.addEventListener(
+    "input",
+    renderClients
+);
+
+
+applicationSearch.addEventListener(
+    "input",
+    renderApplications
+);
+
+
+applicationFilter.addEventListener(
+    "change",
+    renderApplications
+);
+
+
+
+/* =========================================================
+   ACTIVATE AGENT
+========================================================= */
+
+async function activateAgent(
+    agentId
+) {
+
+    const confirmed =
+        confirm(
+            "Activate this agent?"
+        );
+
+
+    if (!confirmed) {
+
+        return;
+
+    }
+
+
+    try {
+
+
+        await updateDoc(
+            doc(
+                db,
+                "users",
+                agentId
+            ),
+            {
+
+                status:
+                    "active",
+
+                activatedAt:
+                    serverTimestamp(),
+
+                activatedBy:
+                    currentAdminUID
+
+            }
+        );
+
+
+        alert(
+            "Agent activated successfully."
+        );
+
+
+        await loadUsers();
+
+    }
+
+    catch (error) {
+
+
+        console.error(
+            "Agent activation error:",
+            error
+        );
+
+
+        alert(
+            "Unable to activate agent. Check Firestore permissions."
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
 
 logoutButton.addEventListener(
     "click",
     async () => {
 
-
         try {
-
 
             await signOut(
                 auth
@@ -3243,7 +4283,6 @@ logoutButton.addEventListener(
 
         catch (error) {
 
-
             console.error(
                 "Logout error:",
                 error
@@ -3253,6 +4292,32 @@ logoutButton.addEventListener(
 
     }
 );
+
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(
+    value
+) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        String(
+            value ?? ""
+        );
+
+
+    return div.innerHTML;
+
+}
 
 </script>
 
