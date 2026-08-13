@@ -12,7 +12,6 @@
 
     <link rel="stylesheet" href="style.css">
 
-
     <style>
 
         /* =========================================
@@ -20,449 +19,252 @@
         ========================================= */
 
         .applications-section {
-
             margin-top: 35px;
-
         }
-
 
         .applications-grid {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(1, 1fr);
-
+            grid-template-columns: 1fr;
             gap: 20px;
-
         }
-
 
         .application-card {
-
             background: #ffffff;
-
             border: 1px solid #e5e9ef;
-
             border-radius: 14px;
-
             padding: 25px;
-
             box-shadow:
-                0 10px 30px
-                rgba(30,45,65,0.05);
-
+                0 10px 30px rgba(30,45,65,0.05);
         }
-
 
         .application-header-row {
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: flex-start;
-
             gap: 20px;
-
             margin-bottom: 20px;
-
         }
-
 
         .application-header-row h3 {
-
             margin-bottom: 7px;
-
             font-size: 20px;
-
         }
-
 
         .application-meta {
-
             color: #6d7788;
-
             font-size: 12px;
-
             line-height: 1.7;
-
         }
-
 
         /* =========================================
            STATUS BADGES
         ========================================= */
 
         .status-badge {
-
             display: inline-flex;
-
             align-items: center;
-
             justify-content: center;
-
             padding: 8px 13px;
-
             border-radius: 20px;
-
             font-size: 10px;
-
             font-weight: 800;
-
             white-space: nowrap;
-
             letter-spacing: .4px;
-
             background: #eef1f4;
-
             color: #5f6b7a;
-
         }
-
 
         .status-badge.green {
-
             background: #e8f7ef;
-
             color: #168a63;
-
         }
-
 
         .status-badge.yellow {
-
             background: #fff5db;
-
             color: #8a6200;
-
         }
-
 
         .status-badge.red {
-
             background: #fdeceb;
-
             color: #b42318;
-
         }
-
 
         /* =========================================
            DETAILS
         ========================================= */
 
         .application-details {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
-
             margin-bottom: 22px;
-
         }
-
 
         .detail-box {
-
             background: #f7f9fc;
-
             border-radius: 8px;
-
             padding: 13px;
-
         }
-
 
         .detail-box small {
-
             display: block;
-
             color: #7b8794;
-
             font-size: 10px;
-
             text-transform: uppercase;
-
             margin-bottom: 5px;
-
             letter-spacing: .4px;
-
         }
-
 
         .detail-box strong {
-
             font-size: 14px;
-
         }
-
 
         /* =========================================
            CHECKLIST
         ========================================= */
 
         .verification-panel {
-
-            border-top:
-                1px solid #e7ebef;
-
-            padding-top:
-                20px;
-
+            border-top: 1px solid #e7ebef;
+            padding-top: 20px;
         }
-
 
         .verification-panel h4 {
-
-            margin-bottom:
-                15px;
-
+            margin-bottom: 15px;
         }
-
 
         .verification-check {
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             gap: 15px;
-
             background: #f8fafc;
-
             border: 1px solid #e5e9ef;
-
             border-radius: 8px;
-
             padding: 13px;
-
             margin-bottom: 10px;
-
         }
-
 
         .verification-check-left {
-
             display: flex;
-
             align-items: center;
-
             gap: 10px;
-
         }
-
 
         .check-icon {
-
             width: 24px;
-
             height: 24px;
-
             border-radius: 50%;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             background: #e8edf2;
-
             color: #697586;
-
             font-size: 12px;
-
             font-weight: 800;
-
         }
-
 
         .check-icon.done {
-
             background: #168a63;
-
             color: #ffffff;
-
         }
-
 
         .check-label {
-
             font-size: 13px;
-
         }
-
 
         .check-status {
-
             font-size: 11px;
-
             font-weight: 700;
-
         }
-
 
         .check-status.done {
-
             color: #168a63;
-
         }
-
 
         .check-status.pending {
-
             color: #8a6200;
-
         }
-
 
         /* =========================================
            BUTTONS
         ========================================= */
 
         .verification-actions {
-
             display: flex;
-
             flex-wrap: wrap;
-
             gap: 10px;
-
             margin-top: 20px;
-
         }
-
 
         .agent-action {
-
             border: none;
-
             border-radius: 7px;
-
             padding: 11px 17px;
-
             font-weight: 700;
-
             font-size: 12px;
-
             cursor: pointer;
-
         }
-
 
         .agent-action:disabled {
-
             opacity: .55;
-
             cursor: not-allowed;
-
         }
-
 
         .confirm-button {
-
             background: #168a63;
-
             color: #ffffff;
-
         }
-
-
-        .secondary-button {
-
-            background: #eef2f6;
-
-            color: #273142;
-
-        }
-
 
         .verify-button {
-
             background: #273142;
-
             color: #ffffff;
-
         }
-
 
         .deny-button {
-
             background: #b42318;
-
             color: #ffffff;
-
         }
 
+        .cash-button {
+            background: #0b6b57;
+            color: #ffffff;
+        }
 
         /* =========================================
            INFORMATION BOXES
         ========================================= */
 
         .agent-info-box {
-
             margin-top: 18px;
-
             padding: 14px;
-
             border-radius: 8px;
-
             font-size: 12px;
-
             line-height: 1.6;
-
         }
-
 
         .agent-info-box.info {
-
             background: #eef5ff;
-
             border: 1px solid #d6e3fa;
-
             color: #355070;
-
         }
-
 
         .agent-info-box.warning {
-
             background: #fff8e7;
-
             border: 1px solid #f0dfac;
-
             color: #795900;
-
         }
-
 
         .agent-info-box.success {
-
             background: #e8f7ef;
-
             border: 1px solid #cdebdc;
-
             color: #166b50;
-
         }
-
 
         .agent-info-box.danger {
-
             background: #fff0f0;
-
             border: 1px solid #f1c0c0;
-
             color: #8f211b;
-
         }
-
 
         /* =========================================
            EMPTY / LOADING
@@ -470,28 +272,13 @@
 
         .loading-state,
         .empty-state {
-
             background: #ffffff;
-
             border: 1px solid #e5e9ef;
-
             border-radius: 12px;
-
             padding: 45px 25px;
-
             text-align: center;
-
             color: #6d7788;
-
         }
-
-
-        .dashboard-card-top {
-
-            align-items: center;
-
-        }
-
 
         /* =========================================
            RESPONSIVE
@@ -500,41 +287,24 @@
         @media (max-width: 800px) {
 
             .application-details {
-
-                grid-template-columns:
-                    1fr 1fr;
-
+                grid-template-columns: 1fr 1fr;
             }
 
-
             .application-header-row {
-
-                flex-direction:
-                    column;
-
+                flex-direction: column;
             }
 
         }
 
-
         @media (max-width: 550px) {
 
             .application-details {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
 
-
             .verification-check {
-
-                align-items:
-                    flex-start;
-
-                flex-direction:
-                    column;
-
+                align-items: flex-start;
+                flex-direction: column;
             }
 
         }
@@ -554,9 +324,7 @@
 <header class="navbar">
 
     <div class="logo">
-
         JITUME <span>LEO</span>
-
     </div>
 
 
@@ -566,16 +334,13 @@
             Dashboard
         </a>
 
-
         <a href="#applications">
             Applications
         </a>
 
-
         <a href="#verification">
             Verification
         </a>
-
 
         <a href="#profile">
             Profile
@@ -614,9 +379,7 @@
         <div>
 
             <p class="small-heading">
-
                 JITUME LEO AGENT
-
             </p>
 
 
@@ -635,8 +398,8 @@
 
                 Review client applications,
                 confirm physical document handover,
-                verify applications and submit them
-                to administration.
+                verify applications and record
+                cash collection.
 
             </p>
 
@@ -654,13 +417,11 @@
         class="dashboard-card"
         style="margin-bottom:30px;">
 
-
         <div class="dashboard-card-top">
 
             <span>
                 ACCOUNT STATUS
             </span>
-
 
             <span
                 id="agentStatus"
@@ -698,8 +459,6 @@
         id="applications">
 
 
-        <!-- TOTAL APPLICATIONS -->
-
         <div class="dashboard-card">
 
             <div class="dashboard-card-top">
@@ -707,7 +466,6 @@
                 <span>
                     APPLICATIONS
                 </span>
-
 
                 <span
                     id="applicationCountBadge"
@@ -745,8 +503,6 @@
 
 
 
-        <!-- NEEDING HANDOVER -->
-
         <div
             class="dashboard-card"
             id="verification">
@@ -756,7 +512,6 @@
                 <span>
                     VERIFICATION
                 </span>
-
 
                 <span
                     id="verificationCount"
@@ -770,16 +525,18 @@
 
 
             <h2>
+
                 <span id="verificationHeading">
                     0
                 </span>
+
             </h2>
 
 
             <p>
 
-                Applications waiting for
-                document/fee receipt or verification.
+                Applications waiting for document,
+                fee or verification action.
 
             </p>
 
@@ -796,19 +553,16 @@
 
 
 
-        <!-- SENT TO ADMIN -->
-
         <div class="dashboard-card">
 
             <div class="dashboard-card-top">
 
                 <span>
-                    SENT TO ADMIN
+                    COMPLETED
                 </span>
 
-
                 <span
-                    id="submittedCount"
+                    id="completedCount"
                     class="dashboard-icon">
 
                     0
@@ -819,16 +573,18 @@
 
 
             <h2>
-                <span id="submittedHeading">
+
+                <span id="completedHeading">
                     0
                 </span>
+
             </h2>
 
 
             <p>
 
-                Applications you have verified
-                and sent for administration.
+                Approved applications and
+                completed cash collections.
 
             </p>
 
@@ -837,7 +593,7 @@
                 href="#applicationList"
                 class="dashboard-link">
 
-                View Submitted →
+                View Applications →
 
             </a>
 
@@ -1020,9 +776,9 @@ import {
 
     getFirestore,
 
-    doc,
-
     getDoc,
+
+    doc,
 
     collection,
 
@@ -1042,9 +798,7 @@ from
 
 
 import {
-
     app
-
 }
 from
 "./firebase.js";
@@ -1119,15 +873,15 @@ const verificationHeading =
     );
 
 
-const submittedCount =
+const completedCount =
     document.getElementById(
-        "submittedCount"
+        "completedCount"
     );
 
 
-const submittedHeading =
+const completedHeading =
     document.getElementById(
-        "submittedHeading"
+        "completedHeading"
     );
 
 
@@ -1160,11 +914,9 @@ onAuthStateChanged(
 
         try {
 
-
             await loadAgentProfile(
                 user
             );
-
 
         }
 
@@ -1174,6 +926,7 @@ onAuthStateChanged(
                 "Agent dashboard error:",
                 error
             );
+
 
             applicationsContainer.innerHTML =
                 `
@@ -1225,7 +978,6 @@ async function loadAgentProfile(
         !userSnapshot.exists()
     ) {
 
-
         alert(
             "Account profile not found."
         );
@@ -1248,15 +1000,10 @@ async function loadAgentProfile(
         userSnapshot.data();
 
 
-    /*
-     * Confirm this is an agent.
-     */
-
     if (
         userData.role !==
         "agent"
     ) {
-
 
         alert(
             "Access denied. Agent account required."
@@ -1287,7 +1034,7 @@ async function loadAgentProfile(
 
 
     /*
-     * Display profile.
+     * PROFILE
      */
 
     agentName.textContent =
@@ -1338,7 +1085,7 @@ async function loadAgentProfile(
 
 
     /*
-     * Account status.
+     * STATUS
      */
 
     const status =
@@ -1357,7 +1104,7 @@ async function loadAgentProfile(
 
 
         statusMessage.textContent =
-            "Your agent account is pending administrator activation. You cannot verify client applications yet.";
+            "Your agent account is pending administrator activation. You cannot process applications yet.";
 
 
         applicationsContainer.innerHTML =
@@ -1367,7 +1114,6 @@ async function loadAgentProfile(
                 <h3>
                     Agent Account Not Active
                 </h3>
-
 
                 <p>
 
@@ -1386,12 +1132,8 @@ async function loadAgentProfile(
 
 
     statusMessage.textContent =
-        "Your agent account is active. You can now review assigned client applications.";
+        "Your agent account is active. You can now process assigned client applications.";
 
-
-    /*
-     * Load applications.
-     */
 
     await loadAgentApplications(
         user.uid
@@ -1403,7 +1145,7 @@ async function loadAgentProfile(
 
 /*
 |--------------------------------------------------------------------------
-| LOAD APPLICATIONS ASSIGNED TO THIS AGENT
+| LOAD APPLICATIONS
 |--------------------------------------------------------------------------
 */
 
@@ -1448,19 +1190,20 @@ async function loadAgentApplications(
             );
 
 
-        const applications = [];
+        const applications =
+            [];
 
 
         snapshot.forEach(
-            (document) => {
+            applicationDocument => {
 
 
                 applications.push({
 
                     id:
-                        document.id,
+                        applicationDocument.id,
 
-                    ...document.data()
+                    ...applicationDocument.data()
 
                 });
 
@@ -1469,17 +1212,19 @@ async function loadAgentApplications(
 
 
         /*
-         * Newest applications first.
+         * Newest first.
          */
 
         applications.sort(
             (a, b) => {
 
                 return getTime(
+                    b.updatedAt ||
                     b.createdAt
                 )
                 -
                 getTime(
+                    a.updatedAt ||
                     a.createdAt
                 );
 
@@ -1488,7 +1233,7 @@ async function loadAgentApplications(
 
 
         /*
-         * Counts.
+         * Total
          */
 
         applicationCount.textContent =
@@ -1498,6 +1243,10 @@ async function loadAgentApplications(
         applicationCountBadge.textContent =
             applications.length;
 
+
+        /*
+         * Verification count
+         */
 
         const pendingApplications =
             applications.filter(
@@ -1511,8 +1260,7 @@ async function loadAgentApplications(
 
                         "DOCUMENTS_AWAITING_RECEIPT"
 
-                    ]
-                    .includes(
+                    ].includes(
                         application.status
                     );
 
@@ -1528,24 +1276,23 @@ async function loadAgentApplications(
             pendingApplications;
 
 
-        const submittedApplications =
+        /*
+         * Completed count
+         */
+
+        const completedApplications =
             applications.filter(
                 application => {
 
                     return [
 
-                        "AGENT_VERIFIED",
-
-                        "SENT_TO_ADMIN",
-
-                        "ADMIN_REVIEW",
-
                         "APPROVED",
 
-                        "REJECTED"
+                        "READY_FOR_COLLECTION",
 
-                    ]
-                    .includes(
+                        "CASH_COLLECTED"
+
+                    ].includes(
                         application.status
                     );
 
@@ -1553,17 +1300,16 @@ async function loadAgentApplications(
             ).length;
 
 
-        submittedCount.textContent =
-            submittedApplications;
+        completedCount.textContent =
+            completedApplications;
 
 
-        submittedHeading.textContent =
-            submittedApplications;
-
+        completedHeading.textContent =
+            completedApplications;
 
 
         /*
-         * No applications.
+         * Empty
          */
 
         if (
@@ -1580,7 +1326,6 @@ async function loadAgentApplications(
                         No Client Applications
                     </h3>
 
-
                     <p>
 
                         Clients who select you as
@@ -1596,10 +1341,6 @@ async function loadAgentApplications(
 
         }
 
-
-        /*
-         * Render applications.
-         */
 
         applicationsContainer.innerHTML =
             "";
@@ -1751,17 +1492,21 @@ function createApplicationCard(
         "FEE_PENDING";
 
 
-    const applicationNeedsAction = [
+    const agentVerification =
+        application.agentVerificationStatus ||
+        "NOT_VERIFIED";
 
-        "APPLICATION_SUBMITTED",
 
-        "AWAITING_AGENT_VERIFICATION",
+    const canShowActions =
+        status !==
+            "SENT_TO_ADMIN"
+        &&
+        status !==
+            "ADMIN_REVIEW"
+        &&
+        status !==
+            "REJECTED";
 
-        "DOCUMENTS_AWAITING_RECEIPT"
-
-    ].includes(
-        status
-    );
 
 
     card.innerHTML =
@@ -1772,13 +1517,10 @@ function createApplicationCard(
 
         <div class="application-header-row">
 
-
             <div>
 
                 <h3>
-
                     Emergency Loan
-
                 </h3>
 
 
@@ -1787,17 +1529,20 @@ function createApplicationCard(
                     Application ID:
 
                     <strong>
+
                         ${escapeHTML(
                             application.id
                         )}
+
                     </strong>
+
 
                     <br>
 
-                    Agent:
+                    Client UID:
 
                     ${escapeHTML(
-                        currentAgent.fullName ||
+                        application.customerId ||
                         "-"
                     )}
 
@@ -1821,27 +1566,9 @@ function createApplicationCard(
 
 
 
-        <!-- APPLICATION DETAILS -->
+        <!-- DETAILS -->
 
         <div class="application-details">
-
-
-            <div class="detail-box">
-
-                <small>
-                    Client ID
-                </small>
-
-                <strong>
-
-                    ${escapeHTML(
-                        application.customerId ||
-                        "-"
-                    )}
-
-                </strong>
-
-            </div>
 
 
             <div class="detail-box">
@@ -1851,9 +1578,7 @@ function createApplicationCard(
                 </small>
 
                 <strong>
-
                     ${loanType}
-
                 </strong>
 
             </div>
@@ -1866,9 +1591,7 @@ function createApplicationCard(
                 </small>
 
                 <strong>
-
                     ${amount}
-
                 </strong>
 
             </div>
@@ -1881,9 +1604,7 @@ function createApplicationCard(
                 </small>
 
                 <strong>
-
                     ${interest}
-
                 </strong>
 
             </div>
@@ -1896,9 +1617,7 @@ function createApplicationCard(
                 </small>
 
                 <strong>
-
                     ${maturity}
-
                 </strong>
 
             </div>
@@ -1911,9 +1630,23 @@ function createApplicationCard(
                 </small>
 
                 <strong>
-
                     ${fee}
+                </strong>
 
+            </div>
+
+
+            <div class="detail-box">
+
+                <small>
+                    Agent
+                </small>
+
+                <strong>
+                    ${escapeHTML(
+                        currentAgent.fullName ||
+                        "-"
+                    )}
                 </strong>
 
             </div>
@@ -1928,14 +1661,13 @@ function createApplicationCard(
 
 
             <h4>
-                Physical Handover Checklist
+                Application Status
             </h4>
 
 
-            <!-- CLIENT REPORTED -->
+            <!-- CLIENT HANDOVER -->
 
             <div class="verification-check">
-
 
                 <div
                     class="verification-check-left">
@@ -1960,12 +1692,10 @@ function createApplicationCard(
                     </span>
 
 
-                    <span
-                        class="check-label">
+                    <span class="check-label">
 
-                        Client reported
-                        documents and fee
-                        were handed over
+                        Client reported physical
+                        document handover
 
                     </span>
 
@@ -1998,7 +1728,6 @@ function createApplicationCard(
 
             <div class="verification-check">
 
-
                 <div
                     class="verification-check-left">
 
@@ -2022,11 +1751,9 @@ function createApplicationCard(
                     </span>
 
 
-                    <span
-                        class="check-label">
+                    <span class="check-label">
 
-                        Physical signed agreement
-                        and required IDs received
+                        Physical documents received
 
                     </span>
 
@@ -2059,7 +1786,6 @@ function createApplicationCard(
 
             <div class="verification-check">
 
-
                 <div
                     class="verification-check-left">
 
@@ -2083,8 +1809,7 @@ function createApplicationCard(
                     </span>
 
 
-                    <span
-                        class="check-label">
+                    <span class="check-label">
 
                         KSh 500 applicable fee received
 
@@ -2115,7 +1840,67 @@ function createApplicationCard(
 
 
 
-            <!-- INFORMATION -->
+            <!-- AGENT VERIFICATION -->
+
+            <div class="verification-check">
+
+                <div
+                    class="verification-check-left">
+
+
+                    <span
+                        class="check-icon
+                        ${
+                            agentVerification ===
+                            "VERIFIED"
+                                ? "done"
+                                : ""
+                        }">
+
+                        ${
+                            agentVerification ===
+                            "VERIFIED"
+                                ? "✓"
+                                : "?"
+                        }
+
+                    </span>
+
+
+                    <span class="check-label">
+
+                        Agent verification
+
+                    </span>
+
+                </div>
+
+
+                <span
+                    class="check-status
+                    ${
+                        agentVerification ===
+                        "VERIFIED"
+                            ? "done"
+                            : agentVerification ===
+                              "REJECTED"
+                                ? "pending"
+                                : "pending"
+                    }">
+
+                    ${escapeHTML(
+                        formatStatus(
+                            agentVerification
+                        )
+                    )}
+
+                </span>
+
+            </div>
+
+
+
+            <!-- INFO -->
 
             ${createAgentInformation(
                 application
@@ -2209,8 +1994,8 @@ function createApplicationCard(
                     "FEE_RECEIVED"
 
                     &&
-                    status !==
-                    "AGENT_VERIFIED"
+                    agentVerification !==
+                    "VERIFIED"
 
                     &&
                     status !==
@@ -2222,7 +2007,7 @@ function createApplicationCard(
 
                     &&
                     status !==
-                    "APPROVED"
+                    "REJECTED"
 
                         ?
 
@@ -2260,7 +2045,61 @@ function createApplicationCard(
                         :
 
                         ""
+                }
 
+
+
+                ${
+                    status ===
+                    "APPROVED"
+
+                    ?
+
+                    `
+
+                    <button
+                        type="button"
+                        class="agent-action
+                               cash-button"
+                        data-action="cash"
+                        data-id="${escapeHTML(
+                            application.id
+                        )}">
+
+                        Confirm Cash Released
+
+                    </button>
+
+                    `
+
+                    :
+
+                    ""
+                }
+
+
+
+                ${
+                    status ===
+                    "CASH_COLLECTED"
+
+                    ?
+
+                    `
+
+                    <div
+                        class="agent-info-box success">
+
+                        ✓ Cash has been recorded as
+                        released to the client.
+
+                    </div>
+
+                    `
+
+                    :
+
+                    ""
                 }
 
             </div>
@@ -2271,7 +2110,7 @@ function createApplicationCard(
 
 
     /*
-     * Attach action events.
+     * Attach action handlers.
      */
 
     card
@@ -2281,24 +2120,18 @@ function createApplicationCard(
         .forEach(
             button => {
 
-
                 button.addEventListener(
                     "click",
                     async () => {
 
-
-                        const action =
-                            button.dataset.action;
-
-
-                        const applicationId =
-                            button.dataset.id;
-
-
                         await handleApplicationAction(
-                            action,
-                            applicationId,
+
+                            button.dataset.action,
+
+                            button.dataset.id,
+
                             button
+
                         );
 
                     }
@@ -2316,7 +2149,7 @@ function createApplicationCard(
 
 /*
 |--------------------------------------------------------------------------
-| INFORMATION BOX
+| AGENT INFORMATION
 |--------------------------------------------------------------------------
 */
 
@@ -2332,16 +2165,61 @@ function createAgentInformation(
 
     if (
         status ===
-        "APPROVED"
+        "CASH_COLLECTED"
     ) {
 
+        return `
+
+            <div class="agent-info-box success">
+
+                Cash collection has been confirmed.
+                The client can now see that the cash
+                has been collected.
+
+            </div>
+
+        `;
+
+    }
+
+
+    if (
+        status ===
+        "APPROVED"
+    ) {
 
         return `
 
             <div class="agent-info-box success">
 
                 Administration has approved this
-                application.
+                application. Release the approved cash
+                to the client only according to the
+                prototype workflow, then record the
+                cash release here.
+
+            </div>
+
+        `;
+
+    }
+
+
+    if (
+        status ===
+        "SENT_TO_ADMIN"
+        ||
+        status ===
+        "ADMIN_REVIEW"
+    ) {
+
+        return `
+
+            <div class="agent-info-box info">
+
+                This application has been sent to
+                administration. Wait for the
+                administrator's decision.
 
             </div>
 
@@ -2355,37 +2233,12 @@ function createAgentInformation(
         "REJECTED"
     ) {
 
-
         return `
 
             <div class="agent-info-box danger">
 
-                This application has been denied.
-
-            </div>
-
-        `;
-
-    }
-
-
-    if (
-        status ===
-        "SENT_TO_ADMIN" ||
-        status ===
-        "ADMIN_REVIEW" ||
-        status ===
-        "AGENT_VERIFIED"
-    ) {
-
-
-        return `
-
-            <div class="agent-info-box info">
-
-                This application has been verified
-                and sent to administration.
-                Wait for the administrator's decision.
+                This application has been rejected.
+                No cash should be released.
 
             </div>
 
@@ -2403,15 +2256,13 @@ function createAgentInformation(
             "FEE_RECEIVED"
     ) {
 
-
         return `
 
             <div class="agent-info-box success">
 
-                All physical documents and the
-                applicable KSh 500 fee have been
-                confirmed. You may now verify this
-                application.
+                Documents and applicable KSh 500
+                fee have been confirmed. You may
+                now verify the application.
 
             </div>
 
@@ -2425,15 +2276,13 @@ function createAgentInformation(
         "CLIENT_HANDOVER_REPORTED"
     ) {
 
-
         return `
 
             <div class="agent-info-box warning">
 
                 The client has reported handing over
                 the physical documents and KSh 500 fee.
-                Please inspect the physical documents
-                before confirming receipt.
+                Confirm the actual physical receipt.
 
             </div>
 
@@ -2470,12 +2319,12 @@ async function handleApplicationAction(
 ) {
 
 
-    button.disabled =
-        true;
-
-
     const originalText =
         button.textContent;
+
+
+    button.disabled =
+        true;
 
 
     button.textContent =
@@ -2515,10 +2364,10 @@ async function handleApplicationAction(
 
 
         /*
-         * SECURITY CHECK:
-         * Agent can only act on an application
-         * assigned to this agent.
-         */
+        |--------------------------------------------------------------------------
+        | SECURITY CHECK
+        |--------------------------------------------------------------------------
+        */
 
         if (
             application.agentId !==
@@ -2792,6 +2641,106 @@ async function handleApplicationAction(
         }
 
 
+
+        /*
+        |--------------------------------------------------------------------------
+        | CONFIRM CASH RELEASED
+        |--------------------------------------------------------------------------
+        */
+
+        if (
+            action ===
+            "cash"
+        ) {
+
+
+            if (
+                application.status !==
+                "APPROVED"
+            ) {
+
+                throw new Error(
+                    "Cash can only be released after admin approval."
+                );
+
+            }
+
+
+            const approvedAmount =
+                Number(
+                    application.approvedAmount ||
+                    application.requestedAmount ||
+                    0
+                );
+
+
+            const confirmed =
+                confirm(
+
+                    "Confirm that KSh " +
+
+                    approvedAmount.toLocaleString(
+                        "en-KE"
+                    ) +
+
+                    " has been released to the client?"
+
+                );
+
+
+            if (!confirmed) {
+
+                button.disabled =
+                    false;
+
+                button.textContent =
+                    originalText;
+
+                return;
+
+            }
+
+
+            await updateDoc(
+                applicationReference,
+                {
+
+                    status:
+                        "CASH_COLLECTED",
+
+                    cashCollectionStatus:
+                        "CASH_COLLECTED",
+
+                    cashCollectedAt:
+                        serverTimestamp(),
+
+                    cashCollectedByAgentId:
+                        currentAgent.id,
+
+                    cashReleasedAmount:
+                        approvedAmount,
+
+                    updatedAt:
+                        serverTimestamp()
+
+                }
+            );
+
+
+            alert(
+                "Cash release recorded successfully."
+            );
+
+
+            await loadAgentApplications(
+                currentAgent.id
+            );
+
+
+            return;
+
+        }
+
     }
 
     catch (error) {
@@ -2835,50 +2784,62 @@ function formatStatus(
 
     const map = {
 
-
         APPLICATION_SUBMITTED:
             "Application Submitted",
-
 
         AWAITING_AGENT_VERIFICATION:
             "Awaiting Verification",
 
+        CLIENT_HANDOVER_REPORTED:
+            "Client Reported Handover",
 
         DOCUMENTS_AWAITING_RECEIPT:
             "Documents Awaiting Receipt",
 
+        DOCUMENTS_RECEIVED:
+            "Documents Received",
+
+        NOT_RECEIVED:
+            "Not Received",
+
+        FEE_AWAITING_AGENT_CONFIRMATION:
+            "Fee Awaiting Confirmation",
+
+        FEE_RECEIVED:
+            "Fee Received",
+
+        FEE_PENDING:
+            "Fee Pending",
+
+        NOT_VERIFIED:
+            "Not Yet Verified",
+
+        VERIFIED:
+            "Verified",
 
         AGENT_VERIFIED:
             "Agent Verified",
 
-
         SENT_TO_ADMIN:
             "Sent to Administration",
 
-
         ADMIN_REVIEW:
-            "Administration Reviewing",
-
+            "Administrative Review",
 
         APPROVED:
             "Approved",
 
-
         REJECTED:
             "Rejected",
-
 
         PAYMENT_PENDING:
             "Payment Pending",
 
-
         PAYMENT_CONFIRMED:
             "Payment Confirmed",
 
-
         READY_FOR_COLLECTION:
-            "Ready for Collection",
-
+            "Ready for Cash Collection",
 
         CASH_COLLECTED:
             "Cash Collected"
@@ -2923,13 +2884,15 @@ function getStatusClass(
 
             "SENT_TO_ADMIN",
 
-            "APPROVED",
+            "ADMIN_REVIEW",
 
-            "PAYMENT_CONFIRMED",
+            "APPROVED",
 
             "READY_FOR_COLLECTION",
 
-            "CASH_COLLECTED"
+            "CASH_COLLECTED",
+
+            "PAYMENT_CONFIRMED"
 
         ].includes(
             status
@@ -3096,7 +3059,6 @@ logoutButton.addEventListener(
         }
 
         catch (error) {
-
 
             console.error(
                 "Logout error:",
