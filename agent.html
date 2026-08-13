@@ -15,10 +15,6 @@
 
     <style>
 
-        /* =====================================================
-           BASE
-        ===================================================== */
-
         * {
             box-sizing: border-box;
         }
@@ -32,6 +28,11 @@
         select {
             font: inherit;
         }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
 
         .agent-page {
 
@@ -52,54 +53,26 @@
         ===================================================== */
 
         .agent-header {
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            align-items:
-                center;
-
-            gap:
-                18px;
-
-            margin-bottom:
-                18px;
-
+            margin-bottom: 18px;
         }
 
         .agent-header h1 {
-
-            margin:
-                4px 0 5px;
-
-            font-size:
-                27px;
-
+            margin: 4px 0 5px;
+            font-size: 27px;
         }
 
         .agent-header p {
-
-            margin:
-                0;
-
+            margin: 0;
         }
 
         .agent-subtext {
-
-            color:
-                #6d7788;
-
-            font-size:
-                13px;
-
+            color: #6d7788;
+            font-size: 13px;
         }
 
 
         /* =====================================================
-           MANAGEMENT MENU
+           MENU
         ===================================================== */
 
         .agent-menu {
@@ -247,22 +220,15 @@
 
 
         /* =====================================================
-           HOME SUMMARY
+           HOME
         ===================================================== */
 
         .agent-home {
-
-            display:
-                block;
-
+            display: block;
         }
 
-
         .agent-home.hidden {
-
-            display:
-                none;
-
+            display: none;
         }
 
 
@@ -321,16 +287,9 @@
 
 
         .summary-card strong {
-
-            font-size:
-                21px;
-
+            font-size: 21px;
         }
 
-
-        /* =====================================================
-           ACCOUNT STATUS
-        ===================================================== */
 
         .agent-account-box {
 
@@ -377,6 +336,10 @@
 
         }
 
+
+        /* =====================================================
+           STATUS
+        ===================================================== */
 
         .status-pill {
 
@@ -457,22 +420,15 @@
 
 
         /* =====================================================
-           MANAGEMENT PANELS
+           PANELS
         ===================================================== */
 
         .agent-panel {
-
-            display:
-                none;
-
+            display: none;
         }
 
-
         .agent-panel.active {
-
-            display:
-                block;
-
+            display: block;
         }
 
 
@@ -783,6 +739,85 @@
         }
 
 
+        /* =====================================================
+           CLIENT INFORMATION
+        ===================================================== */
+
+        .client-information {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap:
+                7px;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .client-information-box {
+
+            background:
+                #eef8f3;
+
+            border:
+                1px solid #d8ece2;
+
+            border-radius:
+                7px;
+
+            padding:
+                9px;
+
+        }
+
+
+        .client-information-box small {
+
+            display:
+                block;
+
+            color:
+                #5f806f;
+
+            font-size:
+                8px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                3px;
+
+        }
+
+
+        .client-information-box strong {
+
+            display:
+                block;
+
+            font-size:
+                11px;
+
+            color:
+                #1f4d3d;
+
+            word-break:
+                break-word;
+
+        }
+
+
+        /* =====================================================
+           LOAN DETAILS
+        ===================================================== */
+
         .application-details {
 
             display:
@@ -935,7 +970,7 @@
 
 
         /* =====================================================
-           INFORMATION BOX
+           INFO
         ===================================================== */
 
         .info-box {
@@ -1078,7 +1113,7 @@
 
 
         /* =====================================================
-           EMPTY / LOADING
+           EMPTY
         ===================================================== */
 
         .empty-state,
@@ -1120,6 +1155,14 @@
 
             }
 
+
+            .client-information {
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+            }
+
         }
 
 
@@ -1132,14 +1175,6 @@
 
                 padding-top:
                     18px;
-
-            }
-
-
-            .agent-header {
-
-                display:
-                    block;
 
             }
 
@@ -1191,6 +1226,14 @@
 
                 flex-direction:
                     column;
+
+            }
+
+
+            .client-information {
+
+                grid-template-columns:
+                    1fr;
 
             }
 
@@ -1355,16 +1398,13 @@
             class="agent-menu-button"
             data-panel="applicationsPanel">
 
-
             <div class="agent-menu-icon">
                 A
             </div>
 
-
             <h3>
                 Applications
             </h3>
-
 
             <p>
                 View all clients who selected you.
@@ -1373,22 +1413,18 @@
         </button>
 
 
-
         <button
             type="button"
             class="agent-menu-button"
             data-panel="verificationPanel">
 
-
             <div class="agent-menu-icon">
                 V
             </div>
 
-
             <h3>
                 Verification
             </h3>
-
 
             <p>
                 Confirm documents, fee and verify loans.
@@ -1397,22 +1433,18 @@
         </button>
 
 
-
         <button
             type="button"
             class="agent-menu-button"
             data-panel="cashPanel">
 
-
             <div class="agent-menu-icon">
                 C
             </div>
 
-
             <h3>
                 Cash Collection
             </h3>
-
 
             <p>
                 Record approved cash released to clients.
@@ -1425,7 +1457,7 @@
 
 
     <!-- =====================================================
-         HOME SUMMARY
+         HOME
     ====================================================== -->
 
     <section
@@ -1490,8 +1522,7 @@
         </div>
 
 
-        <div
-            class="agent-account-box">
+        <div class="agent-account-box">
 
             <div>
 
@@ -1501,9 +1532,7 @@
 
 
                 <p id="statusMessage">
-
                     Loading account status...
-
                 </p>
 
             </div>
@@ -1524,7 +1553,7 @@
 
 
     <!-- =====================================================
-         APPLICATIONS PANEL
+         APPLICATIONS
     ====================================================== -->
 
     <section
@@ -1540,11 +1569,9 @@
                     CLIENT APPLICATIONS
                 </p>
 
-
                 <h2>
                     My Applications
                 </h2>
-
 
                 <p>
                     All clients who selected you as their agent.
@@ -1553,18 +1580,14 @@
             </div>
 
 
-            <div class="panel-actions">
+            <button
+                type="button"
+                class="agent-btn agent-btn-light"
+                data-home-button>
 
-                <button
-                    type="button"
-                    class="agent-btn agent-btn-light"
-                    data-home-button>
+                ← Dashboard
 
-                    ← Dashboard
-
-                </button>
-
-            </div>
+            </button>
 
         </div>
 
@@ -1574,11 +1597,10 @@
 
             <div class="toolbar">
 
-
                 <input
                     id="applicationSearch"
                     type="search"
-                    placeholder="Search application or client...">
+                    placeholder="Search client or application...">
 
 
                 <select
@@ -1612,9 +1634,7 @@
             <div id="applicationsContainer">
 
                 <div class="loading-state">
-
                     Loading applications...
-
                 </div>
 
             </div>
@@ -1626,7 +1646,7 @@
 
 
     <!-- =====================================================
-         VERIFICATION PANEL
+         VERIFICATION
     ====================================================== -->
 
     <section
@@ -1642,15 +1662,12 @@
                     VERIFICATION
                 </p>
 
-
                 <h2>
                     Applications Needing Action
                 </h2>
 
-
                 <p>
-                    Confirm physical documents and the KSh 500 fee,
-                    then verify the application.
+                    Confirm physical documents, fee and application.
                 </p>
 
             </div>
@@ -1673,9 +1690,7 @@
             <div id="verificationContainer">
 
                 <div class="loading-state">
-
                     Loading applications...
-
                 </div>
 
             </div>
@@ -1687,7 +1702,7 @@
 
 
     <!-- =====================================================
-         CASH PANEL
+         CASH COLLECTION
     ====================================================== -->
 
     <section
@@ -1703,14 +1718,12 @@
                     CASH COLLECTION
                 </p>
 
-
                 <h2>
                     Approved Loans
                 </h2>
 
-
                 <p>
-                    Record the physical release of approved cash.
+                    Record approved cash released to clients.
                 </p>
 
             </div>
@@ -1733,9 +1746,7 @@
             <div id="cashContainer">
 
                 <div class="loading-state">
-
                     Loading approved loans...
-
                 </div>
 
             </div>
@@ -1762,7 +1773,6 @@
                 <p class="small-heading">
                     AGENT PROFILE
                 </p>
-
 
                 <h2>
                     My Profile
@@ -1886,13 +1896,10 @@
 import {
 
     getAuth,
-
     onAuthStateChanged,
-
     signOut
 
 }
-
 from
 "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
@@ -1900,25 +1907,16 @@ from
 import {
 
     getFirestore,
-
     getDoc,
-
     doc,
-
     collection,
-
     query,
-
     where,
-
     getDocs,
-
     updateDoc,
-
     serverTimestamp
 
 }
-
 from
 "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
@@ -1926,7 +1924,6 @@ from
 import {
     app
 }
-
 from
 "./firebase.js";
 
@@ -1949,6 +1946,10 @@ let currentAgent =
 
 let applications =
     [];
+
+
+const clientProfiles =
+    new Map();
 
 
 
@@ -1990,6 +1991,7 @@ const cashContainer =
     document.getElementById(
         "cashContainer"
     );
+
 
 
 /* =====================================================
@@ -2044,7 +2046,7 @@ onAuthStateChanged(
 
 
 /* =====================================================
-   LOAD PROFILE
+   AGENT PROFILE
 ===================================================== */
 
 async function loadAgentProfile(
@@ -2052,17 +2054,13 @@ async function loadAgentProfile(
 ) {
 
 
-    const profileReference =
-        doc(
-            db,
-            "users",
-            user.uid
-        );
-
-
     const profileSnapshot =
         await getDoc(
-            profileReference
+            doc(
+                db,
+                "users",
+                user.uid
+            )
         );
 
 
@@ -2126,8 +2124,6 @@ async function loadAgentProfile(
 
     };
 
-
-    /* PROFILE */
 
     agentName.textContent =
         data.fullName ||
@@ -2227,9 +2223,7 @@ async function loadAgentProfile(
         verificationContainer.innerHTML =
             `
             <div class="empty-state">
-
                 Agent account is not active.
-
             </div>
             `;
 
@@ -2237,9 +2231,7 @@ async function loadAgentProfile(
         cashContainer.innerHTML =
             `
             <div class="empty-state">
-
                 Agent account is not active.
-
             </div>
             `;
 
@@ -2260,6 +2252,150 @@ async function loadAgentProfile(
 
 
 /* =====================================================
+   CLIENT PROFILE
+===================================================== */
+
+async function loadClientProfile(
+    customerId
+) {
+
+
+    if (
+        !customerId
+    ) {
+
+        return {
+
+            fullName:
+                "Client",
+
+            phone:
+                "-",
+
+            email:
+                "-"
+
+        };
+
+    }
+
+
+    if (
+        clientProfiles.has(
+            customerId
+        )
+    ) {
+
+        return clientProfiles.get(
+            customerId
+        );
+
+    }
+
+
+    try {
+
+
+        const snapshot =
+            await getDoc(
+                doc(
+                    db,
+                    "users",
+                    customerId
+                )
+            );
+
+
+        if (
+            !snapshot.exists()
+        ) {
+
+
+            const fallback = {
+
+                fullName:
+                    "Client",
+
+                phone:
+                    "-",
+
+                email:
+                    "-"
+
+            };
+
+
+            clientProfiles.set(
+                customerId,
+                fallback
+            );
+
+
+            return fallback;
+
+        }
+
+
+        const data =
+            snapshot.data();
+
+
+        const client = {
+
+            fullName:
+                data.fullName ||
+                "Client",
+
+            phone:
+                data.phone ||
+                "-",
+
+            email:
+                data.email ||
+                "-"
+
+        };
+
+
+        clientProfiles.set(
+            customerId,
+            client
+        );
+
+
+        return client;
+
+    }
+
+    catch (error) {
+
+
+        console.error(
+            "Client profile error:",
+            error
+        );
+
+
+        return {
+
+            fullName:
+                "Client",
+
+            phone:
+                "-",
+
+            email:
+                "-"
+
+        };
+
+    }
+
+}
+
+
+
+/* =====================================================
    LOAD APPLICATIONS
 ===================================================== */
 
@@ -2269,9 +2405,7 @@ async function loadApplications() {
     applicationsContainer.innerHTML =
         `
         <div class="loading-state">
-
             Loading applications...
-
         </div>
         `;
 
@@ -2339,8 +2473,34 @@ async function loadApplications() {
         );
 
 
-        updateSummary();
+        const clientIds =
+            [
+                ...new Set(
+                    applications
+                        .map(
+                            application =>
+                                application.customerId
+                        )
+                        .filter(
+                            Boolean
+                        )
+                )
+            ];
 
+
+        await Promise.all(
+
+            clientIds.map(
+                customerId =>
+                    loadClientProfile(
+                        customerId
+                    )
+            )
+
+        );
+
+
+        updateSummary();
 
         renderApplications();
 
@@ -2382,27 +2542,17 @@ async function loadApplications() {
 function updateSummary() {
 
 
-    const total =
-        applications.length;
-
-
     const needsAction =
         applications.filter(
-            application => {
-
-                return [
-
+            application =>
+                [
                     "APPLICATION_SUBMITTED",
-
                     "AWAITING_AGENT_VERIFICATION",
-
                     "DOCUMENTS_AWAITING_RECEIPT"
-
-                ].includes(
+                ]
+                .includes(
                     application.status
-                );
-
-            }
+                )
         ).length;
 
 
@@ -2425,7 +2575,7 @@ function updateSummary() {
     document.getElementById(
         "homeApplicationCount"
     ).textContent =
-        total;
+        applications.length;
 
 
     document.getElementById(
@@ -2450,28 +2600,26 @@ function updateSummary() {
 
 
 /* =====================================================
-   RENDER ALL APPLICATIONS
+   RENDER APPLICATIONS
 ===================================================== */
 
 function renderApplications() {
 
 
     const search =
-        document
-            .getElementById(
-                "applicationSearch"
-            )
-            .value
-            .trim()
-            .toLowerCase();
+        document.getElementById(
+            "applicationSearch"
+        )
+        .value
+        .trim()
+        .toLowerCase();
 
 
     const filter =
-        document
-            .getElementById(
-                "applicationFilter"
-            )
-            .value;
+        document.getElementById(
+            "applicationFilter"
+        )
+        .value;
 
 
     const filtered =
@@ -2487,25 +2635,18 @@ function renderApplications() {
                 if (
                     filter ===
                     "pending"
+                    &&
+                    ![
+                        "APPLICATION_SUBMITTED",
+                        "AWAITING_AGENT_VERIFICATION",
+                        "DOCUMENTS_AWAITING_RECEIPT"
+                    ]
+                    .includes(
+                        status
+                    )
                 ) {
 
-
-                    if (
-                        ![
-                            "APPLICATION_SUBMITTED",
-
-                            "AWAITING_AGENT_VERIFICATION",
-
-                            "DOCUMENTS_AWAITING_RECEIPT"
-
-                        ].includes(
-                            status
-                        )
-                    ) {
-
-                        return false;
-
-                    }
+                    return false;
 
                 }
 
@@ -2558,13 +2699,23 @@ function renderApplications() {
                 }
 
 
+                const client =
+                    clientProfiles.get(
+                        application.customerId
+                    );
+
+
                 return [
 
                     application.id,
 
                     application.customerId,
 
-                    application.loanProductName
+                    client?.fullName,
+
+                    client?.phone,
+
+                    client?.email
 
                 ]
                 .filter(
@@ -2598,9 +2749,7 @@ function renderApplications() {
         applicationsContainer.innerHTML =
             `
             <div class="empty-state">
-
                 No applications found.
-
             </div>
             `;
 
@@ -2630,29 +2779,23 @@ function renderApplications() {
 
 
 /* =====================================================
-   VERIFICATION PANEL
+   VERIFICATION
 ===================================================== */
 
 function renderVerification() {
 
 
-    const needingAction =
+    const list =
         applications.filter(
-            application => {
-
-                return [
-
+            application =>
+                [
                     "APPLICATION_SUBMITTED",
-
                     "AWAITING_AGENT_VERIFICATION",
-
                     "DOCUMENTS_AWAITING_RECEIPT"
-
-                ].includes(
+                ]
+                .includes(
                     application.status
-                );
-
-            }
+                )
         );
 
 
@@ -2661,10 +2804,9 @@ function renderVerification() {
 
 
     if (
-        needingAction.length ===
+        list.length ===
         0
     ) {
-
 
         verificationContainer.innerHTML =
             `
@@ -2676,32 +2818,25 @@ function renderVerification() {
 
 
                 <p>
-
-                    There are currently no
-                    applications waiting for
-                    your action.
-
+                    There are currently no applications
+                    waiting for your action.
                 </p>
 
             </div>
             `;
-
 
         return;
 
     }
 
 
-    needingAction.forEach(
+    list.forEach(
         application => {
 
-
             verificationContainer.appendChild(
-
                 createApplicationCard(
                     application
                 )
-
             );
 
         }
@@ -2712,27 +2847,22 @@ function renderVerification() {
 
 
 /* =====================================================
-   CASH COLLECTION PANEL
+   CASH COLLECTION
 ===================================================== */
 
 function renderCashCollection() {
 
 
-    const cashApplications =
+    const list =
         applications.filter(
-            application => {
-
-                return [
-
+            application =>
+                [
                     "APPROVED",
-
                     "CASH_COLLECTED"
-
-                ].includes(
+                ]
+                .includes(
                     application.status
-                );
-
-            }
+                )
         );
 
 
@@ -2741,10 +2871,9 @@ function renderCashCollection() {
 
 
     if (
-        cashApplications.length ===
+        list.length ===
         0
     ) {
-
 
         cashContainer.innerHTML =
             `
@@ -2756,31 +2885,25 @@ function renderCashCollection() {
 
 
                 <p>
-
                     Approved loans will appear here
                     for cash collection.
-
                 </p>
 
             </div>
             `;
-
 
         return;
 
     }
 
 
-    cashApplications.forEach(
+    list.forEach(
         application => {
 
-
             cashContainer.appendChild(
-
                 createApplicationCard(
                     application
                 )
-
             );
 
         }
@@ -2797,6 +2920,18 @@ function renderCashCollection() {
 function createApplicationCard(
     application
 ) {
+
+
+    const client =
+        clientProfiles.get(
+            application.customerId
+        )
+        ||
+        {
+            fullName: "Client",
+            phone: "-",
+            email: "-"
+        };
 
 
     const card =
@@ -2840,6 +2975,19 @@ function createApplicationCard(
             "First Loan Fee";
 
 
+    /*
+     * IMPORTANT:
+     * Business rule = KSh 500.
+     * If Firestore contains 0 or no value,
+     * use 500 for display and workflow.
+     */
+
+    const applicableFee =
+        getApplicableFee(
+            application
+        );
+
+
     const documentsStatus =
         application.documentsStatus ||
         "NOT_RECEIVED";
@@ -2857,9 +3005,6 @@ function createApplicationCard(
 
     card.innerHTML =
         `
-
-
-        <!-- APPLICATION HEADER -->
 
         <div class="application-top">
 
@@ -2887,11 +3032,10 @@ function createApplicationCard(
                     <br>
 
 
-                    Client Reference:
+                    Loan Type:
 
                     ${escapeHTML(
-                        application.customerId ||
-                        "-"
+                        loanType
                     )}
 
                 </div>
@@ -2916,22 +3060,68 @@ function createApplicationCard(
 
 
 
-        <!-- LOAN DETAILS -->
+        <!-- CLIENT -->
 
-        <div class="application-details">
+        <div class="client-information">
 
 
-            <div class="detail-box">
+            <div class="client-information-box">
 
                 <small>
-                    Type
+                    Client Name
                 </small>
 
                 <strong>
-                    ${loanType}
+
+                    ${escapeHTML(
+                        client.fullName
+                    )}
+
                 </strong>
 
             </div>
+
+
+            <div class="client-information-box">
+
+                <small>
+                    Phone
+                </small>
+
+                <strong>
+
+                    ${escapeHTML(
+                        client.phone
+                    )}
+
+                </strong>
+
+            </div>
+
+
+            <div class="client-information-box">
+
+                <small>
+                    Email
+                </small>
+
+                <strong>
+
+                    ${escapeHTML(
+                        client.email
+                    )}
+
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- LOAN DETAILS -->
+
+        <div class="application-details">
 
 
             <div class="detail-box">
@@ -2988,13 +3178,14 @@ function createApplicationCard(
             <div class="detail-box">
 
                 <small>
-                    ${feeLabel}
+                    Agent Code
                 </small>
 
                 <strong>
 
-                    ${formatCurrency(
-                        application.processingOrRenewalFee
+                    ${escapeHTML(
+                        currentAgent.agentCode ||
+                        "-"
                     )}
 
                 </strong>
@@ -3005,14 +3196,64 @@ function createApplicationCard(
             <div class="detail-box">
 
                 <small>
-                    Agent Code
+                    ${feeLabel}
+                </small>
+
+                <strong>
+
+                    ${formatCurrency(
+                        applicableFee
+                    )}
+
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <small>
+                    Fee Rule
+                </small>
+
+                <strong>
+                    KSh 500
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <small>
+                    Repayment Days
+                </small>
+
+                <strong>
+
+                    ${
+                        application.repaymentPeriodDays
+                        ||
+                        "-"
+                    }
+
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <small>
+                    Application Status
                 </small>
 
                 <strong>
 
                     ${escapeHTML(
-                        currentAgent.agentCode ||
-                        "-"
+                        formatStatus(
+                            status
+                        )
                     )}
 
                 </strong>
@@ -3040,28 +3281,26 @@ function createApplicationCard(
                         application.clientHandoverStatus ===
                         "CLIENT_HANDOVER_REPORTED"
 
-                            ?
+                        ?
 
-                            "text-green"
+                        "text-green"
 
-                            :
+                        :
 
-                            "text-yellow"
-
+                        "text-yellow"
                     }">
 
                     ${
                         application.clientHandoverStatus ===
                         "CLIENT_HANDOVER_REPORTED"
 
-                            ?
+                        ?
 
-                            "REPORTED"
+                        "REPORTED"
 
-                            :
+                        :
 
-                            "NOT REPORTED"
-
+                        "NOT REPORTED"
                     }
 
                 </span>
@@ -3081,28 +3320,26 @@ function createApplicationCard(
                         documentsStatus ===
                         "DOCUMENTS_RECEIVED"
 
-                            ?
+                        ?
 
-                            "text-green"
+                        "text-green"
 
-                            :
+                        :
 
-                            "text-yellow"
-
+                        "text-yellow"
                     }">
 
                     ${
                         documentsStatus ===
                         "DOCUMENTS_RECEIVED"
 
-                            ?
+                        ?
 
-                            "RECEIVED"
+                        "RECEIVED"
 
-                            :
+                        :
 
-                            "PENDING"
-
+                        "PENDING"
                     }
 
                 </span>
@@ -3122,28 +3359,26 @@ function createApplicationCard(
                         feeStatus ===
                         "FEE_RECEIVED"
 
-                            ?
+                        ?
 
-                            "text-green"
+                        "text-green"
 
-                            :
+                        :
 
-                            "text-yellow"
-
+                        "text-yellow"
                     }">
 
                     ${
                         feeStatus ===
                         "FEE_RECEIVED"
 
-                            ?
+                        ?
 
-                            "RECEIVED"
+                        "RECEIVED"
 
-                            :
+                        :
 
-                            "PENDING"
-
+                        "PENDING"
                     }
 
                 </span>
@@ -3163,23 +3398,22 @@ function createApplicationCard(
                         agentVerification ===
                         "VERIFIED"
 
-                            ?
+                        ?
 
-                            "text-green"
+                        "text-green"
 
-                            :
+                        :
 
-                            agentVerification ===
-                            "REJECTED"
+                        agentVerification ===
+                        "REJECTED"
 
-                                ?
+                        ?
 
-                                "text-red"
+                        "text-red"
 
-                                :
+                        :
 
-                                "text-yellow"
-
+                        "text-yellow"
                     }">
 
                     ${escapeHTML(
@@ -3195,8 +3429,6 @@ function createApplicationCard(
         </div>
 
 
-
-        <!-- INFORMATION -->
 
         ${createInformationBox(
             application
@@ -3409,15 +3641,10 @@ function createApplicationCard(
                     "click",
                     () => {
 
-
                         handleAction(
-
                             button.dataset.action,
-
                             button.dataset.id,
-
                             button
-
                         );
 
                     }
@@ -3452,14 +3679,13 @@ function createInformationBox(
         "APPROVED"
     ) {
 
-
         return `
 
             <div class="info-box success">
 
                 Administration has approved the loan.
                 Release the approved amount to the client
-                and record the cash collection below.
+                and record the cash collection.
 
             </div>
 
@@ -3472,7 +3698,6 @@ function createInformationBox(
         status ===
         "CASH_COLLECTED"
     ) {
-
 
         return `
 
@@ -3496,7 +3721,6 @@ function createInformationBox(
         "ADMIN_REVIEW"
     ) {
 
-
         return `
 
             <div class="info-box info">
@@ -3516,7 +3740,6 @@ function createInformationBox(
         status ===
         "REJECTED"
     ) {
-
 
         return `
 
@@ -3540,7 +3763,6 @@ function createInformationBox(
         "DOCUMENTS_RECEIVED"
     ) {
 
-
         return `
 
             <div class="info-box warning">
@@ -3563,7 +3785,6 @@ function createInformationBox(
         application.feeStatus ===
         "FEE_RECEIVED"
     ) {
-
 
         return `
 
@@ -3595,7 +3816,7 @@ function createInformationBox(
 
 
 /* =====================================================
-   HANDLE ACTIONS
+   ACTION HANDLER
 ===================================================== */
 
 async function handleAction(
@@ -3649,12 +3870,6 @@ async function handleAction(
             snapshot.data();
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | SECURITY CHECK
-        |--------------------------------------------------------------------------
-        */
-
         if (
             application.agentId !==
             currentAgent.id
@@ -3665,7 +3880,6 @@ async function handleAction(
             );
 
         }
-
 
 
         /* =================================================
@@ -3746,6 +3960,20 @@ async function handleAction(
 
                     feeStatus:
                         "FEE_RECEIVED",
+
+                    /*
+                     * Make the business rule explicit.
+                     */
+
+                    processingOrRenewalFee:
+                        getApplicableFee(
+                            application
+                        ),
+
+                    feeReceivedAmount:
+                        getApplicableFee(
+                            application
+                        ),
 
                     feeReceivedAt:
                         serverTimestamp(),
@@ -3859,6 +4087,7 @@ async function handleAction(
                 reason.trim() ===
                 ""
             ) {
+
 
                 button.disabled =
                     false;
@@ -4040,6 +4269,48 @@ async function handleAction(
 
 
 /* =====================================================
+   APPLICABLE FEE
+===================================================== */
+
+function getApplicableFee(
+    application
+) {
+
+    const storedFee =
+        Number(
+            application.processingOrRenewalFee
+        );
+
+
+    /*
+     * Business rule:
+     * First loan = KSh 500
+     * Renewal = KSh 500
+     *
+     * Therefore a missing/zero value is corrected
+     * to 500 in the application workflow.
+     */
+
+    if (
+        !Number.isFinite(
+            storedFee
+        )
+        ||
+        storedFee <= 0
+    ) {
+
+        return 500;
+
+    }
+
+
+    return storedFee;
+
+}
+
+
+
+/* =====================================================
    NAVIGATION
 ===================================================== */
 
@@ -4054,7 +4325,6 @@ document
             button.addEventListener(
                 "click",
                 () => {
-
 
                     openPanel(
                         button.dataset.panel,
@@ -4074,7 +4344,6 @@ document
     )
     .forEach(
         button => {
-
 
             button.addEventListener(
                 "click",
@@ -4160,8 +4429,11 @@ function openPanel(
 
     window.scrollTo(
         {
-            top: 0,
-            behavior: "smooth"
+            top:
+                0,
+
+            behavior:
+                "smooth"
         }
     );
 
@@ -4212,8 +4484,11 @@ function openHome() {
 
     window.scrollTo(
         {
-            top: 0,
-            behavior: "smooth"
+            top:
+                0,
+
+            behavior:
+                "smooth"
         }
     );
 
