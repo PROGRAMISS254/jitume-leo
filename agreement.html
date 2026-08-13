@@ -82,7 +82,7 @@
         .back-btn {
 
             background:
-                white;
+                #ffffff;
 
             border:
                 1px solid #d8dee6 !important;
@@ -99,18 +99,7 @@
                 #168a63;
 
             color:
-                white;
-
-        }
-
-
-        .upload-btn {
-
-            background:
-                #273142;
-
-            color:
-                white;
+                #ffffff;
 
         }
 
@@ -118,7 +107,7 @@
         .agreement-paper {
 
             background:
-                white;
+                #ffffff;
 
             padding:
                 55px;
@@ -295,7 +284,7 @@
                 1px solid #dfe4ea;
 
             min-height:
-                130px;
+                145px;
 
             padding:
                 15px;
@@ -368,16 +357,16 @@
         }
 
 
-        .next-step-box {
+        .handover-box {
 
             margin-top:
                 30px;
 
             padding:
-                20px;
+                24px;
 
             border-radius:
-                10px;
+                12px;
 
             background:
                 #eef8f3;
@@ -385,30 +374,49 @@
             border:
                 1px solid #cdebdc;
 
-            text-align:
-                center;
-
         }
 
 
-        .next-step-box h3 {
+        .handover-box h3 {
+
+            margin-top:
+                0;
 
             margin-bottom:
-                8px;
+                10px;
 
         }
 
 
-        .next-step-box p {
-
-            font-size:
-                13px;
+        .handover-box p {
 
             color:
                 #596575;
 
+            font-size:
+                13px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        .handover-list {
+
+            margin:
+                15px 0 20px 20px;
+
+        }
+
+
+        .handover-list li {
+
             margin-bottom:
-                15px;
+                8px;
+
+            font-size:
+                13px;
 
             line-height:
                 1.6;
@@ -416,22 +424,103 @@
         }
 
 
-        .continue-upload-btn {
+        .fee-box {
+
+            margin-top:
+                18px;
+
+            padding:
+                17px;
+
+            border-radius:
+                9px;
+
+            background:
+                #fff8e7;
+
+            border:
+                1px solid #f0dfac;
+
+        }
+
+
+        .fee-box strong {
+
+            font-size:
+                18px;
+
+        }
+
+
+        .handover-status {
+
+            margin-top:
+                18px;
+
+            padding:
+                14px;
+
+            border-radius:
+                8px;
+
+            font-size:
+                13px;
+
+        }
+
+
+        .handover-status.pending {
+
+            background:
+                #f3f5f7;
+
+            color:
+                #596575;
+
+        }
+
+
+        .handover-status.reported {
+
+            background:
+                #fff8e7;
+
+            color:
+                #795900;
+
+        }
+
+
+        .handover-status.received {
+
+            background:
+                #e8f7ef;
+
+            color:
+                #168a63;
+
+        }
+
+
+        .handover-button {
+
+            width:
+                100%;
+
+            border:
+                none;
 
             background:
                 #168a63;
 
             color:
-                white;
-
-            border:
-                none;
+                #ffffff;
 
             padding:
-                13px 22px;
+                14px 20px;
 
             border-radius:
-                7px;
+                8px;
 
             font-weight:
                 700;
@@ -439,13 +528,85 @@
             cursor:
                 pointer;
 
+            margin-top:
+                20px;
+
         }
 
 
-        .continue-upload-btn:hover {
+        .handover-button:hover {
 
             background:
                 #106c4d;
+
+        }
+
+
+        .handover-button:disabled {
+
+            opacity:
+                0.6;
+
+            cursor:
+                not-allowed;
+
+        }
+
+
+        .success-message {
+
+            display:
+                none;
+
+            margin-top:
+                15px;
+
+            background:
+                #e8f7ef;
+
+            color:
+                #168a63;
+
+            border:
+                1px solid #cdebdc;
+
+            border-radius:
+                8px;
+
+            padding:
+                14px;
+
+            font-size:
+                13px;
+
+        }
+
+
+        .error-message {
+
+            display:
+                none;
+
+            margin-top:
+                15px;
+
+            background:
+                #fff0f0;
+
+            color:
+                #a61b1b;
+
+            border:
+                1px solid #f1c0c0;
+
+            border-radius:
+                8px;
+
+            padding:
+                14px;
+
+            font-size:
+                13px;
 
         }
 
@@ -482,7 +643,8 @@
 
             .navbar,
             .agreement-actions-top,
-            .next-step-box {
+            .handover-box,
+            .prototype-note {
 
                 display:
                     none !important;
@@ -493,7 +655,7 @@
             .agreement-page {
 
                 background:
-                    white;
+                    #ffffff;
 
                 padding:
                     0;
@@ -639,6 +801,7 @@ import {
     onAuthStateChanged
 
 }
+
 from
 "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
@@ -649,16 +812,24 @@ import {
 
     doc,
 
-    getDoc
+    getDoc,
+
+    updateDoc,
+
+    serverTimestamp
 
 }
+
 from
 "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
 import {
+
     app
+
 }
+
 from
 "./firebase.js";
 
@@ -689,12 +860,6 @@ const downloadButton =
     );
 
 
-/*
-|--------------------------------------------------------------------------
-| GET APPLICATION ID FROM URL
-|--------------------------------------------------------------------------
-*/
-
 const urlParams =
     new URLSearchParams(
         window.location.search
@@ -707,8 +872,7 @@ const applicationId =
     );
 
 
-let currentApplication =
-    null;
+let currentApplication = null;
 
 
 /*
@@ -720,6 +884,7 @@ let currentApplication =
 onAuthStateChanged(
     auth,
     async (user) => {
+
 
         if (!user) {
 
@@ -762,6 +927,7 @@ async function loadApplication(
 
     try {
 
+
         const applicationReference =
             doc(
                 db,
@@ -795,8 +961,7 @@ async function loadApplication(
 
         /*
          * SECURITY CHECK:
-         * The logged-in client must own
-         * this application.
+         * This client must own the application.
          */
 
         if (
@@ -934,6 +1099,60 @@ function renderAgreement(
         );
 
 
+    const documentsStatus =
+        application.documentsStatus ||
+        "NOT_HANDED_TO_AGENT";
+
+
+    const feeStatus =
+        application.feeStatus ||
+        "FEE_PENDING";
+
+
+    const clientReportStatus =
+        application.clientHandoverStatus ||
+        "NOT_REPORTED";
+
+
+    let handoverMessage =
+
+        "Print the agreement, obtain all required signatures, prepare the required identification documents and take the hard copies to your selected agent.";
+
+
+    let handoverClass =
+        "pending";
+
+
+    if (
+        clientReportStatus ===
+        "CLIENT_HANDOVER_REPORTED"
+    ) {
+
+        handoverMessage =
+            "You have reported that you handed the signed documents and applicable fee to the agent. The agent must now confirm actual receipt.";
+
+        handoverClass =
+            "reported";
+
+    }
+
+
+    if (
+        documentsStatus ===
+        "DOCUMENTS_RECEIVED" &&
+        feeStatus ===
+        "FEE_RECEIVED"
+    ) {
+
+        handoverMessage =
+            "Your agent has confirmed receipt of the required physical documents and the applicable KSh 500 fee.";
+
+        handoverClass =
+            "received";
+
+    }
+
+
     agreementContainer.innerHTML =
         `
 
@@ -965,9 +1184,11 @@ function renderAgreement(
                 Application ID:
 
                 <strong>
+
                     ${escapeHTML(
                         application.id
                     )}
+
                 </strong>
 
             </p>
@@ -977,7 +1198,7 @@ function renderAgreement(
 
 
         <!-- =====================================
-             CLIENT INFORMATION
+             CLIENT & AGENT
         ====================================== -->
 
         <div class="agreement-section">
@@ -997,10 +1218,12 @@ function renderAgreement(
                     </td>
 
                     <td>
+
                         ${escapeHTML(
                             application.customerId ||
                             "-"
                         )}
+
                     </td>
 
                 </tr>
@@ -1162,9 +1385,13 @@ function renderAgreement(
 
                     <td>
 
-                        ${formatCurrency(
-                            applicableFee
-                        )}
+                        <strong>
+
+                            ${formatCurrency(
+                                applicableFee
+                            )}
+
+                        </strong>
 
                     </td>
 
@@ -1251,9 +1478,11 @@ function renderAgreement(
                     The principal loan amount is
 
                     <strong>
+
                         ${formatCurrency(
                             requestedAmount
                         )}
+
                     </strong>.
 
                 </li>
@@ -1261,12 +1490,14 @@ function renderAgreement(
 
                 <li>
 
-                    The agreed prototype loan interest is
+                    The prototype loan interest is
 
                     <strong>
+
                         ${formatCurrency(
                             interest
                         )}
+
                     </strong>.
 
                 </li>
@@ -1274,12 +1505,14 @@ function renderAgreement(
 
                 <li>
 
-                    The normal amount due at maturity is
+                    The normal maturity amount is
 
                     <strong>
+
                         ${formatCurrency(
                             maturity
                         )}
+
                     </strong>.
 
                 </li>
@@ -1305,15 +1538,19 @@ function renderAgreement(
                     The applicable
 
                     <strong>
+
                         ${feeLabel}
+
                     </strong>
 
                     is
 
                     <strong>
+
                         ${formatCurrency(
                             applicableFee
                         )}
+
                     </strong>.
 
                 </li>
@@ -1321,31 +1558,30 @@ function renderAgreement(
 
                 <li>
 
-                    Where the client cannot fully repay
-                    the normal maturity amount and a
-                    renewal is approved, the prototype
-                    renewal terms provide for the applicable
-                    interest and a KSh 500 renewal fee,
-                    with the outstanding principal carried
-                    forward according to the final agreement.
+                    For a renewal, the prototype terms
+                    provide for the applicable interest
+                    and a KSh 500 renewal fee, with the
+                    outstanding principal carried forward
+                    according to the final agreement.
 
                 </li>
 
 
                 <li>
 
-                    Late repayment carries a prototype
-                    charge of
+                    A late repayment charge of
 
                     <strong>
+
                         ${formatCurrency(
                             lateFee
                         )}
                         per day
+
                     </strong>
 
-                    added to the applicable interest,
-                    subject to the final agreement.
+                    is added under the prototype
+                    business rules.
 
                 </li>
 
@@ -1370,24 +1606,54 @@ function renderAgreement(
                 <li>
 
                     The client must provide the required
-                    supporting documents.
+                    identification documents.
 
                 </li>
 
 
                 <li>
 
-                    The guarantor must review and sign the
-                    agreement before submission.
+                    The guarantor must review and sign
+                    the agreement.
 
                 </li>
 
 
                 <li>
 
-                    The selected agent must review and sign
-                    the agreement before the client uploads
-                    the completed document.
+                    The selected agent must review and
+                    sign the agreement.
+
+                </li>
+
+
+                <li>
+
+                    The signed original agreement and
+                    required identification documents
+                    must be handed physically to the
+                    selected agent.
+
+                </li>
+
+
+                <li>
+
+                    The applicable KSh 500 first-loan
+                    processing fee or KSh 500 renewal fee
+                    is to be handed to the selected agent
+                    at the physical document handover
+                    stage.
+
+                </li>
+
+
+                <li>
+
+                    The client must not regard the
+                    documents or fee as officially received
+                    until the selected agent confirms
+                    receipt through the Jitume Leo system.
 
                 </li>
 
@@ -1395,24 +1661,16 @@ function renderAgreement(
                 <li>
 
                     Agent verification is required before
-                    the application is sent to administration.
+                    the application proceeds to
+                    administration.
 
                 </li>
 
 
                 <li>
 
-                    Final approval or rejection is made by
-                    Jitume Leo administration.
-
-                </li>
-
-
-                <li>
-
-                    Payment and cash-collection stages occur
-                    only after the appropriate approval stage
-                    has been completed.
+                    Final approval or rejection is made
+                    by Jitume Leo administration.
 
                 </li>
 
@@ -1435,9 +1693,9 @@ function renderAgreement(
 
             <p>
 
-                This agreement must be printed or otherwise
-                completed and signed by all three parties
-                before the client uploads it.
+                The following three parties must sign
+                the printed agreement before it is
+                handed to the agent:
 
             </p>
 
@@ -1530,11 +1788,14 @@ function renderAgreement(
 
 
                     <p>
+
                         Name:
+
                         ${escapeHTML(
                             application.agentName ||
                             ""
                         )}
+
                     </p>
 
 
@@ -1545,7 +1806,6 @@ function renderAgreement(
 
                 </div>
 
-
             </div>
 
         </div>
@@ -1553,34 +1813,208 @@ function renderAgreement(
 
 
         <!-- =====================================
-             NEXT STEP
+             PHYSICAL HANDOVER
         ====================================== -->
 
-        <div class="next-step-box">
+        <div class="handover-box">
+
 
             <h3>
-                Agreement Completed?
+                5. Physical Document & Fee Handover
             </h3>
 
 
             <p>
 
-                Download or print this agreement,
-                obtain the required Client, Guarantor
-                and Agent signatures, and keep the
-                signed copy ready for the next stage.
+                After printing and completing the
+                agreement, take the signed physical
+                documents to your selected Jitume Leo
+                agent.
 
             </p>
 
 
-            <button
-                type="button"
-                class="continue-upload-btn"
-                id="continueUploadButton">
+            <ul class="handover-list">
 
-                Continue to Upload Documents →
+                <li>
+                    Signed original Jitume Leo agreement
+                </li>
 
-            </button>
+                <li>
+                    Client ID and required copy
+                </li>
+
+                <li>
+                    Guarantor ID and required copy
+                </li>
+
+                <li>
+                    Any other documents requested by
+                    the selected agent
+                </li>
+
+                <li>
+                    Applicable KSh 500 fee
+                </li>
+
+            </ul>
+
+
+            <div class="fee-box">
+
+                <div>
+                    Applicable Fee:
+                </div>
+
+
+                <strong>
+
+                    KSh
+                    ${Number(
+                        applicableFee
+                    ).toLocaleString(
+                        "en-KE"
+                    )}
+
+                </strong>
+
+
+                <div style="margin-top:6px;">
+
+                    ${
+                        isRenewal
+                            ? "Renewal Fee"
+                            : "First Loan Processing Fee"
+                    }
+
+                </div>
+
+            </div>
+
+
+            <div class="handover-status ${handoverClass}">
+
+                <strong>
+                    Current Handover Status:
+                </strong>
+
+                <br><br>
+
+                ${escapeHTML(
+                    handoverMessage
+                )}
+
+            </div>
+
+
+            <div
+                id="handoverSuccess"
+                class="success-message">
+
+            </div>
+
+
+            <div
+                id="handoverError"
+                class="error-message">
+
+            </div>
+
+
+            ${
+                (
+                    clientReportStatus ===
+                    "CLIENT_HANDOVER_REPORTED"
+                )
+
+                ||
+
+                (
+                    documentsStatus ===
+                    "DOCUMENTS_RECEIVED"
+                )
+
+                ||
+
+                (
+                    feeStatus ===
+                    "FEE_RECEIVED"
+                )
+
+                    ?
+
+                    ""
+
+                    :
+
+                    `
+
+                    <button
+                        type="button"
+                        class="handover-button"
+                        id="reportHandoverButton">
+
+                        I Have Handed the Documents
+                        & Paid the KSh 500 Fee
+
+                    </button>
+
+                    `
+            }
+
+
+            ${
+                clientReportStatus ===
+                "CLIENT_HANDOVER_REPORTED"
+
+                    ?
+
+                    `
+                    <p style="
+                        margin-top:14px;
+                        font-size:12px;
+                        color:#795900;
+                    ">
+
+                        Awaiting the selected agent's
+                        confirmation of physical document
+                        and fee receipt.
+
+                    </p>
+                    `
+
+                    :
+
+                    ""
+            }
+
+
+            ${
+                documentsStatus ===
+                    "DOCUMENTS_RECEIVED" &&
+                feeStatus ===
+                    "FEE_RECEIVED"
+
+                    ?
+
+                    `
+                    <p style="
+                        margin-top:14px;
+                        font-size:13px;
+                        color:#168a63;
+                        font-weight:700;
+                    ">
+
+                        ✓ Agent has confirmed the
+                        documents and KSh 500 fee.
+
+                    </p>
+                    `
+
+                    :
+
+                    ""
+            }
 
         </div>
 
@@ -1598,55 +2032,183 @@ function renderAgreement(
 
 
             This Jitume Leo agreement is part of a
-            demonstration system. The stated loan
-            terms, fees, late charges, guarantor
-            obligations and agent responsibilities
+            demonstration system. The stated loan terms,
+            fees, late charges, guarantor obligations,
+            agent responsibilities and handover process
             should be legally and commercially reviewed
             before real-world use.
 
         </div>
 
+
         `;
+
+    
+    /*
+    |--------------------------------------------------------------------------
+    | HANDOVER BUTTON
+    |--------------------------------------------------------------------------
+    */
+
+    const reportButton =
+        document.getElementById(
+            "reportHandoverButton"
+        );
+
+
+    if (reportButton) {
+
+        reportButton.addEventListener(
+            "click",
+            reportClientHandover
+        );
+
+    }
 
 }
 
 
 /*
 |--------------------------------------------------------------------------
-| CONTINUE TO UPLOAD
+| CLIENT REPORTS HANDOVER
 |--------------------------------------------------------------------------
 */
 
-document
-    .getElementById(
-        "continueUploadButton"
-    )
-    .addEventListener(
-        "click",
-        () => {
+async function reportClientHandover() {
 
-            if (
-                !applicationId
-            ) {
+    if (
+        !currentApplication
+    ) {
 
-                alert(
-                    "Application ID is missing."
-                );
+        return;
 
-                return;
+    }
+
+
+    const button =
+        document.getElementById(
+            "reportHandoverButton"
+        );
+
+
+    const successBox =
+        document.getElementById(
+            "handoverSuccess"
+        );
+
+
+    const errorBox =
+        document.getElementById(
+            "handoverError"
+        );
+
+
+    if (
+        !button
+    ) {
+
+        return;
+
+    }
+
+
+    button.disabled =
+        true;
+
+
+    button.textContent =
+        "Recording...";
+
+
+    successBox.style.display =
+        "none";
+
+
+    errorBox.style.display =
+        "none";
+
+
+    try {
+
+        const applicationReference =
+            doc(
+                db,
+                "loanApplications",
+                currentApplication.id
+            );
+
+
+        await updateDoc(
+            applicationReference,
+            {
+
+                clientHandoverStatus:
+                    "CLIENT_HANDOVER_REPORTED",
+
+                documentsStatus:
+                    "DOCUMENTS_AWAITING_RECEIPT",
+
+                feeStatus:
+                    "FEE_AWAITING_AGENT_CONFIRMATION",
+
+                status:
+                    "AWAITING_AGENT_VERIFICATION",
+
+                clientHandoverReportedAt:
+                    serverTimestamp(),
+
+                updatedAt:
+                    serverTimestamp()
 
             }
+        );
 
 
-            window.location.href =
-                "upload-documents.html?applicationId="
-                +
-                encodeURIComponent(
-                    applicationId
-                );
+        successBox.textContent =
+            "Your handover report has been recorded. The selected agent must now confirm receipt of the physical documents and KSh 500 fee.";
 
-        }
-    );
+
+        successBox.style.display =
+            "block";
+
+
+        setTimeout(
+            () => {
+
+                window.location.reload();
+
+            },
+            1500
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Handover update error:",
+            error
+        );
+
+
+        errorBox.textContent =
+            "Unable to record the handover. Please try again.";
+
+
+        errorBox.style.display =
+            "block";
+
+
+        button.disabled =
+            false;
+
+
+        button.textContent =
+            "I Have Handed the Documents & Paid the KSh 500 Fee";
+
+    }
+
+}
 
 
 /*
@@ -1787,7 +2349,7 @@ function calculateNextMonthDate(
 
 
     /*
-     * Handle months that do not contain
+     * Handle months that don't contain
      * the original day.
      */
 
@@ -1796,7 +2358,9 @@ function calculateNextMonthDate(
         originalDay
     ) {
 
-        date.setDate(0);
+        date.setDate(
+            0
+        );
 
     }
 
@@ -1883,6 +2447,7 @@ function showError(
             <h2>
                 Unable to Open Agreement
             </h2>
+
 
             <p>
 
