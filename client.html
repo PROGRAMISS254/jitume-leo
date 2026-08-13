@@ -12,247 +12,750 @@
 
     <link rel="stylesheet" href="style.css">
 
+
     <style>
 
         /* =========================================
-           CLIENT APPLICATION STATUS
-           ========================================= */
+           APPLICATION STATUS
+        ========================================= */
 
         .application-status-card {
-            background: #ffffff;
-            border: 1px solid #e5e9ef;
-            border-radius: 14px;
-            padding: 30px;
-            margin-top: 20px;
+
+            background:
+                #ffffff;
+
+            border:
+                1px solid #e5e9ef;
+
+            border-radius:
+                14px;
+
+            padding:
+                30px;
+
+            margin-top:
+                20px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(30,45,65,0.05);
+
         }
+
 
         .application-top {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 20px;
-            margin-bottom: 25px;
+
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+
+            margin-bottom:
+                25px;
+
         }
+
 
         .application-top h3 {
-            font-size: 22px;
-            margin-bottom: 8px;
+
+            font-size:
+                22px;
+
+            margin-bottom:
+                8px;
+
         }
+
 
         .application-meta {
-            color: #6d7788;
-            font-size: 13px;
-            line-height: 1.8;
+
+            color:
+                #6d7788;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.8;
+
         }
+
+
+        /* =========================================
+           STATUS BADGES
+        ========================================= */
 
         .status-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px 13px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 0.6px;
-            white-space: nowrap;
-            background: #edf1f5;
-            color: #5d6978;
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                8px 14px;
+
+            border-radius:
+                20px;
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                .5px;
+
+            white-space:
+                nowrap;
+
+            background:
+                #edf1f5;
+
+            color:
+                #5d6978;
+
         }
+
 
         .status-badge.success {
-            background: #e8f7ef;
-            color: #168a63;
+
+            background:
+                #e8f7ef;
+
+            color:
+                #168a63;
+
         }
+
 
         .status-badge.warning {
-            background: #fff5db;
-            color: #8a6200;
+
+            background:
+                #fff5db;
+
+            color:
+                #8a6200;
+
         }
+
 
         .status-badge.danger {
-            background: #fdeceb;
-            color: #b42318;
+
+            background:
+                #fdeceb;
+
+            color:
+                #b42318;
+
         }
+
+
+        /* =========================================
+           DETAILS
+        ========================================= */
 
         .application-details-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                15px;
+
+            margin-bottom:
+                30px;
+
         }
+
 
         .application-detail {
-            background: #f7f9fc;
-            border-radius: 9px;
-            padding: 15px;
+
+            background:
+                #f7f9fc;
+
+            border-radius:
+                9px;
+
+            padding:
+                15px;
+
         }
+
 
         .application-detail small {
-            display: block;
-            color: #7b8794;
-            font-size: 11px;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+
+            display:
+                block;
+
+            color:
+                #7b8794;
+
+            font-size:
+                11px;
+
+            margin-bottom:
+                6px;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .5px;
+
         }
 
+
         .application-detail strong {
-            font-size: 15px;
+
+            font-size:
+                15px;
+
         }
+
+
+        /* =========================================
+           APPROVED COLLECTION BOX
+        ========================================= */
+
+        .collection-box {
+
+            margin-top:
+                22px;
+
+            padding:
+                25px;
+
+            border-radius:
+                12px;
+
+            background:
+                #eef8f3;
+
+            border:
+                1px solid #cdebdc;
+
+        }
+
+
+        .collection-box h3 {
+
+            color:
+                #166b50;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .collection-amount {
+
+            font-size:
+                30px;
+
+            font-weight:
+                800;
+
+            color:
+                #168a63;
+
+            margin:
+                12px 0;
+
+        }
+
+
+        .collection-box p {
+
+            color:
+                #596575;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        .collection-agent {
+
+            margin-top:
+                15px;
+
+            padding:
+                15px;
+
+            background:
+                #ffffff;
+
+            border-radius:
+                9px;
+
+            border:
+                1px solid #d9e9e1;
+
+        }
+
+
+        .collection-agent strong {
+
+            display:
+                block;
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        /* =========================================
+           REJECTION BOX
+        ========================================= */
+
+        .rejection-box {
+
+            margin-top:
+                22px;
+
+            padding:
+                20px;
+
+            background:
+                #fff0f0;
+
+            border:
+                1px solid #f1c0c0;
+
+            border-radius:
+                10px;
+
+        }
+
+
+        .rejection-box h3 {
+
+            color:
+                #a61b1b;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .rejection-box p {
+
+            font-size:
+                13px;
+
+            color:
+                #7d302a;
+
+            line-height:
+                1.6;
+
+        }
+
+
+        /* =========================================
+           WORKFLOW BOX
+        ========================================= */
+
+        .workflow-box {
+
+            border-radius:
+                10px;
+
+            padding:
+                18px;
+
+            margin-top:
+                20px;
+
+        }
+
+
+        .workflow-box.agent {
+
+            background:
+                #eef8f3;
+
+            border:
+                1px solid #cee8db;
+
+        }
+
+
+        .workflow-box.admin {
+
+            background:
+                #f1f5ff;
+
+            border:
+                1px solid #d9e1f5;
+
+        }
+
+
+        .workflow-box.payment {
+
+            background:
+                #fff8e7;
+
+            border:
+                1px solid #f0dfac;
+
+        }
+
+
+        .workflow-box h4 {
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .workflow-box p {
+
+            margin:
+                0;
+
+            color:
+                #596575;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.7;
+
+        }
+
 
         /* =========================================
            TIMELINE
-           ========================================= */
+        ========================================= */
 
         .status-timeline {
-            margin-top: 25px;
+
+            margin-top:
+                25px;
+
         }
+
 
         .timeline-item {
-            position: relative;
-            display: flex;
-            gap: 15px;
-            padding-bottom: 25px;
+
+            position:
+                relative;
+
+            display:
+                flex;
+
+            gap:
+                15px;
+
+            padding-bottom:
+                25px;
+
         }
+
 
         .timeline-item:last-child {
-            padding-bottom: 0;
+
+            padding-bottom:
+                0;
+
         }
+
 
         .timeline-line {
-            position: absolute;
-            left: 11px;
-            top: 25px;
-            bottom: 0;
-            width: 2px;
-            background: #e1e6eb;
+
+            position:
+                absolute;
+
+            left:
+                11px;
+
+            top:
+                25px;
+
+            bottom:
+                0;
+
+            width:
+                2px;
+
+            background:
+                #e1e6eb;
+
         }
 
-        .timeline-item:last-child .timeline-line {
-            display: none;
-        }
 
         .timeline-dot {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: #e1e6eb;
-            flex-shrink: 0;
-            position: relative;
-            z-index: 2;
+
+            width:
+                24px;
+
+            height:
+                24px;
+
+            border-radius:
+                50%;
+
+            background:
+                #e1e6eb;
+
+            flex-shrink:
+                0;
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
         }
 
-        .timeline-item.completed .timeline-dot {
-            background: #168a63;
+
+        .timeline-item.completed
+        .timeline-dot {
+
+            background:
+                #168a63;
+
         }
 
-        .timeline-item.current .timeline-dot {
-            background: #f1b900;
+
+        .timeline-item.current
+        .timeline-dot {
+
+            background:
+                #f1b900;
+
         }
+
 
         .timeline-content {
-            padding-top: 1px;
+
+            padding-top:
+                1px;
+
         }
+
 
         .timeline-content h4 {
-            font-size: 14px;
-            margin-bottom: 4px;
+
+            font-size:
+                14px;
+
+            margin-bottom:
+                4px;
+
         }
+
 
         .timeline-content p {
-            color: #737d8d;
-            font-size: 12px;
-            margin: 0;
-            line-height: 1.6;
+
+            color:
+                #737d8d;
+
+            font-size:
+                12px;
+
+            margin:
+                0;
+
+            line-height:
+                1.6;
+
         }
+
 
         /* =========================================
-           DECISION / VERIFICATION BOXES
-           ========================================= */
+           APPLICATION ACTIONS
+        ========================================= */
 
-        .workflow-box {
-            border-radius: 10px;
-            padding: 18px;
-            margin-top: 20px;
+        .application-action {
+
+            margin-top:
+                25px;
+
+            display:
+                flex;
+
+            gap:
+                12px;
+
+            flex-wrap:
+                wrap;
+
         }
 
-        .workflow-box.agent {
-            background: #eef8f3;
-            border: 1px solid #cee8db;
+
+        .action-button {
+
+            display:
+                inline-block;
+
+            padding:
+                11px 18px;
+
+            border-radius:
+                7px;
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
+
+            text-decoration:
+                none;
+
         }
 
-        .workflow-box.admin {
-            background: #f1f5ff;
-            border: 1px solid #d9e1f5;
+
+        .action-primary {
+
+            background:
+                #168a63;
+
+            color:
+                #ffffff;
+
         }
 
-        .workflow-box.payment {
-            background: #fff8e7;
-            border: 1px solid #f0dfac;
+
+        .action-secondary {
+
+            background:
+                #eef2f6;
+
+            color:
+                #273142;
+
         }
 
-        .workflow-box h4 {
-            margin-bottom: 7px;
-        }
-
-        .workflow-box p {
-            margin: 0;
-            color: #596575;
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        .workflow-box strong {
-            color: #263142;
-        }
 
         /* =========================================
-           EMPTY STATE
-           ========================================= */
+           STATES
+        ========================================= */
 
         .loading-state,
         .empty-state-real {
-            background: #ffffff;
-            border: 1px solid #e5e9ef;
-            border-radius: 14px;
-            padding: 55px 25px;
-            text-align: center;
+
+            background:
+                #ffffff;
+
+            border:
+                1px solid #e5e9ef;
+
+            border-radius:
+                14px;
+
+            padding:
+                55px 25px;
+
+            text-align:
+                center;
+
         }
+
 
         .loading-state p,
         .empty-state-real p {
-            color: #737d8d;
-            font-size: 13px;
+
+            color:
+                #737d8d;
+
+            font-size:
+                13px;
+
         }
+
+
+        .application-error {
+
+            padding:
+                18px;
+
+            background:
+                #fff0f0;
+
+            border:
+                1px solid #f1c0c0;
+
+            border-radius:
+                10px;
+
+            color:
+                #a61b1b;
+
+            font-size:
+                13px;
+
+        }
+
 
         /* =========================================
-           APPLICATION COUNT
-           ========================================= */
-
-        #applicationCountBadge {
-            font-size: 11px;
-        }
+           RESPONSIVE
+        ========================================= */
 
         @media (max-width: 850px) {
 
             .application-details-grid {
-                grid-template-columns: 1fr 1fr;
+
+                grid-template-columns:
+                    1fr 1fr;
+
             }
 
+
             .application-top {
-                flex-direction: column;
+
+                flex-direction:
+                    column;
+
             }
 
         }
 
+
         @media (max-width: 600px) {
 
             .application-details-grid {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
+
             }
 
+
             .application-status-card {
-                padding: 22px;
+
+                padding:
+                    22px;
+
             }
 
         }
@@ -265,14 +768,12 @@
 <body>
 
 
-<!-- =========================================
-     NAVIGATION
-========================================= -->
-
 <header class="navbar">
 
     <div class="logo">
+
         JITUME <span>LEO</span>
+
     </div>
 
 
@@ -282,9 +783,11 @@
             Dashboard
         </a>
 
+
         <a href="#applications">
             My Applications
         </a>
+
 
         <a href="#profile">
             Profile
@@ -309,14 +812,12 @@
 
 
 
-<!-- =========================================
-     DASHBOARD
-========================================= -->
-
 <main class="dashboard-page">
 
 
-    <!-- HEADER -->
+    <!-- =========================================
+         DASHBOARD HEADER
+    ========================================= -->
 
     <section class="dashboard-header">
 
@@ -326,16 +827,23 @@
                 CLIENT DASHBOARD
             </p>
 
+
             <h1>
+
                 Welcome,
+
                 <span id="clientName">
                     Client
                 </span>
+
             </h1>
 
+
             <p>
-                Manage your Jitume Leo account and
-                emergency loan applications.
+
+                Manage your Jitume Leo account
+                and emergency loan applications.
+
             </p>
 
         </div>
@@ -360,8 +868,6 @@
     <section class="dashboard-grid">
 
 
-        <!-- EMERGENCY LOAN -->
-
         <div class="dashboard-card">
 
             <div class="dashboard-card-top">
@@ -370,20 +876,26 @@
                     LOAN SERVICE
                 </span>
 
+
                 <span class="dashboard-icon">
                     +
                 </span>
 
             </div>
 
+
             <h2>
                 Emergency Loan
             </h2>
 
+
             <p>
+
                 Apply for financial assistance
-                through your selected Jitume Leo agent.
+                through a Jitume Leo agent.
+
             </p>
+
 
             <a
                 href="apply.html"
@@ -396,7 +908,6 @@
         </div>
 
 
-        <!-- APPLICATION COUNT -->
 
         <div class="dashboard-card">
 
@@ -405,6 +916,7 @@
                 <span>
                     APPLICATIONS
                 </span>
+
 
                 <span
                     id="applicationCountBadge"
@@ -416,13 +928,18 @@
 
             </div>
 
+
             <h2>
                 My Applications
             </h2>
 
+
             <p id="applicationSummary">
-                No loan applications have been submitted.
+
+                Loading your applications...
+
             </p>
+
 
             <a
                 href="#applications"
@@ -435,11 +952,8 @@
         </div>
 
 
-        <!-- PROFILE -->
 
-        <div
-            class="dashboard-card"
-            id="profile">
+        <div class="dashboard-card">
 
             <div class="dashboard-card-top">
 
@@ -447,24 +961,29 @@
                     ACCOUNT
                 </span>
 
+
                 <span class="dashboard-icon">
                     02
                 </span>
 
             </div>
 
+
             <h2>
                 My Profile
             </h2>
 
+
             <p>
-                View your personal information
-                and account details.
+
+                View your personal account
+                information.
+
             </p>
 
+
             <a
-                href="#"
-                id="profileLink"
+                href="#profile"
                 class="dashboard-link">
 
                 View Profile →
@@ -488,22 +1007,20 @@
 
         <div class="status-header">
 
-            <div>
+            <p class="small-heading">
+                APPLICATION STATUS
+            </p>
 
-                <p class="small-heading">
-                    APPLICATION STATUS
-                </p>
 
-                <h2>
-                    Your recent activity
-                </h2>
-
-            </div>
+            <h2>
+                Your Applications
+            </h2>
 
         </div>
 
 
-        <div id="applicationContainer">
+        <div
+            id="applicationContainer">
 
             <div class="loading-state">
 
@@ -520,17 +1037,20 @@
 
 
     <!-- =========================================
-         PROFILE SECTION
+         PROFILE
     ========================================= -->
 
     <section
-        class="status-section">
+        class="status-section"
+        id="profile">
+
 
         <div class="status-header">
 
             <p class="small-heading">
                 PROFILE
             </p>
+
 
             <h2>
                 Account Information
@@ -539,89 +1059,114 @@
         </div>
 
 
-        <div
-            id="profileCard"
-            class="dashboard-card">
+        <div class="dashboard-card">
+
 
             <p>
+
                 <strong>
                     Full Name:
                 </strong>
 
+
                 <span id="profileName">
                     -
                 </span>
+
             </p>
 
 
             <p>
+
                 <strong>
                     Email:
                 </strong>
 
+
                 <span id="profileEmail">
                     -
                 </span>
+
             </p>
 
 
             <p>
+
                 <strong>
                     Phone:
                 </strong>
 
+
                 <span id="profilePhone">
                     -
                 </span>
+
             </p>
 
 
             <p>
+
                 <strong>
                     National ID:
                 </strong>
 
+
                 <span id="profileId">
                     -
                 </span>
+
             </p>
 
         </div>
 
     </section>
 
-
 </main>
 
 
 
-<!-- =========================================
-     FIREBASE
-========================================= -->
-
 <script type="module">
 
+
 import {
+
     getAuth,
+
     onAuthStateChanged,
+
     signOut
-} from
+
+}
+from
 "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
 
 import {
+
     getFirestore,
+
     doc,
+
     getDoc,
+
     collection,
+
     query,
+
     where,
+
     getDocs
-} from
+
+}
+from
 "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
-import { app } from "./firebase.js";
+import {
+    app
+}
+from
+"./firebase.js";
 
 
 const auth =
@@ -662,6 +1207,7 @@ const applicationSummary =
     );
 
 
+
 /*
 |--------------------------------------------------------------------------
 | AUTHENTICATION
@@ -669,8 +1215,11 @@ const applicationSummary =
 */
 
 onAuthStateChanged(
+
     auth,
+
     async (user) => {
+
 
         if (!user) {
 
@@ -705,15 +1254,10 @@ onAuthStateChanged(
 
             applicationContainer.innerHTML =
                 `
-                <div class="empty-state-real">
+                <div class="application-error">
 
-                    <h3>
-                        Unable to load your dashboard
-                    </h3>
-
-                    <p>
-                        Please refresh the page and try again.
-                    </p>
+                    Unable to load your dashboard.
+                    Please refresh the page.
 
                 </div>
                 `;
@@ -721,18 +1265,21 @@ onAuthStateChanged(
         }
 
     }
+
 );
+
 
 
 /*
 |--------------------------------------------------------------------------
-| LOAD CLIENT PROFILE
+| LOAD PROFILE
 |--------------------------------------------------------------------------
 */
 
 async function loadClientProfile(
     user
 ) {
+
 
     const userDocument =
         await getDoc(
@@ -744,9 +1291,15 @@ async function loadClientProfile(
         );
 
 
-    if (!userDocument.exists()) {
+    if (
+        !userDocument.exists()
+    ) {
 
-        await signOut(auth);
+
+        await signOut(
+            auth
+        );
+
 
         window.location.href =
             "login.html";
@@ -765,7 +1318,11 @@ async function loadClientProfile(
         "client"
     ) {
 
-        await signOut(auth);
+
+        await signOut(
+            auth
+        );
+
 
         window.location.href =
             "login.html";
@@ -810,15 +1367,17 @@ async function loadClientProfile(
 }
 
 
+
 /*
 |--------------------------------------------------------------------------
-| LOAD CLIENT APPLICATIONS
+| LOAD APPLICATIONS
 |--------------------------------------------------------------------------
 */
 
 async function loadClientApplications(
     user
 ) {
+
 
     applicationContainer.innerHTML =
         `
@@ -834,37 +1393,38 @@ async function loadClientApplications(
 
     try {
 
-        /*
-         * We only request applications where
-         * customerId equals the logged-in user's UID.
-         */
 
         const applicationsQuery =
             query(
+
                 collection(
                     db,
                     "loanApplications"
                 ),
+
 
                 where(
                     "customerId",
                     "==",
                     user.uid
                 )
+
             );
 
 
-        const applicationsSnapshot =
+        const snapshot =
             await getDocs(
                 applicationsQuery
             );
 
 
-        const applications = [];
+        const applications =
+            [];
 
 
-        applicationsSnapshot.forEach(
-            (applicationDocument) => {
+        snapshot.forEach(
+            applicationDocument => {
+
 
                 applications.push({
 
@@ -888,6 +1448,7 @@ async function loadClientApplications(
             0
         ) {
 
+
             applicationSummary.textContent =
                 "No loan applications have been submitted.";
 
@@ -896,18 +1457,20 @@ async function loadClientApplications(
                 `
                 <div class="empty-state-real">
 
-                    <div class="empty-icon">
-                        +
-                    </div>
 
                     <h3>
                         No loan applications yet
                     </h3>
 
+
                     <p>
-                        When you submit an emergency loan
-                        application, its status will appear here.
+
+                        When you submit an emergency
+                        loan application, its status
+                        will appear here.
+
                     </p>
+
 
                     <a
                         href="apply.html"
@@ -920,54 +1483,51 @@ async function loadClientApplications(
                 </div>
                 `;
 
+
             return;
 
         }
 
 
         applicationSummary.textContent =
-            `${applications.length} loan application${applications.length === 1 ? "" : "s"} submitted.`;
+            `${applications.length} loan application${
+                applications.length === 1
+                    ? ""
+                    : "s"
+            } submitted.`;
 
-
-        /*
-         * Sort locally by createdAt if available.
-         * This avoids requiring a Firestore index.
-         */
 
         applications.sort(
             (a, b) => {
 
-                const dateA =
-                    getTimestampMillis(
-                        a.createdAt
-                    );
-
-                const dateB =
-                    getTimestampMillis(
-                        b.createdAt
-                    );
-
-                return dateB - dateA;
+                return getTime(
+                    b.updatedAt ||
+                    b.createdAt
+                )
+                -
+                getTime(
+                    a.updatedAt ||
+                    a.createdAt
+                );
 
             }
         );
 
-
-        /*
-         * Display the latest application first.
-         */
 
         applicationContainer.innerHTML =
             "";
 
 
         applications.forEach(
-            (application) => {
+            application => {
+
 
                 applicationContainer.appendChild(
+
                     createApplicationCard(
                         application
                     )
+
                 );
 
             }
@@ -977,6 +1537,7 @@ async function loadClientApplications(
 
     catch (error) {
 
+
         console.error(
             "Application loading error:",
             error
@@ -985,15 +1546,10 @@ async function loadClientApplications(
 
         applicationContainer.innerHTML =
             `
-            <div class="empty-state-real">
+            <div class="application-error">
 
-                <h3>
-                    Unable to load applications
-                </h3>
-
-                <p>
-                    Please refresh and try again.
-                </p>
+                Unable to load your applications.
+                Please refresh and try again.
 
             </div>
             `;
@@ -1001,6 +1557,7 @@ async function loadClientApplications(
     }
 
 }
+
 
 
 /*
@@ -1012,6 +1569,7 @@ async function loadClientApplications(
 function createApplicationCard(
     application
 ) {
+
 
     const card =
         document.createElement(
@@ -1043,8 +1601,14 @@ function createApplicationCard(
     const loanType =
         application.loanType ===
         "renewal"
-            ? "Loan Renewal"
-            : "First Loan";
+
+            ?
+
+            "Loan Renewal"
+
+            :
+
+            "First Loan";
 
 
     const amount =
@@ -1071,7 +1635,7 @@ function createApplicationCard(
         );
 
 
-    const createdDate =
+    const submitted =
         formatDate(
             application.createdAt
         );
@@ -1080,7 +1644,13 @@ function createApplicationCard(
     card.innerHTML =
         `
 
+
+        <!-- =====================================
+             APPLICATION HEADER
+        ====================================== -->
+
         <div class="application-top">
+
 
             <div>
 
@@ -1088,20 +1658,27 @@ function createApplicationCard(
                     Emergency Loan
                 </h3>
 
+
                 <div class="application-meta">
 
                     Application ID:
+
                     <strong>
+
                         ${escapeHTML(
                             application.id
                         )}
+
                     </strong>
+
 
                     <br>
 
+
                     Submitted:
+
                     ${escapeHTML(
-                        createdDate
+                        submitted
                     )}
 
                 </div>
@@ -1121,6 +1698,11 @@ function createApplicationCard(
         </div>
 
 
+
+        <!-- =====================================
+             LOAN DETAILS
+        ====================================== -->
+
         <div class="application-details-grid">
 
 
@@ -1130,10 +1712,13 @@ function createApplicationCard(
                     Loan Type
                 </small>
 
+
                 <strong>
+
                     ${escapeHTML(
                         loanType
                     )}
+
                 </strong>
 
             </div>
@@ -1145,11 +1730,14 @@ function createApplicationCard(
                     Selected Agent
                 </small>
 
+
                 <strong>
+
                     ${escapeHTML(
                         application.agentName ||
                         "-"
                     )}
+
                 </strong>
 
             </div>
@@ -1158,13 +1746,16 @@ function createApplicationCard(
             <div class="application-detail">
 
                 <small>
-                    Requested Amount
+                    Loan Amount
                 </small>
 
+
                 <strong>
+
                     ${escapeHTML(
                         amount
                     )}
+
                 </strong>
 
             </div>
@@ -1176,10 +1767,13 @@ function createApplicationCard(
                     Interest
                 </small>
 
+
                 <strong>
+
                     ${escapeHTML(
                         interest
                     )}
+
                 </strong>
 
             </div>
@@ -1188,13 +1782,16 @@ function createApplicationCard(
             <div class="application-detail">
 
                 <small>
-                    Maturity Amount
+                    Amount Due
                 </small>
 
+
                 <strong>
+
                     ${escapeHTML(
                         maturity
                     )}
+
                 </strong>
 
             </div>
@@ -1203,13 +1800,16 @@ function createApplicationCard(
             <div class="application-detail">
 
                 <small>
-                    Processing / Renewal Fee
+                    KSh 500 Fee
                 </small>
 
+
                 <strong>
+
                     ${escapeHTML(
                         fee
                     )}
+
                 </strong>
 
             </div>
@@ -1217,22 +1817,52 @@ function createApplicationCard(
         </div>
 
 
+
+        <!-- =====================================
+             TIMELINE
+        ====================================== -->
+
         ${createTimeline(
             application
         )}
 
+
+
+        <!-- =====================================
+             AGENT
+        ====================================== -->
 
         ${createAgentBox(
             application
         )}
 
 
+
+        <!-- =====================================
+             ADMIN
+        ====================================== -->
+
         ${createAdminBox(
             application
         )}
 
 
-        ${createPaymentBox(
+
+        <!-- =====================================
+             PAYMENT / COLLECTION
+        ====================================== -->
+
+        ${createCollectionSection(
+            application
+        )}
+
+
+
+        <!-- =====================================
+             ACTIONS
+        ====================================== -->
+
+        ${createApplicationActions(
             application
         )}
 
@@ -1244,9 +1874,10 @@ function createApplicationCard(
 }
 
 
+
 /*
 |--------------------------------------------------------------------------
-| APPLICATION TIMELINE
+| TIMELINE
 |--------------------------------------------------------------------------
 */
 
@@ -1254,12 +1885,14 @@ function createTimeline(
     application
 ) {
 
+
     const currentStatus =
         application.status ||
         "APPLICATION_SUBMITTED";
 
 
     const stages = [
+
 
         {
             key:
@@ -1272,60 +1905,30 @@ function createTimeline(
                 "Your loan application has been submitted."
         },
 
-        {
-            key:
-                "AGREEMENT_REQUIRED",
-
-            title:
-                "Agreement Required",
-
-            description:
-                "The loan agreement must be completed and signed."
-        },
-
-        {
-            key:
-                "DOCUMENTS_UPLOADED",
-
-            title:
-                "Documents Uploaded",
-
-            description:
-                "Required signed documents have been uploaded."
-        },
 
         {
             key:
                 "AWAITING_AGENT_VERIFICATION",
 
             title:
-                "Agent Verification",
+                "Awaiting Agent Verification",
 
             description:
-                "Your selected agent is reviewing your application."
+                "Your selected agent is processing the physical document handover."
         },
 
-        {
-            key:
-                "AGENT_VERIFIED",
-
-            title:
-                "Agent Verified",
-
-            description:
-                "Your agent has verified the application."
-        },
 
         {
             key:
                 "SENT_TO_ADMIN",
 
             title:
-                "Sent to Administration",
+                "Agent Verified",
 
             description:
-                "Your verified application is awaiting administrative review."
+                "Your agent has verified the application and sent it to administration."
         },
+
 
         {
             key:
@@ -1335,8 +1938,9 @@ function createTimeline(
                 "Administrative Review",
 
             description:
-                "The administrator is reviewing your application."
+                "Your application is being reviewed by administration."
         },
+
 
         {
             key:
@@ -1349,64 +1953,8 @@ function createTimeline(
                 "Your loan has been approved."
         },
 
-        {
-            key:
-                "PAYMENT_PENDING",
-
-            title:
-                "Fee Payment",
-
-            description:
-                "The required processing or renewal fee is awaiting confirmation."
-        },
 
         {
-            key:
-                "PAYMENT_CONFIRMED",
-
-            title:
-                "Payment Confirmed",
-
-            description:
-                "Your required fee has been confirmed."
-        },
-
-        {
-            key:
-                "READY_FOR_COLLECTION",
-
-            title:
-                "Ready for Collection",
-
-            description:
-                "Your approved cash is ready for collection from your agent."
-        },
-
-        {
-            key:
-                "CASH_COLLECTED",
-
-            title:
-                "Cash Collected",
-
-            description:
-                "The cash collection has been recorded."
-        }
-
-    ];
-
-
-    /*
-     * Handle rejected status separately.
-     */
-
-    if (
-        currentStatus ===
-        "REJECTED"
-    ) {
-
-        stages.push({
-
             key:
                 "REJECTED",
 
@@ -1416,14 +1964,34 @@ function createTimeline(
             description:
                 "Your application was not approved."
 
-        });
-
-    }
+        },
 
 
-    /*
-     * Determine progress position.
-     */
+        {
+            key:
+                "READY_FOR_COLLECTION",
+
+            title:
+                "Ready for Cash Collection",
+
+            description:
+                "Your approved cash is ready for collection from your selected agent."
+        },
+
+
+        {
+            key:
+                "CASH_COLLECTED",
+
+            title:
+                "Cash Collected",
+
+            description:
+                "Cash collection has been recorded."
+        }
+
+    ];
+
 
     const currentIndex =
         stages.findIndex(
@@ -1434,19 +2002,151 @@ function createTimeline(
 
 
     let html =
-        `<div class="status-timeline">`;
+        `
+        <div class="status-timeline">
+        `;
+
+
+    /*
+     * Rejected applications.
+     */
+
+    if (
+        currentStatus ===
+        "REJECTED"
+    ) {
+
+
+        html +=
+            `
+
+            <div
+                class="timeline-item completed">
+
+                <div
+                    class="timeline-dot">
+                </div>
+
+
+                <div
+                    class="timeline-content">
+
+                    <h4>
+                        Application Submitted
+                    </h4>
+
+                    <p>
+                        Your application was submitted.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="timeline-item current">
+
+                <div
+                    class="timeline-dot">
+                </div>
+
+
+                <div
+                    class="timeline-content">
+
+                    <h4>
+                        Application Rejected
+                    </h4>
+
+                    <p>
+                        Your application was not approved.
+                    </p>
+
+                </div>
+
+            </div>
+
+            `;
+
+
+        html +=
+            `</div>`;
+
+
+        return html;
+
+    }
+
+
+    /*
+     * Find current workflow position.
+     */
+
+    let index =
+        currentIndex;
+
+
+    /*
+     * If status is AGENT_VERIFIED,
+     * represent it as SENT_TO_ADMIN.
+     */
+
+    if (
+        currentStatus ===
+        "AGENT_VERIFIED"
+    ) {
+
+        index =
+            stages.findIndex(
+                stage =>
+                    stage.key ===
+                    "SENT_TO_ADMIN"
+            );
+
+    }
+
+
+    if (
+        index < 0
+    ) {
+
+        index =
+            0;
+
+    }
 
 
     stages.forEach(
-        (stage, index) => {
+        (stage, stageIndex) => {
+
+
+            /*
+             * Only show steps up to current
+             * stage plus one upcoming stage.
+             */
+
+            const visible =
+                stageIndex <=
+                index + 1;
+
+
+            if (
+                !visible
+            ) {
+
+                return;
+
+            }
+
 
             let itemClass =
                 "";
 
 
             if (
-                currentIndex >= 0 &&
-                index < currentIndex
+                stageIndex <
+                index
             ) {
 
                 itemClass =
@@ -1456,30 +2156,12 @@ function createTimeline(
 
 
             if (
-                index ===
-                currentIndex
+                stageIndex ===
+                index
             ) {
 
                 itemClass =
                     "current";
-
-            }
-
-
-            /*
-             * Don't show very late stages
-             * until they are relevant.
-             */
-
-            const relevant =
-                index <= currentIndex + 1;
-
-
-            if (
-                !relevant
-            ) {
-
-                return;
 
             }
 
@@ -1490,32 +2172,49 @@ function createTimeline(
                 <div
                     class="timeline-item ${itemClass}">
 
+
                     <div
                         class="timeline-dot">
                     </div>
 
+
                     ${
-                        index <
+                        stageIndex <
                         stages.length - 1
-                            ? `
-                            <div class="timeline-line">
+
+                            ?
+
+                            `
+                            <div
+                                class="timeline-line">
                             </div>
                             `
-                            : ""
+
+                            :
+
+                            ""
                     }
 
-                    <div class="timeline-content">
+
+                    <div
+                        class="timeline-content">
+
 
                         <h4>
+
                             ${escapeHTML(
                                 stage.title
                             )}
+
                         </h4>
 
+
                         <p>
+
                             ${escapeHTML(
                                 stage.description
                             )}
+
                         </p>
 
                     </div>
@@ -1529,7 +2228,9 @@ function createTimeline(
 
 
     html +=
-        `</div>`;
+        `
+        </div>
+        `;
 
 
     return html;
@@ -1537,9 +2238,10 @@ function createTimeline(
 }
 
 
+
 /*
 |--------------------------------------------------------------------------
-| AGENT VERIFICATION BOX
+| AGENT BOX
 |--------------------------------------------------------------------------
 */
 
@@ -1547,38 +2249,53 @@ function createAgentBox(
     application
 ) {
 
-    const verification =
+
+    const agentVerification =
         application.agentVerificationStatus ||
         "NOT_VERIFIED";
 
 
-    let message;
+    const documentsStatus =
+        application.documentsStatus ||
+        "NOT_RECEIVED";
+
+
+    const feeStatus =
+        application.feeStatus ||
+        "FEE_PENDING";
+
+
+    let message =
+        "Your selected agent is still processing your application.";
 
 
     if (
-        verification ===
+        agentVerification ===
         "VERIFIED"
+        ||
+        application.status ===
+        "SENT_TO_ADMIN"
+        ||
+        application.status ===
+        "ADMIN_REVIEW"
+        ||
+        application.status ===
+        "APPROVED"
     ) {
 
         message =
-            `Your selected agent has verified your application.`;
+            "Your selected agent has verified your application.";
 
     }
 
-    else if (
-        verification ===
+
+    if (
+        agentVerification ===
         "REJECTED"
     ) {
 
         message =
-            `Your agent did not verify the application.`;
-
-    }
-
-    else {
-
-        message =
-            `Your selected agent has not completed verification yet.`;
+            "Your selected agent did not verify your application.";
 
     }
 
@@ -1587,9 +2304,11 @@ function createAgentBox(
 
         <div class="workflow-box agent">
 
+
             <h4>
                 Agent Verification
             </h4>
+
 
             <p>
 
@@ -1602,19 +2321,51 @@ function createAgentBox(
                     "-"
                 )}
 
+
                 <br>
 
+
                 <strong>
-                    Status:
+                    Physical Documents:
                 </strong>
 
                 ${escapeHTML(
                     formatStatus(
-                        verification
+                        documentsStatus
                     )
                 )}
 
+
                 <br>
+
+
+                <strong>
+                    KSh 500 Fee:
+                </strong>
+
+                ${escapeHTML(
+                    formatStatus(
+                        feeStatus
+                    )
+                )}
+
+
+                <br>
+
+
+                <strong>
+                    Verification:
+                </strong>
+
+                ${escapeHTML(
+                    formatStatus(
+                        agentVerification
+                    )
+                )}
+
+
+                <br><br>
+
 
                 ${escapeHTML(
                     message
@@ -1629,9 +2380,10 @@ function createAgentBox(
 }
 
 
+
 /*
 |--------------------------------------------------------------------------
-| ADMIN DECISION BOX
+| ADMIN BOX
 |--------------------------------------------------------------------------
 */
 
@@ -1639,12 +2391,14 @@ function createAdminBox(
     application
 ) {
 
+
     const decision =
         application.adminDecision ||
         "PENDING";
 
 
-    let message;
+    let message =
+        "Your application is awaiting administrative review.";
 
 
     if (
@@ -1653,34 +2407,18 @@ function createAdminBox(
     ) {
 
         message =
-            "Your loan has been approved by administration.";
+            "Administration has approved your loan.";
 
     }
 
-    else if (
+
+    if (
         decision ===
         "REJECTED"
     ) {
 
         message =
-            "Your loan application was rejected by administration.";
-
-    }
-
-    else if (
-        decision ===
-        "MORE_INFORMATION_REQUIRED"
-    ) {
-
-        message =
-            "Administration requires additional information.";
-
-    }
-
-    else {
-
-        message =
-            "Your application is awaiting the final administrative decision.";
+            "Administration has rejected your loan application.";
 
     }
 
@@ -1689,9 +2427,11 @@ function createAdminBox(
 
         <div class="workflow-box admin">
 
+
             <h4>
                 Administrative Decision
             </h4>
+
 
             <p>
 
@@ -1705,7 +2445,9 @@ function createAdminBox(
                     )
                 )}
 
-                <br>
+
+                <br><br>
+
 
                 ${escapeHTML(
                     message
@@ -1720,44 +2462,405 @@ function createAdminBox(
 }
 
 
+
 /*
 |--------------------------------------------------------------------------
-| PAYMENT BOX
+| COLLECTION SECTION
 |--------------------------------------------------------------------------
 */
 
-function createPaymentBox(
+function createCollectionSection(
     application
 ) {
 
-    const paymentStatus =
-        application.paymentStatus ||
-        "NOT_REQUIRED_YET";
+
+    const status =
+        application.status ||
+        "";
+
+
+    const feeStatus =
+        application.feeStatus ||
+        "FEE_PENDING";
 
 
     /*
-     * We only show the payment box when
-     * approval/payment becomes relevant.
+     * Approved state.
      */
 
-    const relevantStatuses = [
+    if (
+        status ===
+        "APPROVED"
+    ) {
 
-        "APPROVED",
-        "PAYMENT_PENDING",
-        "PAYMENT_CONFIRMED",
-        "READY_FOR_COLLECTION",
+
+        const approvedAmount =
+            Number(
+                application.approvedAmount ||
+                application.requestedAmount ||
+                0
+            );
+
+
+        return `
+
+            <div class="collection-box">
+
+
+                <h3>
+                    LOAN APPROVED
+                </h3>
+
+
+                <p>
+
+                    Congratulations. Your Jitume Leo
+                    emergency loan has been approved
+                    by administration.
+
+                </p>
+
+
+                <div class="collection-amount">
+
+                    KSh
+                    ${approvedAmount.toLocaleString(
+                        "en-KE"
+                    )}
+
+                </div>
+
+
+                <p>
+
+                    Please collect the approved cash
+                    from your selected agent.
+
+                </p>
+
+
+                <div class="collection-agent">
+
+
+                    <strong>
+                        Collection Agent
+                    </strong>
+
+
+                    ${escapeHTML(
+                        application.agentName ||
+                        "-"
+                    )}
+
+
+                    <br><br>
+
+
+                    <strong>
+                        Agent Code
+                    </strong>
+
+
+                    ${escapeHTML(
+                        application.agentId ||
+                        "-"
+                    )}
+
+                </div>
+
+
+                <div class="workflow-box payment">
+
+
+                    <h4>
+                        KSh 500 Fee
+                    </h4>
+
+
+                    <p>
+
+                        Fee Status:
+
+                        <strong>
+
+                            ${escapeHTML(
+                                formatStatus(
+                                    feeStatus
+                                )
+                            )}
+
+                        </strong>
+
+
+                        <br><br>
+
+
+                        The KSh 500 first-loan
+                        processing fee or renewal
+                        fee was handled at the
+                        physical document handover
+                        stage.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /*
+     * Already marked ready for collection.
+     */
+
+    if (
+        status ===
+        "READY_FOR_COLLECTION"
+    ) {
+
+
+        const approvedAmount =
+            Number(
+                application.approvedAmount ||
+                application.requestedAmount ||
+                0
+            );
+
+
+        return `
+
+            <div class="collection-box">
+
+
+                <h3>
+                    READY FOR CASH COLLECTION
+                </h3>
+
+
+                <p>
+
+                    Your approved cash is ready
+                    for collection from:
+
+                </p>
+
+
+                <div class="collection-amount">
+
+                    KSh
+                    ${approvedAmount.toLocaleString(
+                        "en-KE"
+                    )}
+
+                </div>
+
+
+                <div class="collection-agent">
+
+
+                    <strong>
+                        Agent
+                    </strong>
+
+
+                    ${escapeHTML(
+                        application.agentName ||
+                        "-"
+                    )}
+
+                    <br><br>
+
+
+                    <strong>
+                        Agent Code
+                    </strong>
+
+
+                    ${escapeHTML(
+                        application.agentId ||
+                        "-"
+                    )}
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /*
+     * Cash already collected.
+     */
+
+    if (
+        status ===
         "CASH_COLLECTED"
+    ) {
 
-    ];
+
+        return `
+
+            <div class="collection-box">
+
+
+                <h3>
+                    CASH COLLECTED
+                </h3>
+
+
+                <p>
+
+                    The approved cash collection
+                    has been recorded successfully.
+
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+
+    return "";
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| APPLICATION ACTIONS
+|--------------------------------------------------------------------------
+*/
+
+function createApplicationActions(
+    application
+) {
+
+
+    const status =
+        application.status ||
+        "APPLICATION_SUBMITTED";
+
+
+    let actions =
+        "";
 
 
     if (
-        !relevantStatuses.includes(
-            application.status
-        )
-        &&
-        paymentStatus ===
-            "NOT_REQUIRED_YET"
+        status ===
+        "APPLICATION_SUBMITTED"
+    ) {
+
+
+        actions +=
+            `
+
+            <a
+                href="agreement.html?applicationId=${encodeURIComponent(
+                    application.id
+                )}"
+                class="action-button action-primary">
+
+                Continue to Agreement →
+
+            </a>
+
+            `;
+
+    }
+
+
+    if (
+        status ===
+        "AWAITING_AGENT_VERIFICATION"
+        ||
+        status ===
+        "DOCUMENTS_AWAITING_RECEIPT"
+    ) {
+
+
+        actions +=
+            `
+
+            <a
+                href="agreement.html?applicationId=${encodeURIComponent(
+                    application.id
+                )}"
+                class="action-button action-secondary">
+
+                View Agreement / Handover
+
+            </a>
+
+            `;
+
+    }
+
+
+    if (
+        status ===
+        "SENT_TO_ADMIN"
+        ||
+        status ===
+        "ADMIN_REVIEW"
+        ||
+        status ===
+        "APPROVED"
+    ) {
+
+
+        actions +=
+            `
+
+            <a
+                href="agreement.html?applicationId=${encodeURIComponent(
+                    application.id
+                )}"
+                class="action-button action-secondary">
+
+                View Agreement
+
+            </a>
+
+            `;
+
+    }
+
+
+    if (
+        status ===
+        "REJECTED"
+    ) {
+
+
+        actions +=
+            `
+
+            <a
+                href="agreement.html?applicationId=${encodeURIComponent(
+                    application.id
+                )}"
+                class="action-button action-secondary">
+
+                View Application
+
+            </a>
+
+            `;
+
+    }
+
+
+    if (
+        actions ===
+        ""
     ) {
 
         return "";
@@ -1767,39 +2870,9 @@ function createPaymentBox(
 
     return `
 
-        <div class="workflow-box payment">
+        <div class="application-action">
 
-            <h4>
-                Payment & Cash Collection
-            </h4>
-
-            <p>
-
-                <strong>
-                    Fee Status:
-                </strong>
-
-                ${escapeHTML(
-                    formatStatus(
-                        paymentStatus
-                    )
-                )}
-
-                <br>
-
-                ${
-                    application.status ===
-                    "READY_FOR_COLLECTION"
-                        ? `
-                        <br>
-                        <strong>
-                            Your approved cash is ready for collection from your selected agent.
-                        </strong>
-                        `
-                        : ""
-                }
-
-            </p>
+            ${actions}
 
         </div>
 
@@ -1808,9 +2881,10 @@ function createPaymentBox(
 }
 
 
+
 /*
 |--------------------------------------------------------------------------
-| STATUS FORMATTING
+| FORMAT STATUS
 |--------------------------------------------------------------------------
 */
 
@@ -1818,73 +2892,112 @@ function formatStatus(
     status
 ) {
 
+
     const map = {
+
 
         APPLICATION_SUBMITTED:
             "Application Submitted",
 
-        AGREEMENT_REQUIRED:
-            "Agreement Required",
-
-        DOCUMENTS_UPLOADED:
-            "Documents Uploaded",
 
         AWAITING_AGENT_VERIFICATION:
             "Awaiting Agent Verification",
 
-        AGENT_VERIFIED:
-            "Agent Verified",
 
-        SENT_TO_ADMIN:
-            "Sent to Administration",
+        CLIENT_HANDOVER_REPORTED:
+            "Client Reported Handover",
 
-        ADMIN_REVIEW:
-            "Administrative Review",
 
-        APPROVED:
-            "Approved",
+        DOCUMENTS_AWAITING_RECEIPT:
+            "Documents Awaiting Receipt",
 
-        REJECTED:
-            "Rejected",
 
-        MORE_INFORMATION_REQUIRED:
-            "More Information Required",
+        DOCUMENTS_RECEIVED:
+            "Documents Received",
 
-        PAYMENT_PENDING:
-            "Payment Pending",
 
-        PAYMENT_CONFIRMED:
-            "Payment Confirmed",
+        NOT_RECEIVED:
+            "Not Received",
 
-        READY_FOR_COLLECTION:
-            "Ready for Cash Collection",
 
-        CASH_COLLECTED:
-            "Cash Collected",
+        FEE_PENDING:
+            "Fee Pending",
+
+
+        FEE_AWAITING_AGENT_CONFIRMATION:
+            "Fee Awaiting Confirmation",
+
+
+        FEE_RECEIVED:
+            "Fee Received",
+
 
         NOT_VERIFIED:
             "Not Yet Verified",
 
+
         VERIFIED:
             "Verified",
 
-        PENDING:
-            "Pending",
 
-        NOT_REQUIRED_YET:
-            "Not Required Yet"
+        AGENT_VERIFIED:
+            "Agent Verified",
+
+
+        SENT_TO_ADMIN:
+            "Sent to Administration",
+
+
+        ADMIN_REVIEW:
+            "Administrative Review",
+
+
+        APPROVED:
+            "Approved",
+
+
+        REJECTED:
+            "Rejected",
+
+
+        PAYMENT_PENDING:
+            "Payment Pending",
+
+
+        PAYMENT_CONFIRMED:
+            "Payment Confirmed",
+
+
+        READY_FOR_COLLECTION:
+            "Ready for Cash Collection",
+
+
+        CASH_COLLECTED:
+            "Cash Collected",
+
+
+        PENDING:
+            "Pending"
 
     };
 
 
-    return map[status] ||
-        String(status)
-            .replaceAll(
-                "_",
-                " "
-            );
+    return map[
+        status
+    ]
+
+    ||
+
+    String(
+        status
+    )
+    .replaceAll(
+        "_",
+        " "
+    );
 
 }
+
 
 
 /*
@@ -1897,17 +3010,27 @@ function getStatusClass(
     status
 ) {
 
+
     if (
+
         [
-            "APPROVED",
+
             "AGENT_VERIFIED",
+
+            "SENT_TO_ADMIN",
+
+            "APPROVED",
+
             "PAYMENT_CONFIRMED",
+
             "READY_FOR_COLLECTION",
-            "CASH_COLLECTED",
-            "VERIFIED"
+
+            "CASH_COLLECTED"
+
         ].includes(
             status
         )
+
     ) {
 
         return "success";
@@ -1916,11 +3039,8 @@ function getStatusClass(
 
 
     if (
-        [
-            "REJECTED"
-        ].includes(
-            status
-        )
+        status ===
+        "REJECTED"
     ) {
 
         return "danger";
@@ -1933,6 +3053,30 @@ function getStatusClass(
 }
 
 
+
+/*
+|--------------------------------------------------------------------------
+| CURRENCY
+|--------------------------------------------------------------------------
+*/
+
+function formatCurrency(
+    value
+) {
+
+
+    return "KSh " +
+
+        Number(
+            value || 0
+        ).toLocaleString(
+            "en-KE"
+        );
+
+}
+
+
+
 /*
 |--------------------------------------------------------------------------
 | DATE
@@ -1943,9 +3087,8 @@ function formatDate(
     timestamp
 ) {
 
-    if (
-        !timestamp
-    ) {
+
+    if (!timestamp) {
 
         return "-";
 
@@ -1953,6 +3096,7 @@ function formatDate(
 
 
     try {
+
 
         let date;
 
@@ -1992,6 +3136,7 @@ function formatDate(
         return date.toLocaleDateString(
             "en-KE",
             {
+
                 day:
                     "2-digit",
 
@@ -2000,6 +3145,7 @@ function formatDate(
 
                 year:
                     "numeric"
+
             }
         );
 
@@ -2016,19 +3162,19 @@ function formatDate(
 }
 
 
+
 /*
 |--------------------------------------------------------------------------
-| TIMESTAMP TO MILLISECONDS
+| TIME
 |--------------------------------------------------------------------------
 */
 
-function getTimestampMillis(
+function getTime(
     timestamp
 ) {
 
-    if (
-        !timestamp
-    ) {
+
+    if (!timestamp) {
 
         return 0;
 
@@ -2036,6 +3182,7 @@ function getTimestampMillis(
 
 
     try {
+
 
         if (
             typeof timestamp.toMillis ===
@@ -2074,6 +3221,7 @@ function getTimestampMillis(
 }
 
 
+
 /*
 |--------------------------------------------------------------------------
 | ESCAPE HTML
@@ -2083,6 +3231,7 @@ function getTimestampMillis(
 function escapeHTML(
     value
 ) {
+
 
     const div =
         document.createElement(
@@ -2101,6 +3250,7 @@ function escapeHTML(
 }
 
 
+
 /*
 |--------------------------------------------------------------------------
 | LOGOUT
@@ -2111,20 +3261,22 @@ logoutButton.addEventListener(
     "click",
     async () => {
 
+
         try {
+
 
             await signOut(
                 auth
             );
+
 
             window.location.href =
                 "login.html";
 
         }
 
-        catch (
-            error
-        ) {
+        catch (error) {
+
 
             console.error(
                 "Logout error:",
