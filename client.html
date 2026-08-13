@@ -12,7 +12,6 @@
 
     <link rel="stylesheet" href="style.css">
 
-
     <style>
 
         * {
@@ -29,22 +28,10 @@
             font: inherit;
         }
 
-
-        /* =====================================================
-           PAGE
-        ===================================================== */
-
         .client-page {
-
-            width:
-                min(1120px, calc(100% - 28px));
-
-            margin:
-                0 auto;
-
-            padding:
-                26px 0 45px;
-
+            width: min(1120px, calc(100% - 28px));
+            margin: 0 auto;
+            padding: 26px 0 45px;
         }
 
 
@@ -56,29 +43,15 @@
             margin-bottom: 18px;
         }
 
-
         .client-header h1 {
-
-            margin:
-                4px 0 5px;
-
-            font-size:
-                27px;
-
+            margin: 4px 0 5px;
+            font-size: 27px;
         }
 
-
         .client-subtext {
-
-            margin:
-                0;
-
-            color:
-                #6d7788;
-
-            font-size:
-                13px;
-
+            margin: 0;
+            color: #6d7788;
+            font-size: 13px;
         }
 
 
@@ -87,146 +60,61 @@
         ===================================================== */
 
         .client-menu {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-
-            gap:
-                12px;
-
-            margin-bottom:
-                18px;
-
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin-bottom: 18px;
         }
-
 
         .client-menu-button {
-
-            border:
-                1px solid #e1e6eb;
-
-            background:
-                #ffffff;
-
-            border-radius:
-                12px;
-
-            padding:
-                16px;
-
-            text-align:
-                left;
-
-            cursor:
-                pointer;
-
-            transition:
-                .18s ease;
-
-            box-shadow:
-                0 5px 15px
-                rgba(30,45,65,.04);
-
+            border: 1px solid #e1e6eb;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: left;
+            cursor: pointer;
+            transition: .18s ease;
+            box-shadow: 0 5px 15px rgba(30,45,65,.04);
         }
-
 
         .client-menu-button:hover {
-
-            border-color:
-                #168a63;
-
-            transform:
-                translateY(-1px);
-
+            border-color: #168a63;
+            transform: translateY(-1px);
         }
-
 
         .client-menu-button.active {
-
-            background:
-                #f0faf6;
-
-            border-color:
-                #168a63;
-
+            background: #f0faf6;
+            border-color: #168a63;
         }
-
 
         .client-menu-icon {
-
-            width:
-                34px;
-
-            height:
-                34px;
-
-            border-radius:
-                9px;
-
-            background:
-                #eef2f6;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            margin-bottom:
-                10px;
-
-            font-size:
-                13px;
-
-            font-weight:
-                800;
-
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: #eef2f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-size: 13px;
+            font-weight: 800;
         }
 
-
-        .client-menu-button.active
-        .client-menu-icon {
-
-            background:
-                #168a63;
-
-            color:
-                #ffffff;
-
+        .client-menu-button.active .client-menu-icon {
+            background: #168a63;
+            color: #ffffff;
         }
-
 
         .client-menu-button h3 {
-
-            margin:
-                0 0 4px;
-
-            font-size:
-                16px;
-
+            margin: 0 0 4px;
+            font-size: 16px;
         }
 
-
         .client-menu-button p {
-
-            margin:
-                0;
-
-            color:
-                #6d7788;
-
-            font-size:
-                11px;
-
-            line-height:
-                1.5;
-
+            margin: 0;
+            color: #6d7788;
+            font-size: 11px;
+            line-height: 1.5;
         }
 
 
@@ -242,60 +130,27 @@
             display: none;
         }
 
-
         .summary-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(4, minmax(0, 1fr));
-
-            gap:
-                10px;
-
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
         }
-
 
         .summary-card {
-
-            background:
-                #ffffff;
-
-            border:
-                1px solid #e4e8ed;
-
-            border-radius:
-                10px;
-
-            padding:
-                13px 15px;
-
+            background: #ffffff;
+            border: 1px solid #e4e8ed;
+            border-radius: 10px;
+            padding: 13px 15px;
         }
-
 
         .summary-card small {
-
-            display:
-                block;
-
-            color:
-                #7b8794;
-
-            font-size:
-                9px;
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                .5px;
-
-            margin-bottom:
-                4px;
-
+            display: block;
+            color: #7b8794;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: .5px;
+            margin-bottom: 4px;
         }
-
 
         .summary-card strong {
             font-size: 21px;
@@ -307,53 +162,24 @@
         ===================================================== */
 
         .client-account-box {
-
-            background:
-                #ffffff;
-
-            border:
-                1px solid #e4e8ed;
-
-            border-radius:
-                10px;
-
-            padding:
-                14px 16px;
-
-            margin-top:
-                12px;
-
+            background: #ffffff;
+            border: 1px solid #e4e8ed;
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-top: 12px;
         }
-
 
         .client-account-top {
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            align-items:
-                center;
-
-            gap:
-                12px;
-
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
         }
 
-
         .client-account-box p {
-
-            margin:
-                3px 0 0;
-
-            color:
-                #667085;
-
-            font-size:
-                11px;
-
+            margin: 3px 0 0;
+            color: #667085;
+            font-size: 11px;
         }
 
 
@@ -362,70 +188,33 @@
         ===================================================== */
 
         .status-pill {
-
-            display:
-                inline-block;
-
-            padding:
-                5px 8px;
-
-            border-radius:
-                20px;
-
-            font-size:
-                8px;
-
-            font-weight:
-                800;
-
-            white-space:
-                nowrap;
-
+            display: inline-block;
+            padding: 5px 8px;
+            border-radius: 20px;
+            font-size: 8px;
+            font-weight: 800;
+            white-space: nowrap;
         }
-
 
         .status-active,
         .status-approved {
-
-            background:
-                #e8f7ef;
-
-            color:
-                #168a63;
-
+            background: #e8f7ef;
+            color: #168a63;
         }
-
 
         .status-pending {
-
-            background:
-                #fff5db;
-
-            color:
-                #8a6200;
-
+            background: #fff5db;
+            color: #8a6200;
         }
-
 
         .status-rejected {
-
-            background:
-                #fdeceb;
-
-            color:
-                #b42318;
-
+            background: #fdeceb;
+            color: #b42318;
         }
 
-
         .status-review {
-
-            background:
-                #eef5ff;
-
-            color:
-                #355070;
-
+            background: #eef5ff;
+            color: #355070;
         }
 
 
@@ -434,87 +223,39 @@
         ===================================================== */
 
         .client-panel {
-
-            display:
-                none;
-
+            display: none;
         }
-
 
         .client-panel.active {
-
-            display:
-                block;
-
+            display: block;
         }
-
 
         .panel-header {
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            align-items:
-                center;
-
-            gap:
-                12px;
-
-            margin:
-                5px 0 14px;
-
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin: 5px 0 14px;
         }
-
 
         .panel-header h2 {
-
-            margin:
-                3px 0;
-
-            font-size:
-                21px;
-
+            margin: 3px 0;
+            font-size: 21px;
         }
-
 
         .panel-header p {
-
-            margin:
-                0;
-
-            color:
-                #6d7788;
-
-            font-size:
-                12px;
-
+            margin: 0;
+            color: #6d7788;
+            font-size: 12px;
         }
 
-
         .panel {
-
-            background:
-                #ffffff;
-
-            border:
-                1px solid #e4e8ed;
-
-            border-radius:
-                12px;
-
-            padding:
-                15px;
-
-            box-shadow:
-                0 5px 15px
-                rgba(30,45,65,.03);
-
-            margin-bottom:
-                12px;
-
+            background: #ffffff;
+            border: 1px solid #e4e8ed;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(30,45,65,.03);
+            margin-bottom: 12px;
         }
 
 
@@ -523,78 +264,31 @@
         ===================================================== */
 
         .client-btn {
-
-            border:
-                none;
-
-            border-radius:
-                7px;
-
-            padding:
-                9px 13px;
-
-            font-size:
-                11px;
-
-            font-weight:
-                700;
-
-            cursor:
-                pointer;
-
-            text-decoration:
-                none;
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
+            border: none;
+            border-radius: 7px;
+            padding: 9px 13px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
-
 
         .client-btn-primary {
-
-            background:
-                #168a63;
-
-            color:
-                #ffffff;
-
+            background: #168a63;
+            color: #ffffff;
         }
-
 
         .client-btn-light {
-
-            background:
-                #eef2f6;
-
-            color:
-                #273142;
-
+            background: #eef2f6;
+            color: #273142;
         }
-
 
         .client-btn-print {
-
-            background:
-                #273142;
-
-            color:
-                #ffffff;
-
-        }
-
-
-        .client-btn:hover {
-
-            opacity:
-                .92;
-
+            background: #273142;
+            color: #ffffff;
         }
 
 
@@ -603,139 +297,63 @@
         ===================================================== */
 
         .application-card {
-
-            border:
-                1px solid #e4e8ed;
-
-            border-radius:
-                10px;
-
-            padding:
-                14px;
-
-            margin-bottom:
-                9px;
-
+            border: 1px solid #e4e8ed;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 9px;
         }
-
 
         .application-top {
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            align-items:
-                flex-start;
-
-            gap:
-                12px;
-
-            margin-bottom:
-                11px;
-
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 11px;
         }
-
 
         .application-top h3 {
-
-            margin:
-                0 0 3px;
-
-            font-size:
-                15px;
-
+            margin: 0 0 3px;
+            font-size: 15px;
         }
 
-
         .application-meta {
-
-            color:
-                #667085;
-
-            font-size:
-                10px;
-
-            line-height:
-                1.55;
-
+            color: #667085;
+            font-size: 10px;
+            line-height: 1.55;
         }
 
 
         /* =====================================================
-           AGENT INFO
+           AGENT INFORMATION
         ===================================================== */
 
         .agent-information {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-
-            gap:
-                7px;
-
-            margin-bottom:
-                10px;
-
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 7px;
+            margin-bottom: 10px;
         }
-
 
         .agent-information-box {
-
-            background:
-                #f0faf6;
-
-            border:
-                1px solid #d8ece2;
-
-            border-radius:
-                7px;
-
-            padding:
-                9px;
-
+            background: #f0faf6;
+            border: 1px solid #d8ece2;
+            border-radius: 7px;
+            padding: 9px;
         }
-
 
         .agent-information-box small {
-
-            display:
-                block;
-
-            color:
-                #5f806f;
-
-            font-size:
-                8px;
-
-            text-transform:
-                uppercase;
-
-            margin-bottom:
-                3px;
-
+            display: block;
+            color: #5f806f;
+            font-size: 8px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
         }
 
-
         .agent-information-box strong {
-
-            display:
-                block;
-
-            color:
-                #1f4d3d;
-
-            font-size:
-                11px;
-
-            word-break:
-                break-word;
-
+            display: block;
+            color: #1f4d3d;
+            font-size: 11px;
+            word-break: break-word;
         }
 
 
@@ -744,58 +362,27 @@
         ===================================================== */
 
         .application-details {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(4, minmax(0, 1fr));
-
-            gap:
-                7px;
-
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 7px;
         }
-
 
         .detail-box {
-
-            background:
-                #f7f9fc;
-
-            border-radius:
-                7px;
-
-            padding:
-                8px;
-
+            background: #f7f9fc;
+            border-radius: 7px;
+            padding: 8px;
         }
-
 
         .detail-box small {
-
-            display:
-                block;
-
-            color:
-                #7b8794;
-
-            font-size:
-                8px;
-
-            text-transform:
-                uppercase;
-
-            margin-bottom:
-                3px;
-
+            display: block;
+            color: #7b8794;
+            font-size: 8px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
         }
 
-
         .detail-box strong {
-
-            font-size:
-                11px;
-
+            font-size: 11px;
         }
 
 
@@ -804,92 +391,41 @@
         ===================================================== */
 
         .repayment-highlight {
-
-            margin-top:
-                11px;
-
-            padding:
-                12px;
-
-            border-radius:
-                8px;
-
-            background:
-                #f0faf6;
-
-            border:
-                1px solid #cdebdc;
-
+            margin-top: 11px;
+            padding: 12px;
+            border-radius: 8px;
+            background: #f0faf6;
+            border: 1px solid #cdebdc;
         }
-
 
         .repayment-highlight-title {
-
-            font-size:
-                11px;
-
-            font-weight:
-                800;
-
-            color:
-                #166b50;
-
-            margin-bottom:
-                8px;
-
+            font-size: 11px;
+            font-weight: 800;
+            color: #166b50;
+            margin-bottom: 8px;
         }
-
 
         .repayment-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-
-            gap:
-                7px;
-
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 7px;
         }
-
 
         .repayment-item {
-
-            background:
-                #ffffff;
-
-            border-radius:
-                7px;
-
-            padding:
-                8px;
-
+            background: #ffffff;
+            border-radius: 7px;
+            padding: 8px;
         }
-
 
         .repayment-item small {
-
-            display:
-                block;
-
-            color:
-                #667085;
-
-            font-size:
-                8px;
-
-            margin-bottom:
-                3px;
-
+            display: block;
+            color: #667085;
+            font-size: 8px;
+            margin-bottom: 3px;
         }
 
-
         .repayment-item strong {
-
-            font-size:
-                11px;
-
+            font-size: 11px;
         }
 
 
@@ -898,104 +434,50 @@
         ===================================================== */
 
         .approval-box {
-
-            margin-top:
-                11px;
-
-            padding:
-                13px;
-
-            border-radius:
-                8px;
-
+            margin-top: 11px;
+            padding: 13px;
+            border-radius: 8px;
         }
-
 
         .approval-box.success {
-
-            background:
-                #e8f7ef;
-
-            border:
-                1px solid #cdebdc;
-
-            color:
-                #166b50;
-
+            background: #e8f7ef;
+            border: 1px solid #cdebdc;
+            color: #166b50;
         }
-
 
         .approval-box.warning {
-
-            background:
-                #fff8e7;
-
-            border:
-                1px solid #f0dfac;
-
-            color:
-                #795900;
-
+            background: #fff8e7;
+            border: 1px solid #f0dfac;
+            color: #795900;
         }
-
 
         .approval-box.danger {
-
-            background:
-                #fff0f0;
-
-            border:
-                1px solid #f1c0c0;
-
-            color:
-                #8f211b;
-
+            background: #fff0f0;
+            border: 1px solid #f1c0c0;
+            color: #8f211b;
         }
-
 
         .approval-box h4 {
-
-            margin:
-                0 0 5px;
-
-            font-size:
-                13px;
-
+            margin: 0 0 5px;
+            font-size: 13px;
         }
 
-
         .approval-box p {
-
-            margin:
-                0;
-
-            font-size:
-                10px;
-
-            line-height:
-                1.55;
-
+            margin: 0;
+            font-size: 10px;
+            line-height: 1.55;
         }
 
 
         /* =====================================================
-           APPLICATION ACTIONS
+           ACTIONS
         ===================================================== */
 
         .application-actions {
-
-            display:
-                flex;
-
-            gap:
-                6px;
-
-            flex-wrap:
-                wrap;
-
-            margin-top:
-                11px;
-
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 11px;
         }
 
 
@@ -1004,61 +486,28 @@
         ===================================================== */
 
         .profile-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-
-            gap:
-                8px;
-
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
         }
-
 
         .profile-item {
-
-            background:
-                #f7f9fc;
-
-            border-radius:
-                7px;
-
-            padding:
-                9px;
-
+            background: #f7f9fc;
+            border-radius: 7px;
+            padding: 9px;
         }
-
 
         .profile-item small {
-
-            display:
-                block;
-
-            color:
-                #7b8794;
-
-            font-size:
-                8px;
-
-            margin-bottom:
-                3px;
-
-            text-transform:
-                uppercase;
-
+            display: block;
+            color: #7b8794;
+            font-size: 8px;
+            margin-bottom: 3px;
+            text-transform: uppercase;
         }
 
-
         .profile-item strong {
-
-            font-size:
-                11px;
-
-            word-break:
-                break-word;
-
+            font-size: 11px;
+            word-break: break-word;
         }
 
 
@@ -1068,209 +517,96 @@
 
         .empty-state,
         .loading-state {
-
-            text-align:
-                center;
-
-            padding:
-                28px 15px;
-
-            color:
-                #667085;
-
-            font-size:
-                12px;
-
+            text-align: center;
+            padding: 28px 15px;
+            color: #667085;
+            font-size: 12px;
         }
 
 
         /* =====================================================
-           PRINT AREA
+           PRINT DOCUMENT
         ===================================================== */
 
         #printSchedule {
-
-            display:
-                none;
-
+            display: none;
         }
-
 
         .print-page {
-
-            font-family:
-                Arial,
-                sans-serif;
-
-            color:
-                #111827;
-
-            max-width:
-                800px;
-
-            margin:
-                0 auto;
-
-            padding:
-                35px;
-
+            font-family: Arial, sans-serif;
+            color: #111827;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 35px;
         }
-
 
         .print-header {
-
-            text-align:
-                center;
-
-            border-bottom:
-                2px solid #168a63;
-
-            padding-bottom:
-                15px;
-
-            margin-bottom:
-                20px;
-
+            text-align: center;
+            border-bottom: 2px solid #168a63;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
         }
-
 
         .print-header h1 {
-
-            margin:
-                0 0 5px;
-
-            font-size:
-                25px;
-
+            margin: 0 0 5px;
+            font-size: 25px;
         }
-
 
         .print-header p {
-
-            margin:
-                2px 0;
-
-            font-size:
-                12px;
-
+            margin: 2px 0;
+            font-size: 12px;
         }
-
 
         .print-section {
-
-            margin-bottom:
-                20px;
-
+            margin-bottom: 20px;
         }
-
 
         .print-section h3 {
-
-            font-size:
-                15px;
-
-            border-bottom:
-                1px solid #d7dde5;
-
-            padding-bottom:
-                6px;
-
-            margin-bottom:
-                10px;
-
+            font-size: 15px;
+            border-bottom: 1px solid #d7dde5;
+            padding-bottom: 6px;
+            margin-bottom: 10px;
         }
-
 
         .print-table {
-
-            width:
-                100%;
-
-            border-collapse:
-                collapse;
-
+            width: 100%;
+            border-collapse: collapse;
         }
-
 
         .print-table th,
         .print-table td {
-
-            border:
-                1px solid #d7dde5;
-
-            padding:
-                8px;
-
-            text-align:
-                left;
-
-            font-size:
-                11px;
-
+            border: 1px solid #d7dde5;
+            padding: 8px;
+            text-align: left;
+            font-size: 11px;
         }
-
 
         .print-table th {
-
-            background:
-                #f3f5f7;
-
+            background: #f3f5f7;
         }
-
 
         .terms-list {
-
-            margin:
-                0;
-
-            padding-left:
-                20px;
-
+            margin: 0;
+            padding-left: 20px;
         }
-
 
         .terms-list li {
-
-            margin-bottom:
-                7px;
-
-            font-size:
-                11px;
-
-            line-height:
-                1.55;
-
+            margin-bottom: 7px;
+            font-size: 11px;
+            line-height: 1.55;
         }
-
 
         .print-signatures {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap:
-                50px;
-
-            margin-top:
-                45px;
-
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 45px;
         }
 
-
         .signature-line {
-
-            border-top:
-                1px solid #333;
-
-            padding-top:
-                7px;
-
-            font-size:
-                10px;
-
+            border-top: 1px solid #333;
+            padding-top: 7px;
+            font-size: 10px;
         }
 
 
@@ -1281,152 +617,81 @@
         @media (max-width: 900px) {
 
             .summary-grid {
-
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-
 
             .application-details {
-
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-
 
             .agent-information {
-
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-
             .repayment-grid {
-
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
         }
-
 
         @media (max-width: 650px) {
 
             .client-page {
-
-                width:
-                    min(100% - 20px, 560px);
-
-                padding-top:
-                    18px;
-
+                width: min(100% - 20px, 560px);
+                padding-top: 18px;
             }
-
 
             .client-menu {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
-
 
             .summary-grid {
-
-                grid-template-columns:
-                    1fr 1fr;
-
+                grid-template-columns: 1fr 1fr;
             }
-
 
             .panel-header {
-
-                align-items:
-                    flex-start;
-
-                flex-direction:
-                    column;
-
+                align-items: flex-start;
+                flex-direction: column;
             }
-
 
             .application-top {
-
-                flex-direction:
-                    column;
-
+                flex-direction: column;
             }
-
 
             .agent-information {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
-
 
             .application-details {
-
-                grid-template-columns:
-                    1fr 1fr;
-
+                grid-template-columns: 1fr 1fr;
             }
 
-
             .repayment-grid {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
 
         }
 
-
         @media (max-width: 420px) {
 
             .client-page {
-
-                width:
-                    calc(100% - 14px);
-
+                width: calc(100% - 14px);
             }
-
 
             .summary-grid {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
-
 
             .application-details {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
-
 
             .profile-grid {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
 
-
             .panel {
-
-                padding:
-                    11px;
-
+                padding: 11px;
             }
 
         }
@@ -1439,64 +704,31 @@
         @media print {
 
             body * {
-
-                visibility:
-                    hidden !important;
-
+                visibility: hidden !important;
             }
-
 
             #printSchedule,
             #printSchedule * {
-
-                visibility:
-                    visible !important;
-
+                visibility: visible !important;
             }
-
 
             #printSchedule {
-
-                display:
-                    block !important;
-
-                position:
-                    absolute;
-
-                left:
-                    0;
-
-                top:
-                    0;
-
-                width:
-                    100%;
-
-                background:
-                    white;
-
+                display: block !important;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                background: #ffffff;
             }
-
 
             .print-page {
-
-                width:
-                    100%;
-
-                max-width:
-                    none;
-
-                padding:
-                    20px;
-
+                width: 100%;
+                max-width: none;
+                padding: 20px;
             }
 
-
             @page {
-
-                margin:
-                    15mm;
-
+                margin: 15mm;
             }
 
         }
@@ -1515,7 +747,6 @@
         JITUME <span>LEO</span>
     </div>
 
-
     <nav>
 
         <a href="client.html">
@@ -1523,7 +754,6 @@
         </a>
 
     </nav>
-
 
     <div class="nav-buttons">
 
@@ -1554,7 +784,6 @@
             CLIENT DASHBOARD
         </p>
 
-
         <h1>
 
             Welcome,
@@ -1564,7 +793,6 @@
             </span>
 
         </h1>
-
 
         <p class="client-subtext">
 
@@ -1604,7 +832,6 @@
         </button>
 
 
-
         <button
             type="button"
             class="client-menu-button"
@@ -1623,7 +850,6 @@
             </p>
 
         </button>
-
 
 
         <button
@@ -1725,7 +951,6 @@
                         Account
                     </strong>
 
-
                     <p id="homeAccountMessage">
                         Loading account status...
                     </p>
@@ -1766,11 +991,9 @@
                     APPLICATIONS
                 </p>
 
-
                 <h2>
                     My Loan Applications
                 </h2>
-
 
                 <p>
                     Track every application.
@@ -1809,9 +1032,7 @@
             <div id="applicationsContainer">
 
                 <div class="loading-state">
-
                     Loading applications...
-
                 </div>
 
             </div>
@@ -1839,11 +1060,9 @@
                     MY LOAN
                 </p>
 
-
                 <h2>
                     Current Loan
                 </h2>
-
 
                 <p>
                     Loan terms and repayment schedule.
@@ -1869,9 +1088,7 @@
             <div id="currentLoanContainer">
 
                 <div class="loading-state">
-
                     Loading current loan...
-
                 </div>
 
             </div>
@@ -1898,7 +1115,6 @@
                 <p class="small-heading">
                     MY PROFILE
                 </p>
-
 
                 <h2>
                     Account Information
@@ -2000,7 +1216,7 @@
 
 
 <!-- =====================================================
-     PRINTABLE REPAYMENT SCHEDULE
+     PRINT DOCUMENT
 ====================================================== -->
 
 <div id="printSchedule">
@@ -2015,11 +1231,9 @@
                 JITUME LEO
             </h1>
 
-
             <p>
                 EMERGENCY LOAN REPAYMENT SCHEDULE
             </p>
-
 
             <p id="printApplicationId">
                 Application ID: -
@@ -2175,7 +1389,7 @@
                         Renewal Amount
                     </th>
 
-                    <td id="printRenewalAmount">
+                    <td>
                         KSh 1,500
                     </td>
 
@@ -2239,7 +1453,7 @@
                     <tr>
 
                         <td>
-                            Monthly Maturity Payment
+                            Full Repayment
                         </td>
 
                         <td id="printScheduleDate">
@@ -2251,8 +1465,7 @@
                         </td>
 
                         <td>
-                            Full repayment of principal
-                            plus interest
+                            Principal plus interest
                         </td>
 
                     </tr>
@@ -2261,7 +1474,7 @@
                     <tr>
 
                         <td>
-                            Renewal Option
+                            Renewal
                         </td>
 
                         <td id="printRenewalDate">
@@ -2273,8 +1486,8 @@
                         </td>
 
                         <td>
-                            Interest KSh 1,000
-                            + renewal fee KSh 500
+                            KSh 1,000 interest
+                            + KSh 500 renewal fee
                         </td>
 
                     </tr>
@@ -2297,90 +1510,66 @@
             <ol class="terms-list">
 
                 <li>
-
                     The standard emergency loan
                     principal is KSh 5,000.
-
                 </li>
 
 
                 <li>
-
-                    The interest on a KSh 5,000
-                    emergency loan is KSh 1,000.
-
+                    Interest on the KSh 5,000 loan
+                    is KSh 1,000.
                 </li>
 
 
                 <li>
-
-                    The full amount payable at
-                    maturity is KSh 6,000.
-
+                    The full amount payable at maturity
+                    is KSh 6,000.
                 </li>
 
 
                 <li>
-
-                    A first-loan processing fee of
-                    KSh 500 applies to the first loan.
-
+                    A KSh 500 processing fee applies
+                    to the first loan.
                 </li>
 
 
                 <li>
-
-                    A renewal fee of KSh 500 applies
-                    when the client chooses to renew.
-
+                    A KSh 500 renewal fee applies when
+                    the client chooses to renew.
                 </li>
 
 
                 <li>
-
-                    In case of renewal, the client
-                    pays KSh 1,000 interest plus the
-                    KSh 500 renewal fee, making
-                    KSh 1,500.
-
+                    A renewal requires payment of
+                    KSh 1,000 interest plus KSh 500
+                    renewal fee, totalling KSh 1,500.
                 </li>
 
 
                 <li>
-
                     The scheduled repayment date is
-                    the same date of the following month
-                    as the borrowing date.
-
+                    the same calendar date in the
+                    following month.
                 </li>
 
 
                 <li>
-
-                    Late repayment attracts an
-                    additional KSh 100 per day,
-                    added to the KSh 1,000 interest.
-
+                    Late repayment attracts an additional
+                    KSh 100 per day.
                 </li>
 
 
                 <li>
-
-                    The client must present the required
-                    signed agreement and identification
-                    documents to the selected agent.
-
+                    The client must complete the required
+                    signed agreement and provide the
+                    required identification documents.
                 </li>
 
 
                 <li>
-
-                    The original physical agreement and
-                    required identification documents are
-                    handled according to the Jitume Leo
-                    application and agent verification
-                    process.
-
+                    The original physical documents are
+                    handed to the selected agent for
+                    verification and record keeping.
                 </li>
 
             </ol>
@@ -2445,16 +1634,12 @@
         <div class="print-signatures">
 
             <div class="signature-line">
-
                 Client Signature
-
             </div>
 
 
             <div class="signature-line">
-
                 Date
-
             </div>
 
         </div>
@@ -2736,7 +1921,7 @@ async function loadClientProfile(
 
 
 /* =====================================================
-   LOAD AGENT
+   LOAD AGENT PROFILE
 ===================================================== */
 
 async function loadAgentProfile(
@@ -3282,9 +2467,14 @@ function renderCurrentLoan() {
 
 
     currentLoanContainer.innerHTML =
+        "";
+
+
+    currentLoanContainer.appendChild(
         createApplicationCard(
             activeLoans[0]
-        );
+        )
+    );
 
 }
 
@@ -3352,8 +2542,7 @@ function createApplicationCard(
     const fee =
         Number(
             application.processingOrRenewalFee
-        )
-        > 0
+        ) > 0
 
             ?
 
@@ -3410,8 +2599,8 @@ function createApplicationCard(
 
                     <br>
 
-
                     Type:
+
                     ${escapeHTML(
                         loanType
                     )}
@@ -3497,7 +2686,7 @@ function createApplicationCard(
 
 
 
-        <!-- LOAN -->
+        <!-- LOAN DETAILS -->
 
         <div class="application-details">
 
@@ -3528,7 +2717,8 @@ function createApplicationCard(
                 <strong>
 
                     ${formatCurrency(
-                        application.interestAmount
+                        application.interestAmount ||
+                        1000
                     )}
 
                 </strong>
@@ -3545,7 +2735,18 @@ function createApplicationCard(
                 <strong>
 
                     ${formatCurrency(
-                        application.totalMaturityAmount
+                        application.totalMaturityAmount ||
+                        (
+                            Number(
+                                application.requestedAmount ||
+                                5000
+                            )
+                            +
+                            Number(
+                                application.interestAmount ||
+                                1000
+                            )
+                        )
                     )}
 
                 </strong>
@@ -3594,9 +2795,7 @@ function createApplicationCard(
                 </small>
 
                 <strong>
-
                     KSh 1,500
-
                 </strong>
 
             </div>
@@ -3609,9 +2808,7 @@ function createApplicationCard(
                 </small>
 
                 <strong>
-
                     KSh 100/day
-
                 </strong>
 
             </div>
@@ -3652,95 +2849,91 @@ function createApplicationCard(
                 status
             )
 
-                ?
+            ?
 
-                `
+            `
+
+            <div
+                class="repayment-highlight">
+
 
                 <div
-                    class="repayment-highlight">
+                    class="repayment-highlight-title">
+
+                    REPAYMENT SCHEDULE
+
+                </div>
 
 
-                    <div
-                        class="repayment-highlight-title">
+                <div class="repayment-grid">
 
-                        REPAYMENT SCHEDULE
+
+                    <div class="repayment-item">
+
+                        <small>
+                            Next Payment Date
+                        </small>
+
+                        <strong>
+
+                            ${escapeHTML(
+                                nextPaymentDate
+                            )}
+
+                        </strong>
 
                     </div>
 
 
-                    <div class="repayment-grid">
+                    <div class="repayment-item">
+
+                        <small>
+                            Full Payment
+                        </small>
+
+                        <strong>
+
+                            ${formatCurrency(
+                                application.totalMaturityAmount ||
+                                6000
+                            )}
+
+                        </strong>
+
+                    </div>
 
 
-                        <div class="repayment-item">
+                    <div class="repayment-item">
 
-                            <small>
-                                Next Payment Date
-                            </small>
+                        <small>
+                            Renewal Payment
+                        </small>
 
-                            <strong>
-
-                                ${escapeHTML(
-                                    nextPaymentDate
-                                )}
-
-                            </strong>
-
-                        </div>
-
-
-                        <div class="repayment-item">
-
-                            <small>
-                                Full Payment
-                            </small>
-
-                            <strong>
-
-                                ${formatCurrency(
-                                    application.totalMaturityAmount ||
-                                    6000
-                                )}
-
-                            </strong>
-
-                        </div>
-
-
-                        <div class="repayment-item">
-
-                            <small>
-                                Renewal Payment
-                            </small>
-
-                            <strong>
-                                KSh 1,500
-                            </strong>
-
-                        </div>
+                        <strong>
+                            KSh 1,500
+                        </strong>
 
                     </div>
 
                 </div>
 
-                `
+            </div>
 
-                :
+            `
 
-                ""
+            :
+
+            ""
 
         }
 
 
-
-        <!-- STATUS -->
 
         ${createStatusBox(
             application
         )}
 
 
-
-        <!-- PRINT -->
 
         <div class="application-actions">
 
@@ -3761,11 +2954,17 @@ function createApplicationCard(
         `;
 
 
-    card
-        .querySelector(
+    const printButton =
+        card.querySelector(
             "[data-print-application]"
-        )
-        .addEventListener(
+        );
+
+
+    if (
+        printButton
+    ) {
+
+        printButton.addEventListener(
             "click",
             () => {
 
@@ -3775,6 +2974,8 @@ function createApplicationCard(
 
             }
         );
+
+    }
 
 
     return card;
@@ -3807,7 +3008,7 @@ function createStatusBox(
             Number(
                 application.approvedAmount ||
                 application.requestedAmount ||
-                0
+                5000
             );
 
 
@@ -3817,11 +3018,13 @@ function createStatusBox(
             )
             ||
             {
+
                 fullName:
                     "Agent",
 
                 agentCode:
                     "Not Assigned"
+
             };
 
 
@@ -3829,7 +3032,6 @@ function createStatusBox(
 
             <div
                 class="approval-box success">
-
 
                 <h4>
                     LOAN APPROVED
@@ -3840,37 +3042,27 @@ function createStatusBox(
 
                     Approved Amount:
                     <strong>
-
                         ${formatCurrency(
                             amount
                         )}
-
                     </strong>
 
-
                     <br>
-
 
                     Collection Agent:
                     <strong>
-
                         ${escapeHTML(
                             agent.fullName
                         )}
-
                     </strong>
-
 
                     <br>
 
-
                     Agent Code:
                     <strong>
-
                         ${escapeHTML(
                             agent.agentCode
                         )}
-
                     </strong>
 
                 </p>
@@ -3887,12 +3079,10 @@ function createStatusBox(
         "CASH_COLLECTED"
     ) {
 
-
         return `
 
             <div
                 class="approval-box success">
-
 
                 <h4>
                     CASH COLLECTED
@@ -3919,12 +3109,10 @@ function createStatusBox(
         "REJECTED"
     ) {
 
-
         return `
 
             <div
                 class="approval-box danger">
-
 
                 <h4>
                     APPLICATION REJECTED
@@ -3934,7 +3122,6 @@ function createStatusBox(
                 <p>
 
                     Your application was not approved.
-
 
                     ${
                         application.adminDenialReason
@@ -3948,6 +3135,7 @@ function createStatusBox(
                         ${escapeHTML(
                             application.adminDenialReason
                         )}
+
                         `
 
                         :
@@ -3970,12 +3158,10 @@ function createStatusBox(
         "SENT_TO_ADMIN"
     ) {
 
-
         return `
 
             <div
                 class="approval-box warning">
-
 
                 <h4>
                     WAITING FOR ADMIN APPROVAL
@@ -3985,7 +3171,7 @@ function createStatusBox(
                 <p>
 
                     Your agent has verified the
-                    application. It is now awaiting
+                    application and it is now awaiting
                     final administrative review.
 
                 </p>
@@ -4002,12 +3188,10 @@ function createStatusBox(
         "ADMIN_REVIEW"
     ) {
 
-
         return `
 
             <div
                 class="approval-box warning">
-
 
                 <h4>
                     ADMINISTRATIVE REVIEW
@@ -4033,12 +3217,10 @@ function createStatusBox(
         "CLIENT_HANDOVER_REPORTED"
     ) {
 
-
         return `
 
             <div
                 class="approval-box success">
-
 
                 <h4>
                     HANDOVER REPORTED
@@ -4065,7 +3247,6 @@ function createStatusBox(
 
         <div
             class="approval-box warning">
-
 
             <h4>
                 APPLICATION IN PROGRESS
@@ -4166,15 +3347,17 @@ function printRepaymentSchedule(
     const fullAmount =
         Number(
             application.totalMaturityAmount ||
-            principal + interest
+            (
+                principal +
+                interest
+            )
         );
 
 
     const fee =
         Number(
             application.processingOrRenewalFee
-        )
-        > 0
+        ) > 0
 
             ?
 
@@ -4188,8 +3371,7 @@ function printRepaymentSchedule(
 
 
     const renewalAmount =
-        1000 +
-        500;
+        1500;
 
 
     const paymentDate =
@@ -4197,10 +3379,6 @@ function printRepaymentSchedule(
             application
         );
 
-
-    /*
-     * Client information.
-     */
 
     document.getElementById(
         "printClientName"
@@ -4229,10 +3407,6 @@ function printRepaymentSchedule(
         currentUser.clientCode ||
         "Not Assigned";
 
-
-    /*
-     * Application.
-     */
 
     document.getElementById(
         "printApplicationId"
@@ -4313,10 +3487,6 @@ function printRepaymentSchedule(
         paymentDate;
 
 
-    /*
-     * Agent.
-     */
-
     document.getElementById(
         "printAgentName"
     ).textContent =
@@ -4335,10 +3505,6 @@ function printRepaymentSchedule(
         agent.phone;
 
 
-    /*
-     * Open browser print dialog.
-     */
-
     window.print();
 
 }
@@ -4346,7 +3512,7 @@ function printRepaymentSchedule(
 
 
 /* =====================================================
-   NEXT PAYMENT DATE
+   PAYMENT DATE
 ===================================================== */
 
 function calculateNextPaymentDate(
@@ -4357,11 +3523,6 @@ function calculateNextPaymentDate(
     let sourceDate =
         null;
 
-
-    /*
-     * Prefer the actual borrowing/disbursement
-     * date if the application has one.
-     */
 
     if (
         application.loanStartDate
@@ -4374,10 +3535,6 @@ function calculateNextPaymentDate(
 
     }
 
-
-    /*
-     * Otherwise use cash collection date.
-     */
 
     if (
         !sourceDate
@@ -4393,10 +3550,6 @@ function calculateNextPaymentDate(
     }
 
 
-    /*
-     * Otherwise use approval date.
-     */
-
     if (
         !sourceDate
         &&
@@ -4410,10 +3563,6 @@ function calculateNextPaymentDate(
 
     }
 
-
-    /*
-     * Finally use application creation date.
-     */
 
     if (
         !sourceDate
@@ -4444,10 +3593,6 @@ function calculateNextPaymentDate(
         );
 
 
-    /*
-     * Same date next month.
-     */
-
     const originalDay =
         nextDate.getDate();
 
@@ -4456,10 +3601,6 @@ function calculateNextPaymentDate(
         nextDate.getMonth() + 1
     );
 
-
-    /*
-     * Handle months without the original day.
-     */
 
     if (
         nextDate.getDate() !==
@@ -4548,7 +3689,7 @@ function convertTimestampToDate(
         }
 
 
-        const result =
+        const date =
             new Date(
                 value
             );
@@ -4556,7 +3697,7 @@ function convertTimestampToDate(
 
         if (
             isNaN(
-                result.getTime()
+                date.getTime()
             )
         ) {
 
@@ -4565,7 +3706,7 @@ function convertTimestampToDate(
         }
 
 
-        return result;
+        return date;
 
     }
 
@@ -4592,11 +3733,9 @@ document
     .forEach(
         button => {
 
-
             button.addEventListener(
                 "click",
                 () => {
-
 
                     openPanel(
                         button.dataset.panel,
@@ -4616,7 +3755,6 @@ document
     )
     .forEach(
         button => {
-
 
             button.addEventListener(
                 "click",
