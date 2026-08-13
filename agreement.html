@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Loan Agreement | Jitume Leo</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .agreement-page {
+            min-height: calc(100vh - 78px);
+            background: #f5f7fa;
+            padding: 40px 20px;
+        }
+
+        .agreement-wrapper {
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .agreement-actions-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .agreement-actions-top button {
+            border: none;
+            padding: 12px 18px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .back-btn {
+            background: white;
+            border: 1px solid #d8dee6 !important;
+            color: #273142;
+        }
+
+        .download-btn {
+            background: #168a63;
+            color: white;
+        }
+
+        .agreement-paper {
+            background: white;
+            padding: 55px;
+            border-radius: 8px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+        }
+
+        .agreement-header {
+            text-align: center;
+            border-bottom: 2px solid #168a63;
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+        }
+
+        .agreement-header h1 {
+            font-size: 30px;
+            margin-bottom: 7px;
+        }
+
+        .agreement-header h2 {
+            font-size: 18px;
+            color: #168a63;
+            margin-bottom: 10px;
+        }
+
+        .agreement-header p {
+            color: #697586;
+            font-size: 13px;
+        }
+
+        .agreement-section {
+            margin-top: 28px;
+        }
+
+        .agreement-section h3 {
+            font-size: 17px;
+            margin-bottom: 12px;
+            color: #1f2937;
+        }
+
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .details-table td {
+            border: 1px solid #e2e7ec;
+            padding: 12px;
+            font-size: 13px;
+        }
+
+        .details-table td:first-child {
+            width: 40%;
+            font-weight: 700;
+            background: #f8fafc;
+        }
+
+        .terms-list {
+            padding-left: 20px;
+        }
+
+        .terms-list li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+            font-size: 13px;
+            color: #4b5563;
+        }
+
+        .signature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .signature-box {
+            border: 1px solid #dfe4ea;
+            min-height: 130px;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .signature-box h4 {
+            margin-bottom: 45px;
+        }
+
+        .signature-line {
+            border-top: 1px solid #475467;
+            margin-bottom: 8px;
+        }
+
+        .signature-box p {
+            margin: 4px 0;
+            font-size: 12px;
+            color: #667085;
+        }
+
+        .prototype-note {
+            margin-top: 30px;
+            padding: 15px;
+            border-radius: 7px;
+            background: #fff8e5;
+            border: 1px solid #efdca0;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #6b5b1b;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: #667085;
+        }
+
+        @media print {
+
+            .navbar,
+            .agreement-actions-top {
+                display: none !important;
+            }
+
+            .agreement-page {
+                background: white;
+                padding: 0;
+            }
+
+            .agreement-wrapper {
+                max-width: none;
+            }
+
+            .agreement-paper {
+                box-shadow: none;
+                padding: 20px;
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            .agreement-paper {
+                padding: 25px;
+            }
+
+            .signature-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">
+        JITUME <span>LEO</span>
+    </div>
+
+    <nav>
+
+        <a href="client.html">
+            Dashboard
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="agreement-page">
+
+    <div class="agreement-wrapper">
+
+
+        <div class="agreement-actions-top">
+
+            <button
+                class="back-btn"
+                id="backButton">
+
+                ← Back
+
+            </button>
+
+
+            <button
+                class="download-btn"
+                id="downloadButton">
+
+                Download / Print Agreement
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="agreementContainer"
+            class="agreement-paper">
+
+            <div class="loading">
+
+                Loading loan agreement...
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<script type="module">
+
+import {
+    getAuth,
+    onAuthStateChanged
+}
+from
+"https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    collection,
+    query,
+    where,
+    getDocs
+}
+from
+"https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+import { app } from "./firebase.js";
+
+
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
+
+const agreementContainer =
+    document.getElementById(
+        "agreementContainer"
+    );
+
+
+const backButton =
+    document.getElementById(
+        "backButton"
+    );
+
+
+const downloadButton =
+    document.getElementById(
+        "downloadButton"
+    );
+
+
+let currentApplication = null;
+
+
+/*
+|--------------------------------------------------------------------------
+| AUTHENTICATION
+|--------------------------------------------------------------------------
+*/
+
+onAuthStateChanged(
+    auth,
+    async (user) => {
+
+        if (!user) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        await loadLatestApplication(
+            user
+        );
+
+    }
+);
+
+
+/*
+|--------------------------------------------------------------------------
+| LOAD LATEST CLIENT APPLICATION
+|--------------------------------------------------------------------------
+*/
+
+async function loadLatestApplication(
+    user
+) {
+
+    try {
+
+        const applicationsQuery =
+            query(
+                collection(
+                    db,
+                    "loanApplications"
+                ),
+
+                where(
+                    "customerId",
+                    "==",
+                    user.uid
+                )
+            );
+
+
+        const snapshot =
+            await getDocs(
+                applicationsQuery
+            );
+
+
+        if (
+            snapshot.empty
+        ) {
+
+            agreementContainer.innerHTML =
+                `
+                <div class="loading">
+
+                    <h2>
+                        No loan application found.
+                    </h2>
+
+                    <p>
+                        Please submit a loan application first.
+                    </p>
+
+                </div>
+                `;
+
+            return;
+
+        }
+
+
+        const applications = [];
+
+
+        snapshot.forEach(
+            (document) => {
+
+                applications.push({
+
+                    id:
+                        document.id,
+
+                    ...document.data()
+
+                });
+
+            }
+        );
+
+
+        applications.sort(
+            (a, b) => {
+
+                return getTime(
+                    b.createdAt
+                )
+                -
+                getTime(
+                    a.createdAt
+                );
+
+            }
+        );
+
+
+        currentApplication =
+            applications[0];
+
+
+        renderAgreement(
+            currentApplication,
+            user
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Agreement loading error:",
+            error
+        );
+
+
+        agreementContainer.innerHTML =
+            `
+            <div class="loading">
+
+                <h2>
+                    Unable to load agreement.
+                </h2>
+
+                <p>
+                    Please refresh and try again.
+                </p>
+
+            </div>
+            `;
+
+    }
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| RENDER AGREEMENT
+|--------------------------------------------------------------------------
+*/
+
+function renderAgreement(
+    application,
+    user
+) {
+
+    const loanType =
+        application.loanType ===
+        "renewal"
+            ? "LOAN RENEWAL AGREEMENT"
+            : "FIRST LOAN AGREEMENT";
+
+
+    const requestedAmount =
+        formatCurrency(
+            application.requestedAmount
+        );
+
+
+    const interest =
+        formatCurrency(
+            application.interestAmount
+        );
+
+
+    const maturity =
+        formatCurrency(
+            application.totalMaturityAmount
+        );
+
+
+    const fee =
+        formatCurrency(
+            application.processingOrRenewalFee
+        );
+
+
+    const feeLabel =
+        application.loanType ===
+        "renewal"
+            ? "Renewal Fee"
+            : "First Loan Processing Fee";
+
+
+    const dueDate =
+        calculateNextMonthDate();
+
+
+    agreementContainer.innerHTML =
+        `
+
+        <div class="agreement-header">
+
+            <h1>
+                JITUME LEO
+            </h1>
+
+            <h2>
+                ${loanType}
+            </h2>
+
+            <p>
+                Emergency Loan Agreement
+            </p>
+
+            <p>
+                Application ID:
+                <strong>
+                    ${escapeHTML(
+                        application.id
+                    )}
+                </strong>
+            </p>
+
+        </div>
+
+
+        <div class="agreement-section">
+
+            <h3>
+                1. Client Information
+            </h3>
+
+            <table class="details-table">
+
+                <tr>
+
+                    <td>
+                        Client User ID
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            user.uid
+                        )}
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        Loan Type
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            application.loanType ===
+                            "renewal"
+                                ? "Renewal"
+                                : "First Loan"
+                        )}
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        Selected Agent
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            application.agentName ||
+                            "-"
+                        )}
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+
+        <div class="agreement-section">
+
+            <h3>
+                2. Loan Details
+            </h3>
+
+            <table class="details-table">
+
+                <tr>
+
+                    <td>
+                        Principal Amount
+                    </td>
+
+                    <td>
+                        ${requestedAmount}
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        Interest
+                    </td>
+
+                    <td>
+                        ${interest}
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        Amount Due at Maturity
+                    </td>
+
+                    <td>
+                        ${maturity}
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        ${feeLabel}
+                    </td>
+
+                    <td>
+                        ${fee}
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        Expected Repayment Date
+                    </td>
+
+                    <td>
+                        ${dueDate}
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+
+        <div class="agreement-section">
+
+            <h3>
+                3. Terms and Conditions
+            </h3>
+
+            <ol class="terms-list">
+
+                <li>
+                    The principal amount is
+                    ${requestedAmount}.
+                </li>
+
+                <li>
+                    The proposed loan interest is
+                    ${interest}.
+                </li>
+
+                <li>
+                    The normal maturity amount is
+                    ${maturity}.
+                </li>
+
+                <li>
+                    A first loan attracts a processing fee of
+                    ${application.loanType === "renewal"
+                        ? "N/A for this renewal"
+                        : fee}.
+                </li>
+
+                <li>
+                    A renewal attracts a renewal fee of
+                    ${application.loanType === "renewal"
+                        ? fee
+                        : "N/A for this first loan"}.
+                </li>
+
+                <li>
+                    The proposed late repayment charge is
+                    KSh 100 per late day under the prototype
+                    business rules.
+                </li>
+
+                <li>
+                    The expected repayment date is the same
+                    calendar date in the following month,
+                    subject to the final agreement.
+                </li>
+
+                <li>
+                    Agent verification is required before
+                    the application proceeds to administration.
+                </li>
+
+                <li>
+                    Final loan approval is made by the Jitume Leo
+                    administrator.
+                </li>
+
+                <li>
+                    The client must provide truthful and
+                    complete information and supporting documents.
+                </li>
+
+                <li>
+                    The guarantor acknowledges the client's
+                    application and signs the agreement where
+                    required.
+                </li>
+
+                <li>
+                    The agent acknowledges the application,
+                    verifies the supporting information and signs
+                    the agreement.
+                </li>
+
+            </ol>
+
+        </div>
+
+
+        <div class="agreement-section">
+
+            <h3>
+                4. Signatures
+            </h3>
+
+            <p>
+                The following parties must sign the printed
+                agreement before the client uploads it:
+            </p>
+
+
+            <div class="signature-grid">
+
+
+                <div class="signature-box">
+
+                    <h4>
+                        Client
+                    </h4>
+
+                    <div class="signature-line">
+                    </div>
+
+                    <p>
+                        Signature
+                    </p>
+
+                    <p>
+                        Date: __________________
+                    </p>
+
+                </div>
+
+
+
+                <div class="signature-box">
+
+                    <h4>
+                        Guarantor
+                    </h4>
+
+                    <div class="signature-line">
+                    </div>
+
+                    <p>
+                        Signature
+                    </p>
+
+                    <p>
+                        Date: __________________
+                    </p>
+
+                </div>
+
+
+
+                <div class="signature-box">
+
+                    <h4>
+                        Agent
+                    </h4>
+
+                    <div class="signature-line">
+                    </div>
+
+                    <p>
+                        Signature
+                    </p>
+
+                    <p>
+                        Date: __________________
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="prototype-note">
+
+            <strong>
+                Prototype Notice:
+            </strong>
+
+            This Jitume Leo agreement is part of a
+            demonstration system. The stated loan terms,
+            fees, late charges, guarantor obligations and
+            agent responsibilities should be legally and
+            commercially reviewed before real-world use.
+
+        </div>
+
+        `;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| DOWNLOAD / PRINT
+|--------------------------------------------------------------------------
+*/
+
+downloadButton.addEventListener(
+    "click",
+    () => {
+
+        window.print();
+
+    }
+);
+
+
+/*
+|--------------------------------------------------------------------------
+| BACK
+|--------------------------------------------------------------------------
+*/
+
+backButton.addEventListener(
+    "click",
+    () => {
+
+        window.location.href =
+            "client.html";
+
+    }
+);
+
+
+/*
+|--------------------------------------------------------------------------
+| HELPERS
+|--------------------------------------------------------------------------
+*/
+
+function formatCurrency(
+    value
+) {
+
+    return "KSh " +
+        Number(
+            value || 0
+        ).toLocaleString(
+            "en-KE"
+        );
+
+}
+
+
+function getTime(
+    timestamp
+) {
+
+    if (!timestamp) {
+
+        return 0;
+
+    }
+
+
+    if (
+        typeof timestamp.toMillis ===
+        "function"
+    ) {
+
+        return timestamp.toMillis();
+
+    }
+
+
+    if (
+        timestamp.seconds
+    ) {
+
+        return timestamp.seconds *
+            1000;
+
+    }
+
+
+    return new Date(
+        timestamp
+    ).getTime();
+
+}
+
+
+function calculateNextMonthDate() {
+
+    const date =
+        new Date();
+
+
+    date.setMonth(
+        date.getMonth() + 1
+    );
+
+
+    return date.toLocaleDateString(
+        "en-KE",
+        {
+            day:
+                "2-digit",
+
+            month:
+                "long",
+
+            year:
+                "numeric"
+        }
+    );
+
+}
+
+
+function escapeHTML(
+    value
+) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        String(
+            value ?? ""
+        );
+
+
+    return div.innerHTML;
+
+}
+
+</script>
+
+</body>
+
+</html>
