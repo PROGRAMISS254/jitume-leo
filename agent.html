@@ -12,502 +12,3103 @@
 
     <link rel="stylesheet" href="style.css">
 
+
+    <style>
+
+        /* =========================================
+           APPLICATION AREA
+        ========================================= */
+
+        .applications-section {
+
+            margin-top: 35px;
+
+        }
+
+
+        .applications-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(1, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .application-card {
+
+            background: #ffffff;
+
+            border: 1px solid #e5e9ef;
+
+            border-radius: 14px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(30,45,65,0.05);
+
+        }
+
+
+        .application-header-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-start;
+
+            gap: 20px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .application-header-row h3 {
+
+            margin-bottom: 7px;
+
+            font-size: 20px;
+
+        }
+
+
+        .application-meta {
+
+            color: #6d7788;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================================
+           STATUS BADGES
+        ========================================= */
+
+        .status-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 8px 13px;
+
+            border-radius: 20px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            white-space: nowrap;
+
+            letter-spacing: .4px;
+
+            background: #eef1f4;
+
+            color: #5f6b7a;
+
+        }
+
+
+        .status-badge.green {
+
+            background: #e8f7ef;
+
+            color: #168a63;
+
+        }
+
+
+        .status-badge.yellow {
+
+            background: #fff5db;
+
+            color: #8a6200;
+
+        }
+
+
+        .status-badge.red {
+
+            background: #fdeceb;
+
+            color: #b42318;
+
+        }
+
+
+        /* =========================================
+           DETAILS
+        ========================================= */
+
+        .application-details {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .detail-box {
+
+            background: #f7f9fc;
+
+            border-radius: 8px;
+
+            padding: 13px;
+
+        }
+
+
+        .detail-box small {
+
+            display: block;
+
+            color: #7b8794;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 5px;
+
+            letter-spacing: .4px;
+
+        }
+
+
+        .detail-box strong {
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================================
+           CHECKLIST
+        ========================================= */
+
+        .verification-panel {
+
+            border-top:
+                1px solid #e7ebef;
+
+            padding-top:
+                20px;
+
+        }
+
+
+        .verification-panel h4 {
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .verification-check {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e9ef;
+
+            border-radius: 8px;
+
+            padding: 13px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .verification-check-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        .check-icon {
+
+            width: 24px;
+
+            height: 24px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #e8edf2;
+
+            color: #697586;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+        }
+
+
+        .check-icon.done {
+
+            background: #168a63;
+
+            color: #ffffff;
+
+        }
+
+
+        .check-label {
+
+            font-size: 13px;
+
+        }
+
+
+        .check-status {
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+        }
+
+
+        .check-status.done {
+
+            color: #168a63;
+
+        }
+
+
+        .check-status.pending {
+
+            color: #8a6200;
+
+        }
+
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
+        .verification-actions {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 20px;
+
+        }
+
+
+        .agent-action {
+
+            border: none;
+
+            border-radius: 7px;
+
+            padding: 11px 17px;
+
+            font-weight: 700;
+
+            font-size: 12px;
+
+            cursor: pointer;
+
+        }
+
+
+        .agent-action:disabled {
+
+            opacity: .55;
+
+            cursor: not-allowed;
+
+        }
+
+
+        .confirm-button {
+
+            background: #168a63;
+
+            color: #ffffff;
+
+        }
+
+
+        .secondary-button {
+
+            background: #eef2f6;
+
+            color: #273142;
+
+        }
+
+
+        .verify-button {
+
+            background: #273142;
+
+            color: #ffffff;
+
+        }
+
+
+        .deny-button {
+
+            background: #b42318;
+
+            color: #ffffff;
+
+        }
+
+
+        /* =========================================
+           INFORMATION BOXES
+        ========================================= */
+
+        .agent-info-box {
+
+            margin-top: 18px;
+
+            padding: 14px;
+
+            border-radius: 8px;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .agent-info-box.info {
+
+            background: #eef5ff;
+
+            border: 1px solid #d6e3fa;
+
+            color: #355070;
+
+        }
+
+
+        .agent-info-box.warning {
+
+            background: #fff8e7;
+
+            border: 1px solid #f0dfac;
+
+            color: #795900;
+
+        }
+
+
+        .agent-info-box.success {
+
+            background: #e8f7ef;
+
+            border: 1px solid #cdebdc;
+
+            color: #166b50;
+
+        }
+
+
+        .agent-info-box.danger {
+
+            background: #fff0f0;
+
+            border: 1px solid #f1c0c0;
+
+            color: #8f211b;
+
+        }
+
+
+        /* =========================================
+           EMPTY / LOADING
+        ========================================= */
+
+        .loading-state,
+        .empty-state {
+
+            background: #ffffff;
+
+            border: 1px solid #e5e9ef;
+
+            border-radius: 12px;
+
+            padding: 45px 25px;
+
+            text-align: center;
+
+            color: #6d7788;
+
+        }
+
+
+        .dashboard-card-top {
+
+            align-items: center;
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+            .application-details {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+
+            .application-header-row {
+
+                flex-direction:
+                    column;
+
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .application-details {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .verification-check {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-    <!-- Navigation -->
 
-    <header class="navbar">
+<!-- =========================================
+     NAVIGATION
+========================================= -->
 
-        <div class="logo">
-            JITUME <span>LEO</span>
+<header class="navbar">
+
+    <div class="logo">
+
+        JITUME <span>LEO</span>
+
+    </div>
+
+
+    <nav>
+
+        <a href="agent.html">
+            Dashboard
+        </a>
+
+
+        <a href="#applications">
+            Applications
+        </a>
+
+
+        <a href="#verification">
+            Verification
+        </a>
+
+
+        <a href="#profile">
+            Profile
+        </a>
+
+    </nav>
+
+
+    <div class="nav-buttons">
+
+        <button
+            id="logoutButton"
+            class="register-btn">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN DASHBOARD
+========================================= -->
+
+<main class="dashboard-page">
+
+
+    <!-- HEADER -->
+
+    <section class="dashboard-header">
+
+        <div>
+
+            <p class="small-heading">
+
+                JITUME LEO AGENT
+
+            </p>
+
+
+            <h1>
+
+                Welcome,
+
+                <span id="agentName">
+                    Agent
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                Review client applications,
+                confirm physical document handover,
+                verify applications and submit them
+                to administration.
+
+            </p>
+
         </div>
 
-        <nav>
+    </section>
 
-            <a href="agent.html">
-                Dashboard
-            </a>
 
-            <a href="#applications">
-                Applications
-            </a>
 
-            <a href="#verification">
-                Verification
-            </a>
+    <!-- =========================================
+         AGENT STATUS
+    ========================================= -->
 
-            <a href="#profile">
-                Profile
-            </a>
+    <section
+        class="dashboard-card"
+        style="margin-bottom:30px;">
 
-        </nav>
 
-        <div class="nav-buttons">
+        <div class="dashboard-card-top">
 
-            <button
-                id="logoutButton"
-                class="register-btn">
+            <span>
+                ACCOUNT STATUS
+            </span>
 
-                Logout
 
-            </button>
+            <span
+                id="agentStatus"
+                class="dashboard-icon">
+
+                Pending
+
+            </span>
 
         </div>
 
-    </header>
+
+        <h2>
+            Agent Account
+        </h2>
 
 
-    <!-- Agent Dashboard -->
+        <p id="statusMessage">
 
-    <main class="dashboard-page">
+            Your agent account is currently awaiting
+            administrator activation.
 
-        <section class="dashboard-header">
+        </p>
 
-            <div>
-
-                <p class="small-heading">
-                    JITUME LEO AGENT
-                </p>
-
-                <h1>
-                    Welcome,
-                    <span id="agentName">
-                        Agent
-                    </span>
-                </h1>
-
-                <p>
-                    Review client applications,
-                    verify documents and submit
-                    verified applications to administration.
-                </p>
-
-            </div>
-
-        </section>
+    </section>
 
 
-        <!-- Agent Status -->
 
-        <section class="dashboard-card"
-                 style="margin-bottom: 30px;">
+    <!-- =========================================
+         DASHBOARD CARDS
+    ========================================= -->
+
+    <section
+        class="dashboard-grid"
+        id="applications">
+
+
+        <!-- TOTAL APPLICATIONS -->
+
+        <div class="dashboard-card">
 
             <div class="dashboard-card-top">
 
                 <span>
-                    ACCOUNT STATUS
+                    APPLICATIONS
                 </span>
+
 
                 <span
-                    id="agentStatus"
+                    id="applicationCountBadge"
                     class="dashboard-icon">
 
-                    Pending
+                    0
 
                 </span>
 
             </div>
 
-            <h2>
-                Agent Account
+
+            <h2 id="applicationCount">
+                0
             </h2>
 
-            <p id="statusMessage">
-                Your agent account is currently
-                awaiting administrator activation.
+
+            <p>
+
+                Client loan applications associated
+                with your agent account.
+
             </p>
 
-        </section>
+
+            <a
+                href="#applicationList"
+                class="dashboard-link">
+
+                View Applications →
+
+            </a>
+
+        </div>
 
 
-        <!-- Dashboard Cards -->
 
-        <section
-            class="dashboard-grid"
-            id="applications">
+        <!-- NEEDING HANDOVER -->
+
+        <div
+            class="dashboard-card"
+            id="verification">
+
+            <div class="dashboard-card-top">
+
+                <span>
+                    VERIFICATION
+                </span>
 
 
-            <!-- Applications -->
+                <span
+                    id="verificationCount"
+                    class="dashboard-icon">
 
-            <div class="dashboard-card">
+                    0
 
-                <div class="dashboard-card-top">
+                </span>
 
-                    <span>
-                        APPLICATIONS
-                    </span>
+            </div>
 
-                    <span class="dashboard-icon">
-                        01
-                    </span>
+
+            <h2>
+                <span id="verificationHeading">
+                    0
+                </span>
+            </h2>
+
+
+            <p>
+
+                Applications waiting for
+                document/fee receipt or verification.
+
+            </p>
+
+
+            <a
+                href="#applicationList"
+                class="dashboard-link">
+
+                Verify Applications →
+
+            </a>
+
+        </div>
+
+
+
+        <!-- SENT TO ADMIN -->
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-card-top">
+
+                <span>
+                    SENT TO ADMIN
+                </span>
+
+
+                <span
+                    id="submittedCount"
+                    class="dashboard-icon">
+
+                    0
+
+                </span>
+
+            </div>
+
+
+            <h2>
+                <span id="submittedHeading">
+                    0
+                </span>
+            </h2>
+
+
+            <p>
+
+                Applications you have verified
+                and sent for administration.
+
+            </p>
+
+
+            <a
+                href="#applicationList"
+                class="dashboard-link">
+
+                View Submitted →
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         APPLICATIONS
+    ========================================= -->
+
+    <section
+        class="status-section applications-section"
+        id="applicationList">
+
+
+        <div class="status-header">
+
+            <p class="small-heading">
+                CLIENT APPLICATIONS
+            </p>
+
+
+            <h2>
+                Applications Assigned to You
+            </h2>
+
+        </div>
+
+
+        <div id="applicationsContainer">
+
+            <div class="loading-state">
+
+                Loading client applications...
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         PROFILE
+    ========================================= -->
+
+    <section
+        class="status-section"
+        id="profile">
+
+
+        <div class="status-header">
+
+            <p class="small-heading">
+                AGENT PROFILE
+            </p>
+
+
+            <h2>
+                Your Agent Information
+            </h2>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+
+            <p>
+
+                <strong>
+                    Full Name:
+                </strong>
+
+                <span id="profileName">
+                    -
+                </span>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Email:
+                </strong>
+
+                <span id="profileEmail">
+                    -
+                </span>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Phone:
+                </strong>
+
+                <span id="profilePhone">
+                    -
+                </span>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    National ID:
+                </strong>
+
+                <span id="profileId">
+                    -
+                </span>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Agent Code:
+                </strong>
+
+                <span id="profileCode">
+                    -
+                </span>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Location:
+                </strong>
+
+                <span id="profileLocation">
+                    -
+                </span>
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FIREBASE
+========================================= -->
+
+<script type="module">
+
+
+import {
+
+    getAuth,
+
+    onAuthStateChanged,
+
+    signOut
+
+}
+from
+"https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+
+import {
+
+    getFirestore,
+
+    doc,
+
+    getDoc,
+
+    collection,
+
+    query,
+
+    where,
+
+    getDocs,
+
+    updateDoc,
+
+    serverTimestamp
+
+}
+from
+"https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+import {
+
+    app
+
+}
+from
+"./firebase.js";
+
+
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
+
+
+/*
+|--------------------------------------------------------------------------
+| DOM ELEMENTS
+|--------------------------------------------------------------------------
+*/
+
+const agentName =
+    document.getElementById(
+        "agentName"
+    );
+
+
+const agentStatus =
+    document.getElementById(
+        "agentStatus"
+    );
+
+
+const statusMessage =
+    document.getElementById(
+        "statusMessage"
+    );
+
+
+const logoutButton =
+    document.getElementById(
+        "logoutButton"
+    );
+
+
+const applicationsContainer =
+    document.getElementById(
+        "applicationsContainer"
+    );
+
+
+const applicationCount =
+    document.getElementById(
+        "applicationCount"
+    );
+
+
+const applicationCountBadge =
+    document.getElementById(
+        "applicationCountBadge"
+    );
+
+
+const verificationCount =
+    document.getElementById(
+        "verificationCount"
+    );
+
+
+const verificationHeading =
+    document.getElementById(
+        "verificationHeading"
+    );
+
+
+const submittedCount =
+    document.getElementById(
+        "submittedCount"
+    );
+
+
+const submittedHeading =
+    document.getElementById(
+        "submittedHeading"
+    );
+
+
+let currentAgent = null;
+
+
+
+/*
+|--------------------------------------------------------------------------
+| AUTHENTICATION
+|--------------------------------------------------------------------------
+*/
+
+onAuthStateChanged(
+
+    auth,
+
+    async (user) => {
+
+
+        if (!user) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        try {
+
+
+            await loadAgentProfile(
+                user
+            );
+
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Agent dashboard error:",
+                error
+            );
+
+            applicationsContainer.innerHTML =
+                `
+                <div class="empty-state">
+
+                    Unable to load the agent dashboard.
+
+                    <br><br>
+
+                    Please refresh the page.
 
                 </div>
+                `;
 
-                <h2 id="applicationCount">
-                    0
-                </h2>
+        }
+
+    }
+
+);
+
+
+
+/*
+|--------------------------------------------------------------------------
+| LOAD AGENT PROFILE
+|--------------------------------------------------------------------------
+*/
+
+async function loadAgentProfile(
+    user
+) {
+
+
+    const userReference =
+        doc(
+            db,
+            "users",
+            user.uid
+        );
+
+
+    const userSnapshot =
+        await getDoc(
+            userReference
+        );
+
+
+    if (
+        !userSnapshot.exists()
+    ) {
+
+
+        alert(
+            "Account profile not found."
+        );
+
+
+        await signOut(
+            auth
+        );
+
+
+        window.location.href =
+            "login.html";
+
+        return;
+
+    }
+
+
+    const userData =
+        userSnapshot.data();
+
+
+    /*
+     * Confirm this is an agent.
+     */
+
+    if (
+        userData.role !==
+        "agent"
+    ) {
+
+
+        alert(
+            "Access denied. Agent account required."
+        );
+
+
+        await signOut(
+            auth
+        );
+
+
+        window.location.href =
+            "login.html";
+
+        return;
+
+    }
+
+
+    currentAgent = {
+
+        id:
+            user.uid,
+
+        ...userData
+
+    };
+
+
+    /*
+     * Display profile.
+     */
+
+    agentName.textContent =
+        userData.fullName ||
+        "Agent";
+
+
+    document.getElementById(
+        "profileName"
+    ).textContent =
+        userData.fullName ||
+        "-";
+
+
+    document.getElementById(
+        "profileEmail"
+    ).textContent =
+        userData.email ||
+        "-";
+
+
+    document.getElementById(
+        "profilePhone"
+    ).textContent =
+        userData.phone ||
+        "-";
+
+
+    document.getElementById(
+        "profileId"
+    ).textContent =
+        userData.idNumber ||
+        "-";
+
+
+    document.getElementById(
+        "profileCode"
+    ).textContent =
+        userData.agentCode ||
+        "-";
+
+
+    document.getElementById(
+        "profileLocation"
+    ).textContent =
+        userData.location ||
+        "-";
+
+
+    /*
+     * Account status.
+     */
+
+    const status =
+        userData.status ||
+        "pending";
+
+
+    agentStatus.textContent =
+        status.toUpperCase();
+
+
+    if (
+        status !==
+        "active"
+    ) {
+
+
+        statusMessage.textContent =
+            "Your agent account is pending administrator activation. You cannot verify client applications yet.";
+
+
+        applicationsContainer.innerHTML =
+            `
+            <div class="empty-state">
+
+                <h3>
+                    Agent Account Not Active
+                </h3>
+
 
                 <p>
-                    Client loan applications
-                    associated with you.
+
+                    Wait for administrator activation
+                    before processing applications.
+
                 </p>
-
-                <a href="#"
-                   class="dashboard-link">
-
-                    View Applications →
-
-                </a>
 
             </div>
+            `;
 
 
-            <!-- Pending Verification -->
+        return;
 
-            <div
-                class="dashboard-card"
-                id="verification">
+    }
 
-                <div class="dashboard-card-top">
 
-                    <span>
-                        VERIFICATION
-                    </span>
+    statusMessage.textContent =
+        "Your agent account is active. You can now review assigned client applications.";
 
-                    <span class="dashboard-icon">
-                        02
-                    </span>
 
-                </div>
+    /*
+     * Load applications.
+     */
 
-                <h2 id="verificationCount">
-                    0
-                </h2>
+    await loadAgentApplications(
+        user.uid
+    );
 
-                <p>
-                    Applications waiting for
-                    document and client verification.
-                </p>
+}
 
-                <a href="#"
-                   class="dashboard-link">
 
-                    Verify Applications →
 
-                </a>
+/*
+|--------------------------------------------------------------------------
+| LOAD APPLICATIONS ASSIGNED TO THIS AGENT
+|--------------------------------------------------------------------------
+*/
 
-            </div>
+async function loadAgentApplications(
+    agentUid
+) {
 
 
-            <!-- Submitted -->
+    applicationsContainer.innerHTML =
+        `
+        <div class="loading-state">
 
-            <div class="dashboard-card">
+            Loading client applications...
 
-                <div class="dashboard-card-top">
+        </div>
+        `;
 
-                    <span>
-                        SUBMITTED TO ADMIN
-                    </span>
 
-                    <span class="dashboard-icon">
-                        03
-                    </span>
+    try {
 
-                </div>
 
-                <h2 id="submittedCount">
-                    0
-                </h2>
+        const applicationsQuery =
+            query(
 
-                <p>
-                    Applications you have verified
-                    and sent for admin review.
-                </p>
+                collection(
+                    db,
+                    "loanApplications"
+                ),
 
-                <a href="#"
-                   class="dashboard-link">
+                where(
+                    "agentId",
+                    "==",
+                    agentUid
+                )
 
-                    View Submitted →
+            );
 
-                </a>
 
-            </div>
+        const snapshot =
+            await getDocs(
+                applicationsQuery
+            );
 
-        </section>
 
+        const applications = [];
 
-        <!-- Profile -->
 
-        <section
-            class="status-section"
-            id="profile">
+        snapshot.forEach(
+            (document) => {
 
-            <div class="status-header">
 
-                <p class="small-heading">
-                    AGENT PROFILE
-                </p>
+                applications.push({
 
-                <h2>
-                    Your Agent Information
-                </h2>
+                    id:
+                        document.id,
 
-            </div>
+                    ...document.data()
 
-
-            <div class="dashboard-card">
-
-                <p>
-                    <strong>Full Name:</strong>
-                    <span id="profileName">-</span>
-                </p>
-
-                <p>
-                    <strong>Email:</strong>
-                    <span id="profileEmail">-</span>
-                </p>
-
-                <p>
-                    <strong>Phone:</strong>
-                    <span id="profilePhone">-</span>
-                </p>
-
-                <p>
-                    <strong>National ID:</strong>
-                    <span id="profileId">-</span>
-                </p>
-
-                <p>
-                    <strong>Agent Code:</strong>
-                    <span id="profileCode">-</span>
-                </p>
-
-                <p>
-                    <strong>Location:</strong>
-                    <span id="profileLocation">-</span>
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- Firebase -->
-
-    <script type="module">
-
-        import {
-            getAuth,
-            onAuthStateChanged,
-            signOut
-        } from
-        "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
-
-
-        import {
-            getFirestore,
-            doc,
-            getDoc
-        } from
-        "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
-
-
-        import { app } from "./firebase.js";
-
-
-        const auth = getAuth(app);
-
-        const db = getFirestore(app);
-
-
-        const agentName =
-            document.getElementById("agentName");
-
-        const agentStatus =
-            document.getElementById("agentStatus");
-
-        const statusMessage =
-            document.getElementById("statusMessage");
-
-        const logoutButton =
-            document.getElementById("logoutButton");
-
-
-        onAuthStateChanged(
-            auth,
-            async (user) => {
-
-                if (!user) {
-
-                    window.location.href =
-                        "login.html";
-
-                    return;
-
-                }
-
-
-                try {
-
-                    const userDocument =
-                        await getDoc(
-                            doc(
-                                db,
-                                "users",
-                                user.uid
-                            )
-                        );
-
-
-                    if (!userDocument.exists()) {
-
-                        alert(
-                            "Account profile not found."
-                        );
-
-                        await signOut(auth);
-
-                        window.location.href =
-                            "login.html";
-
-                        return;
-
-                    }
-
-
-                    const userData =
-                        userDocument.data();
-
-
-                    /* CHECK ROLE */
-
-                    if (
-                        userData.role !==
-                        "agent"
-                    ) {
-
-                        alert(
-                            "Access denied. Agent account required."
-                        );
-
-                        await signOut(auth);
-
-                        window.location.href =
-                            "login.html";
-
-                        return;
-
-                    }
-
-
-                    /* DISPLAY PROFILE */
-
-                    agentName.textContent =
-                        userData.fullName ||
-                        "Agent";
-
-
-                    document.getElementById(
-                        "profileName"
-                    ).textContent =
-                        userData.fullName || "-";
-
-
-                    document.getElementById(
-                        "profileEmail"
-                    ).textContent =
-                        userData.email || "-";
-
-
-                    document.getElementById(
-                        "profilePhone"
-                    ).textContent =
-                        userData.phone || "-";
-
-
-                    document.getElementById(
-                        "profileId"
-                    ).textContent =
-                        userData.idNumber || "-";
-
-
-                    document.getElementById(
-                        "profileCode"
-                    ).textContent =
-                        userData.agentCode || "-";
-
-
-                    document.getElementById(
-                        "profileLocation"
-                    ).textContent =
-                        userData.location || "-";
-
-
-                    /* STATUS */
-
-                    const status =
-                        userData.status || "pending";
-
-
-                    agentStatus.textContent =
-                        status.toUpperCase();
-
-
-                    if (status === "active") {
-
-                        statusMessage.textContent =
-                            "Your agent account is active. You can now review and verify client applications.";
-
-                    } else {
-
-                        statusMessage.textContent =
-                            "Your agent account is pending administrator activation. You cannot verify applications yet.";
-
-                    }
-
-                } catch (error) {
-
-                    console.error(
-                        "Agent dashboard error:",
-                        error
-                    );
-
-                }
+                });
 
             }
         );
 
 
-        /* LOGOUT */
+        /*
+         * Newest applications first.
+         */
 
-        logoutButton.addEventListener(
-            "click",
-            async () => {
+        applications.sort(
+            (a, b) => {
 
-                try {
-
-                    await signOut(auth);
-
-                    window.location.href =
-                        "login.html";
-
-                } catch (error) {
-
-                    console.error(
-                        "Logout error:",
-                        error
-                    );
-
-                }
+                return getTime(
+                    b.createdAt
+                )
+                -
+                getTime(
+                    a.createdAt
+                );
 
             }
         );
 
-    </script>
+
+        /*
+         * Counts.
+         */
+
+        applicationCount.textContent =
+            applications.length;
+
+
+        applicationCountBadge.textContent =
+            applications.length;
+
+
+        const pendingApplications =
+            applications.filter(
+                application => {
+
+                    return [
+
+                        "APPLICATION_SUBMITTED",
+
+                        "AWAITING_AGENT_VERIFICATION",
+
+                        "DOCUMENTS_AWAITING_RECEIPT"
+
+                    ]
+                    .includes(
+                        application.status
+                    );
+
+                }
+            ).length;
+
+
+        verificationCount.textContent =
+            pendingApplications;
+
+
+        verificationHeading.textContent =
+            pendingApplications;
+
+
+        const submittedApplications =
+            applications.filter(
+                application => {
+
+                    return [
+
+                        "AGENT_VERIFIED",
+
+                        "SENT_TO_ADMIN",
+
+                        "ADMIN_REVIEW",
+
+                        "APPROVED",
+
+                        "REJECTED"
+
+                    ]
+                    .includes(
+                        application.status
+                    );
+
+                }
+            ).length;
+
+
+        submittedCount.textContent =
+            submittedApplications;
+
+
+        submittedHeading.textContent =
+            submittedApplications;
+
+
+
+        /*
+         * No applications.
+         */
+
+        if (
+            applications.length ===
+            0
+        ) {
+
+
+            applicationsContainer.innerHTML =
+                `
+                <div class="empty-state">
+
+                    <h3>
+                        No Client Applications
+                    </h3>
+
+
+                    <p>
+
+                        Clients who select you as
+                        their agent will appear here.
+
+                    </p>
+
+                </div>
+                `;
+
+
+            return;
+
+        }
+
+
+        /*
+         * Render applications.
+         */
+
+        applicationsContainer.innerHTML =
+            "";
+
+
+        applications.forEach(
+            application => {
+
+                applicationsContainer.appendChild(
+
+                    createApplicationCard(
+                        application
+                    )
+
+                );
+
+            }
+        );
+
+    }
+
+    catch (error) {
+
+
+        console.error(
+            "Application loading error:",
+            error
+        );
+
+
+        applicationsContainer.innerHTML =
+            `
+            <div class="empty-state">
+
+                <h3>
+                    Unable to Load Applications
+                </h3>
+
+
+                <p>
+
+                    Please refresh and try again.
+
+                </p>
+
+            </div>
+            `;
+
+    }
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| CREATE APPLICATION CARD
+|--------------------------------------------------------------------------
+*/
+
+function createApplicationCard(
+    application
+) {
+
+
+    const card =
+        document.createElement(
+            "div"
+        );
+
+
+    card.className =
+        "application-card";
+
+
+    const status =
+        application.status ||
+        "APPLICATION_SUBMITTED";
+
+
+    const statusClass =
+        getStatusClass(
+            status
+        );
+
+
+    const loanType =
+        application.loanType ===
+        "renewal"
+
+            ?
+
+            "Loan Renewal"
+
+            :
+
+            "First Loan";
+
+
+    const feeLabel =
+        application.loanType ===
+        "renewal"
+
+            ?
+
+            "Renewal Fee"
+
+            :
+
+            "First Loan Processing Fee";
+
+
+    const fee =
+        formatCurrency(
+            application.processingOrRenewalFee
+        );
+
+
+    const amount =
+        formatCurrency(
+            application.requestedAmount
+        );
+
+
+    const interest =
+        formatCurrency(
+            application.interestAmount
+        );
+
+
+    const maturity =
+        formatCurrency(
+            application.totalMaturityAmount
+        );
+
+
+    const handoverStatus =
+        application.clientHandoverStatus ||
+        "NOT_REPORTED";
+
+
+    const documentsStatus =
+        application.documentsStatus ||
+        "NOT_RECEIVED";
+
+
+    const feeStatus =
+        application.feeStatus ||
+        "FEE_PENDING";
+
+
+    const applicationNeedsAction = [
+
+        "APPLICATION_SUBMITTED",
+
+        "AWAITING_AGENT_VERIFICATION",
+
+        "DOCUMENTS_AWAITING_RECEIPT"
+
+    ].includes(
+        status
+    );
+
+
+    card.innerHTML =
+        `
+
+
+        <!-- HEADER -->
+
+        <div class="application-header-row">
+
+
+            <div>
+
+                <h3>
+
+                    Emergency Loan
+
+                </h3>
+
+
+                <div class="application-meta">
+
+                    Application ID:
+
+                    <strong>
+                        ${escapeHTML(
+                            application.id
+                        )}
+                    </strong>
+
+                    <br>
+
+                    Agent:
+
+                    ${escapeHTML(
+                        currentAgent.fullName ||
+                        "-"
+                    )}
+
+                </div>
+
+            </div>
+
+
+            <span
+                class="status-badge ${statusClass}">
+
+                ${escapeHTML(
+                    formatStatus(
+                        status
+                    )
+                )}
+
+            </span>
+
+        </div>
+
+
+
+        <!-- APPLICATION DETAILS -->
+
+        <div class="application-details">
+
+
+            <div class="detail-box">
+
+                <small>
+                    Client ID
+                </small>
+
+                <strong>
+
+                    ${escapeHTML(
+                        application.customerId ||
+                        "-"
+                    )}
+
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <small>
+                    Loan Type
+                </small>
+
+                <strong>
+
+                    ${loanType}
+
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <small>
+                    Loan Amount
+                </small>
+
+                <strong>
+
+                    ${amount}
+
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <small>
+                    Interest
+                </small>
+
+                <strong>
+
+                    ${interest}
+
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <small>
+                    Maturity Amount
+                </small>
+
+                <strong>
+
+                    ${maturity}
+
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <small>
+                    ${feeLabel}
+                </small>
+
+                <strong>
+
+                    ${fee}
+
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- VERIFICATION CHECKLIST -->
+
+        <div class="verification-panel">
+
+
+            <h4>
+                Physical Handover Checklist
+            </h4>
+
+
+            <!-- CLIENT REPORTED -->
+
+            <div class="verification-check">
+
+
+                <div
+                    class="verification-check-left">
+
+
+                    <span
+                        class="check-icon
+                        ${
+                            handoverStatus ===
+                            "CLIENT_HANDOVER_REPORTED"
+                                ? "done"
+                                : ""
+                        }">
+
+                        ${
+                            handoverStatus ===
+                            "CLIENT_HANDOVER_REPORTED"
+                                ? "✓"
+                                : "?"
+                        }
+
+                    </span>
+
+
+                    <span
+                        class="check-label">
+
+                        Client reported
+                        documents and fee
+                        were handed over
+
+                    </span>
+
+                </div>
+
+
+                <span
+                    class="check-status
+                    ${
+                        handoverStatus ===
+                        "CLIENT_HANDOVER_REPORTED"
+                            ? "done"
+                            : "pending"
+                    }">
+
+                    ${
+                        handoverStatus ===
+                        "CLIENT_HANDOVER_REPORTED"
+                            ? "REPORTED"
+                            : "NOT REPORTED"
+                    }
+
+                </span>
+
+            </div>
+
+
+
+            <!-- DOCUMENTS -->
+
+            <div class="verification-check">
+
+
+                <div
+                    class="verification-check-left">
+
+
+                    <span
+                        class="check-icon
+                        ${
+                            documentsStatus ===
+                            "DOCUMENTS_RECEIVED"
+                                ? "done"
+                                : ""
+                        }">
+
+                        ${
+                            documentsStatus ===
+                            "DOCUMENTS_RECEIVED"
+                                ? "✓"
+                                : "?"
+                        }
+
+                    </span>
+
+
+                    <span
+                        class="check-label">
+
+                        Physical signed agreement
+                        and required IDs received
+
+                    </span>
+
+                </div>
+
+
+                <span
+                    class="check-status
+                    ${
+                        documentsStatus ===
+                        "DOCUMENTS_RECEIVED"
+                            ? "done"
+                            : "pending"
+                    }">
+
+                    ${
+                        documentsStatus ===
+                        "DOCUMENTS_RECEIVED"
+                            ? "RECEIVED"
+                            : "PENDING"
+                    }
+
+                </span>
+
+            </div>
+
+
+
+            <!-- FEE -->
+
+            <div class="verification-check">
+
+
+                <div
+                    class="verification-check-left">
+
+
+                    <span
+                        class="check-icon
+                        ${
+                            feeStatus ===
+                            "FEE_RECEIVED"
+                                ? "done"
+                                : ""
+                        }">
+
+                        ${
+                            feeStatus ===
+                            "FEE_RECEIVED"
+                                ? "✓"
+                                : "?"
+                        }
+
+                    </span>
+
+
+                    <span
+                        class="check-label">
+
+                        KSh 500 applicable fee received
+
+                    </span>
+
+                </div>
+
+
+                <span
+                    class="check-status
+                    ${
+                        feeStatus ===
+                        "FEE_RECEIVED"
+                            ? "done"
+                            : "pending"
+                    }">
+
+                    ${
+                        feeStatus ===
+                        "FEE_RECEIVED"
+                            ? "RECEIVED"
+                            : "PENDING"
+                    }
+
+                </span>
+
+            </div>
+
+
+
+            <!-- INFORMATION -->
+
+            ${createAgentInformation(
+                application
+            )}
+
+
+
+            <!-- ACTIONS -->
+
+            <div class="verification-actions">
+
+
+                ${
+                    handoverStatus ===
+                    "CLIENT_HANDOVER_REPORTED"
+
+                    &&
+                    documentsStatus !==
+                    "DOCUMENTS_RECEIVED"
+
+                        ?
+
+                        `
+
+                        <button
+                            type="button"
+                            class="agent-action
+                                   confirm-button"
+                            data-action="documents"
+                            data-id="${escapeHTML(
+                                application.id
+                            )}">
+
+                            Confirm Documents Received
+
+                        </button>
+
+                        `
+
+                        :
+
+                        ""
+                }
+
+
+
+                ${
+                    handoverStatus ===
+                    "CLIENT_HANDOVER_REPORTED"
+
+                    &&
+                    documentsStatus ===
+                    "DOCUMENTS_RECEIVED"
+
+                    &&
+                    feeStatus !==
+                    "FEE_RECEIVED"
+
+                        ?
+
+                        `
+
+                        <button
+                            type="button"
+                            class="agent-action
+                                   confirm-button"
+                            data-action="fee"
+                            data-id="${escapeHTML(
+                                application.id
+                            )}">
+
+                            Confirm KSh 500 Fee Received
+
+                        </button>
+
+                        `
+
+                        :
+
+                        ""
+                }
+
+
+
+                ${
+                    documentsStatus ===
+                    "DOCUMENTS_RECEIVED"
+
+                    &&
+                    feeStatus ===
+                    "FEE_RECEIVED"
+
+                    &&
+                    status !==
+                    "AGENT_VERIFIED"
+
+                    &&
+                    status !==
+                    "SENT_TO_ADMIN"
+
+                    &&
+                    status !==
+                    "ADMIN_REVIEW"
+
+                    &&
+                    status !==
+                    "APPROVED"
+
+                        ?
+
+                        `
+
+                        <button
+                            type="button"
+                            class="agent-action
+                                   verify-button"
+                            data-action="verify"
+                            data-id="${escapeHTML(
+                                application.id
+                            )}">
+
+                            Verify & Send to Admin
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="agent-action
+                                   deny-button"
+                            data-action="deny"
+                            data-id="${escapeHTML(
+                                application.id
+                            )}">
+
+                            Deny Application
+
+                        </button>
+
+                        `
+
+                        :
+
+                        ""
+
+                }
+
+            </div>
+
+        </div>
+
+        `;
+
+
+    /*
+     * Attach action events.
+     */
+
+    card
+        .querySelectorAll(
+            "[data-action]"
+        )
+        .forEach(
+            button => {
+
+
+                button.addEventListener(
+                    "click",
+                    async () => {
+
+
+                        const action =
+                            button.dataset.action;
+
+
+                        const applicationId =
+                            button.dataset.id;
+
+
+                        await handleApplicationAction(
+                            action,
+                            applicationId,
+                            button
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+    return card;
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| INFORMATION BOX
+|--------------------------------------------------------------------------
+*/
+
+function createAgentInformation(
+    application
+) {
+
+
+    const status =
+        application.status ||
+        "APPLICATION_SUBMITTED";
+
+
+    if (
+        status ===
+        "APPROVED"
+    ) {
+
+
+        return `
+
+            <div class="agent-info-box success">
+
+                Administration has approved this
+                application.
+
+            </div>
+
+        `;
+
+    }
+
+
+    if (
+        status ===
+        "REJECTED"
+    ) {
+
+
+        return `
+
+            <div class="agent-info-box danger">
+
+                This application has been denied.
+
+            </div>
+
+        `;
+
+    }
+
+
+    if (
+        status ===
+        "SENT_TO_ADMIN" ||
+        status ===
+        "ADMIN_REVIEW" ||
+        status ===
+        "AGENT_VERIFIED"
+    ) {
+
+
+        return `
+
+            <div class="agent-info-box info">
+
+                This application has been verified
+                and sent to administration.
+                Wait for the administrator's decision.
+
+            </div>
+
+        `;
+
+    }
+
+
+    if (
+        application.documentsStatus ===
+            "DOCUMENTS_RECEIVED"
+
+        &&
+        application.feeStatus ===
+            "FEE_RECEIVED"
+    ) {
+
+
+        return `
+
+            <div class="agent-info-box success">
+
+                All physical documents and the
+                applicable KSh 500 fee have been
+                confirmed. You may now verify this
+                application.
+
+            </div>
+
+        `;
+
+    }
+
+
+    if (
+        application.clientHandoverStatus ===
+        "CLIENT_HANDOVER_REPORTED"
+    ) {
+
+
+        return `
+
+            <div class="agent-info-box warning">
+
+                The client has reported handing over
+                the physical documents and KSh 500 fee.
+                Please inspect the physical documents
+                before confirming receipt.
+
+            </div>
+
+        `;
+
+    }
+
+
+    return `
+
+        <div class="agent-info-box info">
+
+            Waiting for the client to report
+            physical document handover.
+
+        </div>
+
+    `;
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| APPLICATION ACTIONS
+|--------------------------------------------------------------------------
+*/
+
+async function handleApplicationAction(
+    action,
+    applicationId,
+    button
+) {
+
+
+    button.disabled =
+        true;
+
+
+    const originalText =
+        button.textContent;
+
+
+    button.textContent =
+        "Processing...";
+
+
+    try {
+
+
+        const applicationReference =
+            doc(
+                db,
+                "loanApplications",
+                applicationId
+            );
+
+
+        const applicationSnapshot =
+            await getDoc(
+                applicationReference
+            );
+
+
+        if (
+            !applicationSnapshot.exists()
+        ) {
+
+            throw new Error(
+                "Application not found."
+            );
+
+        }
+
+
+        const application =
+            applicationSnapshot.data();
+
+
+        /*
+         * SECURITY CHECK:
+         * Agent can only act on an application
+         * assigned to this agent.
+         */
+
+        if (
+            application.agentId !==
+            currentAgent.id
+        ) {
+
+            throw new Error(
+                "This application is not assigned to you."
+            );
+
+        }
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | CONFIRM DOCUMENTS
+        |--------------------------------------------------------------------------
+        */
+
+        if (
+            action ===
+            "documents"
+        ) {
+
+
+            if (
+                application.clientHandoverStatus !==
+                "CLIENT_HANDOVER_REPORTED"
+            ) {
+
+                throw new Error(
+                    "The client has not reported the physical handover."
+                );
+
+            }
+
+
+            await updateDoc(
+                applicationReference,
+                {
+
+                    documentsStatus:
+                        "DOCUMENTS_RECEIVED",
+
+                    documentsReceivedAt:
+                        serverTimestamp(),
+
+                    documentsReceivedByAgentId:
+                        currentAgent.id,
+
+                    updatedAt:
+                        serverTimestamp()
+
+                }
+            );
+
+
+            await loadAgentApplications(
+                currentAgent.id
+            );
+
+
+            return;
+
+        }
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | CONFIRM FEE
+        |--------------------------------------------------------------------------
+        */
+
+        if (
+            action ===
+            "fee"
+        ) {
+
+
+            if (
+                application.documentsStatus !==
+                "DOCUMENTS_RECEIVED"
+            ) {
+
+                throw new Error(
+                    "Confirm the physical documents first."
+                );
+
+            }
+
+
+            await updateDoc(
+                applicationReference,
+                {
+
+                    feeStatus:
+                        "FEE_RECEIVED",
+
+                    feeReceivedAt:
+                        serverTimestamp(),
+
+                    feeReceivedByAgentId:
+                        currentAgent.id,
+
+                    updatedAt:
+                        serverTimestamp()
+
+                }
+            );
+
+
+            await loadAgentApplications(
+                currentAgent.id
+            );
+
+
+            return;
+
+        }
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | VERIFY
+        |--------------------------------------------------------------------------
+        */
+
+        if (
+            action ===
+            "verify"
+        ) {
+
+
+            if (
+                application.documentsStatus !==
+                "DOCUMENTS_RECEIVED"
+            ) {
+
+                throw new Error(
+                    "Physical documents must be confirmed first."
+                );
+
+            }
+
+
+            if (
+                application.feeStatus !==
+                "FEE_RECEIVED"
+            ) {
+
+                throw new Error(
+                    "The applicable KSh 500 fee must be confirmed first."
+                );
+
+            }
+
+
+            await updateDoc(
+                applicationReference,
+                {
+
+                    agentVerificationStatus:
+                        "VERIFIED",
+
+                    agentVerifiedAt:
+                        serverTimestamp(),
+
+                    agentVerifiedBy:
+                        currentAgent.id,
+
+                    status:
+                        "SENT_TO_ADMIN",
+
+                    adminDecision:
+                        "PENDING",
+
+                    updatedAt:
+                        serverTimestamp()
+
+                }
+            );
+
+
+            await loadAgentApplications(
+                currentAgent.id
+            );
+
+
+            return;
+
+        }
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | DENY
+        |--------------------------------------------------------------------------
+        */
+
+        if (
+            action ===
+            "deny"
+        ) {
+
+
+            const reason =
+                prompt(
+                    "Enter the reason for denying this application:"
+                );
+
+
+            if (
+                reason ===
+                null
+                ||
+                reason.trim() ===
+                ""
+            ) {
+
+                button.disabled =
+                    false;
+
+                button.textContent =
+                    originalText;
+
+                return;
+
+            }
+
+
+            await updateDoc(
+                applicationReference,
+                {
+
+                    agentVerificationStatus:
+                        "REJECTED",
+
+                    agentDecision:
+                        "DENIED",
+
+                    agentDenialReason:
+                        reason.trim(),
+
+                    agentDeniedAt:
+                        serverTimestamp(),
+
+                    agentDeniedBy:
+                        currentAgent.id,
+
+                    status:
+                        "REJECTED",
+
+                    updatedAt:
+                        serverTimestamp()
+
+                }
+            );
+
+
+            await loadAgentApplications(
+                currentAgent.id
+            );
+
+
+            return;
+
+        }
+
+
+    }
+
+    catch (error) {
+
+
+        console.error(
+            "Application action error:",
+            error
+        );
+
+
+        alert(
+            error.message ||
+            "The action could not be completed."
+        );
+
+
+        button.disabled =
+            false;
+
+
+        button.textContent =
+            originalText;
+
+    }
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| FORMAT STATUS
+|--------------------------------------------------------------------------
+*/
+
+function formatStatus(
+    status
+) {
+
+
+    const map = {
+
+
+        APPLICATION_SUBMITTED:
+            "Application Submitted",
+
+
+        AWAITING_AGENT_VERIFICATION:
+            "Awaiting Verification",
+
+
+        DOCUMENTS_AWAITING_RECEIPT:
+            "Documents Awaiting Receipt",
+
+
+        AGENT_VERIFIED:
+            "Agent Verified",
+
+
+        SENT_TO_ADMIN:
+            "Sent to Administration",
+
+
+        ADMIN_REVIEW:
+            "Administration Reviewing",
+
+
+        APPROVED:
+            "Approved",
+
+
+        REJECTED:
+            "Rejected",
+
+
+        PAYMENT_PENDING:
+            "Payment Pending",
+
+
+        PAYMENT_CONFIRMED:
+            "Payment Confirmed",
+
+
+        READY_FOR_COLLECTION:
+            "Ready for Collection",
+
+
+        CASH_COLLECTED:
+            "Cash Collected"
+
+    };
+
+
+    return map[
+        status
+    ]
+
+    ||
+
+    String(
+        status
+    )
+    .replaceAll(
+        "_",
+        " "
+    );
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| STATUS CLASS
+|--------------------------------------------------------------------------
+*/
+
+function getStatusClass(
+    status
+) {
+
+
+    if (
+
+        [
+
+            "AGENT_VERIFIED",
+
+            "SENT_TO_ADMIN",
+
+            "APPROVED",
+
+            "PAYMENT_CONFIRMED",
+
+            "READY_FOR_COLLECTION",
+
+            "CASH_COLLECTED"
+
+        ].includes(
+            status
+        )
+
+    ) {
+
+        return "green";
+
+    }
+
+
+    if (
+        status ===
+        "REJECTED"
+    ) {
+
+        return "red";
+
+    }
+
+
+    return "yellow";
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| CURRENCY
+|--------------------------------------------------------------------------
+*/
+
+function formatCurrency(
+    value
+) {
+
+
+    return "KSh " +
+
+        Number(
+            value || 0
+        ).toLocaleString(
+            "en-KE"
+        );
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| TIME
+|--------------------------------------------------------------------------
+*/
+
+function getTime(
+    timestamp
+) {
+
+
+    if (
+        !timestamp
+    ) {
+
+        return 0;
+
+    }
+
+
+    try {
+
+
+        if (
+            typeof timestamp.toMillis ===
+            "function"
+        ) {
+
+            return timestamp.toMillis();
+
+        }
+
+
+        if (
+            timestamp.seconds
+        ) {
+
+            return timestamp.seconds *
+                1000;
+
+        }
+
+
+        return new Date(
+            timestamp
+        ).getTime();
+
+    }
+
+    catch (
+        error
+    ) {
+
+        return 0;
+
+    }
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| ESCAPE HTML
+|--------------------------------------------------------------------------
+*/
+
+function escapeHTML(
+    value
+) {
+
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        String(
+            value ?? ""
+        );
+
+
+    return div.innerHTML;
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| LOGOUT
+|--------------------------------------------------------------------------
+*/
+
+logoutButton.addEventListener(
+    "click",
+    async () => {
+
+
+        try {
+
+
+            await signOut(
+                auth
+            );
+
+
+            window.location.href =
+                "login.html";
+
+        }
+
+        catch (error) {
+
+
+            console.error(
+                "Logout error:",
+                error
+            );
+
+        }
+
+    }
+);
+
+</script>
 
 </body>
 
