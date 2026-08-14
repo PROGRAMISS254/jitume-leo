@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -197,7 +198,8 @@
         }
 
         .status-active,
-        .status-approved {
+        .status-approved,
+        .status-paid {
             background: #e8f7ef;
             color: #168a63;
         }
@@ -207,7 +209,8 @@
             color: #8a6200;
         }
 
-        .status-rejected {
+        .status-rejected,
+        .status-late {
             background: #fdeceb;
             color: #b42318;
         }
@@ -289,6 +292,21 @@
         .client-btn-print {
             background: #273142;
             color: #ffffff;
+        }
+
+        .client-btn-full {
+            background: #168a63;
+            color: #ffffff;
+        }
+
+        .client-btn-renew {
+            background: #355070;
+            color: #ffffff;
+        }
+
+        .client-btn:disabled {
+            opacity: .55;
+            cursor: not-allowed;
         }
 
 
@@ -426,6 +444,88 @@
 
         .repayment-item strong {
             font-size: 11px;
+        }
+
+
+        /* =====================================================
+           REPAYMENT CHOICE
+        ===================================================== */
+
+        .repayment-choice {
+            margin-top: 11px;
+            padding: 13px;
+            border-radius: 8px;
+            background: #fafbfc;
+            border: 1px solid #e4e8ed;
+        }
+
+        .repayment-choice-title {
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 4px;
+            color: #273142;
+        }
+
+        .repayment-choice-subtitle {
+            font-size: 10px;
+            color: #667085;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .repayment-options {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+        }
+
+        .repayment-option {
+            border: 1px solid #dfe4e9;
+            border-radius: 8px;
+            padding: 11px;
+            background: #ffffff;
+        }
+
+        .repayment-option h4 {
+            margin: 0 0 5px;
+            font-size: 12px;
+        }
+
+        .repayment-option p {
+            margin: 0 0 8px;
+            color: #667085;
+            font-size: 9px;
+            line-height: 1.5;
+        }
+
+        .repayment-option strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .repayment-option.full {
+            border-color: #cdebdc;
+        }
+
+        .repayment-option.renew {
+            border-color: #d6e3fa;
+        }
+
+
+        /* =====================================================
+           LATE DETAILS
+        ===================================================== */
+
+        .late-box {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background: #fff0f0;
+            border: 1px solid #f1c0c0;
+            color: #8f211b;
+            font-size: 10px;
+            line-height: 1.55;
         }
 
 
@@ -666,7 +766,8 @@
                 grid-template-columns: 1fr 1fr;
             }
 
-            .repayment-grid {
+            .repayment-grid,
+            .repayment-options {
                 grid-template-columns: 1fr;
             }
 
@@ -1065,7 +1166,7 @@
                 </h2>
 
                 <p>
-                    Loan terms and repayment schedule.
+                    Loan terms, due date and repayment choices.
                 </p>
 
             </div>
@@ -1136,7 +1237,6 @@
 
 
         <div class="panel">
-
 
             <div class="profile-grid">
 
@@ -1386,7 +1486,7 @@
                 <tr>
 
                     <th>
-                        Renewal Amount
+                        Renewal Payment
                     </th>
 
                     <td>
@@ -1428,7 +1528,7 @@
                     <tr>
 
                         <th>
-                            Payment
+                            Option
                         </th>
 
                         <th>
@@ -1440,7 +1540,7 @@
                         </th>
 
                         <th>
-                            Description
+                            Result
                         </th>
 
                     </tr>
@@ -1465,7 +1565,7 @@
                         </td>
 
                         <td>
-                            Principal plus interest
+                            Loan closed
                         </td>
 
                     </tr>
@@ -1486,8 +1586,7 @@
                         </td>
 
                         <td>
-                            KSh 1,000 interest
-                            + KSh 500 renewal fee
+                            Loan continues
                         </td>
 
                     </tr>
@@ -1534,15 +1633,15 @@
 
 
                 <li>
-                    A KSh 500 renewal fee applies when
-                    the client chooses to renew.
+                    A KSh 500 renewal fee applies
+                    when the client chooses to renew.
                 </li>
 
 
                 <li>
-                    A renewal requires payment of
-                    KSh 1,000 interest plus KSh 500
-                    renewal fee, totalling KSh 1,500.
+                    Renewal payment is KSh 1,500,
+                    consisting of KSh 1,000 interest
+                    and KSh 500 renewal fee.
                 </li>
 
 
@@ -1554,22 +1653,24 @@
 
 
                 <li>
-                    Late repayment attracts an additional
-                    KSh 100 per day.
+                    Late repayment attracts an
+                    additional KSh 100 per day.
                 </li>
 
 
                 <li>
-                    The client must complete the required
-                    signed agreement and provide the
-                    required identification documents.
+                    The client may choose either full
+                    repayment or renewal at maturity.
+                    Partial repayment is not part of
+                    this loan model.
                 </li>
 
 
                 <li>
-                    The original physical documents are
-                    handed to the selected agent for
-                    verification and record keeping.
+                    The required signed agreement and
+                    identification documents must be
+                    handled through the selected agent
+                    verification process.
                 </li>
 
             </ol>
@@ -2255,9 +2356,12 @@ function updateHomeSummary() {
                 [
                     "APPROVED",
                     "READY_FOR_COLLECTION",
-                    "CASH_COLLECTED"
+                    "CASH_COLLECTED",
+                    "DUE",
+                    "LATE"
                 ]
                 .includes(
+                    application.repaymentStatus ||
                     application.status
                 )
         );
@@ -2415,13 +2519,8 @@ function renderCurrentLoan() {
     const activeLoans =
         applications.filter(
             application =>
-                [
-                    "APPROVED",
-                    "READY_FOR_COLLECTION",
-                    "CASH_COLLECTED"
-                ]
-                .includes(
-                    application.status
+                isActiveLoan(
+                    application
                 )
         );
 
@@ -2481,6 +2580,38 @@ function renderCurrentLoan() {
 
 
 /* =====================================================
+   ACTIVE LOAN
+===================================================== */
+
+function isActiveLoan(
+    application
+) {
+
+
+    const status =
+        application.repaymentStatus ||
+        application.status;
+
+
+    return [
+
+        "APPROVED",
+        "READY_FOR_COLLECTION",
+        "CASH_COLLECTED",
+        "DUE",
+        "LATE",
+        "RENEWED",
+        "ACTIVE"
+
+    ].includes(
+        status
+    );
+
+}
+
+
+
+/* =====================================================
    APPLICATION CARD
 ===================================================== */
 
@@ -2508,9 +2639,15 @@ function createApplicationCard(
         };
 
 
-    const status =
+    const applicationStatus =
         application.status ||
         "APPLICATION_SUBMITTED";
+
+
+    const repayment =
+        getRepaymentInfo(
+            application
+        );
 
 
     const loanType =
@@ -2556,9 +2693,7 @@ function createApplicationCard(
 
 
     const nextPaymentDate =
-        calculateNextPaymentDate(
-            application
-        );
+        repayment.nextPaymentDate;
 
 
     const card =
@@ -2611,13 +2746,16 @@ function createApplicationCard(
 
 
             <span
-                class="status-pill ${getStatusClass(
-                    status
-                )}">
+                class="status-pill ${
+                    getDisplayStatusClass(
+                        repayment.status
+                    )
+                }">
 
                 ${escapeHTML(
-                    formatStatus(
-                        status
+                    formatRepaymentStatus(
+                        repayment.status,
+                        applicationStatus
                     )
                 )}
 
@@ -2700,7 +2838,8 @@ function createApplicationCard(
                 <strong>
 
                     ${formatCurrency(
-                        application.requestedAmount
+                        application.requestedAmount ||
+                        5000
                     )}
 
                 </strong>
@@ -2729,7 +2868,7 @@ function createApplicationCard(
             <div class="detail-box">
 
                 <small>
-                    Full Amount
+                    Full Repayment
                 </small>
 
                 <strong>
@@ -2774,7 +2913,7 @@ function createApplicationCard(
             <div class="detail-box">
 
                 <small>
-                    Next Payment
+                    Next Payment Date
                 </small>
 
                 <strong>
@@ -2791,7 +2930,7 @@ function createApplicationCard(
             <div class="detail-box">
 
                 <small>
-                    Renewal Amount
+                    Renewal Payment
                 </small>
 
                 <strong>
@@ -2837,100 +2976,301 @@ function createApplicationCard(
 
 
 
-        <!-- REPAYMENT -->
+        <!-- REPAYMENT SUMMARY -->
 
         ${
-            [
-                "APPROVED",
-                "READY_FOR_COLLECTION",
-                "CASH_COLLECTED"
-            ]
-            .includes(
-                status
-            )
+            repayment.isRepaymentStage
 
-            ?
+                ?
 
-            `
+                `
 
-            <div
-                class="repayment-highlight">
+                <div
+                    class="repayment-highlight">
+
+
+                    <div
+                        class="repayment-highlight-title">
+
+                        REPAYMENT STATUS
+
+                    </div>
+
+
+                    <div class="repayment-grid">
+
+
+                        <div class="repayment-item">
+
+                            <small>
+                                Due Date
+                            </small>
+
+                            <strong>
+
+                                ${escapeHTML(
+                                    nextPaymentDate
+                                )}
+
+                            </strong>
+
+                        </div>
+
+
+                        <div class="repayment-item">
+
+                            <small>
+                                Full Repayment
+                            </small>
+
+                            <strong>
+
+                                ${formatCurrency(
+                                    repayment.fullRepayment
+                                )}
+
+                            </strong>
+
+                        </div>
+
+
+                        <div class="repayment-item">
+
+                            <small>
+                                Renewal Payment
+                            </small>
+
+                            <strong>
+                                KSh 1,500
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    ${
+                        repayment.status ===
+                        "LATE"
+
+                            ?
+
+                            `
+
+                            <div
+                                class="late-box">
+
+                                <strong>
+                                    Late repayment charge:
+                                </strong>
+
+                                KSh 100 per late day.
+
+                                <br>
+
+                                Current late charge:
+
+                                <strong>
+
+                                    ${formatCurrency(
+                                        repayment.lateCharge
+                                    )}
+
+                                </strong>
+
+                            </div>
+
+                            `
+
+                            :
+
+                            ""
+
+                    }
+
+                </div>
 
 
                 <div
-                    class="repayment-highlight-title">
+                    class="repayment-choice">
 
-                    REPAYMENT SCHEDULE
+
+                    <div
+                        class="repayment-choice-title">
+
+                        REPAYMENT AT MATURITY
+
+                    </div>
+
+
+                    <div
+                        class="repayment-choice-subtitle">
+
+                        At maturity, choose one of the
+                        two available options. Partial
+                        repayment is not available in
+                        this loan model.
+
+                    </div>
+
+
+                    <div
+                        class="repayment-options">
+
+
+                        <div
+                            class="repayment-option full">
+
+
+                            <h4>
+                                Full Repayment
+                            </h4>
+
+
+                            <p>
+
+                                Pay the full principal
+                                plus interest and close
+                                the loan.
+
+                            </p>
+
+
+                            <strong>
+
+                                ${formatCurrency(
+                                    repayment.currentFullRepayment
+                                )}
+
+                            </strong>
+
+
+                            <button
+                                type="button"
+                                class="client-btn client-btn-full"
+                                disabled>
+
+                                Full Repayment
+
+                            </button>
+
+                        </div>
+
+
+
+                        <div
+                            class="repayment-option renew">
+
+
+                            <h4>
+                                Renew Loan
+                            </h4>
+
+
+                            <p>
+
+                                Pay KSh 1,000 interest
+                                plus KSh 500 renewal fee.
+                                The principal remains
+                                outstanding and the loan
+                                continues.
+
+                            </p>
+
+
+                            <strong>
+                                KSh 1,500
+                            </strong>
+
+
+                            <button
+                                type="button"
+                                class="client-btn client-btn-renew"
+                                disabled>
+
+                                Renew Loan
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="approval-box ${
+                            repayment.status === "LATE"
+                                ? "danger"
+                                : "warning"
+                        }">
+
+                        <h4>
+
+                            ${
+                                repayment.status === "LATE"
+
+                                    ?
+
+                                    "LATE REPAYMENT"
+
+                                    :
+
+                                    "REPAYMENT REMINDER"
+
+                            }
+
+                        </h4>
+
+
+                        <p>
+
+                            ${
+                                repayment.status === "LATE"
+
+                                    ?
+
+                                    `
+                                    Your loan is past the scheduled
+                                    repayment date. The applicable
+                                    KSh 100 daily late charge is being
+                                    calculated according to the agreed
+                                    terms.
+                                    `
+
+                                    :
+
+                                    `
+                                    Repayment is due on
+                                    <strong>
+                                        ${escapeHTML(
+                                            nextPaymentDate
+                                        )}
+                                    </strong>.
+                                    You may choose full repayment
+                                    or renewal at maturity.
+                                    `
+
+                            }
+
+                        </p>
+
+                    </div>
 
                 </div>
 
+                `
 
-                <div class="repayment-grid">
+                :
 
-
-                    <div class="repayment-item">
-
-                        <small>
-                            Next Payment Date
-                        </small>
-
-                        <strong>
-
-                            ${escapeHTML(
-                                nextPaymentDate
-                            )}
-
-                        </strong>
-
-                    </div>
-
-
-                    <div class="repayment-item">
-
-                        <small>
-                            Full Payment
-                        </small>
-
-                        <strong>
-
-                            ${formatCurrency(
-                                application.totalMaturityAmount ||
-                                6000
-                            )}
-
-                        </strong>
-
-                    </div>
-
-
-                    <div class="repayment-item">
-
-                        <small>
-                            Renewal Payment
-                        </small>
-
-                        <strong>
-                            KSh 1,500
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            `
-
-            :
-
-            ""
+                ""
 
         }
 
 
 
         ${createStatusBox(
-            application
+            application,
+            repayment
         )}
 
 
@@ -2985,17 +3325,475 @@ function createApplicationCard(
 
 
 /* =====================================================
+   REPAYMENT INFORMATION
+===================================================== */
+
+function getRepaymentInfo(
+    application
+) {
+
+
+    const fullRepayment =
+        Number(
+            application.totalMaturityAmount ||
+            (
+                Number(
+                    application.requestedAmount ||
+                    5000
+                )
+                +
+                Number(
+                    application.interestAmount ||
+                    1000
+                )
+            )
+        );
+
+
+    const repaymentStartDate =
+        getRepaymentStartDate(
+            application
+        );
+
+
+    if (
+        !repaymentStartDate
+    ) {
+
+        return {
+
+            status:
+                "NOT_STARTED",
+
+            nextPaymentDate:
+                "Not yet scheduled",
+
+            fullRepayment:
+                fullRepayment,
+
+            currentFullRepayment:
+                fullRepayment,
+
+            lateCharge:
+                0,
+
+            isRepaymentStage:
+                false
+
+        };
+
+    }
+
+
+    const dueDate =
+        addOneMonth(
+            repaymentStartDate
+        );
+
+
+    const today =
+        new Date();
+
+
+    /*
+     * If the loan has already been formally repaid,
+     * renewed, or closed, don't calculate it as late.
+     */
+
+    const formalStatus =
+        application.repaymentStatus ||
+        "";
+
+
+    if (
+        [
+            "REPAID",
+            "CLOSED",
+            "RENEWED"
+        ]
+        .includes(
+            formalStatus
+        )
+    ) {
+
+
+        return {
+
+            status:
+                formalStatus,
+
+            nextPaymentDate:
+                formatDate(
+                    dueDate
+                ),
+
+            fullRepayment:
+                fullRepayment,
+
+            currentFullRepayment:
+                fullRepayment,
+
+            lateCharge:
+                0,
+
+            isRepaymentStage:
+                true
+
+        };
+
+    }
+
+
+    const startOfToday =
+        new Date(
+            today.getFullYear(),
+            today.getMonth(),
+            today.getDate()
+        );
+
+
+    const startOfDueDate =
+        new Date(
+            dueDate.getFullYear(),
+            dueDate.getMonth(),
+            dueDate.getDate()
+        );
+
+
+    const difference =
+        startOfToday.getTime()
+        -
+        startOfDueDate.getTime();
+
+
+    const daysLate =
+        Math.max(
+            0,
+            Math.floor(
+                difference /
+                (
+                    1000 *
+                    60 *
+                    60 *
+                    24
+                )
+            )
+        );
+
+
+    const lateCharge =
+        daysLate *
+        100;
+
+
+    const currentFullRepayment =
+        fullRepayment +
+        lateCharge;
+
+
+    if (
+        daysLate > 0
+    ) {
+
+
+        return {
+
+            status:
+                "LATE",
+
+            nextPaymentDate:
+                formatDate(
+                    dueDate
+                ),
+
+            fullRepayment:
+                fullRepayment,
+
+            currentFullRepayment:
+                currentFullRepayment,
+
+            lateCharge:
+                lateCharge,
+
+            daysLate:
+                daysLate,
+
+            isRepaymentStage:
+                true
+
+        };
+
+    }
+
+
+    return {
+
+        status:
+            startOfToday.getTime() ===
+            startOfDueDate.getTime()
+
+                ?
+
+                "DUE"
+
+                :
+
+                "ACTIVE",
+
+        nextPaymentDate:
+            formatDate(
+                dueDate
+            ),
+
+        fullRepayment:
+            fullRepayment,
+
+        currentFullRepayment:
+            fullRepayment,
+
+        lateCharge:
+            0,
+
+        daysLate:
+            0,
+
+        isRepaymentStage:
+            true
+
+    };
+
+}
+
+
+
+/* =====================================================
+   REPAYMENT START DATE
+===================================================== */
+
+function getRepaymentStartDate(
+    application
+) {
+
+
+    /*
+     * Prefer actual loan start date.
+     */
+
+    if (
+        application.loanStartDate
+    ) {
+
+        return convertTimestampToDate(
+            application.loanStartDate
+        );
+
+    }
+
+
+    /*
+     * Then actual cash collection date.
+     */
+
+    if (
+        application.cashCollectedAt
+    ) {
+
+        return convertTimestampToDate(
+            application.cashCollectedAt
+        );
+
+    }
+
+
+    /*
+     * Then approval date.
+     */
+
+    if (
+        application.adminApprovedAt
+    ) {
+
+        return convertTimestampToDate(
+            application.adminApprovedAt
+        );
+
+    }
+
+
+    /*
+     * Finally use createdAt only as a
+     * prototype fallback.
+     */
+
+    if (
+        application.createdAt
+    ) {
+
+        return convertTimestampToDate(
+            application.createdAt
+        );
+
+    }
+
+
+    return null;
+
+}
+
+
+
+/* =====================================================
+   ADD ONE MONTH
+===================================================== */
+
+function addOneMonth(
+    sourceDate
+) {
+
+
+    const nextDate =
+        new Date(
+            sourceDate
+        );
+
+
+    const originalDay =
+        nextDate.getDate();
+
+
+    nextDate.setMonth(
+        nextDate.getMonth() + 1
+    );
+
+
+    /*
+     * Handle months with fewer days.
+     */
+
+    if (
+        nextDate.getDate() !==
+        originalDay
+    ) {
+
+        nextDate.setDate(
+            0
+        );
+
+    }
+
+
+    return nextDate;
+
+}
+
+
+
+/* =====================================================
+   FORMAT DATE
+===================================================== */
+
+function formatDate(
+    date
+) {
+
+
+    return date.toLocaleDateString(
+        "en-KE",
+        {
+
+            day:
+                "2-digit",
+
+            month:
+                "long",
+
+            year:
+                "numeric"
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
    STATUS BOX
 ===================================================== */
 
 function createStatusBox(
-    application
+    application,
+    repayment
 ) {
 
 
     const status =
         application.status ||
         "APPLICATION_SUBMITTED";
+
+
+    if (
+        repayment.status ===
+        "REPAID"
+        ||
+        repayment.status ===
+        "CLOSED"
+    ) {
+
+
+        return `
+
+            <div
+                class="approval-box success">
+
+                <h4>
+                    LOAN CLOSED
+                </h4>
+
+
+                <p>
+
+                    This loan has been fully repaid
+                    and is now closed.
+
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+
+    if (
+        repayment.status ===
+        "RENEWED"
+    ) {
+
+
+        return `
+
+            <div
+                class="approval-box success">
+
+                <h4>
+                    LOAN RENEWED
+                </h4>
+
+
+                <p>
+
+                    The loan was renewed after payment
+                    of the KSh 1,000 interest and KSh 500
+                    renewal fee.
+
+                </p>
+
+            </div>
+
+        `;
+
+    }
 
 
     if (
@@ -3079,6 +3877,7 @@ function createStatusBox(
         "CASH_COLLECTED"
     ) {
 
+
         return `
 
             <div
@@ -3109,6 +3908,7 @@ function createStatusBox(
         "REJECTED"
     ) {
 
+
         return `
 
             <div
@@ -3126,21 +3926,21 @@ function createStatusBox(
                     ${
                         application.adminDenialReason
 
-                        ?
+                            ?
 
-                        `
-                        <br><br>
+                            `
+                            <br><br>
 
-                        Reason:
-                        ${escapeHTML(
-                            application.adminDenialReason
-                        )}
+                            Reason:
+                            ${escapeHTML(
+                                application.adminDenialReason
+                            )}
 
-                        `
+                            `
 
-                        :
+                            :
 
-                        ""
+                            ""
 
                     }
 
@@ -3157,6 +3957,7 @@ function createStatusBox(
         status ===
         "SENT_TO_ADMIN"
     ) {
+
 
         return `
 
@@ -3188,6 +3989,7 @@ function createStatusBox(
         "ADMIN_REVIEW"
     ) {
 
+
         return `
 
             <div
@@ -3216,6 +4018,7 @@ function createStatusBox(
         application.clientHandoverStatus ===
         "CLIENT_HANDOVER_REPORTED"
     ) {
+
 
         return `
 
@@ -3370,10 +4173,6 @@ function printRepaymentSchedule(
             500;
 
 
-    const renewalAmount =
-        1500;
-
-
     const paymentDate =
         calculateNextPaymentDate(
             application
@@ -3454,14 +4253,6 @@ function printRepaymentSchedule(
 
 
     document.getElementById(
-        "printRenewalAmount"
-    ).textContent =
-        formatCurrency(
-            renewalAmount
-        );
-
-
-    document.getElementById(
         "printPaymentDate"
     ).textContent =
         paymentDate;
@@ -3506,129 +4297,6 @@ function printRepaymentSchedule(
 
 
     window.print();
-
-}
-
-
-
-/* =====================================================
-   PAYMENT DATE
-===================================================== */
-
-function calculateNextPaymentDate(
-    application
-) {
-
-
-    let sourceDate =
-        null;
-
-
-    if (
-        application.loanStartDate
-    ) {
-
-        sourceDate =
-            convertTimestampToDate(
-                application.loanStartDate
-            );
-
-    }
-
-
-    if (
-        !sourceDate
-        &&
-        application.cashCollectedAt
-    ) {
-
-        sourceDate =
-            convertTimestampToDate(
-                application.cashCollectedAt
-            );
-
-    }
-
-
-    if (
-        !sourceDate
-        &&
-        application.adminApprovedAt
-    ) {
-
-        sourceDate =
-            convertTimestampToDate(
-                application.adminApprovedAt
-            );
-
-    }
-
-
-    if (
-        !sourceDate
-        &&
-        application.createdAt
-    ) {
-
-        sourceDate =
-            convertTimestampToDate(
-                application.createdAt
-            );
-
-    }
-
-
-    if (
-        !sourceDate
-    ) {
-
-        return "Not yet scheduled";
-
-    }
-
-
-    const nextDate =
-        new Date(
-            sourceDate
-        );
-
-
-    const originalDay =
-        nextDate.getDate();
-
-
-    nextDate.setMonth(
-        nextDate.getMonth() + 1
-    );
-
-
-    if (
-        nextDate.getDate() !==
-        originalDay
-    ) {
-
-        nextDate.setDate(
-            0
-        );
-
-    }
-
-
-    return nextDate.toLocaleDateString(
-        "en-KE",
-        {
-
-            day:
-                "2-digit",
-
-            month:
-                "long",
-
-            year:
-                "numeric"
-
-        }
-    );
 
 }
 
@@ -3947,6 +4615,117 @@ logoutButton.addEventListener(
    HELPERS
 ===================================================== */
 
+function formatRepaymentStatus(
+    repaymentStatus,
+    applicationStatus
+) {
+
+
+    if (
+        repaymentStatus ===
+        "REPAID"
+    ) {
+
+        return "Loan Repaid";
+
+    }
+
+
+    if (
+        repaymentStatus ===
+        "RENEWED"
+    ) {
+
+        return "Loan Renewed";
+
+    }
+
+
+    if (
+        repaymentStatus ===
+        "LATE"
+    ) {
+
+        return "Late Repayment";
+
+    }
+
+
+    if (
+        repaymentStatus ===
+        "DUE"
+    ) {
+
+        return "Payment Due";
+
+    }
+
+
+    if (
+        repaymentStatus ===
+        "ACTIVE"
+    ) {
+
+        return "Active Loan";
+
+    }
+
+
+    return formatStatus(
+        applicationStatus
+    );
+
+}
+
+
+
+function getDisplayStatusClass(
+    repaymentStatus
+) {
+
+
+    if (
+        repaymentStatus ===
+        "REPAID"
+        ||
+        repaymentStatus ===
+        "RENEWED"
+        ||
+        repaymentStatus ===
+        "ACTIVE"
+    ) {
+
+        return "status-approved";
+
+    }
+
+
+    if (
+        repaymentStatus ===
+        "DUE"
+    ) {
+
+        return "status-pending";
+
+    }
+
+
+    if (
+        repaymentStatus ===
+        "LATE"
+    ) {
+
+        return "status-late";
+
+    }
+
+
+    return "status-pending";
+
+}
+
+
+
 function formatStatus(
     status
 ) {
@@ -4177,3 +4956,57 @@ function escapeHTML(
 </body>
 
 </html>
+```
+
+### What this version changes
+
+The client now has a clear repayment state:
+
+**ACTIVE**
+
+```text
+Current loan is within its repayment period.
+```
+
+**DUE**
+
+```text
+Payment due today.
+```
+
+**LATE**
+
+```text
+Late repayment
+KSh 100 × late days
+```
+
+**REPAID**
+
+```text
+Loan Repaid
+```
+
+**RENEWED**
+
+```text
+Loan Renewed
+```
+
+At the repayment stage, the client sees exactly two choices:
+
+```text
+FULL REPAYMENT
+KSh 6,000
+Loan closes
+
+RENEW LOAN
+KSh 1,500
+KSh 1,000 interest
++ KSh 500 renewal fee
+Loan continues
+```
+
+The buttons are deliberately **disabled for now**. They are interface choices, not payment actions yet. We should make the actual **Repay** and **Renew** workflow on the Agent/Admin side next, so a client cannot simply mark their own loan as repaid or renewed.
+
+The existing printable schedule is also retained, with the terms now explicitly stating that **partial repayment is not available**.
