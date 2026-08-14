@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,6 @@
     <title>Agent Dashboard | Jitume Leo</title>
 
     <link rel="stylesheet" href="style.css">
-
 
     <style>
 
@@ -35,16 +35,9 @@
         ===================================================== */
 
         .agent-page {
-
-            width:
-                min(1120px, calc(100% - 28px));
-
-            margin:
-                0 auto;
-
-            padding:
-                26px 0 45px;
-
+            width: min(1120px, calc(100% - 28px));
+            margin: 0 auto;
+            padding: 26px 0 45px;
         }
 
 
@@ -76,146 +69,61 @@
         ===================================================== */
 
         .agent-menu {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-
-            gap:
-                12px;
-
-            margin-bottom:
-                18px;
-
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 18px;
         }
-
 
         .agent-menu-button {
-
-            border:
-                1px solid #e1e6eb;
-
-            background:
-                #ffffff;
-
-            border-radius:
-                12px;
-
-            padding:
-                16px;
-
-            text-align:
-                left;
-
-            cursor:
-                pointer;
-
-            transition:
-                .18s ease;
-
-            box-shadow:
-                0 5px 15px
-                rgba(30,45,65,.04);
-
+            border: 1px solid #e1e6eb;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 14px;
+            text-align: left;
+            cursor: pointer;
+            transition: .18s ease;
+            box-shadow: 0 5px 15px rgba(30,45,65,.04);
         }
-
 
         .agent-menu-button:hover {
-
-            border-color:
-                #168a63;
-
-            transform:
-                translateY(-1px);
-
+            border-color: #168a63;
+            transform: translateY(-1px);
         }
-
 
         .agent-menu-button.active {
-
-            background:
-                #f0faf6;
-
-            border-color:
-                #168a63;
-
+            background: #f0faf6;
+            border-color: #168a63;
         }
-
 
         .agent-menu-icon {
-
-            width:
-                34px;
-
-            height:
-                34px;
-
-            border-radius:
-                9px;
-
-            background:
-                #eef2f6;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            margin-bottom:
-                10px;
-
-            font-size:
-                13px;
-
-            font-weight:
-                800;
-
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: #eef2f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 800;
         }
 
-
-        .agent-menu-button.active
-        .agent-menu-icon {
-
-            background:
-                #168a63;
-
-            color:
-                #ffffff;
-
+        .agent-menu-button.active .agent-menu-icon {
+            background: #168a63;
+            color: #ffffff;
         }
-
 
         .agent-menu-button h3 {
-
-            margin:
-                0 0 4px;
-
-            font-size:
-                16px;
-
+            margin: 0 0 4px;
+            font-size: 14px;
         }
 
-
         .agent-menu-button p {
-
-            margin:
-                0;
-
-            color:
-                #6d7788;
-
-            font-size:
-                11px;
-
-            line-height:
-                1.5;
-
+            margin: 0;
+            color: #6d7788;
+            font-size: 10px;
+            line-height: 1.45;
         }
 
 
@@ -231,109 +139,48 @@
             display: none;
         }
 
-
         .summary-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(4, minmax(0, 1fr));
-
-            gap:
-                10px;
-
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 8px;
         }
-
 
         .summary-card {
-
-            background:
-                #ffffff;
-
-            border:
-                1px solid #e4e8ed;
-
-            border-radius:
-                10px;
-
-            padding:
-                13px 15px;
-
+            background: #ffffff;
+            border: 1px solid #e4e8ed;
+            border-radius: 10px;
+            padding: 12px 13px;
         }
-
 
         .summary-card small {
-
-            display:
-                block;
-
-            color:
-                #7b8794;
-
-            font-size:
-                9px;
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                .5px;
-
-            margin-bottom:
-                4px;
-
+            display: block;
+            color: #7b8794;
+            font-size: 8px;
+            font-weight: 800;
+            letter-spacing: .5px;
+            margin-bottom: 4px;
         }
-
 
         .summary-card strong {
-            font-size: 21px;
+            font-size: 19px;
         }
-
 
         .agent-account-box {
-
-            background:
-                #ffffff;
-
-            border:
-                1px solid #e4e8ed;
-
-            border-radius:
-                10px;
-
-            padding:
-                14px 16px;
-
-            margin-top:
-                12px;
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            align-items:
-                center;
-
-            gap:
-                12px;
-
+            background: #ffffff;
+            border: 1px solid #e4e8ed;
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-top: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
         }
 
-
         .agent-account-box p {
-
-            margin:
-                3px 0 0;
-
-            color:
-                #667085;
-
-            font-size:
-                11px;
-
+            margin: 3px 0 0;
+            color: #667085;
+            font-size: 11px;
         }
 
 
@@ -342,80 +189,35 @@
         ===================================================== */
 
         .status-pill {
-
-            display:
-                inline-block;
-
-            padding:
-                5px 8px;
-
-            border-radius:
-                20px;
-
-            font-size:
-                8px;
-
-            font-weight:
-                800;
-
-            white-space:
-                nowrap;
-
+            display: inline-block;
+            padding: 5px 8px;
+            border-radius: 20px;
+            font-size: 8px;
+            font-weight: 800;
+            white-space: nowrap;
         }
 
-
-        .status-active {
-
-            background:
-                #e8f7ef;
-
-            color:
-                #168a63;
-
+        .status-active,
+        .status-approved,
+        .status-paid {
+            background: #e8f7ef;
+            color: #168a63;
         }
-
 
         .status-pending {
-
-            background:
-                #fff5db;
-
-            color:
-                #8a6200;
-
+            background: #fff5db;
+            color: #8a6200;
         }
 
-
-        .status-approved {
-
-            background:
-                #e8f7ef;
-
-            color:
-                #168a63;
-
+        .status-rejected,
+        .status-late {
+            background: #fdeceb;
+            color: #b42318;
         }
-
-
-        .status-rejected {
-
-            background:
-                #fdeceb;
-
-            color:
-                #b42318;
-
-        }
-
 
         .status-review {
-
-            background:
-                #eef5ff;
-
-            color:
-                #355070;
-
+            background: #eef5ff;
+            color: #355070;
         }
 
 
@@ -431,87 +233,32 @@
             display: block;
         }
 
-
         .panel-header {
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            align-items:
-                center;
-
-            gap:
-                12px;
-
-            margin:
-                5px 0 14px;
-
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin: 5px 0 14px;
         }
-
 
         .panel-header h2 {
-
-            margin:
-                3px 0;
-
-            font-size:
-                21px;
-
+            margin: 3px 0;
+            font-size: 21px;
         }
-
 
         .panel-header p {
-
-            margin:
-                0;
-
-            color:
-                #6d7788;
-
-            font-size:
-                12px;
-
+            margin: 0;
+            color: #6d7788;
+            font-size: 12px;
         }
-
-
-        .panel-actions {
-
-            display:
-                flex;
-
-            gap:
-                7px;
-
-            flex-wrap:
-                wrap;
-
-        }
-
 
         .panel {
-
-            background:
-                #ffffff;
-
-            border:
-                1px solid #e4e8ed;
-
-            border-radius:
-                12px;
-
-            padding:
-                15px;
-
-            box-shadow:
-                0 5px 15px
-                rgba(30,45,65,.03);
-
-            margin-bottom:
-                12px;
-
+            background: #ffffff;
+            border: 1px solid #e4e8ed;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(30,45,65,.03);
+            margin-bottom: 12px;
         }
 
 
@@ -520,91 +267,52 @@
         ===================================================== */
 
         .agent-btn {
-
-            border:
-                none;
-
-            border-radius:
-                7px;
-
-            padding:
-                9px 13px;
-
-            font-size:
-                11px;
-
-            font-weight:
-                700;
-
-            cursor:
-                pointer;
-
+            border: none;
+            border-radius: 7px;
+            padding: 9px 13px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
         }
-
 
         .agent-btn-primary {
-
-            background:
-                #168a63;
-
-            color:
-                #ffffff;
-
+            background: #168a63;
+            color: #ffffff;
         }
-
 
         .agent-btn-dark {
-
-            background:
-                #273142;
-
-            color:
-                #ffffff;
-
+            background: #273142;
+            color: #ffffff;
         }
-
 
         .agent-btn-danger {
-
-            background:
-                #b42318;
-
-            color:
-                #ffffff;
-
+            background: #b42318;
+            color: #ffffff;
         }
-
 
         .agent-btn-light {
-
-            background:
-                #eef2f6;
-
-            color:
-                #273142;
-
+            background: #eef2f6;
+            color: #273142;
         }
-
 
         .agent-btn-cash {
-
-            background:
-                #0b6b57;
-
-            color:
-                #ffffff;
-
+            background: #0b6b57;
+            color: #ffffff;
         }
 
+        .agent-btn-repay {
+            background: #168a63;
+            color: #ffffff;
+        }
+
+        .agent-btn-renew {
+            background: #355070;
+            color: #ffffff;
+        }
 
         .agent-btn:disabled {
-
-            opacity:
-                .55;
-
-            cursor:
-                not-allowed;
-
+            opacity: .55;
+            cursor: not-allowed;
         }
 
 
@@ -613,63 +321,30 @@
         ===================================================== */
 
         .toolbar {
-
-            display:
-                flex;
-
-            gap:
-                8px;
-
-            margin-bottom:
-                12px;
-
-            flex-wrap:
-                wrap;
-
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
         }
-
 
         .toolbar input,
         .toolbar select {
-
-            border:
-                1px solid #d7dde5;
-
-            border-radius:
-                7px;
-
-            padding:
-                9px 10px;
-
-            font-size:
-                11px;
-
-            outline:
-                none;
-
-            background:
-                #ffffff;
-
+            border: 1px solid #d7dde5;
+            border-radius: 7px;
+            padding: 9px 10px;
+            font-size: 11px;
+            outline: none;
+            background: #ffffff;
         }
-
 
         .toolbar input {
-
-            flex:
-                1;
-
-            min-width:
-                180px;
-
+            flex: 1;
+            min-width: 180px;
         }
-
 
         .toolbar input:focus,
         .toolbar select:focus {
-
-            border-color:
-                #168a63;
-
+            border-color: #168a63;
         }
 
 
@@ -678,64 +353,29 @@
         ===================================================== */
 
         .application-card {
-
-            border:
-                1px solid #e4e8ed;
-
-            border-radius:
-                10px;
-
-            padding:
-                14px;
-
-            margin-bottom:
-                9px;
-
+            border: 1px solid #e4e8ed;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 9px;
         }
-
 
         .application-top {
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            align-items:
-                flex-start;
-
-            gap:
-                12px;
-
-            margin-bottom:
-                11px;
-
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 11px;
         }
-
 
         .application-top h3 {
-
-            margin:
-                0 0 3px;
-
-            font-size:
-                15px;
-
+            margin: 0 0 3px;
+            font-size: 15px;
         }
 
-
         .application-meta {
-
-            color:
-                #667085;
-
-            font-size:
-                10px;
-
-            line-height:
-                1.55;
-
+            color: #667085;
+            font-size: 10px;
+            line-height: 1.55;
         }
 
 
@@ -744,73 +384,32 @@
         ===================================================== */
 
         .client-information {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-
-            gap:
-                7px;
-
-            margin-bottom:
-                10px;
-
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 7px;
+            margin-bottom: 10px;
         }
-
 
         .client-information-box {
-
-            background:
-                #eef8f3;
-
-            border:
-                1px solid #d8ece2;
-
-            border-radius:
-                7px;
-
-            padding:
-                9px;
-
+            background: #eef8f3;
+            border: 1px solid #d8ece2;
+            border-radius: 7px;
+            padding: 9px;
         }
-
 
         .client-information-box small {
-
-            display:
-                block;
-
-            color:
-                #5f806f;
-
-            font-size:
-                8px;
-
-            text-transform:
-                uppercase;
-
-            margin-bottom:
-                3px;
-
+            display: block;
+            color: #5f806f;
+            font-size: 8px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
         }
 
-
         .client-information-box strong {
-
-            display:
-                block;
-
-            font-size:
-                11px;
-
-            color:
-                #1f4d3d;
-
-            word-break:
-                break-word;
-
+            display: block;
+            font-size: 11px;
+            color: #1f4d3d;
+            word-break: break-word;
         }
 
 
@@ -819,58 +418,27 @@
         ===================================================== */
 
         .application-details {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(4, minmax(0, 1fr));
-
-            gap:
-                7px;
-
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 7px;
         }
-
 
         .detail-box {
-
-            background:
-                #f7f9fc;
-
-            border-radius:
-                7px;
-
-            padding:
-                8px;
-
+            background: #f7f9fc;
+            border-radius: 7px;
+            padding: 8px;
         }
-
 
         .detail-box small {
-
-            display:
-                block;
-
-            color:
-                #7b8794;
-
-            font-size:
-                8px;
-
-            text-transform:
-                uppercase;
-
-            margin-bottom:
-                3px;
-
+            display: block;
+            color: #7b8794;
+            font-size: 8px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
         }
 
-
         .detail-box strong {
-
-            font-size:
-                11px;
-
+            font-size: 11px;
         }
 
 
@@ -879,93 +447,80 @@
         ===================================================== */
 
         .verification-summary {
-
-            margin-top:
-                11px;
-
-            border-top:
-                1px solid #edf0f3;
-
-            padding-top:
-                10px;
-
+            margin-top: 11px;
+            border-top: 1px solid #edf0f3;
+            padding-top: 10px;
         }
-
 
         .verification-row {
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            gap:
-                10px;
-
-            padding:
-                6px 0;
-
-            font-size:
-                10px;
-
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 6px 0;
+            font-size: 10px;
         }
-
 
         .verification-row span:first-child {
-
-            color:
-                #667085;
-
+            color: #667085;
         }
-
 
         .verification-row span:last-child {
-
-            font-weight:
-                700;
-
+            font-weight: 700;
         }
-
 
         .text-green {
-
-            color:
-                #168a63;
-
+            color: #168a63;
         }
-
 
         .text-yellow {
-
-            color:
-                #8a6200;
-
+            color: #8a6200;
         }
-
 
         .text-red {
-
-            color:
-                #b42318;
-
+            color: #b42318;
         }
 
 
-        .application-actions {
+        /* =====================================================
+           REPAYMENT
+        ===================================================== */
 
-            display:
-                flex;
+        .repayment-section {
+            margin-top: 11px;
+            padding-top: 11px;
+            border-top: 1px solid #edf0f3;
+        }
 
-            gap:
-                6px;
+        .repayment-summary {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 7px;
+            margin-bottom: 10px;
+        }
 
-            flex-wrap:
-                wrap;
+        .repayment-box {
+            background: #f7f9fc;
+            border-radius: 7px;
+            padding: 8px;
+        }
 
-            margin-top:
-                11px;
+        .repayment-box small {
+            display: block;
+            color: #7b8794;
+            font-size: 8px;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+        }
 
+        .repayment-box strong {
+            font-size: 11px;
+        }
+
+        .repayment-actions {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+            margin-top: 9px;
         }
 
 
@@ -974,78 +529,35 @@
         ===================================================== */
 
         .info-box {
-
-            margin-top:
-                10px;
-
-            padding:
-                10px;
-
-            border-radius:
-                7px;
-
-            font-size:
-                10px;
-
-            line-height:
-                1.55;
-
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 7px;
+            font-size: 10px;
+            line-height: 1.55;
         }
-
 
         .info-box.info {
-
-            background:
-                #eef5ff;
-
-            border:
-                1px solid #d6e3fa;
-
-            color:
-                #355070;
-
+            background: #eef5ff;
+            border: 1px solid #d6e3fa;
+            color: #355070;
         }
-
 
         .info-box.warning {
-
-            background:
-                #fff8e7;
-
-            border:
-                1px solid #f0dfac;
-
-            color:
-                #795900;
-
+            background: #fff8e7;
+            border: 1px solid #f0dfac;
+            color: #795900;
         }
-
 
         .info-box.success {
-
-            background:
-                #e8f7ef;
-
-            border:
-                1px solid #cdebdc;
-
-            color:
-                #166b50;
-
+            background: #e8f7ef;
+            border: 1px solid #cdebdc;
+            color: #166b50;
         }
 
-
         .info-box.danger {
-
-            background:
-                #fff0f0;
-
-            border:
-                1px solid #f1c0c0;
-
-            color:
-                #8f211b;
-
+            background: #fff0f0;
+            border: 1px solid #f1c0c0;
+            color: #8f211b;
         }
 
 
@@ -1054,61 +566,28 @@
         ===================================================== */
 
         .profile-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-
-            gap:
-                8px;
-
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
         }
-
 
         .profile-item {
-
-            background:
-                #f7f9fc;
-
-            border-radius:
-                7px;
-
-            padding:
-                9px;
-
+            background: #f7f9fc;
+            border-radius: 7px;
+            padding: 9px;
         }
-
 
         .profile-item small {
-
-            display:
-                block;
-
-            color:
-                #7b8794;
-
-            font-size:
-                8px;
-
-            margin-bottom:
-                3px;
-
-            text-transform:
-                uppercase;
-
+            display: block;
+            color: #7b8794;
+            font-size: 8px;
+            margin-bottom: 3px;
+            text-transform: uppercase;
         }
 
-
         .profile-item strong {
-
-            font-size:
-                11px;
-
-            word-break:
-                break-word;
-
+            font-size: 11px;
+            word-break: break-word;
         }
 
 
@@ -1118,19 +597,10 @@
 
         .empty-state,
         .loading-state {
-
-            text-align:
-                center;
-
-            padding:
-                28px 15px;
-
-            color:
-                #667085;
-
-            font-size:
-                12px;
-
+            text-align: center;
+            padding: 28px 15px;
+            color: #667085;
+            font-size: 12px;
         }
 
 
@@ -1138,29 +608,31 @@
            RESPONSIVE
         ===================================================== */
 
+        @media (max-width: 1000px) {
+
+            .agent-menu {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .summary-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .repayment-summary {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+        }
+
+
         @media (max-width: 900px) {
 
             .application-details {
-
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-
-
-            .summary-grid {
-
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
-            }
-
 
             .client-information {
-
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
         }
@@ -1169,99 +641,46 @@
         @media (max-width: 650px) {
 
             .agent-page {
-
-                width:
-                    min(100% - 20px, 560px);
-
-                padding-top:
-                    18px;
-
+                width: min(100% - 20px, 560px);
+                padding-top: 18px;
             }
-
 
             .agent-menu {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
-
 
             .summary-grid {
-
-                grid-template-columns:
-                    1fr 1fr;
-
+                grid-template-columns: 1fr 1fr;
             }
-
 
             .panel-header {
-
-                align-items:
-                    flex-start;
-
-                flex-direction:
-                    column;
-
+                align-items: flex-start;
+                flex-direction: column;
             }
-
-
-            .panel-actions {
-
-                width:
-                    100%;
-
-            }
-
-
-            .panel-actions .agent-btn {
-
-                flex:
-                    1;
-
-            }
-
 
             .application-top {
-
-                flex-direction:
-                    column;
-
+                flex-direction: column;
             }
-
 
             .client-information {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
-
 
             .application-details {
-
-                grid-template-columns:
-                    1fr 1fr;
-
+                grid-template-columns: 1fr 1fr;
             }
-
 
             .toolbar {
-
-                display:
-                    grid;
-
-                grid-template-columns:
-                    1fr;
-
+                display: grid;
+                grid-template-columns: 1fr;
             }
 
-
             .toolbar input {
+                min-width: 0;
+            }
 
-                min-width:
-                    0;
-
+            .repayment-summary {
+                grid-template-columns: 1fr 1fr;
             }
 
         }
@@ -1270,42 +689,27 @@
         @media (max-width: 420px) {
 
             .agent-page {
-
-                width:
-                    calc(100% - 14px);
-
+                width: calc(100% - 14px);
             }
-
 
             .summary-grid {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
-
 
             .application-details {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
 
+            .repayment-summary {
+                grid-template-columns: 1fr;
+            }
 
             .profile-grid {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
 
-
             .panel {
-
-                padding:
-                    11px;
-
+                padding: 11px;
             }
 
         }
@@ -1377,8 +781,8 @@
 
         <p class="agent-subtext">
 
-            Manage assigned applications,
-            verify documents and record cash collection.
+            Manage applications, verify documents,
+            collect approved loans and process repayments.
 
         </p>
 
@@ -1427,7 +831,7 @@
             </h3>
 
             <p>
-                Confirm documents, fee and verify loans.
+                Confirm documents, fee and loans.
             </p>
 
         </button>
@@ -1447,7 +851,27 @@
             </h3>
 
             <p>
-                Record approved cash released to clients.
+                Release approved loans to clients.
+            </p>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="agent-menu-button"
+            data-panel="repaymentPanel">
+
+            <div class="agent-menu-icon">
+                R
+            </div>
+
+            <h3>
+                Repayments
+            </h3>
+
+            <p>
+                Record full repayment or renewal.
             </p>
 
         </button>
@@ -1501,6 +925,19 @@
                 </small>
 
                 <strong id="homeApprovedCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <small>
+                    DUE / LATE
+                </small>
+
+                <strong id="homeRepaymentCount">
                     0
                 </strong>
 
@@ -1624,6 +1061,10 @@
 
                     <option value="rejected">
                         Rejected
+                    </option>
+
+                    <option value="repayment">
+                        Due / Late
                     </option>
 
                 </select>
@@ -1758,6 +1199,62 @@
 
 
     <!-- =====================================================
+         REPAYMENT
+    ====================================================== -->
+
+    <section
+        id="repaymentPanel"
+        class="agent-panel">
+
+
+        <div class="panel-header">
+
+            <div>
+
+                <p class="small-heading">
+                    REPAYMENT MANAGEMENT
+                </p>
+
+                <h2>
+                    Due & Late Loans
+                </h2>
+
+                <p>
+                    Confirm full repayment or renewal.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="agent-btn agent-btn-light"
+                data-home-button>
+
+                ← Dashboard
+
+            </button>
+
+        </div>
+
+
+        <div class="panel">
+
+            <div id="repaymentContainer">
+
+                <div class="loading-state">
+                    Loading repayment records...
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
          PROFILE
     ====================================================== -->
 
@@ -1794,7 +1291,6 @@
 
 
         <div class="panel">
-
 
             <div class="profile-grid">
 
@@ -1914,7 +1410,8 @@ import {
     where,
     getDocs,
     updateDoc,
-    serverTimestamp
+    serverTimestamp,
+    Timestamp
 
 }
 from
@@ -1990,6 +1487,12 @@ const verificationContainer =
 const cashContainer =
     document.getElementById(
         "cashContainer"
+    );
+
+
+const repaymentContainer =
+    document.getElementById(
+        "repaymentContainer"
     );
 
 
@@ -2200,41 +1703,7 @@ async function loadAgentProfile(
             "Your agent account is awaiting administrator activation.";
 
 
-        applicationsContainer.innerHTML =
-            `
-            <div class="empty-state">
-
-                <h3>
-                    Agent Account Not Active
-                </h3>
-
-
-                <p>
-
-                    Wait for administrator activation
-                    before processing applications.
-
-                </p>
-
-            </div>
-            `;
-
-
-        verificationContainer.innerHTML =
-            `
-            <div class="empty-state">
-                Agent account is not active.
-            </div>
-            `;
-
-
-        cashContainer.innerHTML =
-            `
-            <div class="empty-state">
-                Agent account is not active.
-            </div>
-            `;
-
+        showInactiveMessage();
 
         return;
 
@@ -2246,6 +1715,49 @@ async function loadAgentProfile(
 
 
     await loadApplications();
+
+}
+
+
+
+/* =====================================================
+   INACTIVE MESSAGE
+===================================================== */
+
+function showInactiveMessage() {
+
+
+    const message =
+        `
+        <div class="empty-state">
+
+            <h3>
+                Agent Account Not Active
+            </h3>
+
+            <p>
+                Wait for administrator activation
+                before processing applications.
+            </p>
+
+        </div>
+        `;
+
+
+    applicationsContainer.innerHTML =
+        message;
+
+
+    verificationContainer.innerHTML =
+        message;
+
+
+    cashContainer.innerHTML =
+        message;
+
+
+    repaymentContainer.innerHTML =
+        message;
 
 }
 
@@ -2508,6 +2020,8 @@ async function loadApplications() {
 
         renderCashCollection();
 
+        renderRepayments();
+
     }
 
     catch (error) {
@@ -2536,7 +2050,383 @@ async function loadApplications() {
 
 
 /* =====================================================
-   SUMMARY
+   REPAYMENT INFO
+===================================================== */
+
+function getRepaymentInfo(
+    application
+) {
+
+
+    const principal =
+        Number(
+            application.approvedAmount ||
+            application.requestedAmount ||
+            5000
+        );
+
+
+    const interest =
+        Number(
+            application.interestAmount ||
+            1000
+        );
+
+
+    const fullRepayment =
+        Number(
+            application.totalMaturityAmount ||
+            principal + interest
+        );
+
+
+    const startDate =
+        getLoanStartDate(
+            application
+        );
+
+
+    if (
+        !startDate
+    ) {
+
+        return {
+
+            status:
+                "NOT_STARTED",
+
+            fullRepayment:
+                fullRepayment,
+
+            lateCharge:
+                0,
+
+            currentFullRepayment:
+                fullRepayment,
+
+            daysLate:
+                0,
+
+            dueDate:
+                null
+
+        };
+
+    }
+
+
+    const dueDate =
+        getDueDate(
+            application,
+            startDate
+        );
+
+
+    const formalRepaymentStatus =
+        application.repaymentStatus ||
+        "";
+
+
+    if (
+        formalRepaymentStatus ===
+        "REPAID"
+        ||
+        formalRepaymentStatus ===
+        "CLOSED"
+    ) {
+
+        return {
+
+            status:
+                "REPAID",
+
+            fullRepayment:
+                fullRepayment,
+
+            lateCharge:
+                0,
+
+            currentFullRepayment:
+                fullRepayment,
+
+            daysLate:
+                0,
+
+            dueDate:
+                dueDate
+
+        };
+
+    }
+
+
+    if (
+        formalRepaymentStatus ===
+        "RENEWED"
+    ) {
+
+        return {
+
+            status:
+                "RENEWED",
+
+            fullRepayment:
+                fullRepayment,
+
+            lateCharge:
+                0,
+
+            currentFullRepayment:
+                fullRepayment,
+
+            daysLate:
+                0,
+
+            dueDate:
+                dueDate
+
+        };
+
+    }
+
+
+    const today =
+        new Date();
+
+
+    const todayOnly =
+        new Date(
+            today.getFullYear(),
+            today.getMonth(),
+            today.getDate()
+        );
+
+
+    const dueOnly =
+        new Date(
+            dueDate.getFullYear(),
+            dueDate.getMonth(),
+            dueDate.getDate()
+        );
+
+
+    const difference =
+        todayOnly.getTime()
+        -
+        dueOnly.getTime();
+
+
+    const daysLate =
+        Math.max(
+            0,
+            Math.floor(
+                difference /
+                (
+                    1000 *
+                    60 *
+                    60 *
+                    24
+                )
+            )
+        );
+
+
+    const lateCharge =
+        daysLate *
+        100;
+
+
+    if (
+        daysLate > 0
+    ) {
+
+        return {
+
+            status:
+                "LATE",
+
+            fullRepayment:
+                fullRepayment,
+
+            lateCharge:
+                lateCharge,
+
+            currentFullRepayment:
+                fullRepayment +
+                lateCharge,
+
+            daysLate:
+                daysLate,
+
+            dueDate:
+                dueDate
+
+        };
+
+    }
+
+
+    return {
+
+        status:
+            todayOnly.getTime() ===
+            dueOnly.getTime()
+
+                ?
+
+                "DUE"
+
+                :
+
+                "ACTIVE",
+
+        fullRepayment:
+            fullRepayment,
+
+        lateCharge:
+            0,
+
+        currentFullRepayment:
+            fullRepayment,
+
+        daysLate:
+            0,
+
+        dueDate:
+            dueDate
+
+    };
+
+}
+
+
+
+/* =====================================================
+   LOAN START DATE
+===================================================== */
+
+function getLoanStartDate(
+    application
+) {
+
+
+    if (
+        application.loanStartDate
+    ) {
+
+        return convertTimestampToDate(
+            application.loanStartDate
+        );
+
+    }
+
+
+    if (
+        application.cashCollectedAt
+    ) {
+
+        return convertTimestampToDate(
+            application.cashCollectedAt
+        );
+
+    }
+
+
+    /*
+     * Existing prototype records may not have a
+     * loanStartDate yet.
+     *
+     * For those records only, use the application
+     * creation date.
+     */
+
+    if (
+        application.createdAt
+    ) {
+
+        return convertTimestampToDate(
+            application.createdAt
+        );
+
+    }
+
+
+    return null;
+
+}
+
+
+
+/* =====================================================
+   DUE DATE
+===================================================== */
+
+function getDueDate(
+    application,
+    startDate
+) {
+
+
+    /*
+     * If a stored due date exists, use it.
+     */
+
+    if (
+        application.dueDate
+    ) {
+
+        const stored =
+            convertTimestampToDate(
+                application.dueDate
+            );
+
+
+        if (
+            stored
+        ) {
+
+            return stored;
+
+        }
+
+    }
+
+
+    /*
+     * Renewal records can have a new due date.
+     */
+
+    if (
+        application.renewalDueDate
+    ) {
+
+        const renewalDue =
+            convertTimestampToDate(
+                application.renewalDueDate
+            );
+
+
+        if (
+            renewalDue
+        ) {
+
+            return renewalDue;
+
+        }
+
+    }
+
+
+    return addOneMonth(
+        startDate
+    );
+
+}
+
+
+
+/* =====================================================
+   UPDATE SUMMARY
 ===================================================== */
 
 function updateSummary() {
@@ -2572,6 +2462,27 @@ function updateSummary() {
         ).length;
 
 
+    const dueOrLate =
+        applications.filter(
+            application => {
+
+                const info =
+                    getRepaymentInfo(
+                        application
+                    );
+
+
+                return [
+                    "DUE",
+                    "LATE"
+                ].includes(
+                    info.status
+                );
+
+            }
+        ).length;
+
+
     document.getElementById(
         "homeApplicationCount"
     ).textContent =
@@ -2588,6 +2499,12 @@ function updateSummary() {
         "homeApprovedCount"
     ).textContent =
         approved;
+
+
+    document.getElementById(
+        "homeRepaymentCount"
+    ).textContent =
+        dueOrLate;
 
 
     document.getElementById(
@@ -2630,6 +2547,12 @@ function renderApplications() {
                 const status =
                     application.status ||
                     "APPLICATION_SUBMITTED";
+
+
+                const repayment =
+                    getRepaymentInfo(
+                        application
+                    );
 
 
                 if (
@@ -2691,6 +2614,23 @@ function renderApplications() {
 
 
                 if (
+                    filter ===
+                    "repayment"
+                    &&
+                    ![
+                        "DUE",
+                        "LATE"
+                    ].includes(
+                        repayment.status
+                    )
+                ) {
+
+                    return false;
+
+                }
+
+
+                if (
                     !search
                 ) {
 
@@ -2708,8 +2648,6 @@ function renderApplications() {
                 return [
 
                     application.id,
-
-                    application.customerId,
 
                     client?.fullName,
 
@@ -2762,13 +2700,10 @@ function renderApplications() {
     filtered.forEach(
         application => {
 
-
             applicationsContainer.appendChild(
-
                 createApplicationCard(
                     application
                 )
-
             );
 
         }
@@ -2808,6 +2743,7 @@ function renderVerification() {
         0
     ) {
 
+
         verificationContainer.innerHTML =
             `
             <div class="empty-state">
@@ -2815,7 +2751,6 @@ function renderVerification() {
                 <h3>
                     Nothing needs verification
                 </h3>
-
 
                 <p>
                     There are currently no applications
@@ -2875,6 +2810,7 @@ function renderCashCollection() {
         0
     ) {
 
+
         cashContainer.innerHTML =
             `
             <div class="empty-state">
@@ -2882,7 +2818,6 @@ function renderCashCollection() {
                 <h3>
                     No approved loans
                 </h3>
-
 
                 <p>
                     Approved loans will appear here
@@ -2914,6 +2849,81 @@ function renderCashCollection() {
 
 
 /* =====================================================
+   REPAYMENT PANEL
+===================================================== */
+
+function renderRepayments() {
+
+
+    const list =
+        applications.filter(
+            application => {
+
+                const repayment =
+                    getRepaymentInfo(
+                        application
+                    );
+
+
+                return [
+                    "DUE",
+                    "LATE"
+                ].includes(
+                    repayment.status
+                );
+
+            }
+        );
+
+
+    repaymentContainer.innerHTML =
+        "";
+
+
+    if (
+        list.length ===
+        0
+    ) {
+
+
+        repaymentContainer.innerHTML =
+            `
+            <div class="empty-state">
+
+                <h3>
+                    No loans due for repayment
+                </h3>
+
+                <p>
+                    Loans that reach their due date
+                    will appear here.
+                </p>
+
+            </div>
+            `;
+
+        return;
+
+    }
+
+
+    list.forEach(
+        application => {
+
+            repaymentContainer.appendChild(
+                createApplicationCard(
+                    application
+                )
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
    APPLICATION CARD
 ===================================================== */
 
@@ -2928,25 +2938,28 @@ function createApplicationCard(
         )
         ||
         {
-            fullName: "Client",
-            phone: "-",
-            email: "-"
+
+            fullName:
+                "Client",
+
+            phone:
+                "-",
+
+            email:
+                "-"
+
         };
-
-
-    const card =
-        document.createElement(
-            "div"
-        );
-
-
-    card.className =
-        "application-card";
 
 
     const status =
         application.status ||
         "APPLICATION_SUBMITTED";
+
+
+    const repayment =
+        getRepaymentInfo(
+            application
+        );
 
 
     const loanType =
@@ -2975,13 +2988,6 @@ function createApplicationCard(
             "First Loan Fee";
 
 
-    /*
-     * IMPORTANT:
-     * Business rule = KSh 500.
-     * If Firestore contains 0 or no value,
-     * use 500 for display and workflow.
-     */
-
     const applicableFee =
         getApplicableFee(
             application
@@ -3001,6 +3007,16 @@ function createApplicationCard(
     const agentVerification =
         application.agentVerificationStatus ||
         "NOT_VERIFIED";
+
+
+    const card =
+        document.createElement(
+            "div"
+        );
+
+
+    card.className =
+        "application-card";
 
 
     card.innerHTML =
@@ -3031,7 +3047,6 @@ function createApplicationCard(
 
                     <br>
 
-
                     Loan Type:
 
                     ${escapeHTML(
@@ -3044,13 +3059,17 @@ function createApplicationCard(
 
 
             <span
-                class="status-pill ${getStatusClass(
-                    status
-                )}">
+                class="status-pill ${
+                    getApplicationStatusClass(
+                        status,
+                        repayment.status
+                    )
+                }">
 
                 ${escapeHTML(
-                    formatStatus(
-                        status
+                    getDisplayStatus(
+                        status,
+                        repayment.status
                     )
                 )}
 
@@ -3133,6 +3152,7 @@ function createApplicationCard(
                 <strong>
 
                     ${formatCurrency(
+                        application.approvedAmount ||
                         application.requestedAmount
                     )}
 
@@ -3161,13 +3181,13 @@ function createApplicationCard(
             <div class="detail-box">
 
                 <small>
-                    Maturity
+                    Full Repayment
                 </small>
 
                 <strong>
 
                     ${formatCurrency(
-                        application.totalMaturityAmount
+                        repayment.currentFullRepayment
                     )}
 
                 </strong>
@@ -3213,28 +3233,14 @@ function createApplicationCard(
             <div class="detail-box">
 
                 <small>
-                    Fee Rule
-                </small>
-
-                <strong>
-                    KSh 500
-                </strong>
-
-            </div>
-
-
-            <div class="detail-box">
-
-                <small>
                     Repayment Days
                 </small>
 
                 <strong>
 
                     ${
-                        application.repaymentPeriodDays
-                        ||
-                        "-"
+                        application.repaymentPeriodDays ||
+                        30
                     }
 
                 </strong>
@@ -3245,15 +3251,41 @@ function createApplicationCard(
             <div class="detail-box">
 
                 <small>
-                    Application Status
+                    Due Date
                 </small>
 
                 <strong>
 
-                    ${escapeHTML(
-                        formatStatus(
-                            status
-                        )
+                    ${
+                        repayment.dueDate
+                            ?
+
+                            escapeHTML(
+                                formatDate(
+                                    repayment.dueDate
+                                )
+                            )
+
+                            :
+
+                            "Not scheduled"
+                    }
+
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <small>
+                    Late Charge
+                </small>
+
+                <strong>
+
+                    ${formatCurrency(
+                        repayment.lateCharge
                     )}
 
                 </strong>
@@ -3266,177 +3298,382 @@ function createApplicationCard(
 
         <!-- VERIFICATION -->
 
-        <div class="verification-summary">
+        ${
+            ![
+                "DUE",
+                "LATE"
+            ].includes(
+                repayment.status
+            )
+
+            ?
+
+            `
+
+            <div class="verification-summary">
 
 
-            <div class="verification-row">
+                <div class="verification-row">
 
-                <span>
-                    Client Handover
-                </span>
+                    <span>
+                        Client Handover
+                    </span>
 
 
-                <span
-                    class="${
-                        application.clientHandoverStatus ===
-                        "CLIENT_HANDOVER_REPORTED"
+                    <span
+                        class="${
+                            application.clientHandoverStatus ===
+                            "CLIENT_HANDOVER_REPORTED"
 
-                        ?
+                            ?
 
-                        "text-green"
+                            "text-green"
 
-                        :
+                            :
 
-                        "text-yellow"
-                    }">
+                            "text-yellow"
+                        }">
 
-                    ${
-                        application.clientHandoverStatus ===
-                        "CLIENT_HANDOVER_REPORTED"
+                        ${
+                            application.clientHandoverStatus ===
+                            "CLIENT_HANDOVER_REPORTED"
 
-                        ?
+                            ?
 
-                        "REPORTED"
+                            "REPORTED"
 
-                        :
+                            :
 
-                        "NOT REPORTED"
-                    }
+                            "NOT REPORTED"
+                        }
 
-                </span>
+                    </span>
+
+                </div>
+
+
+                <div class="verification-row">
+
+                    <span>
+                        Physical Documents
+                    </span>
+
+
+                    <span
+                        class="${
+                            documentsStatus ===
+                            "DOCUMENTS_RECEIVED"
+
+                            ?
+
+                            "text-green"
+
+                            :
+
+                            "text-yellow"
+                        }">
+
+                        ${
+                            documentsStatus ===
+                            "DOCUMENTS_RECEIVED"
+
+                            ?
+
+                            "RECEIVED"
+
+                            :
+
+                            "PENDING"
+                        }
+
+                    </span>
+
+                </div>
+
+
+                <div class="verification-row">
+
+                    <span>
+                        ${feeLabel}
+                    </span>
+
+
+                    <span
+                        class="${
+                            feeStatus ===
+                            "FEE_RECEIVED"
+
+                            ?
+
+                            "text-green"
+
+                            :
+
+                            "text-yellow"
+                        }">
+
+                        ${
+                            feeStatus ===
+                            "FEE_RECEIVED"
+
+                            ?
+
+                            "RECEIVED"
+
+                            :
+
+                            "PENDING"
+                        }
+
+                    </span>
+
+                </div>
+
+
+                <div class="verification-row">
+
+                    <span>
+                        Agent Verification
+                    </span>
+
+
+                    <span
+                        class="${
+                            agentVerification ===
+                            "VERIFIED"
+
+                            ?
+
+                            "text-green"
+
+                            :
+
+                            agentVerification ===
+                            "REJECTED"
+
+                            ?
+
+                            "text-red"
+
+                            :
+
+                            "text-yellow"
+                        }">
+
+                        ${escapeHTML(
+                            formatStatus(
+                                agentVerification
+                            )
+                        )}
+
+                    </span>
+
+                </div>
 
             </div>
 
+            `
 
-            <div class="verification-row">
+            :
 
-                <span>
-                    Physical Documents
-                </span>
+            ""
+
+        }
 
 
-                <span
-                    class="${
-                        documentsStatus ===
-                        "DOCUMENTS_RECEIVED"
 
-                        ?
+        <!-- REPAYMENT -->
 
-                        "text-green"
+        ${
+            [
+                "DUE",
+                "LATE"
+            ].includes(
+                repayment.status
+            )
 
-                        :
+            ?
 
-                        "text-yellow"
-                    }">
+            `
 
-                    ${
-                        documentsStatus ===
-                        "DOCUMENTS_RECEIVED"
+            <div class="repayment-section">
 
-                        ?
 
-                        "RECEIVED"
+                <div class="repayment-summary">
 
-                        :
 
-                        "PENDING"
-                    }
+                    <div class="repayment-box">
 
-                </span>
+                        <small>
+                            Repayment Status
+                        </small>
+
+                        <strong>
+
+                            ${
+                                repayment.status ===
+                                "LATE"
+
+                                ?
+
+                                "LATE"
+
+                                :
+
+                                "DUE"
+
+                            }
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="repayment-box">
+
+                        <small>
+                            Full Payment
+                        </small>
+
+                        <strong>
+
+                            ${formatCurrency(
+                                repayment.fullRepayment
+                            )}
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="repayment-box">
+
+                        <small>
+                            Current Amount Due
+                        </small>
+
+                        <strong>
+
+                            ${formatCurrency(
+                                repayment.currentFullRepayment
+                            )}
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="repayment-box">
+
+                        <small>
+                            Renewal Payment
+                        </small>
+
+                        <strong>
+                            KSh 1,500
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                ${
+                    repayment.status ===
+                    "LATE"
+
+                    ?
+
+                    `
+
+                    <div class="info-box danger">
+
+                        <strong>
+                            ${repayment.daysLate}
+                            late day(s).
+                        </strong>
+
+                        Current late charge:
+
+                        ${formatCurrency(
+                            repayment.lateCharge
+                        )}
+
+                        .
+
+                    </div>
+
+                    `
+
+                    :
+
+                    `
+
+                    <div class="info-box warning">
+
+                        This loan has reached its
+                        scheduled repayment date.
+                        Confirm either full repayment
+                        or renewal after the physical
+                        payment is actually received.
+
+                    </div>
+
+                    `
+
+                }
+
+
+                <div class="repayment-actions">
+
+
+                    <button
+                        type="button"
+                        class="agent-btn agent-btn-repay"
+                        data-action="repay"
+                        data-id="${escapeHTML(
+                            application.id
+                        )}">
+
+                        Confirm Full Repayment
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="agent-btn agent-btn-renew"
+                        data-action="renew"
+                        data-id="${escapeHTML(
+                            application.id
+                        )}">
+
+                        Confirm Renewal KSh 1,500
+
+                    </button>
+
+                </div>
 
             </div>
 
+            `
 
-            <div class="verification-row">
+            :
 
-                <span>
-                    ${feeLabel}
-                </span>
+            ""
 
-
-                <span
-                    class="${
-                        feeStatus ===
-                        "FEE_RECEIVED"
-
-                        ?
-
-                        "text-green"
-
-                        :
-
-                        "text-yellow"
-                    }">
-
-                    ${
-                        feeStatus ===
-                        "FEE_RECEIVED"
-
-                        ?
-
-                        "RECEIVED"
-
-                        :
-
-                        "PENDING"
-                    }
-
-                </span>
-
-            </div>
-
-
-            <div class="verification-row">
-
-                <span>
-                    Agent Verification
-                </span>
-
-
-                <span
-                    class="${
-                        agentVerification ===
-                        "VERIFIED"
-
-                        ?
-
-                        "text-green"
-
-                        :
-
-                        agentVerification ===
-                        "REJECTED"
-
-                        ?
-
-                        "text-red"
-
-                        :
-
-                        "text-yellow"
-                    }">
-
-                    ${escapeHTML(
-                        formatStatus(
-                            agentVerification
-                        )
-                    )}
-
-                </span>
-
-            </div>
-
-        </div>
+        }
 
 
 
         ${createInformationBox(
-            application
+            application,
+            repayment
         )}
 
 
 
-        <!-- ACTIONS -->
+        <!-- APPLICATION ACTIONS -->
 
         <div class="application-actions">
 
@@ -3624,6 +3861,54 @@ function createApplicationCard(
                 ""
             }
 
+
+
+            ${
+                repayment.status ===
+                "REPAID"
+
+                ?
+
+                `
+
+                <span
+                    class="agent-btn agent-btn-light">
+
+                    ✓ Loan Repaid
+
+                </span>
+
+                `
+
+                :
+
+                ""
+            }
+
+
+
+            ${
+                repayment.status ===
+                "RENEWED"
+
+                ?
+
+                `
+
+                <span
+                    class="agent-btn agent-btn-light">
+
+                    ✓ Loan Renewed
+
+                </span>
+
+                `
+
+                :
+
+                ""
+            }
+
         </div>
 
         `;
@@ -3665,17 +3950,52 @@ function createApplicationCard(
 ===================================================== */
 
 function createInformationBox(
-    application
+    application,
+    repayment
 ) {
 
 
-    const status =
-        application.status ||
-        "APPLICATION_SUBMITTED";
+    if (
+        repayment.status ===
+        "REPAID"
+    ) {
+
+        return `
+
+            <div class="info-box success">
+
+                ✓ This loan has been fully repaid
+                and closed.
+
+            </div>
+
+        `;
+
+    }
 
 
     if (
-        status ===
+        repayment.status ===
+        "RENEWED"
+    ) {
+
+        return `
+
+            <div class="info-box success">
+
+                ✓ Renewal has been recorded.
+                The loan continues under the new
+                repayment period.
+
+            </div>
+
+        `;
+
+    }
+
+
+    if (
+        application.status ===
         "APPROVED"
     ) {
 
@@ -3695,16 +4015,19 @@ function createInformationBox(
 
 
     if (
-        status ===
+        application.status ===
         "CASH_COLLECTED"
+        &&
+        repayment.status ===
+        "ACTIVE"
     ) {
 
         return `
 
-            <div class="info-box success">
+            <div class="info-box info">
 
-                ✓ You have recorded that the approved
-                cash was released to the client.
+                Cash has been released. The repayment
+                period is now active.
 
             </div>
 
@@ -3714,10 +4037,10 @@ function createInformationBox(
 
 
     if (
-        status ===
+        application.status ===
         "SENT_TO_ADMIN"
         ||
-        status ===
+        application.status ===
         "ADMIN_REVIEW"
     ) {
 
@@ -3737,7 +4060,7 @@ function createInformationBox(
 
 
     if (
-        status ===
+        application.status ===
         "REJECTED"
     ) {
 
@@ -3882,6 +4205,7 @@ async function handleAction(
         }
 
 
+
         /* =================================================
            DOCUMENTS
         ================================================= */
@@ -3960,10 +4284,6 @@ async function handleAction(
 
                     feeStatus:
                         "FEE_RECEIVED",
-
-                    /*
-                     * Make the business rule explicit.
-                     */
 
                     processingOrRenewalFee:
                         getApplicableFee(
@@ -4201,6 +4521,16 @@ async function handleAction(
             }
 
 
+            const now =
+                new Date();
+
+
+            const dueDate =
+                addOneMonth(
+                    now
+                );
+
+
             await updateDoc(
                 reference,
                 {
@@ -4220,6 +4550,19 @@ async function handleAction(
                     cashReleasedAmount:
                         approvedAmount,
 
+                    loanStartDate:
+                        Timestamp.fromDate(
+                            now
+                        ),
+
+                    dueDate:
+                        Timestamp.fromDate(
+                            dueDate
+                        ),
+
+                    repaymentStatus:
+                        "ACTIVE",
+
                     updatedAt:
                         serverTimestamp()
 
@@ -4228,7 +4571,288 @@ async function handleAction(
 
 
             alert(
-                "Cash release recorded successfully."
+                "Cash release recorded successfully. The repayment period is now active."
+            );
+
+
+            await loadApplications();
+
+            return;
+
+        }
+
+
+
+        /* =================================================
+           FULL REPAYMENT
+        ================================================= */
+
+        if (
+            action ===
+            "repay"
+        ) {
+
+
+            const repayment =
+                getRepaymentInfo(
+                    application
+                );
+
+
+            if (
+                ![
+                    "DUE",
+                    "LATE"
+                ].includes(
+                    repayment.status
+                )
+            ) {
+
+                throw new Error(
+                    "This loan is not currently due for repayment."
+                );
+
+            }
+
+
+            const amountDue =
+                repayment.currentFullRepayment;
+
+
+            const confirmation =
+                confirm(
+
+                    "Confirm that KSh " +
+
+                    amountDue.toLocaleString(
+                        "en-KE"
+                    ) +
+
+                    " has been received in full from the client?\n\n" +
+
+                    "This will close the loan."
+
+                );
+
+
+            if (
+                !confirmation
+            ) {
+
+
+                button.disabled =
+                    false;
+
+
+                button.textContent =
+                    originalText;
+
+
+                return;
+
+            }
+
+
+            await updateDoc(
+                reference,
+                {
+
+                    repaymentStatus:
+                        "REPAID",
+
+                    repaymentType:
+                        "FULL_REPAYMENT",
+
+                    repaymentAmount:
+                        amountDue,
+
+                    fullRepaymentAmount:
+                        amountDue,
+
+                    lateChargePaid:
+                        repayment.lateCharge,
+
+                    repaidAt:
+                        serverTimestamp(),
+
+                    repaidByAgentId:
+                        currentAgent.id,
+
+                    status:
+                        "CLOSED",
+
+                    loanClosedAt:
+                        serverTimestamp(),
+
+                    updatedAt:
+                        serverTimestamp()
+
+                }
+            );
+
+
+            alert(
+                "Full repayment recorded. The loan is now closed."
+            );
+
+
+            await loadApplications();
+
+            return;
+
+        }
+
+
+
+        /* =================================================
+           RENEWAL
+        ================================================= */
+
+        if (
+            action ===
+            "renew"
+        ) {
+
+
+            const repayment =
+                getRepaymentInfo(
+                    application
+                );
+
+
+            if (
+                ![
+                    "DUE",
+                    "LATE"
+                ].includes(
+                    repayment.status
+                )
+            ) {
+
+                throw new Error(
+                    "This loan is not currently due for renewal."
+                );
+
+            }
+
+
+            const renewalPayment =
+                1500;
+
+
+            const confirmation =
+                confirm(
+
+                    "Confirm that KSh 1,500 has been received for renewal?\n\n" +
+
+                    "KSh 1,000 interest\n" +
+
+                    "+ KSh 500 renewal fee\n\n" +
+
+                    "The principal will remain outstanding and the loan will continue."
+
+                );
+
+
+            if (
+                !confirmation
+            ) {
+
+
+                button.disabled =
+                    false;
+
+
+                button.textContent =
+                    originalText;
+
+
+                return;
+
+            }
+
+
+            const now =
+                new Date();
+
+
+            const newDueDate =
+                addOneMonth(
+                    now
+                );
+
+
+            await updateDoc(
+                reference,
+                {
+
+                    repaymentStatus:
+                        "RENEWED",
+
+                    repaymentType:
+                        "RENEWAL",
+
+                    renewalPayment:
+                        renewalPayment,
+
+                    renewalInterest:
+                        1000,
+
+                    renewalFee:
+                        500,
+
+                    renewalCount:
+                        (
+                            Number(
+                                application.renewalCount ||
+                                0
+                            )
+                            +
+                            1
+                        ),
+
+                    renewedAt:
+                        serverTimestamp(),
+
+                    renewedByAgentId:
+                        currentAgent.id,
+
+                    renewalStartDate:
+                        Timestamp.fromDate(
+                            now
+                        ),
+
+                    renewalDueDate:
+                        Timestamp.fromDate(
+                            newDueDate
+                        ),
+
+                    /*
+                     * The loan continues as an active loan.
+                     */
+
+                    status:
+                        "CASH_COLLECTED",
+
+                    loanStartDate:
+                        Timestamp.fromDate(
+                            now
+                        ),
+
+                    dueDate:
+                        Timestamp.fromDate(
+                            newDueDate
+                        ),
+
+                    updatedAt:
+                        serverTimestamp()
+
+                }
+            );
+
+
+            alert(
+                "Loan renewal recorded successfully. The new repayment period has started."
             );
 
 
@@ -4276,20 +4900,12 @@ function getApplicableFee(
     application
 ) {
 
+
     const storedFee =
         Number(
             application.processingOrRenewalFee
         );
 
-
-    /*
-     * Business rule:
-     * First loan = KSh 500
-     * Renewal = KSh 500
-     *
-     * Therefore a missing/zero value is corrected
-     * to 500 in the application workflow.
-     */
 
     if (
         !Number.isFinite(
@@ -4305,6 +4921,155 @@ function getApplicableFee(
 
 
     return storedFee;
+
+}
+
+
+
+/* =====================================================
+   DATES
+===================================================== */
+
+function addOneMonth(
+    sourceDate
+) {
+
+
+    const nextDate =
+        new Date(
+            sourceDate
+        );
+
+
+    const originalDay =
+        nextDate.getDate();
+
+
+    nextDate.setMonth(
+        nextDate.getMonth() + 1
+    );
+
+
+    if (
+        nextDate.getDate() !==
+        originalDay
+    ) {
+
+        nextDate.setDate(
+            0
+        );
+
+    }
+
+
+    return nextDate;
+
+}
+
+
+function formatDate(
+    date
+) {
+
+
+    return date.toLocaleDateString(
+        "en-KE",
+        {
+
+            day:
+                "2-digit",
+
+            month:
+                "long",
+
+            year:
+                "numeric"
+
+        }
+    );
+
+}
+
+
+function convertTimestampToDate(
+    value
+) {
+
+
+    if (
+        !value
+    ) {
+
+        return null;
+
+    }
+
+
+    try {
+
+
+        if (
+            typeof value.toDate ===
+            "function"
+        ) {
+
+            return value.toDate();
+
+        }
+
+
+        if (
+            typeof value.toMillis ===
+            "function"
+        ) {
+
+            return new Date(
+                value.toMillis()
+            );
+
+        }
+
+
+        if (
+            value.seconds
+        ) {
+
+            return new Date(
+                value.seconds *
+                1000
+            );
+
+        }
+
+
+        const date =
+            new Date(
+                value
+            );
+
+
+        if (
+            isNaN(
+                date.getTime()
+            )
+        ) {
+
+            return null;
+
+        }
+
+
+        return date;
+
+    }
+
+    catch (
+        error
+    ) {
+
+        return null;
+
+    }
 
 }
 
@@ -4562,7 +5327,125 @@ document
 
 
 /* =====================================================
-   HELPERS
+   DISPLAY STATUS
+===================================================== */
+
+function getDisplayStatus(
+    applicationStatus,
+    repaymentStatus
+) {
+
+
+    if (
+        repaymentStatus ===
+        "REPAID"
+    ) {
+
+        return "Loan Repaid";
+
+    }
+
+
+    if (
+        repaymentStatus ===
+        "RENEWED"
+    ) {
+
+        return "Loan Renewed";
+
+    }
+
+
+    if (
+        repaymentStatus ===
+        "LATE"
+    ) {
+
+        return "Late Repayment";
+
+    }
+
+
+    if (
+        repaymentStatus ===
+        "DUE"
+    ) {
+
+        return "Payment Due";
+
+    }
+
+
+    if (
+        repaymentStatus ===
+        "ACTIVE"
+    ) {
+
+        return "Active Loan";
+
+    }
+
+
+    return formatStatus(
+        applicationStatus
+    );
+
+}
+
+
+
+function getApplicationStatusClass(
+    applicationStatus,
+    repaymentStatus
+) {
+
+
+    if (
+        repaymentStatus ===
+        "REPAID"
+        ||
+        repaymentStatus ===
+        "RENEWED"
+        ||
+        repaymentStatus ===
+        "ACTIVE"
+    ) {
+
+        return "status-approved";
+
+    }
+
+
+    if (
+        repaymentStatus ===
+        "DUE"
+    ) {
+
+        return "status-pending";
+
+    }
+
+
+    if (
+        repaymentStatus ===
+        "LATE"
+    ) {
+
+        return "status-late";
+
+    }
+
+
+    return getStatusClass(
+        applicationStatus
+    );
+
+}
+
+
+
+/* =====================================================
+   GENERAL STATUS
 ===================================================== */
 
 function formatStatus(
@@ -4624,7 +5507,16 @@ function formatStatus(
             "Ready for Collection",
 
         CASH_COLLECTED:
-            "Cash Collected"
+            "Cash Collected",
+
+        CLOSED:
+            "Closed",
+
+        ACTIVE:
+            "Active",
+
+        PENDING:
+            "Pending"
 
     };
 
@@ -4658,7 +5550,8 @@ function getStatusClass(
             "APPROVED",
             "CASH_COLLECTED",
             "SENT_TO_ADMIN",
-            "ADMIN_REVIEW"
+            "ADMIN_REVIEW",
+            "ACTIVE"
         ]
         .includes(
             status
@@ -4682,6 +5575,9 @@ function getStatusClass(
     if (
         status ===
         "REJECTED"
+        ||
+        status ===
+        "CLOSED"
     ) {
 
         return "status-rejected";
@@ -4694,6 +5590,10 @@ function getStatusClass(
 }
 
 
+
+/* =====================================================
+   CURRENCY
+===================================================== */
 
 function formatCurrency(
     value
@@ -4712,6 +5612,10 @@ function formatCurrency(
 }
 
 
+
+/* =====================================================
+   TIME
+===================================================== */
 
 function getTime(
     timestamp
@@ -4768,6 +5672,10 @@ function getTime(
 
 
 
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
 function escapeHTML(
     value
 ) {
@@ -4795,3 +5703,4 @@ function escapeHTML(
 </body>
 
 </html>
+```
