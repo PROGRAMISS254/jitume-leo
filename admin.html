@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,8 +73,8 @@
 
         .management-menu {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
             margin-bottom: 18px;
         }
 
@@ -81,7 +82,7 @@
             border: 1px solid #e1e6eb;
             background: #ffffff;
             border-radius: 12px;
-            padding: 16px;
+            padding: 14px;
             text-align: left;
             cursor: pointer;
             transition: .18s ease;
@@ -543,6 +544,107 @@
 
 
         /* =====================================================
+           LOAN PRODUCT MANAGEMENT
+        ===================================================== */
+
+        .product-card {
+            border: 1px solid #e4e8ed;
+            border-radius: 10px;
+            padding: 14px;
+            background: #fff;
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .product-header h3 {
+            margin: 0 0 3px;
+            font-size: 16px;
+        }
+
+        .product-header p {
+            margin: 0;
+            color: #667085;
+            font-size: 10px;
+            line-height: 1.5;
+        }
+
+        .product-settings-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+        }
+
+        .product-setting {
+            background: #f7f9fc;
+            border-radius: 8px;
+            padding: 9px;
+        }
+
+        .product-setting small {
+            display: block;
+            color: #7b8794;
+            font-size: 8px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        .product-setting strong {
+            font-size: 11px;
+        }
+
+        .product-amounts {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background: #eef8f3;
+            border: 1px solid #d5ebdf;
+            color: #166b50;
+            font-size: 10px;
+            line-height: 1.55;
+        }
+
+        .product-note {
+            margin-top: 10px;
+            padding: 9px;
+            border-radius: 7px;
+            background: #eef5ff;
+            border: 1px solid #d6e3fa;
+            color: #355070;
+            font-size: 10px;
+            line-height: 1.55;
+        }
+
+        .product-preview {
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+
+        .product-preview table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 560px;
+        }
+
+        .product-preview th,
+        .product-preview td {
+            border: 1px solid #dfe5eb;
+            padding: 7px;
+            text-align: left;
+            font-size: 9px;
+        }
+
+        .product-preview th {
+            background: #f3f5f7;
+        }
+
+
+        /* =====================================================
            EMPTY
         ===================================================== */
 
@@ -662,7 +764,11 @@
            RESPONSIVE
         ===================================================== */
 
-        @media (max-width: 900px) {
+        @media (max-width: 1000px) {
+
+            .management-menu {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
 
             .record-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -677,6 +783,7 @@
             }
 
         }
+
 
         @media (max-width: 650px) {
 
@@ -695,7 +802,8 @@
 
             .record-grid,
             .summary-grid,
-            .loan-details {
+            .loan-details,
+            .product-settings-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -712,7 +820,8 @@
                 flex: 1;
             }
 
-            .loan-top {
+            .loan-top,
+            .product-header {
                 flex-direction: column;
             }
 
@@ -799,14 +908,17 @@
                 ADMINISTRATOR
             </p>
 
+
             <h1>
 
                 Welcome,
+
                 <span id="adminName">
                     Administrator
                 </span>
 
             </h1>
+
 
             <p class="subtext">
                 Jitume Leo administration control center.
@@ -885,6 +997,26 @@
 
                 <p>
                     Review and approve loan applications.
+                </p>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="management-button"
+                data-panel="productsPanel">
+
+                <div class="management-icon">
+                    P
+                </div>
+
+                <h3>
+                    Loan Products
+                </h3>
+
+                <p>
+                    Manage loan amounts, interest and repayment terms.
                 </p>
 
             </button>
@@ -1217,7 +1349,267 @@
 
     </section>
 
+
+
+    <!-- =====================================================
+         LOAN PRODUCTS
+    ====================================================== -->
+
+    <section
+        id="productsPanel"
+        class="management-panel">
+
+
+        <div class="panel-header">
+
+            <div>
+
+                <p class="small-heading">
+                    LOAN PRODUCT MANAGEMENT
+                </p>
+
+                <h2>
+                    Emergency Loan Product
+                </h2>
+
+                <p>
+                    Configure available loan amounts and the rules used across Jitume Leo.
+                </p>
+
+            </div>
+
+
+            <div class="panel-actions">
+
+                <button
+                    type="button"
+                    class="admin-btn admin-btn-primary"
+                    id="editProductButton">
+
+                    Edit Product
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="admin-btn admin-btn-light"
+                    data-home-button>
+
+                    ← Dashboard
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel">
+
+            <div id="productContainer">
+
+                <div class="empty-state">
+                    Loading loan product...
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </main>
+
+
+
+<!-- =====================================================
+     LOAN PRODUCT MODAL
+===================================================== -->
+
+<div
+    id="productModal"
+    class="modal-bg">
+
+
+    <div class="modal">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2>
+                    Loan Product Settings
+                </h2>
+
+                <p>
+                    These values become the central loan rules used by the system.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="close-modal"
+                id="closeProductModal">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <form id="productForm">
+
+
+            <div class="form-group">
+
+                <label>
+                    Product Name
+                </label>
+
+                <input
+                    id="productName"
+                    type="text"
+                    value="Jitume Leo Emergency Loan"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Available Loan Amounts (comma separated)
+                </label>
+
+                <input
+                    id="productAmounts"
+                    type="text"
+                    placeholder="5000, 10000, 15000, 20000"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Interest Rate (%)
+                </label>
+
+                <input
+                    id="productInterestRate"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    First Loan Fee (KSh)
+                </label>
+
+                <input
+                    id="productFirstFee"
+                    type="number"
+                    min="0"
+                    step="1"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Renewal Fee (KSh)
+                </label>
+
+                <input
+                    id="productRenewalFee"
+                    type="number"
+                    min="0"
+                    step="1"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Repayment Period (Days)
+                </label>
+
+                <input
+                    id="productRepaymentDays"
+                    type="number"
+                    min="1"
+                    step="1"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Late Charge Per Default Day (KSh)
+                </label>
+
+                <input
+                    id="productLateFee"
+                    type="number"
+                    min="0"
+                    step="1"
+                    required>
+
+            </div>
+
+
+            <div
+                id="productMessage"
+                class="message">
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="admin-btn admin-btn-light"
+                    id="cancelProductButton">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="admin-btn admin-btn-primary"
+                    id="saveProductButton">
+
+                    Save Product
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
 
 
 
@@ -1532,6 +1924,9 @@ let clients =
 let loans =
     [];
 
+let loanProduct =
+    null;
+
 
 
 /* =====================================================
@@ -1559,6 +1954,18 @@ const agentModal =
 const clientHistoryModal =
     document.getElementById(
         "clientHistoryModal"
+    );
+
+
+const productModal =
+    document.getElementById(
+        "productModal"
+    );
+
+
+const productContainer =
+    document.getElementById(
+        "productContainer"
     );
 
 
@@ -1664,6 +2071,7 @@ onAuthStateChanged(
                 error
             );
 
+
             alert(
                 "Unable to load admin dashboard."
             );
@@ -1684,6 +2092,8 @@ async function loadData() {
     await loadUsers();
 
     await loadLoans();
+
+    await loadLoanProduct();
 
 }
 
@@ -1840,6 +2250,979 @@ async function loadLoans() {
 
 
 /* =====================================================
+   LOAN PRODUCT MANAGEMENT
+===================================================== */
+
+async function loadLoanProduct() {
+
+    productContainer.innerHTML =
+        `
+        <div class="empty-state">
+            Loading loan product...
+        </div>
+        `;
+
+
+    try {
+
+        const reference =
+            doc(
+                db,
+                "loanProducts",
+                "emergencyLoan"
+            );
+
+
+        const snapshot =
+            await getDoc(
+                reference
+            );
+
+
+        if (
+            snapshot.exists()
+        ) {
+
+            loanProduct = {
+                id:
+                    snapshot.id,
+
+                ...snapshot.data()
+
+            };
+
+        }
+        else {
+
+            loanProduct = {
+                id:
+                    "emergencyLoan",
+
+                name:
+                    "Jitume Leo Emergency Loan",
+
+                availableAmounts:
+                    [
+                        5000,
+                        10000,
+                        15000,
+                        20000
+                    ],
+
+                interestRate:
+                    20,
+
+                firstLoanFee:
+                    500,
+
+                renewalFee:
+                    500,
+
+                repaymentPeriodDays:
+                    30,
+
+                lateFeePerDay:
+                    100,
+
+                active:
+                    true,
+
+                existsInFirestore:
+                    false
+
+            };
+
+        }
+
+
+        fillProductForm();
+
+        renderLoanProduct();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Loan product loading error:",
+            error
+        );
+
+
+        productContainer.innerHTML =
+            `
+            <div class="empty-state">
+
+                Unable to load the loan product.
+
+                <br><br>
+
+                ${escapeHTML(
+                    error.message ||
+                    "Check Firestore permissions."
+                )}
+
+            </div>
+            `;
+
+    }
+
+}
+
+
+
+function fillProductForm() {
+
+    if (
+        !loanProduct
+    ) {
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "productName"
+    ).value =
+        loanProduct.name ||
+        "Jitume Leo Emergency Loan";
+
+
+    document.getElementById(
+        "productAmounts"
+    ).value =
+        (
+            loanProduct.availableAmounts ||
+            [
+                5000,
+                10000,
+                15000,
+                20000
+            ]
+        )
+        .join(
+            ", "
+        );
+
+
+    document.getElementById(
+        "productInterestRate"
+    ).value =
+        Number(
+            loanProduct.interestRate ??
+            20
+        );
+
+
+    document.getElementById(
+        "productFirstFee"
+    ).value =
+        Number(
+            loanProduct.firstLoanFee ??
+            500
+        );
+
+
+    document.getElementById(
+        "productRenewalFee"
+    ).value =
+        Number(
+            loanProduct.renewalFee ??
+            500
+        );
+
+
+    document.getElementById(
+        "productRepaymentDays"
+    ).value =
+        Number(
+            loanProduct.repaymentPeriodDays ??
+            30
+        );
+
+
+    document.getElementById(
+        "productLateFee"
+    ).value =
+        Number(
+            loanProduct.lateFeePerDay ??
+            100
+        );
+
+}
+
+
+
+function renderLoanProduct() {
+
+    if (
+        !loanProduct
+    ) {
+
+        return;
+
+    }
+
+
+    const amounts =
+        normalizeAmounts(
+            loanProduct.availableAmounts
+        );
+
+
+    const interestRate =
+        Number(
+            loanProduct.interestRate ??
+            20
+        );
+
+
+    const firstFee =
+        Number(
+            loanProduct.firstLoanFee ??
+            500
+        );
+
+
+    const renewalFee =
+        Number(
+            loanProduct.renewalFee ??
+            500
+        );
+
+
+    const repaymentDays =
+        Number(
+            loanProduct.repaymentPeriodDays ??
+            30
+        );
+
+
+    const lateFee =
+        Number(
+            loanProduct.lateFeePerDay ??
+            100
+        );
+
+
+    productContainer.innerHTML =
+        `
+
+        <div class="product-card">
+
+
+            <div class="product-header">
+
+                <div>
+
+                    <h3>
+
+                        ${escapeHTML(
+                            loanProduct.name ||
+                            "Jitume Leo Emergency Loan"
+                        )}
+
+                    </h3>
+
+
+                    <p>
+
+                        Same interest rate applies
+                        to every available loan amount.
+
+                    </p>
+
+                </div>
+
+
+                <span
+                    class="status-pill ${
+                        loanProduct.active === false
+                            ? "status-rejected"
+                            : "status-active"
+                    }">
+
+                    ${
+                        loanProduct.active === false
+                            ? "INACTIVE"
+                            : "ACTIVE"
+                    }
+
+                </span>
+
+            </div>
+
+
+
+            <div class="product-settings-grid">
+
+
+                <div class="product-setting">
+
+                    <small>
+                        Interest Rate
+                    </small>
+
+                    <strong>
+                        ${formatNumber(
+                            interestRate
+                        )}%
+                    </strong>
+
+                </div>
+
+
+                <div class="product-setting">
+
+                    <small>
+                        First Loan Fee
+                    </small>
+
+                    <strong>
+                        ${formatCurrency(
+                            firstFee
+                        )}
+                    </strong>
+
+                </div>
+
+
+                <div class="product-setting">
+
+                    <small>
+                        Renewal Fee
+                    </small>
+
+                    <strong>
+                        ${formatCurrency(
+                            renewalFee
+                        )}
+                    </strong>
+
+                </div>
+
+
+                <div class="product-setting">
+
+                    <small>
+                        Repayment Period
+                    </small>
+
+                    <strong>
+                        ${repaymentDays} days
+                    </strong>
+
+                </div>
+
+
+                <div class="product-setting">
+
+                    <small>
+                        Late Charge
+                    </small>
+
+                    <strong>
+                        ${formatCurrency(
+                            lateFee
+                        )}/day
+                    </strong>
+
+                </div>
+
+
+                <div class="product-setting">
+
+                    <small>
+                        Firestore Product
+                    </small>
+
+                    <strong>
+
+                        ${
+                            loanProduct.existsInFirestore === false
+                                ? "Default / Not Saved"
+                                : "Saved"
+                        }
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="product-amounts">
+
+                <strong>
+                    Available Loan Amounts:
+                </strong>
+
+                <br>
+
+                ${
+                    amounts
+                        .map(
+                            amount =>
+                                formatCurrency(
+                                    amount
+                                )
+                        )
+                        .join(
+                            " · "
+                        )
+                }
+
+            </div>
+
+
+
+            <div class="product-note">
+
+                <strong>
+                    Calculation rule:
+                </strong>
+
+                Interest = Principal ×
+                ${formatNumber(
+                    interestRate
+                )}%.
+
+                Full repayment =
+                Principal + Interest.
+
+                Renewal payment =
+                Interest + ${formatCurrency(
+                    renewalFee
+                )} renewal fee.
+
+            </div>
+
+
+
+            <div class="product-preview">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Principal
+                            </th>
+
+                            <th>
+                                Interest
+                            </th>
+
+                            <th>
+                                Full Repayment
+                            </th>
+
+                            <th>
+                                Renewal Payment
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        ${
+                            amounts
+                                .map(
+                                    amount => {
+
+                                        const interest =
+                                            amount *
+                                            interestRate /
+                                            100;
+
+                                        const full =
+                                            amount +
+                                            interest;
+
+                                        const renewal =
+                                            interest +
+                                            renewalFee;
+
+                                        return `
+                                            <tr>
+
+                                                <td>
+                                                    ${formatCurrency(
+                                                        amount
+                                                    )}
+                                                </td>
+
+                                                <td>
+                                                    ${formatCurrency(
+                                                        interest
+                                                    )}
+                                                </td>
+
+                                                <td>
+                                                    ${formatCurrency(
+                                                        full
+                                                    )}
+                                                </td>
+
+                                                <td>
+                                                    ${formatCurrency(
+                                                        renewal
+                                                    )}
+                                                </td>
+
+                                            </tr>
+                                        `;
+
+                                    }
+                                )
+                                .join("")
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        `;
+
+}
+
+
+
+function normalizeAmounts(
+    values
+) {
+
+    if (
+        !Array.isArray(
+            values
+        )
+    ) {
+
+        return [];
+
+    }
+
+
+    return values
+        .map(
+            value =>
+                Number(
+                    value
+                )
+        )
+        .filter(
+            value =>
+                Number.isFinite(
+                    value
+                )
+                &&
+                value > 0
+        )
+        .sort(
+            (a, b) =>
+                a - b
+        );
+
+}
+
+
+
+document
+    .getElementById(
+        "editProductButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            fillProductForm();
+
+            productModal.classList.add(
+                "show"
+            );
+
+        }
+    );
+
+
+
+document
+    .getElementById(
+        "closeProductModal"
+    )
+    .addEventListener(
+        "click",
+        closeProductModal
+    );
+
+
+
+document
+    .getElementById(
+        "cancelProductButton"
+    )
+    .addEventListener(
+        "click",
+        closeProductModal
+    );
+
+
+
+productModal.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target ===
+            productModal
+        ) {
+
+            closeProductModal();
+
+        }
+
+    }
+);
+
+
+
+function closeProductModal() {
+
+    productModal.classList.remove(
+        "show"
+    );
+
+
+    document
+        .getElementById(
+            "productMessage"
+        )
+        .className =
+        "message";
+
+}
+
+
+
+document
+    .getElementById(
+        "productForm"
+    )
+    .addEventListener(
+        "submit",
+        async event => {
+
+            event.preventDefault();
+
+
+            const button =
+                document.getElementById(
+                    "saveProductButton"
+                );
+
+
+            const message =
+                document.getElementById(
+                    "productMessage"
+                );
+
+
+            button.disabled =
+                true;
+
+
+            button.textContent =
+                "Saving...";
+
+
+            try {
+
+                const name =
+                    document
+                        .getElementById(
+                            "productName"
+                        )
+                        .value
+                        .trim();
+
+
+                const amounts =
+                    document
+                        .getElementById(
+                            "productAmounts"
+                        )
+                        .value
+                        .split(
+                            ","
+                        )
+                        .map(
+                            value =>
+                                Number(
+                                    value.trim()
+                                )
+                        )
+                        .filter(
+                            value =>
+                                Number.isFinite(
+                                    value
+                                )
+                                &&
+                                value > 0
+                        );
+
+
+                const interestRate =
+                    Number(
+                        document
+                            .getElementById(
+                                "productInterestRate"
+                            )
+                            .value
+                    );
+
+
+                const firstLoanFee =
+                    Number(
+                        document
+                            .getElementById(
+                                "productFirstFee"
+                            )
+                            .value
+                    );
+
+
+                const renewalFee =
+                    Number(
+                        document
+                            .getElementById(
+                                "productRenewalFee"
+                            )
+                            .value
+                    );
+
+
+                const repaymentPeriodDays =
+                    Number(
+                        document
+                            .getElementById(
+                                "productRepaymentDays"
+                            )
+                            .value
+                    );
+
+
+                const lateFeePerDay =
+                    Number(
+                        document
+                            .getElementById(
+                                "productLateFee"
+                            )
+                            .value
+                    );
+
+
+                if (
+                    !name
+                    ||
+                    amounts.length === 0
+                    ||
+                    !Number.isFinite(
+                        interestRate
+                    )
+                    ||
+                    interestRate < 0
+                    ||
+                    !Number.isFinite(
+                        firstLoanFee
+                    )
+                    ||
+                    firstLoanFee < 0
+                    ||
+                    !Number.isFinite(
+                        renewalFee
+                    )
+                    ||
+                    renewalFee < 0
+                    ||
+                    !Number.isFinite(
+                        repaymentPeriodDays
+                    )
+                    ||
+                    repaymentPeriodDays < 1
+                    ||
+                    !Number.isFinite(
+                        lateFeePerDay
+                    )
+                    ||
+                    lateFeePerDay < 0
+                ) {
+
+                    throw new Error(
+                        "Please enter valid loan product values."
+                    );
+
+                }
+
+
+                const uniqueAmounts =
+                    [
+                        ...new Set(
+                            amounts
+                        )
+                    ]
+                    .sort(
+                        (a, b) =>
+                            a - b
+                    );
+
+
+                const reference =
+                    doc(
+                        db,
+                        "loanProducts",
+                        "emergencyLoan"
+                    );
+
+
+                await setDoc(
+                    reference,
+                    {
+
+                        name:
+                            name,
+
+                        active:
+                            true,
+
+                        availableAmounts:
+                            uniqueAmounts,
+
+                        interestRate:
+                            interestRate,
+
+                        firstLoanFee:
+                            firstLoanFee,
+
+                        renewalFee:
+                            renewalFee,
+
+                        repaymentPeriodDays:
+                            repaymentPeriodDays,
+
+                        lateFeePerDay:
+                            lateFeePerDay,
+
+                        updatedAt:
+                            serverTimestamp(),
+
+                        updatedBy:
+                            currentAdminUID
+
+                    },
+                    {
+                        merge:
+                            true
+                    }
+                );
+
+
+                loanProduct = {
+
+                    id:
+                        "emergencyLoan",
+
+                    name:
+                        name,
+
+                    active:
+                        true,
+
+                    availableAmounts:
+                        uniqueAmounts,
+
+                    interestRate:
+                        interestRate,
+
+                    firstLoanFee:
+                        firstLoanFee,
+
+                    renewalFee:
+                        renewalFee,
+
+                    repaymentPeriodDays:
+                        repaymentPeriodDays,
+
+                    lateFeePerDay:
+                        lateFeePerDay,
+
+                    existsInFirestore:
+                        true
+
+                };
+
+
+                renderLoanProduct();
+
+
+                message.textContent =
+                    "Loan product saved successfully.";
+
+                message.className =
+                    "message success";
+
+
+                setTimeout(
+                    closeProductModal,
+                    900
+                );
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Loan product save error:",
+                    error
+                );
+
+
+                message.textContent =
+                    error.message ||
+                    "Unable to save loan product.";
+
+
+                message.className =
+                    "message error";
+
+            }
+
+            finally {
+
+                button.disabled =
+                    false;
+
+                button.textContent =
+                    "Save Product";
+
+            }
+
+        }
+    );
+
+
+
+/* =====================================================
    CLIENT PORTFOLIO METRICS
 ===================================================== */
 
@@ -1878,13 +3261,8 @@ function getClientMetrics(
 
 
     /*
-     * "Active" means the client has an approved
-     * loan that has not reached a completed/closed
-     * state.
-     *
-     * Our current workflow has no repayment-closed
-     * status yet, so CASH_COLLECTED is still treated
-     * as an active outstanding loan.
+     * Repaid/closed loans are no longer active.
+     * Renewed/due/late loans remain active.
      */
 
     const activeLoans =
@@ -1893,10 +3271,24 @@ function getClientMetrics(
                 [
                     "APPROVED",
                     "READY_FOR_COLLECTION",
-                    "CASH_COLLECTED"
+                    "CASH_COLLECTED",
+                    "ACTIVE",
+                    "RENEWED",
+                    "DUE",
+                    "LATE"
                 ]
                 .includes(
                     loan.status
+                )
+                ||
+                [
+                    "ACTIVE",
+                    "RENEWED",
+                    "DUE",
+                    "LATE"
+                ]
+                .includes(
+                    loan.repaymentStatus
                 )
         );
 
@@ -1977,7 +3369,6 @@ function getClientMetrics(
 
 function renderClients() {
 
-
     const search =
         document.getElementById(
             "clientSearch"
@@ -2044,12 +3435,14 @@ function renderClients() {
         0
     ) {
 
+
         container.innerHTML =
             `
             <div class="empty-state">
                 No clients found.
             </div>
             `;
+
 
         return;
 
@@ -2206,6 +3599,7 @@ function renderClients() {
                             ?
 
                             `
+
                             <strong>
                                 Current Loan:
                             </strong>
@@ -2218,12 +3612,15 @@ function renderClients() {
                             ${metrics.activeLoans}
                             active loan
                             ${metrics.activeLoans === 1 ? "" : "s"}
+
                             `
 
                             :
 
                             `
+
                             No existing active loan
+
                             `
 
                     }
@@ -2264,7 +3661,6 @@ function renderClients() {
         )
         .forEach(
             button => {
-
 
                 button.addEventListener(
                     "click",
@@ -2353,7 +3749,6 @@ function openClientHistory(
         metrics.applications.forEach(
             loan => {
 
-
                 const item =
                     document.createElement(
                         "div"
@@ -2398,13 +3793,15 @@ function openClientHistory(
                         <span
                             class="status-pill ${
                                 getHistoryStatusClass(
-                                    loan.status
+                                    loan.status ||
+                                    loan.repaymentStatus
                                 )
                             }">
 
                             ${escapeHTML(
                                 formatStatus(
                                     loan.status ||
+                                    loan.repaymentStatus ||
                                     "APPLICATION_SUBMITTED"
                                 )
                             )}
@@ -2444,7 +3841,6 @@ function openClientHistory(
 ===================================================== */
 
 function renderAgents() {
-
 
     const search =
         document.getElementById(
@@ -2736,7 +4132,6 @@ function renderAgents() {
         .forEach(
             button => {
 
-
                 button.addEventListener(
                     "click",
                     () => {
@@ -2832,7 +4227,6 @@ async function activateAgent(
 ===================================================== */
 
 function renderLoans() {
-
 
     const search =
         document.getElementById(
@@ -3026,13 +4420,13 @@ function renderLoans() {
                                 loan.loanType ===
                                 "renewal"
 
-                                ?
+                                    ?
 
-                                "Renewal"
+                                    "Renewal"
 
-                                :
+                                    :
 
-                                "First Loan"
+                                    "First Loan"
 
                             }
 
@@ -3101,27 +4495,28 @@ function renderLoans() {
                         status ===
                         "SENT_TO_ADMIN"
 
-                        ?
+                            ?
 
-                        `
+                            `
 
-                        <button
-                            type="button"
-                            class="admin-btn admin-btn-dark"
-                            data-loan-action="review"
-                            data-id="${escapeHTML(
-                                loan.id
-                            )}">
+                            <button
+                                type="button"
+                                class="admin-btn admin-btn-dark"
+                                data-loan-action="review"
+                                data-id="${escapeHTML(
+                                    loan.id
+                                )}">
 
-                            Start Review
+                                Start Review
 
-                        </button>
+                            </button>
 
-                        `
+                            `
 
-                        :
+                            :
 
-                        ""
+                            ""
+
                     }
 
 
@@ -3129,40 +4524,41 @@ function renderLoans() {
                         status ===
                         "ADMIN_REVIEW"
 
-                        ?
+                            ?
 
-                        `
+                            `
 
-                        <button
-                            type="button"
-                            class="admin-btn admin-btn-primary"
-                            data-loan-action="approve"
-                            data-id="${escapeHTML(
-                                loan.id
-                            )}">
+                            <button
+                                type="button"
+                                class="admin-btn admin-btn-primary"
+                                data-loan-action="approve"
+                                data-id="${escapeHTML(
+                                    loan.id
+                                )}">
 
-                            Approve Loan
+                                Approve Loan
 
-                        </button>
+                            </button>
 
 
-                        <button
-                            type="button"
-                            class="admin-btn admin-btn-danger"
-                            data-loan-action="deny"
-                            data-id="${escapeHTML(
-                                loan.id
-                            )}">
+                            <button
+                                type="button"
+                                class="admin-btn admin-btn-danger"
+                                data-loan-action="deny"
+                                data-id="${escapeHTML(
+                                    loan.id
+                                )}">
 
-                            Deny Loan
+                                Deny Loan
 
-                        </button>
+                            </button>
 
-                        `
+                            `
 
-                        :
+                            :
 
-                        ""
+                            ""
+
                     }
 
                 </div>
@@ -3184,7 +4580,6 @@ function renderLoans() {
         )
         .forEach(
             button => {
-
 
                 button.addEventListener(
                     "click",
@@ -3295,6 +4690,7 @@ async function handleLoanAction(
         }
 
 
+
         if (
             action ===
             "approve"
@@ -3363,6 +4759,7 @@ async function handleLoanAction(
             return;
 
         }
+
 
 
         if (
@@ -3521,7 +4918,6 @@ document
     .addEventListener(
         "submit",
         async event => {
-
 
             event.preventDefault();
 
@@ -3757,11 +5153,9 @@ document
     .forEach(
         button => {
 
-
             button.addEventListener(
                 "click",
                 () => {
-
 
                     const panelId =
                         button.dataset.panel;
@@ -3786,7 +5180,6 @@ document
     .forEach(
         button => {
 
-
             button.addEventListener(
                 "click",
                 openHome
@@ -3794,6 +5187,7 @@ document
 
         }
     );
+
 
 
 function openPanel(
@@ -3867,12 +5261,16 @@ function openPanel(
 
     window.scrollTo(
         {
-            top: 0,
-            behavior: "smooth"
+            top:
+                0,
+
+            behavior:
+                "smooth"
         }
     );
 
 }
+
 
 
 function openHome() {
@@ -3915,8 +5313,11 @@ function openHome() {
 
     window.scrollTo(
         {
-            top: 0,
-            behavior: "smooth"
+            top:
+                0,
+
+            behavior:
+                "smooth"
         }
     );
 
@@ -4062,7 +5463,8 @@ function updateHomeWaitingCount() {
                 .includes(
                     loan.status
                 )
-        ).length;
+        )
+        .length;
 
 
     document.getElementById(
@@ -4078,26 +5480,40 @@ function getLoanStatusClass(
     status
 ) {
 
+
     if (
         [
             "APPROVED",
             "SENT_TO_ADMIN",
             "ADMIN_REVIEW"
-        ].includes(
+        ]
+        .includes(
             status
         )
     ) {
 
-        return status === "ADMIN_REVIEW"
-            ? "status-review"
-            : "status-approved";
+        return status ===
+            "ADMIN_REVIEW"
+
+            ?
+
+            "status-review"
+
+            :
+
+            "status-approved";
 
     }
 
 
     if (
-        status ===
-        "REJECTED"
+        [
+            "REJECTED",
+            "CLOSED"
+        ]
+        .includes(
+            status
+        )
     ) {
 
         return "status-rejected";
@@ -4115,12 +5531,19 @@ function getHistoryStatusClass(
     status
 ) {
 
+
     if (
-        status ===
-        "APPROVED"
-        ||
-        status ===
-        "CASH_COLLECTED"
+        [
+            "APPROVED",
+            "CASH_COLLECTED",
+            "ACTIVE",
+            "RENEWED",
+            "DUE",
+            "LATE"
+        ]
+        .includes(
+            status
+        )
     ) {
 
         return "status-active";
@@ -4129,8 +5552,14 @@ function getHistoryStatusClass(
 
 
     if (
-        status ===
-        "REJECTED"
+        [
+            "REJECTED",
+            "CLOSED",
+            "REPAID"
+        ]
+        .includes(
+            status
+        )
     ) {
 
         return "status-rejected";
@@ -4160,6 +5589,7 @@ function getHistoryStatusClass(
 function formatStatus(
     status
 ) {
+
 
     const map = {
 
@@ -4203,7 +5633,25 @@ function formatStatus(
             "Ready for Collection",
 
         CASH_COLLECTED:
-            "Cash Collected"
+            "Cash Collected",
+
+        REPAID:
+            "Loan Repaid",
+
+        RENEWED:
+            "Loan Renewed",
+
+        CLOSED:
+            "Loan Closed",
+
+        ACTIVE:
+            "Active Loan",
+
+        DUE:
+            "Payment Due",
+
+        LATE:
+            "Late Repayment"
 
     };
 
@@ -4221,6 +5669,24 @@ function formatStatus(
     .replaceAll(
         "_",
         " "
+    );
+
+}
+
+
+
+function formatNumber(
+    value
+) {
+
+    return Number(
+        value || 0
+    ).toLocaleString(
+        "en-KE",
+        {
+            maximumFractionDigits:
+                2
+        }
     );
 
 }
@@ -4246,7 +5712,9 @@ function getTime(
     timestamp
 ) {
 
-    if (!timestamp) {
+    if (
+        !timestamp
+    ) {
 
         return 0;
 
@@ -4320,3 +5788,4 @@ function escapeHTML(
 </body>
 
 </html>
+```
